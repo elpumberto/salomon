@@ -256,7 +256,7 @@ const either = { first: 'The passage in `first`', second: 'The passage in `secon
 /** Two passages side by side: asked both ways round, since the place of a passage weighs a little. */
 const sideBySide = {
 	better: choice(`${pair}Which of the two is the better written?`, either),
-	pull: choice(`${pair}Which of the two would make a reader more eager to read on?`, either)
+	enjoy: choice(`${pair}Which of the two would most readers enjoy reading more?`, either)
 } satisfies Questions;
 
 export const sets = { reading, passage, sideBySide } satisfies Record<string, Questions>;

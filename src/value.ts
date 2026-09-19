@@ -7,12 +7,15 @@ import type { Answer, Judged } from './judge.ts';
  * it is and judges nothing. It is all arithmetic on answers already got: another way of weighing
  * them costs nothing, and the rules here have a hash like the questions have theirs.
  *
- * Four things shape it. Writing that impresses is only counted where the wording is not strained
+ * Six things shape it. Writing that impresses is only counted where the wording is not strained
  * nor the emotion merely asserted, since ornament passes for craft when asked about alone. A
  * criterion counts only in the pieces where it applies: physical detail where there is narration,
  * not in a page of talk. Merit is the mean of the pieces and, with it, the mean of the best tenth,
- * since a book is more than the absence of faults. And how far the prose is from a reader of today
- * counts against the read, which it multiplies, and not against the merit.
+ * since a book is more than the absence of faults. How far the prose is from a reader of today
+ * counts against the read, which it multiplies, and not against the merit: and since what was new
+ * in its day reads as ready-made now, and feeling was once stated where it is now shown, those two
+ * faults weigh the less the more archaic a piece is. And a piece holds its reader by its story or
+ * by its people, whichever it does best, so that a comedy of manners is not read as a poor thriller.
  */
 
 export const rules = {
@@ -31,16 +34,16 @@ export const rules = {
 		peaks: 0.4
 	},
 	read: {
-		/** What holds a reader, and how much each thing weighs. */
-		weights: { open: 0.3, friction: 0.2, stakes: 0.15, happens: 0.15, feeling: 0.15, tight: 0.05 },
+		/** The two ways a piece holds its reader, and how much the better of the two counts. */
+		story: ['open', 'stakes', 'happens'],
+		people: ['friction', 'feeling', 'funny'],
+		best: 0.7,
 		/**
 		 * What holds a reader only reaches them through prose they can get through: it is multiplied
 		 * by how fluent the reading is, which never takes away more than this leaves.
 		 */
-		fluency: ['effort', 'archaic', 'unclear', 'overwritten'],
+		fluency: ['effort', 'archaic', 'unclear', 'overwritten', 'padding'],
 		floor: 0.4,
-		/** What is added for a passage that is funny throughout. */
-		funny: 0.1,
 		/** How many times over the opening tenth of the book counts. */
 		opening: 2,
 		/** A piece under this share of the book's own mean is a slack one: the longest run of them is told, not scored. */
@@ -93,19 +96,24 @@ function worth(answer: Answer | undefined, values: Record<string, number | null>
 
 export function meritOf(answers: Answers): number | null {
 	const { parts, faults, gated, phrasing, figures, emotion } = rules.merit;
+	// What was new in its day reads as ready-made now, and feeling once stated is now shown.
+	const recent = 1 - (unit(answers.archaic) ?? 0);
 	const readymade = unit(answers.readymade);
-	const craft = plain([
-		...faults.map((id) => unit(answers[id])),
-		readymade === null ? null : 1 - readymade
+	const craft = mean([
+		...faults.flatMap((id) => {
+			const value = unit(answers[id]);
+			return value === null ? [] : [{ value, weight: 1 }];
+		}),
+		readymade === null ? none : { value: 1 - readymade, weight: recent }
 	]);
 	const gate =
 		(1 - chance(answers.phrasing, 'strained', 'readymade')) *
-		(1 - chance(answers.emotion, 'asserted'));
+		(1 - chance(answers.emotion, 'asserted') * recent);
 	const writing = plain(gated.map((id) => unit(answers[id])));
 	const wording = mean([
 		{ ...worth(answers.phrasing, phrasing), weight: worth(answers.phrasing, phrasing).weight * 2 },
 		worth(answers.figures, figures),
-		worth(answers.emotion, emotion)
+		{ ...worth(answers.emotion, emotion), weight: worth(answers.emotion, emotion).weight * recent }
 	]);
 	// Physical detail is looked for where there is narration, not in a page of talk.
 	const narration = 1 - (unit(answers.talk) ?? 0);
@@ -124,26 +132,16 @@ export function meritOf(answers: Answers): number | null {
 }
 
 export function readOf(answers: Answers): number | null {
-	const { weights, fluency, floor, funny } = rules.read;
-	const not = (value: number | null) => (value === null ? null : 1 - value);
-	const values: Record<keyof typeof weights, number | null> = {
-		open: unit(answers.open),
-		friction: unit(answers.friction),
-		stakes: unit(answers.stakes),
-		happens: unit(answers.happens),
-		feeling: unit(answers.feeling),
-		tight: not(unit(answers.padding))
-	};
-	const holds = mean(
-		Object.entries(weights).map(([id, weight]) => {
-			const value = values[id as keyof typeof weights];
-			return value === null ? none : { value, weight };
-		})
+	const { story, people, best, fluency, floor } = rules.read;
+	const by = [story, people].map((ids) => plain(ids.map((id) => unit(answers[id]))));
+	const [one, other] = by.filter((part) => part.weight).map((part) => part.value);
+	if (one === undefined) return null;
+	const holds =
+		other === undefined ? one : best * Math.max(one, other) + (1 - best) * Math.min(one, other);
+	const fluent = plain(
+		fluency.map((id) => (unit(answers[id]) === null ? null : 1 - unit(answers[id])!))
 	);
-	if (!holds.weight) return null;
-	const fluent = plain(fluency.map((id) => not(unit(answers[id]))));
-	const through = fluent.weight ? floor + (1 - floor) * fluent.value : 1;
-	return Math.min(1, holds.value * through + funny * (unit(answers.funny) ?? 0));
+	return holds * (fluent.weight ? floor + (1 - floor) * fluent.value : 1);
 }
 
 export interface Valuation {
@@ -154,7 +152,6 @@ export interface Valuation {
 	/** What kind of reading it is: means from 0 to 1, and how the pieces fell among the options of each choice. */
 	profile: {
 		means: Record<string, number>;
-		doorway: Record<string, number>;
 		phrasing: Record<string, number>;
 	};
 	/** Piece by piece, in the order of the book: its pulse. */
@@ -220,7 +217,6 @@ export function value(judged: Pick<Judged, 'answers'>[]): Valuation {
 					round(average(pulse.flatMap(({ answers }) => unit(answers[id]) ?? [])))
 				])
 			),
-			doorway: share('doorway'),
 			phrasing: share('phrasing')
 		},
 		pulse: pulse.map(({ merit, read }) => ({ merit: round(merit), read: round(read) }))

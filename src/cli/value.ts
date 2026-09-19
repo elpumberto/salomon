@@ -1,6 +1,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { chosen } from '../panel.ts';
+import { rulesHash, sets } from '../questions.ts';
 import type { JevRecord } from '../records.ts';
 import { value } from '../value.ts';
 
@@ -29,17 +30,19 @@ for (const slug of await readdir(root)) {
 	const pieces = whole('passage');
 	if (!pieces) continue;
 	const { pulse, ...valued } = value(pieces.found);
-	const panel = whole('sideBySide');
+	const panel = records.findLast(
+		(one) => one.by.questions === 'sideBySide' && one.by.rules === rulesHash(sets.sideBySide)
+	);
 	const over = panel ? chosen(panel.found) : {};
 	rows.push([
 		slug,
 		String(valued.pieces),
 		half(valued.merit.value, over.better).toFixed(2),
-		half(valued.read.value, over.pull).toFixed(2),
+		half(valued.read.value, over.enjoy).toFixed(2),
 		`${valued.merit.mean.toFixed(2)} · ${valued.merit.bestTenth.toFixed(2)}`,
 		over.better?.toFixed(2) ?? '—',
 		`${valued.read.mean.toFixed(2)} · ${valued.read.opening.toFixed(2)}`,
-		over.pull?.toFixed(2) ?? '—',
+		over.enjoy?.toFixed(2) ?? '—',
 		String(valued.read.longestSlackRun)
 	]);
 	if (only) console.dir({ ...valued, overThePanel: over }, { depth: 4 });

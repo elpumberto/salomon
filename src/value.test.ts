@@ -35,7 +35,7 @@ const good: Record<string, Answer> = {
 	effort: score(0),
 	archaic: { noul: 0 },
 	unclear: { noul: 0 },
-	funny: score(0, 2)
+	funny: score(2, 2)
 };
 
 test('a piece with no faults and every virtue is worth all, both ways', () => {
@@ -70,6 +70,24 @@ test('prose far from a reader of today counts against the read and not against t
 
 	assert.equal(meritOf(old), 1);
 	assert.ok((readOf(old) ?? 1) < 1);
+});
+
+test('what reads as ready-made or asserted weighs less the more archaic the piece', () => {
+	const faults = { readymade: score(0), emotion: picked('asserted') };
+	const recent = meritOf({ ...good, ...faults }) ?? 0;
+	const old = meritOf({ ...good, ...faults, archaic: { noul: 1 } }) ?? 0;
+
+	assert.ok(recent < 0.75, `a piece of today came to ${recent}`);
+	assert.equal(old, 1);
+});
+
+test('a piece holds its reader by its story or by its people, whichever it does best', () => {
+	const still = { open: { noul: 0 }, stakes: score(0), happens: score(0) };
+	const comedy = { ...good, ...still, funny: score(2, 2) };
+	const neither = { ...comedy, friction: { noul: 0 }, feeling: score(0), funny: score(0, 2) };
+
+	assert.ok((readOf(comedy) ?? 0) >= 0.7);
+	assert.equal(readOf(neither), 0);
 });
 
 test('the merit of a book is its mean and its best tenth; its read counts the opening twice', () => {

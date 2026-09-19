@@ -1,0 +1,4965 @@
+{
+	"kind": "jev",
+	"at": "2026-09-19T14:16:42.345Z",
+	"book": {
+		"title": "Varney the vampyre; or, the feast of blood",
+		"author": "Thomas Peckett Prest",
+		"language": "en",
+		"source": {
+			"file": "varney-the-vampire.epub",
+			"format": "epub",
+			"sha256": "642d97b1e31d6188f814dd0b7556538aeaace19ad48692646cf17198ded60797"
+		},
+		"text": {
+			"sha256": "414fe761f16e9f270049100d07f8c3aca1dea156377fc7227572d67d4a7fa23c",
+			"sections": 234,
+			"words": 652302
+		}
+	},
+	"sections": [
+		3,
+		27,
+		35,
+		43,
+		75,
+		91,
+		115,
+		123,
+		147,
+		171,
+		195,
+		227
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "sideBySide",
+		"rules": "sha256:8273e2e5d4a0",
+		"asked": {
+			"better": {
+				"type": "choice",
+				"instructions": "`first` and `second` are two passages of novels. Which of the two is the better written?",
+				"criteria": {
+					"first": "The passage in `first`",
+					"second": "The passage in `second`"
+				}
+			},
+			"pull": {
+				"type": "choice",
+				"instructions": "`first` and `second` are two passages of novels. Which of the two would make a reader more eager to read on?",
+				"criteria": {
+					"first": "The passage in `first`",
+					"second": "The passage in `second`"
+				}
+			}
+		},
+		"code": {
+			"commit": "2e9efdf",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 144,
+		"tokensIn": 458892,
+		"usd": 0.019273,
+		"seconds": 52
+	},
+	"found": [
+		{
+			"section": 3,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against middlemarch",
+			"measured": {
+				"words": 1192,
+				"spoken": 0.01,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "4d20b7ad717c44e5df5785388c30f752a2ece0440ff415c97c8a2d60ebccfaee",
+			"tokensIn": 3169,
+			"seconds": 0.8,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.76,
+					"probabilities": {
+						"second": 0.88,
+						"first": 0.12
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.94,
+					"probabilities": {
+						"second": 0.03,
+						"first": 0.97
+					}
+				}
+			}
+		},
+		{
+			"section": 3,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against middlemarch",
+			"measured": {
+				"words": 1192,
+				"spoken": 0.01,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "0f96aea6f0d72116efa5a64e64e7e0e1253fe2d76f0b6844781c0016e7732475",
+			"tokensIn": 3169,
+			"seconds": 0.7,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.87,
+					"probabilities": {
+						"second": 0.07,
+						"first": 0.93
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.44,
+					"probabilities": {
+						"second": 0.72,
+						"first": 0.28
+					}
+				}
+			}
+		},
+		{
+			"section": 3,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against great-expectations",
+			"measured": {
+				"words": 1192,
+				"spoken": 0.01,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "718ffa4e20806314b944a653c7bb953e2153779e20f87f12dac07c1534909c94",
+			"tokensIn": 3483,
+			"seconds": 0.6,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.66,
+					"probabilities": {
+						"first": 0.17,
+						"second": 0.83
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.75,
+					"probabilities": {
+						"first": 0.88,
+						"second": 0.12
+					}
+				}
+			}
+		},
+		{
+			"section": 3,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against great-expectations",
+			"measured": {
+				"words": 1192,
+				"spoken": 0.01,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "024d00c01e8d0138f7244e63826a85dc1daed864c52ad8dd316d7c7dccff5713",
+			"tokensIn": 3483,
+			"seconds": 0.5,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.83,
+					"probabilities": {
+						"first": 0.92,
+						"second": 0.08
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.32,
+					"probabilities": {
+						"first": 0.34,
+						"second": 0.66
+					}
+				}
+			}
+		},
+		{
+			"section": 3,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 1192,
+				"spoken": 0.01,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "d0ac9aa66b31d89065fba938bfba6dd6f4c6c85979a24509515a3db77372d399",
+			"tokensIn": 3624,
+			"seconds": 0.6,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.55,
+					"probabilities": {
+						"first": 0.22,
+						"second": 0.78
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.15,
+					"probabilities": {
+						"first": 0.43,
+						"second": 0.57
+					}
+				}
+			}
+		},
+		{
+			"section": 3,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 1192,
+				"spoken": 0.01,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "c89945129d3e400977b072e3c80c2ae802405f49126c9ead07dea0e8fa09d302",
+			"tokensIn": 3624,
+			"seconds": 0.7,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.64,
+					"probabilities": {
+						"second": 0.18,
+						"first": 0.82
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.63,
+					"probabilities": {
+						"second": 0.18,
+						"first": 0.82
+					}
+				}
+			}
+		},
+		{
+			"section": 3,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 1192,
+				"spoken": 0.01,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "515bf98ce649b7ac3e61f22841e285c2bd3a5d807154f0a9cb9c5ea2af34f7f0",
+			"tokensIn": 3566,
+			"seconds": 0.6,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.3,
+					"probabilities": {
+						"second": 0.65,
+						"first": 0.35
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.47,
+					"probabilities": {
+						"second": 0.26,
+						"first": 0.74
+					}
+				}
+			}
+		},
+		{
+			"section": 3,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 1192,
+				"spoken": 0.01,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "0b0c2e08f03afc0e3411033290db3ac8393cea2ba49d9e2bb94a7a0b5eee2c81",
+			"tokensIn": 3566,
+			"seconds": 0.6,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.5,
+					"probabilities": {
+						"second": 0.25,
+						"first": 0.75
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.19,
+					"probabilities": {
+						"second": 0.59,
+						"first": 0.41
+					}
+				}
+			}
+		},
+		{
+			"section": 3,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against ragged-dick",
+			"measured": {
+				"words": 1192,
+				"spoken": 0.01,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "f2a6541bf5daada39a7759e2c0a94da48bf6ad5edf725c454e5c509d6543e80e",
+			"tokensIn": 3359,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.41,
+					"probabilities": {
+						"second": 0.29,
+						"first": 0.71
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.8,
+					"probabilities": {
+						"second": 0.1,
+						"first": 0.9
+					}
+				}
+			}
+		},
+		{
+			"section": 3,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against ragged-dick",
+			"measured": {
+				"words": 1192,
+				"spoken": 0.01,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "5d69f7a171aa805bf3aaa8e936c0ba7c3ef83e2c16b0d52b59e8cf40d1f8ab63",
+			"tokensIn": 3359,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.28,
+					"probabilities": {
+						"second": 0.64,
+						"first": 0.36
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.46,
+					"probabilities": {
+						"second": 0.73,
+						"first": 0.27
+					}
+				}
+			}
+		},
+		{
+			"section": 3,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against the-sorrows-of-satan",
+			"measured": {
+				"words": 1192,
+				"spoken": 0.01,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "bda2eef03c3a31b8cdfe8b6535fb41f714b4f24f3a007db7a02d1fc59de0c21c",
+			"tokensIn": 3388,
+			"seconds": 0.6,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0,
+					"probabilities": {
+						"first": 0.5,
+						"second": 0.5
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.9,
+					"probabilities": {
+						"first": 0.95,
+						"second": 0.05
+					}
+				}
+			}
+		},
+		{
+			"section": 3,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against the-sorrows-of-satan",
+			"measured": {
+				"words": 1192,
+				"spoken": 0.01,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "52e1b94aa9bbd08babf4d7fd2a6e9cae8d77cfd742bdf5f0a32267ecac659833",
+			"tokensIn": 3388,
+			"seconds": 0.7,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.08,
+					"probabilities": {
+						"second": 0.54,
+						"first": 0.46
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.86,
+					"probabilities": {
+						"second": 0.93,
+						"first": 0.07
+					}
+				}
+			}
+		},
+		{
+			"section": 27,
+			"piece": {
+				"at": 1,
+				"of": 6
+			},
+			"variant": "first, against middlemarch",
+			"measured": {
+				"words": 967,
+				"spoken": 0.92,
+				"wordsPerSentence": 13.2
+			},
+			"sha256": "3c7caf7547f443e852ac40159e2664aa2a5c8133f5d333c43959475b2c7a5b0e",
+			"tokensIn": 3026,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.97,
+					"probabilities": {
+						"second": 0.98,
+						"first": 0.02
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.02,
+					"probabilities": {
+						"second": 0.49,
+						"first": 0.51
+					}
+				}
+			}
+		},
+		{
+			"section": 27,
+			"piece": {
+				"at": 1,
+				"of": 6
+			},
+			"variant": "second, against middlemarch",
+			"measured": {
+				"words": 967,
+				"spoken": 0.92,
+				"wordsPerSentence": 13.2
+			},
+			"sha256": "d6633c0dd58c9ec195500093da6a41e16f720a78243938e68e01e61124441781",
+			"tokensIn": 3026,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.96,
+					"probabilities": {
+						"second": 0.02,
+						"first": 0.98
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.06,
+					"probabilities": {
+						"second": 0.53,
+						"first": 0.47
+					}
+				}
+			}
+		},
+		{
+			"section": 27,
+			"piece": {
+				"at": 1,
+				"of": 6
+			},
+			"variant": "first, against great-expectations",
+			"measured": {
+				"words": 967,
+				"spoken": 0.92,
+				"wordsPerSentence": 13.2
+			},
+			"sha256": "2da7e2cf848bfb8b9cb669906236125ace0c8b125ef81bf38868849382a032ba",
+			"tokensIn": 3340,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.95,
+					"probabilities": {
+						"second": 0.98,
+						"first": 0.02
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.3,
+					"probabilities": {
+						"second": 0.65,
+						"first": 0.35
+					}
+				}
+			}
+		},
+		{
+			"section": 27,
+			"piece": {
+				"at": 1,
+				"of": 6
+			},
+			"variant": "second, against great-expectations",
+			"measured": {
+				"words": 967,
+				"spoken": 0.92,
+				"wordsPerSentence": 13.2
+			},
+			"sha256": "0d20465de8e4115d22e7801ad8927cea4491f0c434d601ab5f3445411d616b64",
+			"tokensIn": 3340,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.97,
+					"probabilities": {
+						"first": 0.99,
+						"second": 0.01
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.15,
+					"probabilities": {
+						"first": 0.43,
+						"second": 0.57
+					}
+				}
+			}
+		},
+		{
+			"section": 27,
+			"piece": {
+				"at": 1,
+				"of": 6
+			},
+			"variant": "first, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 967,
+				"spoken": 0.92,
+				"wordsPerSentence": 13.2
+			},
+			"sha256": "00ed3b89ba35e90687d8101c73e940f03e579db775b83c88ec6fae269bcfe4c4",
+			"tokensIn": 3481,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.93,
+					"probabilities": {
+						"second": 0.97,
+						"first": 0.03
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.96,
+					"probabilities": {
+						"second": 0.98,
+						"first": 0.02
+					}
+				}
+			}
+		},
+		{
+			"section": 27,
+			"piece": {
+				"at": 1,
+				"of": 6
+			},
+			"variant": "second, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 967,
+				"spoken": 0.92,
+				"wordsPerSentence": 13.2
+			},
+			"sha256": "d1adf193647ba366277a032c77598bd0ba39fa7ab22a5f47a7763172b665fcd6",
+			"tokensIn": 3481,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.94,
+					"probabilities": {
+						"first": 0.97,
+						"second": 0.03
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.96,
+					"probabilities": {
+						"first": 0.98,
+						"second": 0.02
+					}
+				}
+			}
+		},
+		{
+			"section": 27,
+			"piece": {
+				"at": 1,
+				"of": 6
+			},
+			"variant": "first, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 967,
+				"spoken": 0.92,
+				"wordsPerSentence": 13.2
+			},
+			"sha256": "370b85871dd08c5f99bb85acd996169c7a27616a52c559e363cb00f7a391239d",
+			"tokensIn": 3423,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.87,
+					"probabilities": {
+						"first": 0.06,
+						"second": 0.94
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.89,
+					"probabilities": {
+						"first": 0.05,
+						"second": 0.95
+					}
+				}
+			}
+		},
+		{
+			"section": 27,
+			"piece": {
+				"at": 1,
+				"of": 6
+			},
+			"variant": "second, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 967,
+				"spoken": 0.92,
+				"wordsPerSentence": 13.2
+			},
+			"sha256": "a9e0bfe96e551343aa719eaf83514956614349f34bf84467adb304fafe56742e",
+			"tokensIn": 3423,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.93,
+					"probabilities": {
+						"second": 0.03,
+						"first": 0.97
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.78,
+					"probabilities": {
+						"second": 0.11,
+						"first": 0.89
+					}
+				}
+			}
+		},
+		{
+			"section": 27,
+			"piece": {
+				"at": 1,
+				"of": 6
+			},
+			"variant": "first, against ragged-dick",
+			"measured": {
+				"words": 967,
+				"spoken": 0.92,
+				"wordsPerSentence": 13.2
+			},
+			"sha256": "0e15e9fc2823e55fb4c9c7692e71fe660ad266d4af7f203de359fedaee07f145",
+			"tokensIn": 3216,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.06,
+					"probabilities": {
+						"second": 0.53,
+						"first": 0.47
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.57,
+					"probabilities": {
+						"second": 0.79,
+						"first": 0.21
+					}
+				}
+			}
+		},
+		{
+			"section": 27,
+			"piece": {
+				"at": 1,
+				"of": 6
+			},
+			"variant": "second, against ragged-dick",
+			"measured": {
+				"words": 967,
+				"spoken": 0.92,
+				"wordsPerSentence": 13.2
+			},
+			"sha256": "ec63023e0baf548c8666cae49dd62d4b32beb7bfcef69050e5153700463aa4ad",
+			"tokensIn": 3216,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.37,
+					"probabilities": {
+						"second": 0.31,
+						"first": 0.69
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.04,
+					"probabilities": {
+						"second": 0.48,
+						"first": 0.52
+					}
+				}
+			}
+		},
+		{
+			"section": 27,
+			"piece": {
+				"at": 1,
+				"of": 6
+			},
+			"variant": "first, against the-sorrows-of-satan",
+			"measured": {
+				"words": 967,
+				"spoken": 0.92,
+				"wordsPerSentence": 13.2
+			},
+			"sha256": "32e1e8cc99e43c22c7ab6c16726e8ebd47ef48e5ae29e03b158207635874a425",
+			"tokensIn": 3245,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.77,
+					"probabilities": {
+						"first": 0.11,
+						"second": 0.89
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.01,
+					"probabilities": {
+						"first": 0.51,
+						"second": 0.49
+					}
+				}
+			}
+		},
+		{
+			"section": 27,
+			"piece": {
+				"at": 1,
+				"of": 6
+			},
+			"variant": "second, against the-sorrows-of-satan",
+			"measured": {
+				"words": 967,
+				"spoken": 0.92,
+				"wordsPerSentence": 13.2
+			},
+			"sha256": "684a0101e7bc6e1bfe2e2ff5c9b2e36419b645f15888c3ee36d44f0728f393db",
+			"tokensIn": 3245,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.83,
+					"probabilities": {
+						"first": 0.91,
+						"second": 0.09
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.53,
+					"probabilities": {
+						"first": 0.24,
+						"second": 0.76
+					}
+				}
+			}
+		},
+		{
+			"section": 35,
+			"piece": {
+				"at": 2,
+				"of": 3
+			},
+			"variant": "first, against middlemarch",
+			"measured": {
+				"words": 983,
+				"spoken": 0.07,
+				"wordsPerSentence": 32.8
+			},
+			"sha256": "f9da895aabe648932f5661f30c1aee1717d2d3d3cf59556d1068769ac57bc82e",
+			"tokensIn": 2829,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.72,
+					"probabilities": {
+						"second": 0.86,
+						"first": 0.14
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.93,
+					"probabilities": {
+						"second": 0.03,
+						"first": 0.97
+					}
+				}
+			}
+		},
+		{
+			"section": 35,
+			"piece": {
+				"at": 2,
+				"of": 3
+			},
+			"variant": "second, against middlemarch",
+			"measured": {
+				"words": 983,
+				"spoken": 0.07,
+				"wordsPerSentence": 32.8
+			},
+			"sha256": "09e0afbf9c2880be63fdbc527a30bd66e6ca0a05229b5ea37caa442b8ff09ad9",
+			"tokensIn": 2829,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.85,
+					"probabilities": {
+						"first": 0.92,
+						"second": 0.08
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.69,
+					"probabilities": {
+						"first": 0.16,
+						"second": 0.84
+					}
+				}
+			}
+		},
+		{
+			"section": 35,
+			"piece": {
+				"at": 2,
+				"of": 3
+			},
+			"variant": "first, against great-expectations",
+			"measured": {
+				"words": 983,
+				"spoken": 0.07,
+				"wordsPerSentence": 32.8
+			},
+			"sha256": "50a8e15bf67cf986ade0f6bd2bdc726ab1de8edca6b3111ec2eb44315536a4c7",
+			"tokensIn": 3143,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.54,
+					"probabilities": {
+						"first": 0.23,
+						"second": 0.77
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.69,
+					"probabilities": {
+						"first": 0.84,
+						"second": 0.16
+					}
+				}
+			}
+		},
+		{
+			"section": 35,
+			"piece": {
+				"at": 2,
+				"of": 3
+			},
+			"variant": "second, against great-expectations",
+			"measured": {
+				"words": 983,
+				"spoken": 0.07,
+				"wordsPerSentence": 32.8
+			},
+			"sha256": "9e359390d2fc9b539bdf4f03e6df1be150af3cd0cd8d4fb150ca269f881ea5b2",
+			"tokensIn": 3143,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.74,
+					"probabilities": {
+						"second": 0.13,
+						"first": 0.87
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.6,
+					"probabilities": {
+						"second": 0.8,
+						"first": 0.2
+					}
+				}
+			}
+		},
+		{
+			"section": 35,
+			"piece": {
+				"at": 2,
+				"of": 3
+			},
+			"variant": "first, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 983,
+				"spoken": 0.07,
+				"wordsPerSentence": 32.8
+			},
+			"sha256": "8d36e3a80d9830d0c25f3449b8d1205a584e1f808536416b7524df7efc77946c",
+			"tokensIn": 3284,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.51,
+					"probabilities": {
+						"first": 0.24,
+						"second": 0.76
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.66,
+					"probabilities": {
+						"first": 0.17,
+						"second": 0.83
+					}
+				}
+			}
+		},
+		{
+			"section": 35,
+			"piece": {
+				"at": 2,
+				"of": 3
+			},
+			"variant": "second, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 983,
+				"spoken": 0.07,
+				"wordsPerSentence": 32.8
+			},
+			"sha256": "8383a749d7b5ef3da75bb02e72c2bfbbb292a03a3aa8ec537f8e8efbbd392c81",
+			"tokensIn": 3284,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.58,
+					"probabilities": {
+						"second": 0.21,
+						"first": 0.79
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.71,
+					"probabilities": {
+						"second": 0.14,
+						"first": 0.86
+					}
+				}
+			}
+		},
+		{
+			"section": 35,
+			"piece": {
+				"at": 2,
+				"of": 3
+			},
+			"variant": "first, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 983,
+				"spoken": 0.07,
+				"wordsPerSentence": 32.8
+			},
+			"sha256": "84f2d52bcb0bc03e7726fbf73d3c23b018f8afaa42a4963e8eaf7f97ab9ddb68",
+			"tokensIn": 3226,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.28,
+					"probabilities": {
+						"first": 0.36,
+						"second": 0.64
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.17,
+					"probabilities": {
+						"first": 0.58,
+						"second": 0.42
+					}
+				}
+			}
+		},
+		{
+			"section": 35,
+			"piece": {
+				"at": 2,
+				"of": 3
+			},
+			"variant": "second, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 983,
+				"spoken": 0.07,
+				"wordsPerSentence": 32.8
+			},
+			"sha256": "8c6ef77085b3ba053f30b2b288d049ea60c2d7b688d302b9502bf47c1a5ba98a",
+			"tokensIn": 3226,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.55,
+					"probabilities": {
+						"first": 0.78,
+						"second": 0.22
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.21,
+					"probabilities": {
+						"first": 0.4,
+						"second": 0.6
+					}
+				}
+			}
+		},
+		{
+			"section": 35,
+			"piece": {
+				"at": 2,
+				"of": 3
+			},
+			"variant": "first, against ragged-dick",
+			"measured": {
+				"words": 983,
+				"spoken": 0.07,
+				"wordsPerSentence": 32.8
+			},
+			"sha256": "f56227f772466ce59b0ff58a8ce5baec08d8881e7f27070bf503efddfd8f15f8",
+			"tokensIn": 3019,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.48,
+					"probabilities": {
+						"second": 0.26,
+						"first": 0.74
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.52,
+					"probabilities": {
+						"second": 0.24,
+						"first": 0.76
+					}
+				}
+			}
+		},
+		{
+			"section": 35,
+			"piece": {
+				"at": 2,
+				"of": 3
+			},
+			"variant": "second, against ragged-dick",
+			"measured": {
+				"words": 983,
+				"spoken": 0.07,
+				"wordsPerSentence": 32.8
+			},
+			"sha256": "b6a89ba7c1c28f48b4adebbab1cb483bd297ebe03ac641044dd481589beec84c",
+			"tokensIn": 3019,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.27,
+					"probabilities": {
+						"first": 0.36,
+						"second": 0.64
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.44,
+					"probabilities": {
+						"first": 0.28,
+						"second": 0.72
+					}
+				}
+			}
+		},
+		{
+			"section": 35,
+			"piece": {
+				"at": 2,
+				"of": 3
+			},
+			"variant": "first, against the-sorrows-of-satan",
+			"measured": {
+				"words": 983,
+				"spoken": 0.07,
+				"wordsPerSentence": 32.8
+			},
+			"sha256": "c99b5334d1c8bdf860f97becdbd0f8ed665bf370bcf596eca23a5397c70d899b",
+			"tokensIn": 3048,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.01,
+					"probabilities": {
+						"first": 0.51,
+						"second": 0.49
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.91,
+					"probabilities": {
+						"first": 0.95,
+						"second": 0.05
+					}
+				}
+			}
+		},
+		{
+			"section": 35,
+			"piece": {
+				"at": 2,
+				"of": 3
+			},
+			"variant": "second, against the-sorrows-of-satan",
+			"measured": {
+				"words": 983,
+				"spoken": 0.07,
+				"wordsPerSentence": 32.8
+			},
+			"sha256": "598c00d443846b488e1676e5cdd4dfb991c59eb11e0804ed9edfa24d00318bf0",
+			"tokensIn": 3048,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.02,
+					"probabilities": {
+						"second": 0.51,
+						"first": 0.49
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.93,
+					"probabilities": {
+						"second": 0.96,
+						"first": 0.04
+					}
+				}
+			}
+		},
+		{
+			"section": 43,
+			"piece": {
+				"at": 7,
+				"of": 7
+			},
+			"variant": "first, against middlemarch",
+			"measured": {
+				"words": 887,
+				"spoken": 0.29,
+				"wordsPerSentence": 28.6
+			},
+			"sha256": "04b0e77fe1dde877c0879c341f88538e3f63b14e69636852e066f551747d0d0e",
+			"tokensIn": 2793,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.87,
+					"probabilities": {
+						"first": 0.07,
+						"second": 0.93
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.63,
+					"probabilities": {
+						"first": 0.81,
+						"second": 0.19
+					}
+				}
+			}
+		},
+		{
+			"section": 43,
+			"piece": {
+				"at": 7,
+				"of": 7
+			},
+			"variant": "second, against middlemarch",
+			"measured": {
+				"words": 887,
+				"spoken": 0.29,
+				"wordsPerSentence": 28.6
+			},
+			"sha256": "df995c9a5d30fcef0704a5329ac90b038b706b514b65ebeae5f2adba319f7e2d",
+			"tokensIn": 2793,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.88,
+					"probabilities": {
+						"first": 0.94,
+						"second": 0.06
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.37,
+					"probabilities": {
+						"first": 0.31,
+						"second": 0.69
+					}
+				}
+			}
+		},
+		{
+			"section": 43,
+			"piece": {
+				"at": 7,
+				"of": 7
+			},
+			"variant": "first, against great-expectations",
+			"measured": {
+				"words": 887,
+				"spoken": 0.29,
+				"wordsPerSentence": 28.6
+			},
+			"sha256": "64ded24c50a781b8986b68039e70c9a24ec5f2e23e06530ef19bb7cf0f5018c5",
+			"tokensIn": 3107,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.83,
+					"probabilities": {
+						"second": 0.92,
+						"first": 0.08
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.46,
+					"probabilities": {
+						"second": 0.27,
+						"first": 0.73
+					}
+				}
+			}
+		},
+		{
+			"section": 43,
+			"piece": {
+				"at": 7,
+				"of": 7
+			},
+			"variant": "second, against great-expectations",
+			"measured": {
+				"words": 887,
+				"spoken": 0.29,
+				"wordsPerSentence": 28.6
+			},
+			"sha256": "26fde612524c14539f7eb955f7bd74e5104b4649ac8c7850221168f70317a20e",
+			"tokensIn": 3107,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.93,
+					"probabilities": {
+						"second": 0.04,
+						"first": 0.96
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.39,
+					"probabilities": {
+						"second": 0.69,
+						"first": 0.31
+					}
+				}
+			}
+		},
+		{
+			"section": 43,
+			"piece": {
+				"at": 7,
+				"of": 7
+			},
+			"variant": "first, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 887,
+				"spoken": 0.29,
+				"wordsPerSentence": 28.6
+			},
+			"sha256": "ed1c86bcc7d226a74bcc43ef92157f56591adfb2f641486b90995d75b354cdff",
+			"tokensIn": 3248,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.75,
+					"probabilities": {
+						"second": 0.88,
+						"first": 0.12
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.84,
+					"probabilities": {
+						"second": 0.92,
+						"first": 0.08
+					}
+				}
+			}
+		},
+		{
+			"section": 43,
+			"piece": {
+				"at": 7,
+				"of": 7
+			},
+			"variant": "second, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 887,
+				"spoken": 0.29,
+				"wordsPerSentence": 28.6
+			},
+			"sha256": "c96ae2cc17b7ddbabae8584b9f6c23eebd23c0b651f6b0b9167dd7b0ceda59d9",
+			"tokensIn": 3248,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.82,
+					"probabilities": {
+						"first": 0.91,
+						"second": 0.09
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.88,
+					"probabilities": {
+						"first": 0.94,
+						"second": 0.06
+					}
+				}
+			}
+		},
+		{
+			"section": 43,
+			"piece": {
+				"at": 7,
+				"of": 7
+			},
+			"variant": "first, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 887,
+				"spoken": 0.29,
+				"wordsPerSentence": 28.6
+			},
+			"sha256": "8f291bf270828078efee3df1b9540290a827943b81689d57bb8b1aa48d902bf5",
+			"tokensIn": 3190,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.63,
+					"probabilities": {
+						"first": 0.18,
+						"second": 0.82
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.46,
+					"probabilities": {
+						"first": 0.27,
+						"second": 0.73
+					}
+				}
+			}
+		},
+		{
+			"section": 43,
+			"piece": {
+				"at": 7,
+				"of": 7
+			},
+			"variant": "second, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 887,
+				"spoken": 0.29,
+				"wordsPerSentence": 28.6
+			},
+			"sha256": "6b29639579b6038f778c27ddbe4fab998971ab3bac8565c2ddcaf0511c200102",
+			"tokensIn": 3190,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.78,
+					"probabilities": {
+						"second": 0.11,
+						"first": 0.89
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.54,
+					"probabilities": {
+						"second": 0.23,
+						"first": 0.77
+					}
+				}
+			}
+		},
+		{
+			"section": 43,
+			"piece": {
+				"at": 7,
+				"of": 7
+			},
+			"variant": "first, against ragged-dick",
+			"measured": {
+				"words": 887,
+				"spoken": 0.29,
+				"wordsPerSentence": 28.6
+			},
+			"sha256": "4266fba3cb58f002d51f8085bf71bb4a77c40c0f48d891d6c58ef5d6ee5a8303",
+			"tokensIn": 2983,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.36,
+					"probabilities": {
+						"first": 0.68,
+						"second": 0.32
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.55,
+					"probabilities": {
+						"first": 0.77,
+						"second": 0.23
+					}
+				}
+			}
+		},
+		{
+			"section": 43,
+			"piece": {
+				"at": 7,
+				"of": 7
+			},
+			"variant": "second, against ragged-dick",
+			"measured": {
+				"words": 887,
+				"spoken": 0.29,
+				"wordsPerSentence": 28.6
+			},
+			"sha256": "8775d2c99b8554a6669cc2824e4f1b69f4e0177204ab3ca9b03ec394efc9c198",
+			"tokensIn": 2983,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.2,
+					"probabilities": {
+						"second": 0.6,
+						"first": 0.4
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.49,
+					"probabilities": {
+						"second": 0.74,
+						"first": 0.26
+					}
+				}
+			}
+		},
+		{
+			"section": 43,
+			"piece": {
+				"at": 7,
+				"of": 7
+			},
+			"variant": "first, against the-sorrows-of-satan",
+			"measured": {
+				"words": 887,
+				"spoken": 0.29,
+				"wordsPerSentence": 28.6
+			},
+			"sha256": "c63f2a3630699bbaf70f51a48a758f0f2e39f72e814174038715f9b9c119c4c2",
+			"tokensIn": 3012,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0,
+					"probabilities": {
+						"second": 0.5,
+						"first": 0.5
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.68,
+					"probabilities": {
+						"second": 0.16,
+						"first": 0.84
+					}
+				}
+			}
+		},
+		{
+			"section": 43,
+			"piece": {
+				"at": 7,
+				"of": 7
+			},
+			"variant": "second, against the-sorrows-of-satan",
+			"measured": {
+				"words": 887,
+				"spoken": 0.29,
+				"wordsPerSentence": 28.6
+			},
+			"sha256": "6697610f2c84db1b5c57213899f301c6b5c3a012fb58c713879aee2eb6e88011",
+			"tokensIn": 3012,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.45,
+					"probabilities": {
+						"second": 0.28,
+						"first": 0.72
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.77,
+					"probabilities": {
+						"second": 0.88,
+						"first": 0.12
+					}
+				}
+			}
+		},
+		{
+			"section": 75,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against middlemarch",
+			"measured": {
+				"words": 1173,
+				"spoken": 0.57,
+				"wordsPerSentence": 17
+			},
+			"sha256": "176233e0afae2cc617479789ef9b72b67c57778c5693f1e9732ef5c1fd42dfe7",
+			"tokensIn": 3265,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.96,
+					"probabilities": {
+						"second": 0.98,
+						"first": 0.02
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.83,
+					"probabilities": {
+						"second": 0.09,
+						"first": 0.91
+					}
+				}
+			}
+		},
+		{
+			"section": 75,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against middlemarch",
+			"measured": {
+				"words": 1173,
+				"spoken": 0.57,
+				"wordsPerSentence": 17
+			},
+			"sha256": "4c96c22392719fd9c65fbd4f31336e1eb8749bb2ec0377f1038b873c10d24d3e",
+			"tokensIn": 3265,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.97,
+					"probabilities": {
+						"first": 0.99,
+						"second": 0.01
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.6,
+					"probabilities": {
+						"first": 0.2,
+						"second": 0.8
+					}
+				}
+			}
+		},
+		{
+			"section": 75,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against great-expectations",
+			"measured": {
+				"words": 1173,
+				"spoken": 0.57,
+				"wordsPerSentence": 17
+			},
+			"sha256": "5eaeef2ad6c5affbfaa00b0353060647a2b777d31345eb1b343e650f4acaf2f3",
+			"tokensIn": 3579,
+			"seconds": 0.5,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.95,
+					"probabilities": {
+						"second": 0.97,
+						"first": 0.03
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.62,
+					"probabilities": {
+						"second": 0.19,
+						"first": 0.81
+					}
+				}
+			}
+		},
+		{
+			"section": 75,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against great-expectations",
+			"measured": {
+				"words": 1173,
+				"spoken": 0.57,
+				"wordsPerSentence": 17
+			},
+			"sha256": "be0f0c5338c906f6e9e03049099b0db93ba25f9e2e1f4641733b934056f76f34",
+			"tokensIn": 3579,
+			"seconds": 0.6,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.96,
+					"probabilities": {
+						"second": 0.02,
+						"first": 0.98
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.62,
+					"probabilities": {
+						"second": 0.81,
+						"first": 0.19
+					}
+				}
+			}
+		},
+		{
+			"section": 75,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 1173,
+				"spoken": 0.57,
+				"wordsPerSentence": 17
+			},
+			"sha256": "7a378cbabc3eb14301b2bdb037d2e56932770c05d776f17cbf13c861be425575",
+			"tokensIn": 3720,
+			"seconds": 0.6,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.93,
+					"probabilities": {
+						"first": 0.03,
+						"second": 0.97
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.84,
+					"probabilities": {
+						"first": 0.08,
+						"second": 0.92
+					}
+				}
+			}
+		},
+		{
+			"section": 75,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 1173,
+				"spoken": 0.57,
+				"wordsPerSentence": 17
+			},
+			"sha256": "9c41db60c40b02a5ae0f73abfbf65ce57a9dd21656d941b8453ccea58f15df1c",
+			"tokensIn": 3720,
+			"seconds": 0.5,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.93,
+					"probabilities": {
+						"first": 0.96,
+						"second": 0.04
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.81,
+					"probabilities": {
+						"first": 0.91,
+						"second": 0.09
+					}
+				}
+			}
+		},
+		{
+			"section": 75,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 1173,
+				"spoken": 0.57,
+				"wordsPerSentence": 17
+			},
+			"sha256": "0c3c16443198220d0790008ec605fd45c1b8f4d98369b6a79a77db5090f48466",
+			"tokensIn": 3662,
+			"seconds": 0.6,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.89,
+					"probabilities": {
+						"second": 0.95,
+						"first": 0.05
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.19,
+					"probabilities": {
+						"second": 0.6,
+						"first": 0.4
+					}
+				}
+			}
+		},
+		{
+			"section": 75,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 1173,
+				"spoken": 0.57,
+				"wordsPerSentence": 17
+			},
+			"sha256": "b7bb8c157baaccc24303151dee84981dedd318aa06c8831f0252a6396434d345",
+			"tokensIn": 3662,
+			"seconds": 0.6,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.87,
+					"probabilities": {
+						"first": 0.93,
+						"second": 0.07
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.06,
+					"probabilities": {
+						"first": 0.47,
+						"second": 0.53
+					}
+				}
+			}
+		},
+		{
+			"section": 75,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against ragged-dick",
+			"measured": {
+				"words": 1173,
+				"spoken": 0.57,
+				"wordsPerSentence": 17
+			},
+			"sha256": "66e70efa1fc4d8c8331df643cc296c41b5f4cef038fd49a12d3971d76afd6a65",
+			"tokensIn": 3455,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.13,
+					"probabilities": {
+						"first": 0.44,
+						"second": 0.56
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.55,
+					"probabilities": {
+						"first": 0.77,
+						"second": 0.23
+					}
+				}
+			}
+		},
+		{
+			"section": 75,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against ragged-dick",
+			"measured": {
+				"words": 1173,
+				"spoken": 0.57,
+				"wordsPerSentence": 17
+			},
+			"sha256": "ff5e042100ffa5fbbcbbac7415986b6560fd7368a36a886228aa50cd29d71371",
+			"tokensIn": 3455,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.28,
+					"probabilities": {
+						"second": 0.36,
+						"first": 0.64
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.7,
+					"probabilities": {
+						"second": 0.85,
+						"first": 0.15
+					}
+				}
+			}
+		},
+		{
+			"section": 75,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against the-sorrows-of-satan",
+			"measured": {
+				"words": 1173,
+				"spoken": 0.57,
+				"wordsPerSentence": 17
+			},
+			"sha256": "5cb3ea0188a5f5ead593d66ba147e3d1e038dfe1543b6333c2f867ac017308e5",
+			"tokensIn": 3484,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.74,
+					"probabilities": {
+						"second": 0.87,
+						"first": 0.13
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.78,
+					"probabilities": {
+						"second": 0.11,
+						"first": 0.89
+					}
+				}
+			}
+		},
+		{
+			"section": 75,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against the-sorrows-of-satan",
+			"measured": {
+				"words": 1173,
+				"spoken": 0.57,
+				"wordsPerSentence": 17
+			},
+			"sha256": "1101f00e5174e0301a31e8f4c65cd9aa430d2f5ff6d1dc9faa97122369e374e5",
+			"tokensIn": 3484,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.71,
+					"probabilities": {
+						"first": 0.85,
+						"second": 0.15
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.85,
+					"probabilities": {
+						"first": 0.07,
+						"second": 0.93
+					}
+				}
+			}
+		},
+		{
+			"section": 91,
+			"piece": {
+				"at": 5,
+				"of": 5
+			},
+			"variant": "first, against middlemarch",
+			"measured": {
+				"words": 940,
+				"spoken": 0.68,
+				"wordsPerSentence": 16.8
+			},
+			"sha256": "68b6102925c96491ba3202789bc2c8baca7e427c1e576656c0e24f37bb8a5e11",
+			"tokensIn": 2973,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.97,
+					"probabilities": {
+						"first": 0.02,
+						"second": 0.98
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.77,
+					"probabilities": {
+						"first": 0.89,
+						"second": 0.11
+					}
+				}
+			}
+		},
+		{
+			"section": 91,
+			"piece": {
+				"at": 5,
+				"of": 5
+			},
+			"variant": "second, against middlemarch",
+			"measured": {
+				"words": 940,
+				"spoken": 0.68,
+				"wordsPerSentence": 16.8
+			},
+			"sha256": "9e661d63da543a7f30ed0531a567b6f6c233466ea80567b95e255719ffcaf763",
+			"tokensIn": 2973,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.98,
+					"probabilities": {
+						"second": 0.01,
+						"first": 0.99
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.66,
+					"probabilities": {
+						"second": 0.83,
+						"first": 0.17
+					}
+				}
+			}
+		},
+		{
+			"section": 91,
+			"piece": {
+				"at": 5,
+				"of": 5
+			},
+			"variant": "first, against great-expectations",
+			"measured": {
+				"words": 940,
+				"spoken": 0.68,
+				"wordsPerSentence": 16.8
+			},
+			"sha256": "12c2965ad502f10405f955c3f9aaa9d62213cdc2b6f94f43a39e6937498c60f8",
+			"tokensIn": 3287,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.93,
+					"probabilities": {
+						"second": 0.97,
+						"first": 0.03
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.47,
+					"probabilities": {
+						"second": 0.26,
+						"first": 0.74
+					}
+				}
+			}
+		},
+		{
+			"section": 91,
+			"piece": {
+				"at": 5,
+				"of": 5
+			},
+			"variant": "second, against great-expectations",
+			"measured": {
+				"words": 940,
+				"spoken": 0.68,
+				"wordsPerSentence": 16.8
+			},
+			"sha256": "6eb0c7bd5df9ff45c5714f6b2d929cca47adf7bd6065a53db3c3698413d5a49f",
+			"tokensIn": 3287,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.97,
+					"probabilities": {
+						"first": 0.99,
+						"second": 0.01
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.73,
+					"probabilities": {
+						"first": 0.14,
+						"second": 0.86
+					}
+				}
+			}
+		},
+		{
+			"section": 91,
+			"piece": {
+				"at": 5,
+				"of": 5
+			},
+			"variant": "first, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 940,
+				"spoken": 0.68,
+				"wordsPerSentence": 16.8
+			},
+			"sha256": "d3455df01899f55e5652bec7fa4ea65276eee7d3404680f52d269c3d3191b20a",
+			"tokensIn": 3428,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.92,
+					"probabilities": {
+						"first": 0.04,
+						"second": 0.96
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.8,
+					"probabilities": {
+						"first": 0.1,
+						"second": 0.9
+					}
+				}
+			}
+		},
+		{
+			"section": 91,
+			"piece": {
+				"at": 5,
+				"of": 5
+			},
+			"variant": "second, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 940,
+				"spoken": 0.68,
+				"wordsPerSentence": 16.8
+			},
+			"sha256": "0e9070c29ae1982cab276fb0cfeb26d6211315c2e2fb5268c4c283f70dcb4e75",
+			"tokensIn": 3428,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.96,
+					"probabilities": {
+						"second": 0.02,
+						"first": 0.98
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.84,
+					"probabilities": {
+						"second": 0.08,
+						"first": 0.92
+					}
+				}
+			}
+		},
+		{
+			"section": 91,
+			"piece": {
+				"at": 5,
+				"of": 5
+			},
+			"variant": "first, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 940,
+				"spoken": 0.68,
+				"wordsPerSentence": 16.8
+			},
+			"sha256": "5bccb389bfd6f1ab41ffac4bb320c61e7ee2d7623a0b4bcd3231f86a066f4684",
+			"tokensIn": 3370,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.87,
+					"probabilities": {
+						"second": 0.94,
+						"first": 0.06
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.28,
+					"probabilities": {
+						"second": 0.64,
+						"first": 0.36
+					}
+				}
+			}
+		},
+		{
+			"section": 91,
+			"piece": {
+				"at": 5,
+				"of": 5
+			},
+			"variant": "second, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 940,
+				"spoken": 0.68,
+				"wordsPerSentence": 16.8
+			},
+			"sha256": "874a28ea64e92b15fb250b81c7513c80fad998cbb5f99ed20fe33921995a1b94",
+			"tokensIn": 3370,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.93,
+					"probabilities": {
+						"first": 0.96,
+						"second": 0.04
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.05,
+					"probabilities": {
+						"first": 0.53,
+						"second": 0.47
+					}
+				}
+			}
+		},
+		{
+			"section": 91,
+			"piece": {
+				"at": 5,
+				"of": 5
+			},
+			"variant": "first, against ragged-dick",
+			"measured": {
+				"words": 940,
+				"spoken": 0.68,
+				"wordsPerSentence": 16.8
+			},
+			"sha256": "4f1580d5a4aa849c91abcdfe1b9c04725b29af354e9dcdd6bed17ee34e768860",
+			"tokensIn": 3163,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.35,
+					"probabilities": {
+						"second": 0.67,
+						"first": 0.33
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.56,
+					"probabilities": {
+						"second": 0.22,
+						"first": 0.78
+					}
+				}
+			}
+		},
+		{
+			"section": 91,
+			"piece": {
+				"at": 5,
+				"of": 5
+			},
+			"variant": "second, against ragged-dick",
+			"measured": {
+				"words": 940,
+				"spoken": 0.68,
+				"wordsPerSentence": 16.8
+			},
+			"sha256": "8a0ae9441fbffc9692ce67e653d7ec3e5736a7bcafce250f3d5b4d341d473ca7",
+			"tokensIn": 3163,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.64,
+					"probabilities": {
+						"first": 0.82,
+						"second": 0.18
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.77,
+					"probabilities": {
+						"first": 0.11,
+						"second": 0.89
+					}
+				}
+			}
+		},
+		{
+			"section": 91,
+			"piece": {
+				"at": 5,
+				"of": 5
+			},
+			"variant": "first, against the-sorrows-of-satan",
+			"measured": {
+				"words": 940,
+				"spoken": 0.68,
+				"wordsPerSentence": 16.8
+			},
+			"sha256": "c0a93e22bb89b394226c003b2b3445606bc32a3c7f50cbc7fdecb53401a9bb6f",
+			"tokensIn": 3192,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.72,
+					"probabilities": {
+						"second": 0.86,
+						"first": 0.14
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.73,
+					"probabilities": {
+						"second": 0.13,
+						"first": 0.87
+					}
+				}
+			}
+		},
+		{
+			"section": 91,
+			"piece": {
+				"at": 5,
+				"of": 5
+			},
+			"variant": "second, against the-sorrows-of-satan",
+			"measured": {
+				"words": 940,
+				"spoken": 0.68,
+				"wordsPerSentence": 16.8
+			},
+			"sha256": "a503ef51be4dacebfaf74375b17eda8548bf3d0fcc54fb6e5e44d2db02d8189d",
+			"tokensIn": 3192,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.88,
+					"probabilities": {
+						"second": 0.06,
+						"first": 0.94
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.87,
+					"probabilities": {
+						"second": 0.93,
+						"first": 0.07
+					}
+				}
+			}
+		},
+		{
+			"section": 115,
+			"piece": {
+				"at": 3,
+				"of": 6
+			},
+			"variant": "first, against middlemarch",
+			"measured": {
+				"words": 966,
+				"spoken": 0.79,
+				"wordsPerSentence": 13.6
+			},
+			"sha256": "ee03b9e8070b1fd906278a9ff3c248919915d579da9a442c45ed434ee86d5832",
+			"tokensIn": 3096,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.86,
+					"probabilities": {
+						"first": 0.07,
+						"second": 0.93
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.21,
+					"probabilities": {
+						"first": 0.6,
+						"second": 0.4
+					}
+				}
+			}
+		},
+		{
+			"section": 115,
+			"piece": {
+				"at": 3,
+				"of": 6
+			},
+			"variant": "second, against middlemarch",
+			"measured": {
+				"words": 966,
+				"spoken": 0.79,
+				"wordsPerSentence": 13.6
+			},
+			"sha256": "78273e74c7235edde3c0bfa68d2dcd497faa773c073c2b1a409384c90bb04525",
+			"tokensIn": 3096,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.95,
+					"probabilities": {
+						"first": 0.97,
+						"second": 0.03
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.25,
+					"probabilities": {
+						"first": 0.63,
+						"second": 0.37
+					}
+				}
+			}
+		},
+		{
+			"section": 115,
+			"piece": {
+				"at": 3,
+				"of": 6
+			},
+			"variant": "first, against great-expectations",
+			"measured": {
+				"words": 966,
+				"spoken": 0.79,
+				"wordsPerSentence": 13.6
+			},
+			"sha256": "86785edad8d6f4e5bc056facf52b9e8b06a8ab02dc6ef4db299dc18dd00890ab",
+			"tokensIn": 3410,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.89,
+					"probabilities": {
+						"first": 0.06,
+						"second": 0.94
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.42,
+					"probabilities": {
+						"first": 0.29,
+						"second": 0.71
+					}
+				}
+			}
+		},
+		{
+			"section": 115,
+			"piece": {
+				"at": 3,
+				"of": 6
+			},
+			"variant": "second, against great-expectations",
+			"measured": {
+				"words": 966,
+				"spoken": 0.79,
+				"wordsPerSentence": 13.6
+			},
+			"sha256": "2fae3c69024f0c695d81dda30237cc7cdae6ae6c553080203665218780ea2812",
+			"tokensIn": 3410,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.95,
+					"probabilities": {
+						"first": 0.98,
+						"second": 0.02
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.45,
+					"probabilities": {
+						"first": 0.73,
+						"second": 0.27
+					}
+				}
+			}
+		},
+		{
+			"section": 115,
+			"piece": {
+				"at": 3,
+				"of": 6
+			},
+			"variant": "first, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 966,
+				"spoken": 0.79,
+				"wordsPerSentence": 13.6
+			},
+			"sha256": "7841292096c6650febad4471ce9b1ff724baf0fb6ca1459afc1915f94527cb6c",
+			"tokensIn": 3551,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.81,
+					"probabilities": {
+						"first": 0.1,
+						"second": 0.9
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.86,
+					"probabilities": {
+						"first": 0.07,
+						"second": 0.93
+					}
+				}
+			}
+		},
+		{
+			"section": 115,
+			"piece": {
+				"at": 3,
+				"of": 6
+			},
+			"variant": "second, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 966,
+				"spoken": 0.79,
+				"wordsPerSentence": 13.6
+			},
+			"sha256": "194640ec6079d5406160eca03910523a43d6f38bd709d82cfee3becebf06de68",
+			"tokensIn": 3551,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.92,
+					"probabilities": {
+						"second": 0.04,
+						"first": 0.96
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.96,
+					"probabilities": {
+						"second": 0.02,
+						"first": 0.98
+					}
+				}
+			}
+		},
+		{
+			"section": 115,
+			"piece": {
+				"at": 3,
+				"of": 6
+			},
+			"variant": "first, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 966,
+				"spoken": 0.79,
+				"wordsPerSentence": 13.6
+			},
+			"sha256": "431c0d96651dd3295f42125465c214452daa31e61b27786f7d716f9c085d8cc9",
+			"tokensIn": 3493,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.77,
+					"probabilities": {
+						"second": 0.89,
+						"first": 0.11
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.8,
+					"probabilities": {
+						"second": 0.9,
+						"first": 0.1
+					}
+				}
+			}
+		},
+		{
+			"section": 115,
+			"piece": {
+				"at": 3,
+				"of": 6
+			},
+			"variant": "second, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 966,
+				"spoken": 0.79,
+				"wordsPerSentence": 13.6
+			},
+			"sha256": "1a38a61245d84ce294cbdd3f753205318776adfa9dfbd94b9f58b0c66231c317",
+			"tokensIn": 3493,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.9,
+					"probabilities": {
+						"first": 0.95,
+						"second": 0.05
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.8,
+					"probabilities": {
+						"first": 0.9,
+						"second": 0.1
+					}
+				}
+			}
+		},
+		{
+			"section": 115,
+			"piece": {
+				"at": 3,
+				"of": 6
+			},
+			"variant": "first, against ragged-dick",
+			"measured": {
+				"words": 966,
+				"spoken": 0.79,
+				"wordsPerSentence": 13.6
+			},
+			"sha256": "4b344c2bb6b7d2cc1dddcbafae2ebc59a148283f08b2777313b997e632e3ed9d",
+			"tokensIn": 3286,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.19,
+					"probabilities": {
+						"second": 0.59,
+						"first": 0.41
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.23,
+					"probabilities": {
+						"second": 0.62,
+						"first": 0.38
+					}
+				}
+			}
+		},
+		{
+			"section": 115,
+			"piece": {
+				"at": 3,
+				"of": 6
+			},
+			"variant": "second, against ragged-dick",
+			"measured": {
+				"words": 966,
+				"spoken": 0.79,
+				"wordsPerSentence": 13.6
+			},
+			"sha256": "0a88966f66de752daa56b236ca8ef8c6fc1712dce6d7a603d7b1ccf67e27d171",
+			"tokensIn": 3286,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.34,
+					"probabilities": {
+						"second": 0.33,
+						"first": 0.67
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.39,
+					"probabilities": {
+						"second": 0.3,
+						"first": 0.7
+					}
+				}
+			}
+		},
+		{
+			"section": 115,
+			"piece": {
+				"at": 3,
+				"of": 6
+			},
+			"variant": "first, against the-sorrows-of-satan",
+			"measured": {
+				"words": 966,
+				"spoken": 0.79,
+				"wordsPerSentence": 13.6
+			},
+			"sha256": "d9898aa50021f121c4e1753cd7fc6b1a4eb9b077ea45e77e5d93e0972f3fc64c",
+			"tokensIn": 3315,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.44,
+					"probabilities": {
+						"second": 0.72,
+						"first": 0.28
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.39,
+					"probabilities": {
+						"second": 0.3,
+						"first": 0.7
+					}
+				}
+			}
+		},
+		{
+			"section": 115,
+			"piece": {
+				"at": 3,
+				"of": 6
+			},
+			"variant": "second, against the-sorrows-of-satan",
+			"measured": {
+				"words": 966,
+				"spoken": 0.79,
+				"wordsPerSentence": 13.6
+			},
+			"sha256": "b4fa8665ba1d6b646fdcc00332dd638401d7874c762845c0d98b66bbd6d91ea2",
+			"tokensIn": 3315,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.72,
+					"probabilities": {
+						"second": 0.14,
+						"first": 0.86
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.16,
+					"probabilities": {
+						"second": 0.58,
+						"first": 0.42
+					}
+				}
+			}
+		},
+		{
+			"section": 123,
+			"piece": {
+				"at": 4,
+				"of": 4
+			},
+			"variant": "first, against middlemarch",
+			"measured": {
+				"words": 1024,
+				"spoken": 0.41,
+				"wordsPerSentence": 24.4
+			},
+			"sha256": "19805b658babea89f7c9f4ff021f266921c2f2ee5b60bd19d5803d69bdb93ebf",
+			"tokensIn": 2975,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.85,
+					"probabilities": {
+						"second": 0.93,
+						"first": 0.07
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.69,
+					"probabilities": {
+						"second": 0.15,
+						"first": 0.85
+					}
+				}
+			}
+		},
+		{
+			"section": 123,
+			"piece": {
+				"at": 4,
+				"of": 4
+			},
+			"variant": "second, against middlemarch",
+			"measured": {
+				"words": 1024,
+				"spoken": 0.41,
+				"wordsPerSentence": 24.4
+			},
+			"sha256": "87fd938c902b2295534bf776018847b9b325eca6b8bd82f0abd1cb71354a3e1a",
+			"tokensIn": 2975,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.92,
+					"probabilities": {
+						"first": 0.96,
+						"second": 0.04
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.35,
+					"probabilities": {
+						"first": 0.32,
+						"second": 0.68
+					}
+				}
+			}
+		},
+		{
+			"section": 123,
+			"piece": {
+				"at": 4,
+				"of": 4
+			},
+			"variant": "first, against great-expectations",
+			"measured": {
+				"words": 1024,
+				"spoken": 0.41,
+				"wordsPerSentence": 24.4
+			},
+			"sha256": "ef0acae554a17579ecf9338f02cab612e94001304284712aaa80674d9bfe831d",
+			"tokensIn": 3289,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.84,
+					"probabilities": {
+						"first": 0.08,
+						"second": 0.92
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.53,
+					"probabilities": {
+						"first": 0.76,
+						"second": 0.24
+					}
+				}
+			}
+		},
+		{
+			"section": 123,
+			"piece": {
+				"at": 4,
+				"of": 4
+			},
+			"variant": "second, against great-expectations",
+			"measured": {
+				"words": 1024,
+				"spoken": 0.41,
+				"wordsPerSentence": 24.4
+			},
+			"sha256": "a13c800bedd906e55ef638fcc27978925e4dee8d45a57f0d3a2512bb0439608b",
+			"tokensIn": 3289,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.9,
+					"probabilities": {
+						"second": 0.05,
+						"first": 0.95
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.22,
+					"probabilities": {
+						"second": 0.61,
+						"first": 0.39
+					}
+				}
+			}
+		},
+		{
+			"section": 123,
+			"piece": {
+				"at": 4,
+				"of": 4
+			},
+			"variant": "first, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 1024,
+				"spoken": 0.41,
+				"wordsPerSentence": 24.4
+			},
+			"sha256": "2f55399cd5775e5d0ab508d93fdfcc1b0b71b4795bc685ef49f776e77f41660d",
+			"tokensIn": 3430,
+			"seconds": 0.5,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.71,
+					"probabilities": {
+						"first": 0.14,
+						"second": 0.86
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.8,
+					"probabilities": {
+						"first": 0.1,
+						"second": 0.9
+					}
+				}
+			}
+		},
+		{
+			"section": 123,
+			"piece": {
+				"at": 4,
+				"of": 4
+			},
+			"variant": "second, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 1024,
+				"spoken": 0.41,
+				"wordsPerSentence": 24.4
+			},
+			"sha256": "49900ce0ccadc0ba90761954c2f8bfd11237c80d10c4121b755ec9c81926af43",
+			"tokensIn": 3430,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.78,
+					"probabilities": {
+						"second": 0.11,
+						"first": 0.89
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.92,
+					"probabilities": {
+						"second": 0.04,
+						"first": 0.96
+					}
+				}
+			}
+		},
+		{
+			"section": 123,
+			"piece": {
+				"at": 4,
+				"of": 4
+			},
+			"variant": "first, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 1024,
+				"spoken": 0.41,
+				"wordsPerSentence": 24.4
+			},
+			"sha256": "0bbfcb4ea7a50a4c35e8082bd914ae51e89b135b3253f531dabc054066f7fc85",
+			"tokensIn": 3372,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.63,
+					"probabilities": {
+						"second": 0.81,
+						"first": 0.19
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.58,
+					"probabilities": {
+						"second": 0.79,
+						"first": 0.21
+					}
+				}
+			}
+		},
+		{
+			"section": 123,
+			"piece": {
+				"at": 4,
+				"of": 4
+			},
+			"variant": "second, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 1024,
+				"spoken": 0.41,
+				"wordsPerSentence": 24.4
+			},
+			"sha256": "92addd227db6e0685e8ce90416bd25d8bf2ac8bf2f347ccecb348155684ae90f",
+			"tokensIn": 3372,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.77,
+					"probabilities": {
+						"second": 0.12,
+						"first": 0.88
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.64,
+					"probabilities": {
+						"second": 0.18,
+						"first": 0.82
+					}
+				}
+			}
+		},
+		{
+			"section": 123,
+			"piece": {
+				"at": 4,
+				"of": 4
+			},
+			"variant": "first, against ragged-dick",
+			"measured": {
+				"words": 1024,
+				"spoken": 0.41,
+				"wordsPerSentence": 24.4
+			},
+			"sha256": "889ab8791dce511cccc7f495c25af67476f256afa7c0c5e27c0cf3777fe09ed8",
+			"tokensIn": 3165,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.45,
+					"probabilities": {
+						"second": 0.27,
+						"first": 0.73
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.67,
+					"probabilities": {
+						"second": 0.16,
+						"first": 0.84
+					}
+				}
+			}
+		},
+		{
+			"section": 123,
+			"piece": {
+				"at": 4,
+				"of": 4
+			},
+			"variant": "second, against ragged-dick",
+			"measured": {
+				"words": 1024,
+				"spoken": 0.41,
+				"wordsPerSentence": 24.4
+			},
+			"sha256": "326b5d6456ca8568e377be959ba2d49133f679907b1a837546e1966ea5b9e61d",
+			"tokensIn": 3165,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.25,
+					"probabilities": {
+						"first": 0.37,
+						"second": 0.63
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.64,
+					"probabilities": {
+						"first": 0.18,
+						"second": 0.82
+					}
+				}
+			}
+		},
+		{
+			"section": 123,
+			"piece": {
+				"at": 4,
+				"of": 4
+			},
+			"variant": "first, against the-sorrows-of-satan",
+			"measured": {
+				"words": 1024,
+				"spoken": 0.41,
+				"wordsPerSentence": 24.4
+			},
+			"sha256": "054c167a97fb03a1b156d31d93cf5411ead902ba27b994910c4c8f67019c0f13",
+			"tokensIn": 3194,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.24,
+					"probabilities": {
+						"second": 0.62,
+						"first": 0.38
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.64,
+					"probabilities": {
+						"second": 0.18,
+						"first": 0.82
+					}
+				}
+			}
+		},
+		{
+			"section": 123,
+			"piece": {
+				"at": 4,
+				"of": 4
+			},
+			"variant": "second, against the-sorrows-of-satan",
+			"measured": {
+				"words": 1024,
+				"spoken": 0.41,
+				"wordsPerSentence": 24.4
+			},
+			"sha256": "ea0c836f520ec9215f69ba7bdbff9614f97b602cbb16fea6ce7b23c1fafdd990",
+			"tokensIn": 3194,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.48,
+					"probabilities": {
+						"second": 0.26,
+						"first": 0.74
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.71,
+					"probabilities": {
+						"second": 0.86,
+						"first": 0.14
+					}
+				}
+			}
+		},
+		{
+			"section": 147,
+			"piece": {
+				"at": 1,
+				"of": 4
+			},
+			"variant": "first, against middlemarch",
+			"measured": {
+				"words": 1008,
+				"spoken": 0.69,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "0615d843f508802442d2a6d7bd44076a2c1a9cdda4e2a358060a4f38c5dbb80c",
+			"tokensIn": 3011,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.98,
+					"probabilities": {
+						"first": 0.01,
+						"second": 0.99
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.91,
+					"probabilities": {
+						"first": 0.96,
+						"second": 0.04
+					}
+				}
+			}
+		},
+		{
+			"section": 147,
+			"piece": {
+				"at": 1,
+				"of": 4
+			},
+			"variant": "second, against middlemarch",
+			"measured": {
+				"words": 1008,
+				"spoken": 0.69,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "0e6b74a2e57ce59e421c7ad3a6e24fa81c5a63fd27440f8645a0be2b263fbde5",
+			"tokensIn": 3011,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.98,
+					"probabilities": {
+						"second": 0.01,
+						"first": 0.99
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.56,
+					"probabilities": {
+						"second": 0.78,
+						"first": 0.22
+					}
+				}
+			}
+		},
+		{
+			"section": 147,
+			"piece": {
+				"at": 1,
+				"of": 4
+			},
+			"variant": "first, against great-expectations",
+			"measured": {
+				"words": 1008,
+				"spoken": 0.69,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "46e33e8ef67988ea7c36de1ec946859354e8e44992bf83d3fe03028666b5ab47",
+			"tokensIn": 3325,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.96,
+					"probabilities": {
+						"second": 0.98,
+						"first": 0.02
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.67,
+					"probabilities": {
+						"second": 0.17,
+						"first": 0.83
+					}
+				}
+			}
+		},
+		{
+			"section": 147,
+			"piece": {
+				"at": 1,
+				"of": 4
+			},
+			"variant": "second, against great-expectations",
+			"measured": {
+				"words": 1008,
+				"spoken": 0.69,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "be0c88d0d67fac0f90f827d4d2059e4ab20ec7e591fa6a237cf1500e375374cf",
+			"tokensIn": 3325,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.98,
+					"probabilities": {
+						"first": 0.99,
+						"second": 0.01
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.49,
+					"probabilities": {
+						"first": 0.25,
+						"second": 0.75
+					}
+				}
+			}
+		},
+		{
+			"section": 147,
+			"piece": {
+				"at": 1,
+				"of": 4
+			},
+			"variant": "first, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 1008,
+				"spoken": 0.69,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "efeb5e5ac8aefc544a73b6c3ba4e9b869e9ffb3bd6ce4d30351d3309457b47a8",
+			"tokensIn": 3466,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.96,
+					"probabilities": {
+						"second": 0.98,
+						"first": 0.02
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.66,
+					"probabilities": {
+						"second": 0.83,
+						"first": 0.17
+					}
+				}
+			}
+		},
+		{
+			"section": 147,
+			"piece": {
+				"at": 1,
+				"of": 4
+			},
+			"variant": "second, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 1008,
+				"spoken": 0.69,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "0819c9b9dd3a877bd61892a43735122189e0c10d45920de5939a3b7307418508",
+			"tokensIn": 3466,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.96,
+					"probabilities": {
+						"second": 0.02,
+						"first": 0.98
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.76,
+					"probabilities": {
+						"second": 0.12,
+						"first": 0.88
+					}
+				}
+			}
+		},
+		{
+			"section": 147,
+			"piece": {
+				"at": 1,
+				"of": 4
+			},
+			"variant": "first, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 1008,
+				"spoken": 0.69,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "e76fd1e1b894e8167f4b6a43980f7e2fbab39b314eefa6666a243b00072370f9",
+			"tokensIn": 3408,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.95,
+					"probabilities": {
+						"first": 0.03,
+						"second": 0.97
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.02,
+					"probabilities": {
+						"first": 0.49,
+						"second": 0.51
+					}
+				}
+			}
+		},
+		{
+			"section": 147,
+			"piece": {
+				"at": 1,
+				"of": 4
+			},
+			"variant": "second, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 1008,
+				"spoken": 0.69,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "8c303bb34fc36f63058ceb63b1d3da0b18c9780ecf173b80d63285e66e099fa4",
+			"tokensIn": 3408,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.95,
+					"probabilities": {
+						"second": 0.03,
+						"first": 0.97
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.01,
+					"probabilities": {
+						"second": 0.5,
+						"first": 0.5
+					}
+				}
+			}
+		},
+		{
+			"section": 147,
+			"piece": {
+				"at": 1,
+				"of": 4
+			},
+			"variant": "first, against ragged-dick",
+			"measured": {
+				"words": 1008,
+				"spoken": 0.69,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "7405a01d5e7e5307341582ccfcdf470241c9be6eafd09280af1ec7dfa15daf5b",
+			"tokensIn": 3201,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.58,
+					"probabilities": {
+						"second": 0.79,
+						"first": 0.21
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.5,
+					"probabilities": {
+						"second": 0.25,
+						"first": 0.75
+					}
+				}
+			}
+		},
+		{
+			"section": 147,
+			"piece": {
+				"at": 1,
+				"of": 4
+			},
+			"variant": "second, against ragged-dick",
+			"measured": {
+				"words": 1008,
+				"spoken": 0.69,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "1f97c1bf5c49197e72afa1381d40fb701d85c55dc82b82e4df04dcc99252ec94",
+			"tokensIn": 3201,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.51,
+					"probabilities": {
+						"second": 0.25,
+						"first": 0.75
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.51,
+					"probabilities": {
+						"second": 0.75,
+						"first": 0.25
+					}
+				}
+			}
+		},
+		{
+			"section": 147,
+			"piece": {
+				"at": 1,
+				"of": 4
+			},
+			"variant": "first, against the-sorrows-of-satan",
+			"measured": {
+				"words": 1008,
+				"spoken": 0.69,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "5b34dc3067a540d934b1b9475ca39d6d97dc231dd87759881ba15dfe8a8bfc52",
+			"tokensIn": 3230,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.86,
+					"probabilities": {
+						"first": 0.07,
+						"second": 0.93
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.87,
+					"probabilities": {
+						"first": 0.93,
+						"second": 0.07
+					}
+				}
+			}
+		},
+		{
+			"section": 147,
+			"piece": {
+				"at": 1,
+				"of": 4
+			},
+			"variant": "second, against the-sorrows-of-satan",
+			"measured": {
+				"words": 1008,
+				"spoken": 0.69,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "fc1439f13f4d736e8014f92f74b6ccdc953bc156b7f52c545122c673c4899e04",
+			"tokensIn": 3230,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.87,
+					"probabilities": {
+						"second": 0.06,
+						"first": 0.94
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.86,
+					"probabilities": {
+						"second": 0.93,
+						"first": 0.07
+					}
+				}
+			}
+		},
+		{
+			"section": 171,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against middlemarch",
+			"measured": {
+				"words": 816,
+				"spoken": 0.16,
+				"wordsPerSentence": 22.1
+			},
+			"sha256": "e754f5b41733b1b1c87081470025ee341787e6d8af8f03282cc16ab2f65d9b15",
+			"tokensIn": 2749,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.96,
+					"probabilities": {
+						"second": 0.98,
+						"first": 0.02
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.9,
+					"probabilities": {
+						"second": 0.05,
+						"first": 0.95
+					}
+				}
+			}
+		},
+		{
+			"section": 171,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against middlemarch",
+			"measured": {
+				"words": 816,
+				"spoken": 0.16,
+				"wordsPerSentence": 22.1
+			},
+			"sha256": "bb8c6751806fc5f8446ef3b18a4fc297888a8d77685ea48c0a5650b8ec51c2ed",
+			"tokensIn": 2749,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.98,
+					"probabilities": {
+						"second": 0.01,
+						"first": 0.99
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.57,
+					"probabilities": {
+						"second": 0.78,
+						"first": 0.22
+					}
+				}
+			}
+		},
+		{
+			"section": 171,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against great-expectations",
+			"measured": {
+				"words": 816,
+				"spoken": 0.16,
+				"wordsPerSentence": 22.1
+			},
+			"sha256": "b5e02f62fce9ec8413e3bcdb5b54bac4f3e0ad8c32b35bcd9b78cd5a3c284b75",
+			"tokensIn": 3063,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.94,
+					"probabilities": {
+						"first": 0.03,
+						"second": 0.97
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.71,
+					"probabilities": {
+						"first": 0.86,
+						"second": 0.14
+					}
+				}
+			}
+		},
+		{
+			"section": 171,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against great-expectations",
+			"measured": {
+				"words": 816,
+				"spoken": 0.16,
+				"wordsPerSentence": 22.1
+			},
+			"sha256": "fbd2985d49fb18df74a54f0a41816d96b39905b75bb57bd0f868e35c96c92bbc",
+			"tokensIn": 3063,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.98,
+					"probabilities": {
+						"first": 0.99,
+						"second": 0.01
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.33,
+					"probabilities": {
+						"first": 0.34,
+						"second": 0.66
+					}
+				}
+			}
+		},
+		{
+			"section": 171,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 816,
+				"spoken": 0.16,
+				"wordsPerSentence": 22.1
+			},
+			"sha256": "1f0ddd65cd65eb1fc5b801cd69a3a070955340cb4bf74ed4a51ebd2d84149e96",
+			"tokensIn": 3204,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.94,
+					"probabilities": {
+						"second": 0.97,
+						"first": 0.03
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.31,
+					"probabilities": {
+						"second": 0.65,
+						"first": 0.35
+					}
+				}
+			}
+		},
+		{
+			"section": 171,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 816,
+				"spoken": 0.16,
+				"wordsPerSentence": 22.1
+			},
+			"sha256": "9f98989c1129cdc98db16bce465a47330f5316c8c0a69d590efe5f1d9a9298b7",
+			"tokensIn": 3204,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.94,
+					"probabilities": {
+						"first": 0.97,
+						"second": 0.03
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.54,
+					"probabilities": {
+						"first": 0.77,
+						"second": 0.23
+					}
+				}
+			}
+		},
+		{
+			"section": 171,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 816,
+				"spoken": 0.16,
+				"wordsPerSentence": 22.1
+			},
+			"sha256": "0af8bf6f7db7ec013f55c4d1731f01f4e2fb941ff6cf8da84e3a012b09a12f85",
+			"tokensIn": 3146,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.88,
+					"probabilities": {
+						"first": 0.06,
+						"second": 0.94
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.4,
+					"probabilities": {
+						"first": 0.7,
+						"second": 0.3
+					}
+				}
+			}
+		},
+		{
+			"section": 171,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 816,
+				"spoken": 0.16,
+				"wordsPerSentence": 22.1
+			},
+			"sha256": "9e4dfbd27079e9f4b5cef1e377b85f42135385f9c6c433131f44a1b531c532ca",
+			"tokensIn": 3146,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.9,
+					"probabilities": {
+						"second": 0.05,
+						"first": 0.95
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.12,
+					"probabilities": {
+						"second": 0.56,
+						"first": 0.44
+					}
+				}
+			}
+		},
+		{
+			"section": 171,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against ragged-dick",
+			"measured": {
+				"words": 816,
+				"spoken": 0.16,
+				"wordsPerSentence": 22.1
+			},
+			"sha256": "e74da40a9f2425558565a02857484de3eb4335aef2981c4d9c6716305421daf8",
+			"tokensIn": 2939,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.44,
+					"probabilities": {
+						"second": 0.72,
+						"first": 0.28
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.76,
+					"probabilities": {
+						"second": 0.12,
+						"first": 0.88
+					}
+				}
+			}
+		},
+		{
+			"section": 171,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against ragged-dick",
+			"measured": {
+				"words": 816,
+				"spoken": 0.16,
+				"wordsPerSentence": 22.1
+			},
+			"sha256": "192e0ea5a6d076c4dcf661d4d8fe9821a7be1853e241c7384c8ae7ce5739b45e",
+			"tokensIn": 2939,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.45,
+					"probabilities": {
+						"first": 0.73,
+						"second": 0.27
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.83,
+					"probabilities": {
+						"first": 0.08,
+						"second": 0.92
+					}
+				}
+			}
+		},
+		{
+			"section": 171,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "first, against the-sorrows-of-satan",
+			"measured": {
+				"words": 816,
+				"spoken": 0.16,
+				"wordsPerSentence": 22.1
+			},
+			"sha256": "5590fad3c0adab39d05decf4fa9850a503732a9f50eae91561573fa0e0225a0d",
+			"tokensIn": 2968,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.75,
+					"probabilities": {
+						"first": 0.13,
+						"second": 0.87
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.84,
+					"probabilities": {
+						"first": 0.92,
+						"second": 0.08
+					}
+				}
+			}
+		},
+		{
+			"section": 171,
+			"piece": {
+				"at": 1,
+				"of": 2
+			},
+			"variant": "second, against the-sorrows-of-satan",
+			"measured": {
+				"words": 816,
+				"spoken": 0.16,
+				"wordsPerSentence": 22.1
+			},
+			"sha256": "4fd67cb8a2de2c4cba18695032124904c70fbbd94a74d2554e3064c923a57945",
+			"tokensIn": 2968,
+			"seconds": 0.5,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.83,
+					"probabilities": {
+						"second": 0.09,
+						"first": 0.91
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.82,
+					"probabilities": {
+						"second": 0.91,
+						"first": 0.09
+					}
+				}
+			}
+		},
+		{
+			"section": 195,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "first, against middlemarch",
+			"measured": {
+				"words": 723,
+				"spoken": 0.36,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "fa3201cac5e622c32d8da17886313c4eaa50bc995cc330f11cac43a8ac003f34",
+			"tokensIn": 2601,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.87,
+					"probabilities": {
+						"first": 0.06,
+						"second": 0.94
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.63,
+					"probabilities": {
+						"first": 0.82,
+						"second": 0.18
+					}
+				}
+			}
+		},
+		{
+			"section": 195,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "second, against middlemarch",
+			"measured": {
+				"words": 723,
+				"spoken": 0.36,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "cba4538261fe2784fe88f7e91aab21afb853b5d3c69d7a5f361ac40d9d88e25e",
+			"tokensIn": 2601,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.94,
+					"probabilities": {
+						"second": 0.03,
+						"first": 0.97
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.5,
+					"probabilities": {
+						"second": 0.75,
+						"first": 0.25
+					}
+				}
+			}
+		},
+		{
+			"section": 195,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "first, against great-expectations",
+			"measured": {
+				"words": 723,
+				"spoken": 0.36,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "06b36c1eeb144f4c6f617fc8979280d308cbad4563582499bb153284ee915298",
+			"tokensIn": 2915,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.89,
+					"probabilities": {
+						"second": 0.95,
+						"first": 0.05
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.06,
+					"probabilities": {
+						"second": 0.47,
+						"first": 0.53
+					}
+				}
+			}
+		},
+		{
+			"section": 195,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "second, against great-expectations",
+			"measured": {
+				"words": 723,
+				"spoken": 0.36,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "ecf774e273fb7f78ce9f76dca910262718d485c88c373f9b99536cabbc044467",
+			"tokensIn": 2915,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.94,
+					"probabilities": {
+						"second": 0.03,
+						"first": 0.97
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.29,
+					"probabilities": {
+						"second": 0.64,
+						"first": 0.36
+					}
+				}
+			}
+		},
+		{
+			"section": 195,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "first, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 723,
+				"spoken": 0.36,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "9b0cd2374a8eb2b9ca7a7d27035a085ef974d83627e2291c2f0e842242c3a6ed",
+			"tokensIn": 3056,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.8,
+					"probabilities": {
+						"second": 0.9,
+						"first": 0.1
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.9,
+					"probabilities": {
+						"second": 0.95,
+						"first": 0.05
+					}
+				}
+			}
+		},
+		{
+			"section": 195,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "second, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 723,
+				"spoken": 0.36,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "897bd146e0bc2076aa9c59c4cc1532ed4ecd9914e0edee4f5edb42cdbe1d0dd0",
+			"tokensIn": 3056,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.9,
+					"probabilities": {
+						"second": 0.05,
+						"first": 0.95
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.93,
+					"probabilities": {
+						"second": 0.03,
+						"first": 0.97
+					}
+				}
+			}
+		},
+		{
+			"section": 195,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "first, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 723,
+				"spoken": 0.36,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "077eb7574913dfdb6cde22c6b2c1bdbde3cfb316c0a0a8b5e01064e2f6ff5ba5",
+			"tokensIn": 2998,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.65,
+					"probabilities": {
+						"second": 0.83,
+						"first": 0.17
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.64,
+					"probabilities": {
+						"second": 0.82,
+						"first": 0.18
+					}
+				}
+			}
+		},
+		{
+			"section": 195,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "second, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 723,
+				"spoken": 0.36,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "62c5422e071bbed310ac1e7264d19aae3f9672e805270c1d8bfe9a2d85bf2851",
+			"tokensIn": 2998,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.79,
+					"probabilities": {
+						"second": 0.11,
+						"first": 0.89
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.47,
+					"probabilities": {
+						"second": 0.26,
+						"first": 0.74
+					}
+				}
+			}
+		},
+		{
+			"section": 195,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "first, against ragged-dick",
+			"measured": {
+				"words": 723,
+				"spoken": 0.36,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "75c2b66d0d9d3da15a4bbcf9f56226b4ec92193dceb4c111a38ef39c6a9db7ba",
+			"tokensIn": 2791,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.09,
+					"probabilities": {
+						"second": 0.46,
+						"first": 0.54
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.2,
+					"probabilities": {
+						"second": 0.6,
+						"first": 0.4
+					}
+				}
+			}
+		},
+		{
+			"section": 195,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "second, against ragged-dick",
+			"measured": {
+				"words": 723,
+				"spoken": 0.36,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "4fc70307c0f9257f9e576ad54ef9d7e1c8584235ab83b24dc54a3707a8fa1bfb",
+			"tokensIn": 2791,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.34,
+					"probabilities": {
+						"second": 0.33,
+						"first": 0.67
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0,
+					"probabilities": {
+						"second": 0.5,
+						"first": 0.5
+					}
+				}
+			}
+		},
+		{
+			"section": 195,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "first, against the-sorrows-of-satan",
+			"measured": {
+				"words": 723,
+				"spoken": 0.36,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "86eafcaa0832c3c3698001ed457b3f9148a3b3451143b19a22c5679560f8dfce",
+			"tokensIn": 2820,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.23,
+					"probabilities": {
+						"second": 0.61,
+						"first": 0.39
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.63,
+					"probabilities": {
+						"second": 0.19,
+						"first": 0.81
+					}
+				}
+			}
+		},
+		{
+			"section": 195,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "second, against the-sorrows-of-satan",
+			"measured": {
+				"words": 723,
+				"spoken": 0.36,
+				"wordsPerSentence": 21.3
+			},
+			"sha256": "1270d027e8681ff6487d93921ed085f8072ed9f519fa570af86785f2a76ba8c0",
+			"tokensIn": 2820,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.64,
+					"probabilities": {
+						"second": 0.18,
+						"first": 0.82
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.72,
+					"probabilities": {
+						"second": 0.86,
+						"first": 0.14
+					}
+				}
+			}
+		},
+		{
+			"section": 227,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "first, against middlemarch",
+			"measured": {
+				"words": 785,
+				"spoken": 0.16,
+				"wordsPerSentence": 26.2
+			},
+			"sha256": "0ba8a53f0a89d421fefc73b908f7746f0cc21e79a52804445fae6af490996736",
+			"tokensIn": 2604,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.92,
+					"probabilities": {
+						"second": 0.96,
+						"first": 0.04
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.96,
+					"probabilities": {
+						"second": 0.02,
+						"first": 0.98
+					}
+				}
+			}
+		},
+		{
+			"section": 227,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "second, against middlemarch",
+			"measured": {
+				"words": 785,
+				"spoken": 0.16,
+				"wordsPerSentence": 26.2
+			},
+			"sha256": "28aabe13ae72cbe69f7315a65c195628d6ab92f943963bef15e435981c3f7d66",
+			"tokensIn": 2604,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.93,
+					"probabilities": {
+						"second": 0.04,
+						"first": 0.96
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.44,
+					"probabilities": {
+						"second": 0.72,
+						"first": 0.28
+					}
+				}
+			}
+		},
+		{
+			"section": 227,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "first, against great-expectations",
+			"measured": {
+				"words": 785,
+				"spoken": 0.16,
+				"wordsPerSentence": 26.2
+			},
+			"sha256": "351b70da48c01c46df79fe056793fa8c17ec588141aba244abbf5eca5ca824ff",
+			"tokensIn": 2918,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.87,
+					"probabilities": {
+						"second": 0.93,
+						"first": 0.07
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.88,
+					"probabilities": {
+						"second": 0.06,
+						"first": 0.94
+					}
+				}
+			}
+		},
+		{
+			"section": 227,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "second, against great-expectations",
+			"measured": {
+				"words": 785,
+				"spoken": 0.16,
+				"wordsPerSentence": 26.2
+			},
+			"sha256": "dd38d7f10eeecb4a2bb559a70429d58f09ce680e1d8b27a11aa37690def2a15e",
+			"tokensIn": 2918,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.93,
+					"probabilities": {
+						"first": 0.96,
+						"second": 0.04
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.58,
+					"probabilities": {
+						"first": 0.21,
+						"second": 0.79
+					}
+				}
+			}
+		},
+		{
+			"section": 227,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "first, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 785,
+				"spoken": 0.16,
+				"wordsPerSentence": 26.2
+			},
+			"sha256": "63356b74b84b816513ddebe763f97e0181835049971bb2f78f8a1b501781ee86",
+			"tokensIn": 3059,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.88,
+					"probabilities": {
+						"second": 0.94,
+						"first": 0.06
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.31,
+					"probabilities": {
+						"second": 0.66,
+						"first": 0.34
+					}
+				}
+			}
+		},
+		{
+			"section": 227,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "second, against the-prisoner-of-zenda",
+			"measured": {
+				"words": 785,
+				"spoken": 0.16,
+				"wordsPerSentence": 26.2
+			},
+			"sha256": "2d56e0191bc80133700b5b4cb3a81a2bdcfb6697e408de1bdb5aaecead4e1cee",
+			"tokensIn": 3059,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.89,
+					"probabilities": {
+						"second": 0.06,
+						"first": 0.94
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.75,
+					"probabilities": {
+						"second": 0.13,
+						"first": 0.87
+					}
+				}
+			}
+		},
+		{
+			"section": 227,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "first, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 785,
+				"spoken": 0.16,
+				"wordsPerSentence": 26.2
+			},
+			"sha256": "ecabf5eca5689cbef5ba29ecd15895b31922042bf0eee55e88596b5975564d86",
+			"tokensIn": 3001,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.78,
+					"probabilities": {
+						"second": 0.89,
+						"first": 0.11
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.46,
+					"probabilities": {
+						"second": 0.27,
+						"first": 0.73
+					}
+				}
+			}
+		},
+		{
+			"section": 227,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "second, against the-scarlet-pimpernel",
+			"measured": {
+				"words": 785,
+				"spoken": 0.16,
+				"wordsPerSentence": 26.2
+			},
+			"sha256": "90b9cc6c5f0b6af578565f63497a352aad90821a521ddafc512549374f9cc438",
+			"tokensIn": 3001,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.82,
+					"probabilities": {
+						"second": 0.09,
+						"first": 0.91
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.23,
+					"probabilities": {
+						"second": 0.62,
+						"first": 0.38
+					}
+				}
+			}
+		},
+		{
+			"section": 227,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "first, against ragged-dick",
+			"measured": {
+				"words": 785,
+				"spoken": 0.16,
+				"wordsPerSentence": 26.2
+			},
+			"sha256": "33a74fd139e6af26267e3d8e6f16ad766fbbecfd70fb38b28a03c70b12c310c0",
+			"tokensIn": 2794,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.41,
+					"probabilities": {
+						"first": 0.7,
+						"second": 0.3
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.85,
+					"probabilities": {
+						"first": 0.92,
+						"second": 0.08
+					}
+				}
+			}
+		},
+		{
+			"section": 227,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "second, against ragged-dick",
+			"measured": {
+				"words": 785,
+				"spoken": 0.16,
+				"wordsPerSentence": 26.2
+			},
+			"sha256": "c524e1efa5fd01764c619008bcb935196151c2c70c33dc79cb18b56e9eaeac56",
+			"tokensIn": 2794,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.07,
+					"probabilities": {
+						"second": 0.53,
+						"first": 0.47
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.63,
+					"probabilities": {
+						"second": 0.81,
+						"first": 0.19
+					}
+				}
+			}
+		},
+		{
+			"section": 227,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "first, against the-sorrows-of-satan",
+			"measured": {
+				"words": 785,
+				"spoken": 0.16,
+				"wordsPerSentence": 26.2
+			},
+			"sha256": "a0f6933a8093d9a13bd101eb31409255b2e57c9eeabb4480d410211359d3238d",
+			"tokensIn": 2823,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.37,
+					"probabilities": {
+						"second": 0.68,
+						"first": 0.32
+					}
+				},
+				"pull": {
+					"choice": "first",
+					"confidence": 0.95,
+					"probabilities": {
+						"second": 0.02,
+						"first": 0.98
+					}
+				}
+			}
+		},
+		{
+			"section": 227,
+			"piece": {
+				"at": 2,
+				"of": 2
+			},
+			"variant": "second, against the-sorrows-of-satan",
+			"measured": {
+				"words": 785,
+				"spoken": 0.16,
+				"wordsPerSentence": 26.2
+			},
+			"sha256": "9174b5207c7360509c6ba2938bcf47e81f4c437aad5b0c9aa7f70a1151c0821a",
+			"tokensIn": 2823,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.65,
+					"probabilities": {
+						"first": 0.83,
+						"second": 0.17
+					}
+				},
+				"pull": {
+					"choice": "second",
+					"confidence": 0.85,
+					"probabilities": {
+						"first": 0.08,
+						"second": 0.92
+					}
+				}
+			}
+		}
+	],
+	"remarks": "Calibration: twelve pieces against the panel of anchors, both ways round."
+}
