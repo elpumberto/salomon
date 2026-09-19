@@ -3,11 +3,12 @@ import { join } from 'node:path';
 import { parseArgs } from 'node:util';
 import { tokens } from '../estimate.ts';
 import { key } from '../keys.ts';
-import { open, reviewThreads, rulesHash, takeNotes, took } from '../notes.ts';
-import type { Ask, Notes } from '../notes.ts';
+import { begin, NotesError, open, reviewThreads, rulesHash, takeNotes, took } from '../notes.ts';
+import type { Ask, Notes, Routing } from '../notes.ts';
 import { createOpenRouter, defaultModel, OpenRouterError, price } from '../openrouter.ts';
 import { readBook } from '../read/index.ts';
 import { identify, keep, notesRecord } from '../records.ts';
+import type { Lost } from '../records.ts';
 
 /**
  * Takes the reading notes of a book and keeps them in `books/notes/`, one file per book and model.
@@ -15,7 +16,13 @@ import { identify, keep, notesRecord } from '../records.ts';
  * would cost. Sections are numbered as `npm run normalize -- --sections` lists them. A run that
  * stops, for the money or for a fault, goes on from where it was when it is run again. Once a book
  * is read to the end of what was asked, the threads left open are looked at again and the run is
- * recorded under `records/`; `--remarks` leaves a word in the record for whoever reads it later.
+ * recorded under `records/`; `--remarks` leaves a word in the record for whoever reads it later,
+ * and `--record` writes again the record of notes already taken, which is all made from them.
+ *
+ * OpenRouter spreads a model's calls among its providers, which differ in price and in how they
+ * follow instructions, so the cheapest is tried first unless `--sort` says `throughput`, `latency`
+ * or `none`. `--only` and `--ignore` take providers' slugs, with commas between. Notes taken with
+ * one routing are kept apart from those taken with another.
  */
 
 const { values, positionals } = parseArgs({
@@ -28,13 +35,17 @@ const { values, positionals } = parseArgs({
 		go: { type: 'boolean', default: false },
 		redo: { type: 'boolean', default: false },
 		show: { type: 'boolean', default: false },
-		remarks: { type: 'string' }
+		record: { type: 'boolean', default: false },
+		remarks: { type: 'string' },
+		only: { type: 'string' },
+		ignore: { type: 'string' },
+		sort: { type: 'string' }
 	}
 });
 const [path] = positionals;
 if (!path) {
 	console.error(
-		'usage: npm run notes -- <book.epub | book.txt> [--from n] [--to n] [--model id] [--max-usd n] [--go] [--redo] [--show] [--remarks text]'
+		'usage: npm run notes -- <book.epub | book.txt> [--from n] [--to n] [--model id] [--max-usd n] [--go] [--redo] [--show] [--record] [--remarks text] [--only providers] [--ignore providers] [--sort price|throughput|latency|none]'
 	);
 	process.exit(1);
 }
@@ -68,9 +79,10 @@ function show(notes: Notes): void {
 }
 
 // What the model takes for thinking and for its answers over a section, and what goes with each
-// section besides its text: the instructions, the shapes of the answers and what is known so far.
-const tokensOutPerSection = 2_200;
-const tokensAroundEachSection = 2_600;
+// section besides its text: the instructions, the shapes of the answers, what is known so far and
+// the synopsis asked for again. As measured on a run of 21 sections: a guess for another model.
+const tokensOutPerSection = 4_400;
+const tokensAroundEachSection = 4_400;
 
 const book = await readBook(path);
 const from = Number(values.from ?? 1) - 1;
@@ -79,18 +91,48 @@ const model = values.model ?? process.env.OPENROUTER_MODEL ?? defaultModel;
 const maxUsd = Number(values['max-usd']);
 const count = new Intl.NumberFormat('en-US');
 
+const slugs = (list?: string) => list?.split(',').map((slug) => slug.trim().toLowerCase());
+// Left to itself, OpenRouter spreads the calls among providers that differ up to five times in price
+// and in how they follow instructions: the cheapest first, unless told otherwise. `--sort none`
+// leaves it to OpenRouter.
+const sort = values.sort ?? 'price';
+const routing: Routing | undefined =
+	values.only || values.ignore || sort !== 'none'
+		? {
+				...(values.only ? { only: slugs(values.only) } : {}),
+				...(values.ignore ? { ignore: slugs(values.ignore) } : {}),
+				...(sort !== 'none' ? { sort: sort as Routing['sort'] } : {})
+			}
+		: undefined;
+const routed = routing
+	? `.${[
+			routing.sort && `by-${routing.sort}`,
+			routing.only && `only-${routing.only.join('+')}`,
+			routing.ignore && `without-${routing.ignore.join('+')}`
+		]
+			.filter(Boolean)
+			.join('.')}`
+	: '';
+
 const file = join(
 	import.meta.dirname,
 	'../../books/notes',
-	`${book.source.file}.${model.replaceAll('/', '_')}.json`
+	`${book.source.file}.${model.replaceAll('/', '_')}${routed}.json`
 );
 const kept: Notes | undefined = values.redo
 	? undefined
 	: await readFile(file, 'utf8').then(JSON.parse, () => undefined);
 
-if (values.show) {
+async function record(notes: Notes, lost?: Lost): Promise<void> {
+	const made = notesRecord(await identify(path as string, book), notes, lost);
+	if (values.remarks) made.remarks = values.remarks;
+	console.log(`  recorded in ${await keep(made)}`);
+}
+
+if (values.show || values.record) {
 	if (!kept) throw new Error(`No notes of ${book.source.file} taken by ${model} yet`);
-	show(kept);
+	if (values.show) show(kept);
+	else await record(kept);
 	process.exit(0);
 }
 if (kept && kept.rules !== rulesHash) {
@@ -109,7 +151,7 @@ const cost = await price(model);
 
 console.log(`${book.title ?? '(no title)'} · ${book.source.file}`);
 console.log(
-	`  sections ${from + 1} to ${to + 1} of ${book.sections.length}${done ? `, ${done} of them already taken` : ''}: ${pending.length} to read with ${model}, two calls each and one at the end`
+	`  sections ${from + 1} to ${to + 1} of ${book.sections.length}${done ? `, ${done} of them already taken` : ''}: ${pending.length} to read with ${model}${routing ? `, routed ${JSON.stringify(routing)}` : ''}, two calls each and one at the end`
 );
 console.log(
 	cost
@@ -135,7 +177,7 @@ const openRouter = createOpenRouter(key('OPENROUTER_API_KEY'));
 // A model that thinks may think long. An answer cut short, or that is not the JSON asked for, is
 // one provider's bad turn, and another try often lands elsewhere: what it cost is counted all the same.
 const ask: Ask = async ({ system, schema, user }) => {
-	const wasted = { tokensIn: 0, tokensOut: 0, tokensThinking: 0, usd: 0 };
+	const useless: { provider: string | null; usage: NonNullable<OpenRouterError['usage']> }[] = [];
 	for (let attempt = 1; ; attempt++) {
 		try {
 			const answer = await openRouter.askJson({
@@ -143,16 +185,13 @@ const ask: Ask = async ({ system, schema, user }) => {
 				system,
 				schema,
 				user: JSON.stringify(user),
-				maxTokens: 24_000
+				maxTokens: 24_000,
+				routing
 			});
-			const usage = { ...answer.usage };
-			for (const key of Object.keys(wasted) as (keyof typeof wasted)[]) usage[key] += wasted[key];
-			return { ...answer, usage };
+			return { ...answer, useless };
 		} catch (error) {
 			if (!(error instanceof OpenRouterError) || error.status !== 200 || attempt === 3) throw error;
-			for (const key of Object.keys(wasted) as (keyof typeof wasted)[]) {
-				wasted[key] += error.usage?.[key] ?? 0;
-			}
+			if (error.usage) useless.push({ provider: error.provider ?? null, usage: error.usage });
 		}
 	}
 };
@@ -160,20 +199,33 @@ const save = (notes: Notes) => writeFile(file, JSON.stringify(notes, null, '\t')
 await mkdir(join(file, '..'), { recursive: true });
 console.log();
 
-const notes = await takeNotes(book, {
-	ask,
-	model,
-	from,
-	to,
-	sofar: kept,
-	maxUsd,
-	async onSection(all, { index, kind, title, usage, seconds, calls, providers, soFar }) {
-		await save(all);
-		console.log(
-			`  ${String(index + 1).padStart(4)}  ${kind.padEnd(9)}  ${calls} calls  ${count.format(usage.tokensIn).padStart(7)} in  ${count.format(usage.tokensOut).padStart(6)} out  $${usage.usd.toFixed(5)}  ${seconds.toFixed(0).padStart(3)} s  so far ${String(soFar.split(' ').length).padStart(3)} words  ${providers.join('+')}  ${title ?? '(untitled)'}`
-		);
+// Held from the start, so that a run that breaks still has its notes to record.
+const notes = kept ?? begin(book, { model, routing });
+try {
+	await takeNotes(book, {
+		ask,
+		model,
+		routing,
+		from,
+		to,
+		sofar: notes,
+		maxUsd,
+		async onSection(all, { index, kind, title, usage, seconds, calls, providers, soFar }) {
+			await save(all);
+			console.log(
+				`  ${String(index + 1).padStart(4)}  ${kind.padEnd(9)}  ${calls} calls  ${count.format(usage.tokensIn).padStart(7)} in  ${count.format(usage.tokensOut).padStart(6)} out  $${usage.usd.toFixed(5)}  ${seconds.toFixed(0).padStart(3)} s  so far ${String(soFar.split(' ').length).padStart(3)} words  ${providers.join('+')}  ${title ?? '(untitled)'}`
+			);
+		}
+	});
+} catch (error) {
+	// A run that breaks is a result too, and what it cost was spent: it goes on record with its why.
+	if (error instanceof NotesError) {
+		console.log(`\n  Broke at section ${error.index + 1}: ${error.message}`);
+		await record(notes, { index: error.index, took: error.took, why: error.message });
+		process.exit(1);
 	}
-});
+	throw error;
+}
 
 const last = notes.sections.at(-1)?.index ?? from - 1;
 if (last < to) {
@@ -196,7 +248,4 @@ console.log(
 	`\n  ${notes.sections.length} sections, ${notes.cast.length} people, ${notes.threads.length} threads: ${all.calls} calls, $${all.usage.usd.toFixed(5)}, ${all.seconds} s`
 );
 console.log(`  kept in books/notes/${file.split('/').at(-1)}`);
-
-const made = notesRecord(await identify(path, book), notes);
-if (values.remarks) made.remarks = values.remarks;
-console.log(`  recorded in ${await keep(made)}`);
+await record(notes);

@@ -101,12 +101,24 @@ test('each section is read in the light of the ones before', async () => {
 		// Never said to open, so it opens where it first shows.
 		{ id: 'the-well', what: 'What is in the well?', opened: 2, closed: null }
 	]);
-	assert.deepEqual(took(notes), {
+	const { log, ...all } = took(notes);
+	assert.deepEqual(all, {
 		usage: { tokensIn: 500, tokensOut: 250, tokensThinking: 0, usd: 0.05 },
 		seconds: 0,
 		calls: 5,
 		providers: ['SomeCloud']
 	});
+	// Every call is on the log, with who ran it and how it ended.
+	assert.deepEqual(
+		log?.map(({ job, provider, outcome }) => `${job} by ${provider}: ${outcome}`),
+		[
+			'section_notes by SomeCloud: kept',
+			'section_notes by SomeCloud: kept',
+			'so_far by SomeCloud: kept',
+			'section_notes by SomeCloud: kept',
+			'so_far by SomeCloud: kept'
+		]
+	);
 });
 
 test('a synopsis that runs long, or lets the story go, is asked for again', async () => {
@@ -136,6 +148,11 @@ test('a synopsis that runs long, or lets the story go, is asked for again', asyn
 	assert.equal(handed('so_far')[1].draft, long);
 	assert.match(handed('so_far')[3].problem, /let go of most of the story/);
 	assert.equal(handed('so_far')[3].draft, undefined);
+	// What was sent back is on the log as such, against whoever gave it.
+	assert.deepEqual(
+		took(notes).log?.map(({ outcome }) => outcome),
+		['kept', 'too_long', 'kept', 'kept', 'let_go', 'kept']
+	);
 });
 
 test('a synopsis that had run long is brought back to its length, not taken for one that let go', async () => {
@@ -270,4 +287,20 @@ test('the threads left open are looked at again with the whole book in view', as
 
 	// Once is enough: a second look asks nothing.
 	await reviewThreads(notes, scripted({}).ask);
+});
+
+test('an answer of another shape than asked is asked for again, and counted', async () => {
+	const { ask } = scripted({
+		section_notes: [{ summary: 'No kind, no lists.' }, sections[1]],
+		so_far: [{ so_far: 'Ana has found a map.' }]
+	});
+
+	const notes = await takeNotes(book, { ask, model: 'some/model', from: 1, to: 1, maxUsd: 1 });
+
+	assert.equal(notes.sections[0]?.summary, 'Ana finds a map and hides it.');
+	assert.deepEqual(
+		took(notes).log?.map(({ job, outcome }) => `${job}: ${outcome}`),
+		['section_notes: useless', 'section_notes: kept', 'so_far: kept']
+	);
+	assert.equal(took(notes).usage.usd, 0.03);
 });

@@ -5,19 +5,25 @@
 
 const api = 'https://openrouter.ai/api/v1';
 
-/** Cheap, with room for a whole book, and able to answer in a given JSON shape. */
-export const defaultModel = 'deepseek/deepseek-v4-flash';
+/**
+ * The one that takes reading notes as asked every time, in a minute and a half a book: how it was
+ * chosen among ten is in `docs/books/notes-experiments.md`.
+ */
+export const defaultModel = 'google/gemini-3.1-flash-lite';
 
 /** A refusal from OpenRouter or from the model behind it. Never carries the key. */
 export class OpenRouterError extends Error {
 	readonly status: number;
 	/** What was paid for an answer that was of no use, when there was one. */
 	readonly usage?: Usage;
+	/** Who gave that answer. */
+	readonly provider?: string | null;
 
-	constructor(status: number, message: string, usage?: Usage) {
+	constructor(status: number, message: string, usage?: Usage, provider?: string | null) {
 		super(`OpenRouter ${status}: ${message}`);
 		this.status = status;
 		this.usage = usage;
+		this.provider = provider;
 	}
 }
 
@@ -37,6 +43,8 @@ export interface Ask {
 	/** The shape of the answer, as a JSON Schema with a name for it. */
 	schema: { name: string; schema: Record<string, unknown> };
 	maxTokens?: number;
+	/** Which providers of the model to let in: see OpenRouter's provider routing. */
+	routing?: { only?: string[]; ignore?: string[]; sort?: string };
 }
 
 export interface Answer<T> {
@@ -79,7 +87,8 @@ interface Body {
 
 /** Too many calls, or a fault on their side: worth another try. */
 const passing = (status: number) => status === 408 || status === 429 || status >= 500;
-const tries = 3;
+/** With the wait doubling each time, from a second: a minute in all, which a limit of calls a minute needs. */
+const tries = 7;
 
 /** The catalogue is public: a price takes no key and costs nothing. */
 export async function price(model: string, fetcher: typeof fetch = fetch): Promise<Price | null> {
@@ -154,7 +163,14 @@ export function createOpenRouter(apiKey: string, options: Options = {}) {
 		},
 
 		/** One question, answered as JSON of the given shape, by a provider that can hold to it. */
-		async askJson<T>({ model, system, user, schema, maxTokens = 2000 }: Ask): Promise<Answer<T>> {
+		async askJson<T>({
+			model,
+			system,
+			user,
+			schema,
+			maxTokens = 2000,
+			routing
+		}: Ask): Promise<Answer<T>> {
 			const answer = await call('/chat/completions', {
 				model,
 				messages: [
@@ -162,7 +178,7 @@ export function createOpenRouter(apiKey: string, options: Options = {}) {
 					{ role: 'user', content: user }
 				],
 				response_format: { type: 'json_schema', json_schema: { ...schema, strict: true } },
-				provider: { require_parameters: true },
+				provider: { require_parameters: true, ...routing },
 				max_tokens: maxTokens
 			});
 
@@ -180,7 +196,8 @@ export function createOpenRouter(apiKey: string, options: Options = {}) {
 				throw new OpenRouterError(
 					200,
 					`${model} did not answer in JSON (it stopped for: ${choice?.finish_reason ?? 'no reason given'})`,
-					usage
+					usage,
+					answer.provider ?? null
 				);
 			}
 			return { value, model: answer.model ?? model, provider: answer.provider ?? null, usage };

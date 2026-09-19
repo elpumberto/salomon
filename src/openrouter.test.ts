@@ -29,7 +29,8 @@ test('an answer comes back parsed, with what it cost', async () => {
 		model: 'some/model',
 		system: 'Answer about the text.',
 		user: 'The cat slept.',
-		schema: { name: 'scene', schema: { type: 'object' } }
+		schema: { name: 'scene', schema: { type: 'object' } },
+		routing: { ignore: ['open-inference'], sort: 'price' }
 	});
 
 	assert.deepEqual(answer, {
@@ -50,6 +51,12 @@ test('an answer comes back parsed, with what it cost', async () => {
 		sent.messages.map((message: { role: string }) => message.role),
 		['system', 'user']
 	);
+	// Only providers that can hold to the shape, and among them the ones the caller lets in.
+	assert.deepEqual(sent.provider, {
+		require_parameters: true,
+		ignore: ['open-inference'],
+		sort: 'price'
+	});
 });
 
 test('a refusal says why, and an answer cut short is not taken for JSON', async () => {

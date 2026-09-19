@@ -5,7 +5,7 @@ import { join, parse } from 'node:path';
 import { words } from './book.ts';
 import type { Book } from './book.ts';
 import { open, took } from './notes.ts';
-import type { Notes } from './notes.ts';
+import type { Notes, Took } from './notes.ts';
 
 /**
  * The repo is also the register of what was run: every run that costs money or gives scores
@@ -69,8 +69,13 @@ export interface NotesRecord {
 	by: {
 		model: string;
 		through: 'OpenRouter';
-		/** How many sections each provider ran, when known. */
-		providers: Record<string, number>;
+		/** What OpenRouter was told about which providers to let in, when it was told anything. */
+		routing?: Notes['routing'];
+		/**
+		 * What each provider did: its calls, how many of its answers were not kept, and what it was
+		 * paid. In the first records, only the sections it had a hand in.
+		 */
+		providers: Record<string, number | { calls: number; notKept: number; usd: number }>;
 		/** The instructions and the shape of the answer, by their hash: they are in the code. */
 		rules: string;
 		code: ReturnType<typeof code>;
@@ -93,50 +98,99 @@ export interface NotesRecord {
 		/** Those a last look at the whole book found settled after all, when there was one. */
 		threadsSettledOnReview?: number;
 		threadsLeftOpen: number;
+		/** What the reader knows so far, section by section: how many times within its length, and its longest. */
+		synopsis?: { withinLength: number; of: number; longestWords: number };
 		notes: { sha256: string };
 	};
+	/** A run that did not get to the end: the section it stopped at, and why. */
+	failed?: { section: number; why: string };
 	/** What someone reading the record later should know about it. */
 	remarks?: string;
 }
 
-export function notesRecord(book: BookIdentity, notes: Notes): NotesRecord {
-	const { usage, seconds, calls } = took(notes);
-	const providers: Record<string, number> = {};
-	for (const name of notes.sections.flatMap((section) => section.providers)) {
-		providers[name] = (providers[name] ?? 0) + 1;
+/** The section a run broke at, what was spent on it, and why it broke. */
+export interface Lost {
+	index: number;
+	took: Took;
+	why: string;
+}
+
+export function notesRecord(book: BookIdentity, notes: Notes, lost?: Lost): NotesRecord {
+	const done = took(notes);
+	const log = [...(done.log ?? []), ...(lost?.took.log ?? [])];
+	const calls = done.calls + (lost?.took.calls ?? 0);
+	const seconds = Math.round(done.seconds + (lost?.took.seconds ?? 0));
+	const usage = { ...done.usage };
+	for (const key of Object.keys(usage) as (keyof typeof usage)[]) {
+		usage[key] += lost?.took.usage[key] ?? 0;
 	}
+	const providers: Record<string, { calls: number; notKept: number; usd: number }> = {};
+	for (const { provider, outcome, usd } of log) {
+		const one = (providers[provider ?? 'unknown'] ??= { calls: 0, notKept: 0, usd: 0 });
+		one.calls++;
+		if (outcome !== 'kept') one.notKept++;
+		one.usd = Number((one.usd + usd).toFixed(6));
+	}
+	const story = notes.sections.filter((section) => section.kind === 'story');
+	const lengths = story.map((section) => words(section.soFar));
 
 	return {
 		kind: 'notes',
 		at: notes.startedAt,
 		book,
 		sections: {
-			from: (notes.sections[0]?.index ?? 0) + 1,
-			to: (notes.sections.at(-1)?.index ?? 0) + 1
+			from: (notes.sections[0]?.index ?? lost?.index ?? 0) + 1,
+			to: (notes.sections.at(-1)?.index ?? lost?.index ?? 0) + 1
 		},
-		by: { model: notes.model, through: 'OpenRouter', providers, rules: notes.rules, code: code() },
+		by: {
+			model: notes.model,
+			through: 'OpenRouter',
+			...(notes.routing ? { routing: notes.routing } : {}),
+			providers,
+			rules: notes.rules,
+			code: code()
+		},
 		took: { calls, ...usage, usd: Number(usage.usd.toFixed(6)), seconds },
 		found: {
-			story: notes.sections.filter((section) => section.kind === 'story').length,
-			apparatus: notes.sections.filter((section) => section.kind === 'apparatus').length,
+			story: story.length,
+			apparatus: notes.sections.length - story.length,
 			people: notes.cast.length,
 			threads: notes.threads.length,
 			threadsSettledOnReview: notes.threads.filter((thread) => thread.review?.verdict === 'settled')
 				.length,
 			threadsLeftOpen: open(notes).length,
+			synopsis: {
+				withinLength: lengths.filter((length) => length <= 300).length,
+				of: lengths.length,
+				longestWords: Math.max(0, ...lengths)
+			},
 			notes: { sha256: sha256(JSON.stringify(notes)) }
-		}
+		},
+		// Never the text of a book: what a provider answers may quote what it was sent.
+		...(lost ? { failed: { section: lost.index + 1, why: lost.why.slice(0, 300) } } : {})
 	};
 }
 
-/** Writes a record where it belongs and returns its path from the root of the repo. */
-export async function keep(record: NotesRecord): Promise<string> {
-	const slug = parse(record.book.source.file)
-		.name.toLowerCase()
-		.replace(/[^a-z0-9]+/g, '-');
+/**
+ * Writes a record where it belongs and returns its path from the root of the repo. Its name says
+ * when the run started and who ran it: runs set off together start in the same second. The record
+ * of a run may be written again as the run goes on; the record of another run is never written over.
+ */
+export async function keep(record: NotesRecord, base = root): Promise<string> {
+	const slug = (name: string) => name.toLowerCase().replace(/[^a-z0-9.]+/g, '-');
 	const stamp = (record.at ?? new Date().toISOString()).replace(/[-:]|\.\d+/g, '');
-	const path = join('records', 'books', slug, `${stamp}.${record.kind}.json`);
-	await mkdir(join(root, path, '..'), { recursive: true });
-	await writeFile(join(root, path), `${JSON.stringify(record, null, '\t')}\n`);
-	return path;
+	const folder = join('records', 'books', slug(parse(record.book.source.file).name));
+	const run = (one: NotesRecord) => JSON.stringify([one.at, one.by.model, one.by.routing ?? null]);
+
+	await mkdir(join(base, folder), { recursive: true });
+	for (let copy = 1; ; copy++) {
+		const name = `${stamp}.${record.kind}.${slug(record.by.model)}${copy > 1 ? `.${copy}` : ''}.json`;
+		const there: NotesRecord | undefined = await readFile(join(base, folder, name), 'utf8').then(
+			JSON.parse,
+			() => undefined
+		);
+		if (there && run(there) !== run(record)) continue;
+		await writeFile(join(base, folder, name), `${JSON.stringify(record, null, '\t')}\n`);
+		return join(folder, name);
+	}
 }

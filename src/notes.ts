@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { words } from './book.ts';
-import type { Book } from './book.ts';
+import type { Book, Section } from './book.ts';
 import type { Usage } from './openrouter.ts';
 
 /**
@@ -129,12 +129,29 @@ interface Reviewed {
 }
 
 /** What a call took. */
+/** How an answer ended: kept, or sent back for what was wrong with it, or of no use at all. */
+export type Outcome = 'kept' | 'too_long' | 'let_go' | 'useless';
+
+/** One call to the model. */
+export interface Asked {
+	/** Which of the jobs it was, by the name of the shape of its answer. */
+	job: string;
+	/** Who ran the model: OpenRouter sends it to one provider or another. */
+	provider: string | null;
+	tokensOut: number;
+	usd: number;
+	seconds: number;
+	outcome: Outcome;
+}
+
+/** What a piece of the work took. */
 export interface Took {
 	usage: Usage;
 	seconds: number;
 	calls: number;
-	/** Who ran the model: OpenRouter sends it to one provider or another. */
 	providers: string[];
+	/** Every call, in order. Absent from notes taken before calls were logged. */
+	log?: Asked[];
 }
 
 export interface SectionNotes extends Took {
@@ -166,6 +183,8 @@ export interface Notes {
 	/** The model that took them, and the rules it took them under. */
 	model: string;
 	rules: string;
+	/** Which of the model's providers were let in, when that was not left to OpenRouter. */
+	routing?: Routing;
 	/** When the first section was handed over. */
 	startedAt: string;
 	sections: SectionNotes[];
@@ -175,6 +194,14 @@ export interface Notes {
 	review?: Took;
 }
 
+/** What OpenRouter is told about the providers of a model: by their slugs, such as `open-inference`. */
+export interface Routing {
+	only?: string[];
+	ignore?: string[];
+	/** `price` tries the cheapest first, instead of spreading the calls among them. */
+	sort?: 'price' | 'throughput' | 'latency';
+}
+
 /** One question to the model: its instructions, the shape of its answer and what it is handed. */
 export interface Call {
 	system: string;
@@ -182,13 +209,20 @@ export interface Call {
 	user: unknown;
 }
 
-export type Ask = (
-	call: Call
-) => Promise<{ value: unknown; usage: Usage; provider?: string | null }>;
+/** An answer, what it took, and the answers of no use that were got on the way to it. */
+export interface Answered {
+	value: unknown;
+	usage: Usage;
+	provider?: string | null;
+	useless?: { provider: string | null; usage: Usage }[];
+}
+
+export type Ask = (call: Call) => Promise<Answered>;
 
 export interface Taking {
 	ask: Ask;
 	model: string;
+	routing?: Routing;
 	/** The sections to read, by their place from 0, both included. */
 	from: number;
 	to: number;
@@ -202,34 +236,82 @@ export interface Taking {
 
 const none: Usage = { tokensIn: 0, tokensOut: 0, tokensThinking: 0, usd: 0 };
 
+/** A section that could not be read. What was spent trying is not lost with it. */
+export class NotesError extends Error {
+	readonly took: Took;
+	/** The section it was, by its place from 0. */
+	readonly index: number;
+
+	constructor(cause: unknown, took: Took, index: number) {
+		super(cause instanceof Error ? cause.message : String(cause), { cause });
+		this.took = took;
+		this.index = index;
+	}
+}
+
 /** Asks, and keeps count of what the asking takes. */
 function counting(ask: Ask) {
 	let usage = none;
-	const providers = new Set<string>();
-	let calls = 0;
+	const log: Asked[] = [];
 	const began = performance.now();
+	const plus = (more: Usage) => {
+		usage = {
+			tokensIn: usage.tokensIn + more.tokensIn,
+			tokensOut: usage.tokensOut + more.tokensOut,
+			tokensThinking: usage.tokensThinking + more.tokensThinking,
+			usd: usage.usd + more.usd
+		};
+	};
 
 	return {
 		async ask<T>(call: Call, holds: (value: T) => boolean): Promise<T> {
-			const answer = await ask(call);
-			calls++;
-			usage = {
-				tokensIn: usage.tokensIn + answer.usage.tokensIn,
-				tokensOut: usage.tokensOut + answer.usage.tokensOut,
-				tokensThinking: usage.tokensThinking + answer.usage.tokensThinking,
-				usd: usage.usd + answer.usage.usd
-			};
-			if (answer.provider) providers.add(answer.provider);
-			if (!holds(answer.value as T)) {
-				throw new Error(`The model answered ${call.schema.name} in another shape than asked`);
+			const job = call.schema.name;
+			// JSON that is not of the shape asked for is an answer of no use like any other: some
+			// providers hold a model to the shape less strictly than they say.
+			for (let attempt = 1; ; attempt++) {
+				const started = performance.now();
+				const answer = await ask(call);
+				const seconds = Math.round((performance.now() - started) / 100) / 10;
+
+				for (const lost of answer.useless ?? []) {
+					plus(lost.usage);
+					const { tokensOut, usd } = lost.usage;
+					log.push({
+						job,
+						provider: lost.provider,
+						tokensOut,
+						usd,
+						seconds: 0,
+						outcome: 'useless'
+					});
+				}
+				plus(answer.usage);
+				const { tokensOut, usd } = answer.usage;
+				const provider = answer.provider ?? null;
+				const fits = holds(answer.value as T);
+				log.push({ job, provider, tokensOut, usd, seconds, outcome: fits ? 'kept' : 'useless' });
+
+				if (fits) return answer.value as T;
+				if (attempt === 3) {
+					const got =
+						answer.value && typeof answer.value === 'object' ? Object.keys(answer.value) : [];
+					throw new Error(
+						`The model answered ${job} in another shape than asked, three times: the last had ${got.join(', ') || 'nothing'}`
+					);
+				}
 			}
-			return answer.value as T;
+		},
+		/** The last answer was not kept after all. */
+		sentBack(outcome: Outcome): void {
+			const last = log.at(-1);
+			if (last) last.outcome = outcome;
 		},
 		took: (): Took => ({
 			usage,
 			seconds: Math.round((performance.now() - began) / 100) / 10,
-			calls,
-			providers: [...providers]
+			calls: log.length,
+			providers: [...new Set(log.flatMap(({ provider }) => provider ?? []))],
+			log
 		})
 	};
 }
@@ -249,7 +331,8 @@ export function took(notes: Notes): Took {
 		),
 		seconds: Math.round(all.reduce((sum, { seconds }) => sum + seconds, 0)),
 		calls: all.reduce((sum, { calls }) => sum + calls, 0),
-		providers: [...new Set(all.flatMap(({ providers }) => providers))]
+		providers: [...new Set(all.flatMap(({ providers }) => providers))],
+		log: all.flatMap(({ log }) => log ?? [])
 	};
 }
 
@@ -270,60 +353,81 @@ export function castBefore(notes: Notes, index: number): { name: string; who: st
 	return [...cast].map(([name, who]) => ({ name, who }));
 }
 
-/** Reads the book's sections in order. Returns short of `to` when the money runs out. */
-export async function takeNotes(book: Book, taking: Taking): Promise<Notes> {
+/** Notes with nothing in them yet. */
+export function begin(book: Book, by: Pick<Taking, 'model' | 'routing'>): Notes {
 	const { title, author, language, source } = book;
-	const notes: Notes = taking.sofar ?? {
+	return {
 		book: { title, author, language, source },
-		model: taking.model,
+		model: by.model,
 		rules: rulesHash,
+		...(by.routing ? { routing: by.routing } : {}),
 		startedAt: new Date().toISOString(),
 		sections: [],
 		cast: [],
 		threads: []
 	};
+}
+
+/** Reads the book's sections in order. Returns short of `to` when the money runs out. */
+export async function takeNotes(book: Book, taking: Taking): Promise<Notes> {
+	const notes = taking.sofar ?? begin(book, taking);
 
 	const next = (notes.sections.at(-1)?.index ?? taking.from - 1) + 1;
 	for (let index = next; index <= taking.to; index++) {
 		const read = book.sections[index];
 		if (!read || took(notes).usage.usd >= taking.maxUsd) break;
 
-		const before = notes.sections.at(-1)?.soFar ?? '';
 		const model = counting(taking.ask);
-		const value = await model.ask<Taken>(
-			{
-				...section,
-				user: {
-					so_far: before,
-					cast: notes.cast.map(({ name, who }) => ({ name, who })),
-					threads: open(notes).map(({ id, what }) => ({ id, what })),
-					section: { title: read.title, text: read.paragraphs.join('\n\n') }
-				}
-			},
-			(answer) =>
-				(answer?.kind === 'story' || answer?.kind === 'apparatus') &&
-				typeof answer.summary === 'string' &&
-				[answer.characters, answer.cast, answer.threads].every(Array.isArray)
-		);
-
-		// What stands around the work tells the reader nothing of the story.
-		const story = value.kind === 'story';
-		if (story) keep(notes, value, index);
-		const taken: SectionNotes = {
-			index,
-			title: read.title,
-			kind: value.kind,
-			summary: value.summary,
-			characters: story ? value.characters : [],
-			cast: story ? value.cast : [],
-			threads: story ? value.threads.map(({ id, status, note }) => ({ id, status, note })) : [],
-			soFar: story ? await known(model, before, read.title, value.summary) : before,
-			...model.took()
-		};
+		let taken: SectionNotes;
+		try {
+			taken = await readSection(notes, index, read, model);
+		} catch (error) {
+			throw new NotesError(error, model.took(), index);
+		}
 		notes.sections.push(taken);
 		await taking.onSection?.(notes, taken);
 	}
 	return notes;
+}
+
+/** The notes of one section, taken in the light of the notes so far, whose cast and threads it brings up to date. */
+async function readSection(
+	notes: Notes,
+	index: number,
+	read: Section,
+	model: ReturnType<typeof counting>
+): Promise<SectionNotes> {
+	const before = notes.sections.at(-1)?.soFar ?? '';
+	const value = await model.ask<Taken>(
+		{
+			...section,
+			user: {
+				so_far: before,
+				cast: notes.cast.map(({ name, who }) => ({ name, who })),
+				threads: open(notes).map(({ id, what }) => ({ id, what })),
+				section: { title: read.title, text: read.paragraphs.join('\n\n') }
+			}
+		},
+		(answer) =>
+			(answer?.kind === 'story' || answer?.kind === 'apparatus') &&
+			typeof answer.summary === 'string' &&
+			[answer.characters, answer.cast, answer.threads].every(Array.isArray)
+	);
+
+	// What stands around the work tells the reader nothing of the story.
+	const story = value.kind === 'story';
+	if (story) keep(notes, value, index);
+	return {
+		index,
+		title: read.title,
+		kind: value.kind,
+		summary: value.summary,
+		characters: story ? value.characters : [],
+		cast: story ? value.cast : [],
+		threads: story ? value.threads.map(({ id, status, note }) => ({ id, status, note })) : [],
+		soFar: story ? await known(model, before, read.title, value.summary) : before,
+		...model.took()
+	};
 }
 
 /**
@@ -352,6 +456,7 @@ async function known(
 		const dropped = held >= soFarFloor && length < held / 2;
 		if (length <= soFarWords && !dropped) return answer;
 
+		model.sentBack(dropped ? 'let_go' : 'too_long');
 		if (dropped) mend = { problem: soFar.dropped };
 		else {
 			// Cutting a draft down is easier than writing a shorter one anew.
