@@ -21,7 +21,7 @@ What a difference means:
 
 ## The lowest and the highest passage say how even it is
 
-The well written books keep within a tenth or so from their worst passage to their best; those written by the yard span wider, since what guards against ornament bites some of their passages and not others. _Ulysses_ runs from 0.33 to 0.90, the highest passage of all the books judged and a lowest among those of the bottom floor, and its merit of 0.63 is the mean of a book that is several: it is marked down where Jev cannot follow it, and not for being difficult, since _Mrs. Dalloway_ stands at the top. A wide span is a fact about the book and a warning about its mean.
+The well written books keep within a tenth or so from their worst passage to their best; those written by the yard span wider, since what guards against ornament bites some of their passages and not others. _Ulysses_ runs from 0.33 to 0.90, level with the highest passage of all the books judged and down among those of the bottom floor, and its merit of 0.63 is the mean of a book that is several: it is marked down where Jev cannot follow it, and not for being difficult, since _Mrs. Dalloway_ stands at the top. A wide span is a fact about the book and a warning about its mean.
 
 ## A good read is the weaker number
 
