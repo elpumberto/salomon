@@ -6,7 +6,7 @@ It is an experiment, not a product. How a book gets from a file to a valuation, 
 
 ## Books
 
-No book goes in the repo, nor anything made from one: `books/` is ignored whole. The ones the experiment starts from are Project Gutenberg's, listed in `gutenberg.json`, and
+No book goes in the repo, nor anything made from one: `books/` is ignored whole. The ones the experiment starts from are Project Gutenberg's, listed in `gutenberg.json` with the sections of each that are the story, and whether it is a book to judge or one a passage is taken from to set others against, and
 
     npm install
     npm run fetch
@@ -30,6 +30,16 @@ Jev takes in some 32,000 tokens a call, so it never sees a whole book: a chapter
 says what taking the notes would cost and asks nothing; with `--go` it takes them, stopping at `--max-usd` (0.25 unless told). `--from` and `--to` are section numbers as `normalize --sections` lists them. `--model` is any model of OpenRouter's that can answer in a given JSON shape; left out, it is Gemini 3.1 Flash-Lite, which [nine were tried](docs/books/notes-experiments.md) to choose. OpenRouter is asked for the cheapest of a model's providers first, and `--sort`, `--only` and `--ignore` say otherwise. The notes go to `books/notes/`, a file per book and model, saved after every section: a run that stops goes on from there when run again, and `--redo` starts over. `--show` prints them to be read. A run leaves its record under `records/`, whether it gets to the end or breaks, and `npm run records -- king-solomons-mines` sets a book's records side by side.
 
 For each section the model says whether it belongs to the work or stands around it, what happens in it, what changes for each character, and which of the story's open questions it opens, moves or closes. A second call rewrites what a reader knows so far, which is what the next section is read in the light of, and is asked again if that runs long or lets go of the story. Once the book is read, a last call looks again, with the whole of it in view, at the threads that were left open. The code keeps the cast and the ledger of threads. The model takes notes and judges nothing: it is told to go by the text alone and to leave out what it remembers of the book and what it thinks of it. Judging is Jev's.
+
+## Asking Jev
+
+    npm run judge -- books/king-solomons-mines.epub --sections 5-24
+
+shows a set of questions as they would be put to Jev, the passages they would be asked of and about what that would cost, and sends nothing; with `--go` it asks, a call a passage, and leaves a record under `records/`. A passage is a section; `--pieces 1000` cuts each in pieces of about as many words, and `--together` sends a range of sections as one text. `--panel 12` takes as many pieces, evenly spread, and sets each side by side with each passage of a panel of anchors, both ways round. Jev is given the text alone, with no title nor author. The questions are in [src/questions.ts](src/questions.ts). What Jev reads well, where it gets stuck and what moves its answers besides the text was [tried on chapters whose answers were known](docs/books/jev-experiments.md), with the experiments under [experiments/books/jev/](experiments/books/jev/).
+
+    npm run value
+
+says what the books judged so far are worth, from the records and asking nothing: their literary merit and how good a read they are, by the rules of [src/value.ts](src/value.ts), which are arithmetic on Jev's answers and have a hash of their own. Questions and rules are being set on [ten books of known standing](docs/books/calibration.md), to be checked on ten others.
 
 ## Keys
 
