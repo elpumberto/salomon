@@ -4,8 +4,8 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
 import type { Book } from './book.ts';
-import { identify, keep } from './records.ts';
-import type { NotesRecord } from './records.ts';
+import { identify, isValuation, jevRecord, jevRecordsOf, keep, recorded } from './records.ts';
+import type { JevRecord, NotesRecord } from './records.ts';
 
 const record = (
 	model: string,
@@ -86,4 +86,35 @@ test("of somebody's book the record keeps the text's hash, and nothing of the fi
 	const kept = await keep({ ...record('some/model', 0.01), book: private_ }, base);
 	assert.ok(kept.startsWith('records/books/a-book-of-today/'), kept);
 	assert.ok(!(await readFile(join(base, kept), 'utf8')).includes('from my reader'));
+});
+
+test('a record says what the run was for, and an older one is told by its remarks', async () => {
+	const identity = record('any', 0).book;
+	const made = (purpose?: JevRecord['purpose']) =>
+		jevRecord(
+			identity,
+			'2026-01-02T03:04:05.678Z',
+			{ questions: 'gut', rules: 'sha256:ee', asked: {} },
+			[],
+			purpose
+		);
+	assert.equal(made().purpose, 'experiment');
+	assert.ok(isValuation(made('valuation')));
+	assert.ok(!isValuation(made()));
+
+	const { purpose, ...older } = made();
+	assert.ok(isValuation({ ...older, remarks: 'Variant: gut at 3000 words. Twelve passages.' }));
+	assert.ok(isValuation({ ...older, remarks: 'Check: the book in pieces of about 1,000 words.' }));
+	assert.ok(!isValuation({ ...older, remarks: 'Variant: gut at 1000 words. Twelve passages.' }));
+	assert.ok(!isValuation({ ...older, remarks: 'Tuning of the passage questions.' }));
+	assert.ok(!isValuation(older));
+
+	const base = await mkdtemp(join(tmpdir(), 'salomon-records-'));
+	await keep(record('some/model', 0.01), base);
+	await keep(made('valuation'), base);
+	assert.deepEqual(await recorded(base), ['a-made-up-book']);
+	assert.deepEqual(
+		(await jevRecordsOf('a-made-up-book', base)).map((one) => one.purpose),
+		['valuation']
+	);
 });

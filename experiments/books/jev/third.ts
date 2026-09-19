@@ -1,15 +1,14 @@
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { across, measure } from '../../../src/judge.ts';
+import { across, measure, ranges, sample } from '../../../src/judge.ts';
 import type { Passage } from '../../../src/judge.ts';
 import { listed } from '../../../src/library.ts';
-import { sample } from '../../../src/panel.ts';
+import { sets } from '../../../src/questions.ts';
 import { readBook } from '../../../src/read/index.ts';
 import type { Book } from '../../../src/book.ts';
 import { rewrite, ways } from './rewrites.ts';
 import { books, run } from './run.ts';
-import { gut } from './variants.ts';
 
 /**
  * The check of the behavioural questions, on books that had no part in choosing them: twelve
@@ -42,12 +41,8 @@ export const size = 3000;
 export const remarks =
 	'The check of the behavioural questions: at 3,000 words, twelve passages spread over the story, with nothing changed.';
 
-const indexes = (story: string) =>
-	story.split(',').flatMap((part) => {
-		const [from = 1, to = from] = part.split('-').map(Number);
-		return Array.from({ length: to - from + 1 }, (_, step) => from - 1 + step);
-	});
-const passages = (story: string) => (book: Book) => sample(across(book, indexes(story), size), 12);
+const passages = (story: string) => (book: Book) =>
+	sample(across(book, ranges(story).flat(), size), 12);
 
 if (import.meta.main) {
 	const [what, story, ...more] = process.argv.slice(2);
@@ -86,15 +81,15 @@ if (import.meta.main) {
 			await run(
 				`${slug}.epub`,
 				() => told,
-				{ set: 'gut', questions: gut },
+				{ set: 'gut', questions: sets.gut },
 				'The check of the behavioural questions, the test of ornament: the middle passage as it is, told dull and told overdone.'
 			);
 		}
 	} else if (what && story) {
-		await run(what, passages(story), { set: 'gut', questions: gut }, remarks);
+		await run(what, passages(story), { set: 'gut', questions: sets.gut }, remarks);
 	} else {
 		for (const { slug, story = '' } of list) {
-			await run(`${slug}.epub`, passages(story), { set: 'gut', questions: gut }, remarks);
+			await run(`${slug}.epub`, passages(story), { set: 'gut', questions: sets.gut }, remarks);
 		}
 	}
 }

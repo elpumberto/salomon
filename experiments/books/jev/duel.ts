@@ -3,12 +3,11 @@ import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { choice } from '@typesafe-ai/sdk';
 import { words } from '../../../src/book.ts';
-import { across, measure } from '../../../src/judge.ts';
+import { across, measure, ranges, sample } from '../../../src/judge.ts';
 import type { Passage } from '../../../src/judge.ts';
 import { key } from '../../../src/keys.ts';
 import { listed } from '../../../src/library.ts';
 import { createOpenRouter, defaultModel } from '../../../src/openrouter.ts';
-import { sample } from '../../../src/panel.ts';
 import { readBook } from '../../../src/read/index.ts';
 import { books, run } from './run.ts';
 import { all } from './scoreboard.ts';
@@ -61,10 +60,7 @@ async function retold(slug: string, at: number, text: string): Promise<string> {
 }
 
 for (const { slug, story = '' } of (await listed()).filter((one) => all.includes(one.slug))) {
-	const indexes = story.split(',').flatMap((part) => {
-		const [from = 1, to = from] = part.split('-').map(Number);
-		return Array.from({ length: to - from + 1 }, (_, step) => from - 1 + step);
-	});
+	const indexes = ranges(story).flat();
 	// A book is set against its retellings once.
 	const before = await readdir(join(books, '../records/books', slug)).catch(() => []);
 	const asked = await Promise.all(

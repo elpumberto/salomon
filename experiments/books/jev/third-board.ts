@@ -1,21 +1,17 @@
-import { readdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { jevRecordsOf } from '../../../src/records.ts';
 import type { JevRecord } from '../../../src/records.ts';
-import { gated, plain, rulesHash, unit, valued } from './gut-value.ts';
+import { gated, plain, rulesHash, unit, value } from '../../../src/value.ts';
 import { board } from './scoreboard.ts';
 import type { Scores } from './scoreboard.ts';
 import { alone, ladders, parting, remarks } from './third.ts';
 
 /** What the check came to, from the records and asking nothing: book by book, by the one yardstick, and the test of ornament. */
 
-const root = join(import.meta.dirname, '../../../records/books');
 const found: Record<string, JevRecord> = {};
 // Of a passage told again more than once, the record with most of its tellings.
 const retold = new Map<string, JevRecord>();
 for (const slug of [...ladders.flat(), ...alone]) {
-	const files = await readdir(join(root, slug)).catch(() => []);
-	for (const file of files.filter((one) => one.includes('.jev.'))) {
-		const record: JevRecord = JSON.parse(await readFile(join(root, slug, file), 'utf8'));
+	for (const record of await jevRecordsOf(slug)) {
 		if (record.remarks?.startsWith(remarks)) found[slug] = record;
 		if (
 			record.remarks?.includes('the test of ornament') &&
@@ -37,9 +33,9 @@ for (const ladder of [...ladders, alone]) {
 	for (const slug of ladder) {
 		const record = found[slug];
 		if (!record) continue;
-		const book = valued(record.found);
-		scores.plain[slug] = { merit: book.plain, read: book.read };
-		scores.gated[slug] = { merit: book.gated, read: book.read };
+		const { merit, read } = value(record.found);
+		scores.plain[slug] = { merit: merit.plain, read: read.value };
+		scores.gated[slug] = { merit: merit.value, read: read.value };
 		const of = (id: string) => mean(record.found.map((one) => unit(one.answers, id)));
 		const shares = (id: string, labels: string[]) =>
 			labels
@@ -55,7 +51,7 @@ for (const ladder of [...ladders, alone]) {
 				)
 				.join('  ');
 		console.log(
-			`${slug.padEnd(32)}${two(book.plain)}   ${two(book.gated)}   ${two(book.read)}   ${two(book.from)}–${two(book.to)}       ${two(of('lesson'))}   ${two(of('warning'))}            ${shares('draft', ['first', 'worked', 'finished'])}           ${shares('audience', ['children', 'wide', 'general', 'literary'])}`
+			`${slug.padEnd(32)}${two(merit.plain)}   ${two(merit.value)}   ${two(read.value)}   ${two(merit.lowest)}–${two(merit.highest)}       ${two(of('lesson'))}   ${two(of('warning'))}            ${shares('draft', ['first', 'worked', 'finished'])}           ${shares('audience', ['children', 'wide', 'general', 'literary'])}`
 		);
 	}
 	console.log();

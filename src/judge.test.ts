@@ -6,7 +6,7 @@ import { test } from 'node:test';
 import { noul, score } from '@typesafe-ai/sdk';
 import { gathered } from './book.ts';
 import type { Book } from './book.ts';
-import { across, judge, measure, name, pieces, together, whole } from './judge.ts';
+import { across, judge, measure, name, pieces, ranges, sample, together, whole } from './judge.ts';
 import type { AskJev } from './judge.ts';
 import { rulesHash } from './questions.ts';
 import { jevRecord, keep } from './records.ts';
@@ -21,6 +21,11 @@ const book: Book = {
 		{ title: 'II', paragraphs: ['x'.repeat(200_000)] }
 	]
 };
+
+const many = Array.from({ length: 10 }, (_, at) => ({
+	title: String(at),
+	paragraphs: ['A line.']
+}));
 
 const questions = {
 	pace: score('How much happens?', ['Nothing', 'Something', 'A lot']),
@@ -177,4 +182,15 @@ test('the record of a judgment says what was asked in full, and nothing of the b
 		seconds: 0
 	});
 	assert.ok(!written.includes('Ana'));
+});
+
+test('a story is given as sections and ranges of them, and a sample is spread from its first passage to its last', () => {
+	assert.deepEqual(ranges('2,4-6'), [[1], [3, 4, 5]]);
+	assert.throws(() => ranges('6-4'));
+	const all = Array.from({ length: 10 }, (_, at) => whole({ ...book, sections: many }, at));
+	assert.deepEqual(
+		sample(all, 4).map((one) => one.section),
+		[1, 4, 7, 10]
+	);
+	assert.equal(sample(all, 12).length, 10);
 });

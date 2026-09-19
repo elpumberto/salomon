@@ -1,7 +1,7 @@
-import { readdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
-import type { JevRecord } from '../../../src/records.ts';
-import { meritOf, readOf } from '../../../src/value.ts';
+import { rulesHash } from '../../../src/questions.ts';
+import { isValuation, jevRecordsOf } from '../../../src/records.ts';
+import { passage } from './passage-questions.ts';
+import { meritOf, readOf } from './passage-value.ts';
 import { all, board } from './scoreboard.ts';
 import type { Scores } from './scoreboard.ts';
 
@@ -11,18 +11,10 @@ import type { Scores } from './scoreboard.ts';
  * with only so many pieces a book, to see how few would do.
  */
 
-const root = join(import.meta.dirname, '../../../records/books');
 const pieces: Record<string, { merit: number; read: number }[]> = {};
 for (const slug of all) {
-	const records: JevRecord[] = await Promise.all(
-		(await readdir(join(root, slug)))
-			.filter((file) => file.includes('.jev.'))
-			.sort()
-			.map(async (file) => JSON.parse(await readFile(join(root, slug, file), 'utf8')))
-	);
-	const whole = records.findLast(
-		(one) => one.by.questions === 'passage' && !one.remarks?.startsWith('Tuning')
-	);
+	const records = await jevRecordsOf(slug);
+	const whole = records.findLast((one) => one.by.rules === rulesHash(passage) && isValuation(one));
 	pieces[slug] = (whole?.found ?? []).flatMap(({ answers }) => {
 		const [merit, read] = [meritOf(answers), readOf(answers)];
 		return merit === null || read === null ? [] : [{ merit, read }];

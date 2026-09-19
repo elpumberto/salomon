@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { measure, pieces } from '../../../src/judge.ts';
 import type { Passage } from '../../../src/judge.ts';
-import { sets } from '../../../src/questions.ts';
+import { passage } from './passage-questions.ts';
 import { rewritten } from './rewrites.ts';
 import { run, spread } from './run.ts';
 
@@ -13,7 +13,7 @@ import { run, spread } from './run.ts';
  * tells pieces apart, whether the faults show where they are and not where they are not.
  */
 
-const asked = { set: 'passage', questions: sets.passage };
+const asked = { set: 'passage', questions: passage };
 const remarks =
 	'Tuning of the passage questions on pieces of about 1,000 words: the ladder of adventures and passages of known standing. No valuation of any book.';
 

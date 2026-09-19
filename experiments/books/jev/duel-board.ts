@@ -1,6 +1,4 @@
-import { readdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
-import type { JevRecord } from '../../../src/records.ts';
+import { jevRecordsOf } from '../../../src/records.ts';
 import { alone, board, ladders } from './scoreboard.ts';
 import type { Scores } from './scoreboard.ts';
 
@@ -9,7 +7,6 @@ import type { Scores } from './scoreboard.ts';
  * asking nothing: by question, with how long the retellings were, and by the one yardstick.
  */
 
-const root = join(import.meta.dirname, '../../../records/books');
 const mean = (values: number[]) => values.reduce((sum, one) => sum + one, 0) / (values.length || 1);
 const ids = ['better', 'enjoy', 'lesson'];
 const scores: Record<string, Scores> = Object.fromEntries(ids.map((id) => [id, {}]));
@@ -17,10 +14,7 @@ const scores: Record<string, Scores> = Object.fromEntries(ids.map((id) => [id, {
 console.log(`${''.padEnd(34)}better  enjoy   lesson  retelling's length`);
 for (const ladder of [...ladders, alone]) {
 	for (const slug of ladder) {
-		const files = (await readdir(join(root, slug))).filter((one) => one.includes('.jev.'));
-		const records: JevRecord[] = await Promise.all(
-			files.map(async (one) => JSON.parse(await readFile(join(root, slug, one), 'utf8')))
-		);
+		const records = await jevRecordsOf(slug);
 		const duel = records.findLast((record) => record.by.questions === 'duel');
 		if (!duel) continue;
 		const won = (id: string) =>

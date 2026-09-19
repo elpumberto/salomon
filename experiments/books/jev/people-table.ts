@@ -1,6 +1,4 @@
-import { readdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
-import type { JevRecord } from '../../../src/records.ts';
+import { jevRecordsOf } from '../../../src/records.ts';
 
 /**
  * What the chapters of each book do to its people, from the records of the `inContext` questions
@@ -18,19 +16,13 @@ const ladders = [
 	['don-quijote'],
 	['ulysses']
 ];
-const root = join(import.meta.dirname, '../../../records/books');
 console.log(
 	`${''.padEnd(34)}chapters  both sides  one side  torn   fitting  unfitting  reveals  pays`
 );
 for (const ladder of ladders) {
 	let shown = 0;
 	for (const slug of ladder) {
-		const files = (await readdir(join(root, slug)).catch(() => [])).filter((one) =>
-			one.includes('.jev.')
-		);
-		const records: JevRecord[] = await Promise.all(
-			files.map(async (one) => JSON.parse(await readFile(join(root, slug, one), 'utf8')))
-		);
+		const records = await jevRecordsOf(slug);
 		const found = records
 			.filter((record) => record.by.questions === 'inContext')
 			.flatMap((record) => record.found);

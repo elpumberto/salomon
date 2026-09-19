@@ -1,120 +1,73 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import type { Answer } from './judge.ts';
-import { meritOf, readOf, value } from './value.ts';
+import { gated, plain, read, rulesHash, value } from './value.ts';
 
-const score = (at: number, of = 3): Answer => ({ score: at, of, confidence: 1, probabilities: [] });
-const picked = (choice: string, others: Record<string, number> = {}): Answer => {
-	const rest = Object.values(others).reduce((sum, one) => sum + one, 0);
-	return { choice, confidence: 1, probabilities: { [choice]: 1 - rest, ...others } };
-};
-
-/** A piece well written and well told, by every question. */
-const good: Record<string, Answer> = {
-	overwritten: score(0),
-	explains: score(0, 2),
-	steers: score(0, 2),
-	strings: score(0, 2),
-	melodrama: { noul: 0 },
-	padding: score(0),
-	readymade: score(3),
-	prose: score(3),
-	voice: score(3),
-	fine: { noul: 1 },
-	phrasing: picked('apt'),
-	figures: picked('true'),
-	emotion: picked('earned'),
-	insight: score(3),
-	specific: score(3),
-	talk: score(0, 4),
-	open: { noul: 1 },
-	friction: { noul: 1 },
-	stakes: score(3),
-	happens: score(3),
-	feeling: score(3),
-	effort: score(0),
-	archaic: { noul: 0 },
-	unclear: { noul: 0 },
-	funny: score(2, 2)
-};
-
-test('a piece with no faults and every virtue is worth all, both ways', () => {
-	assert.equal(meritOf(good), 1);
-	assert.equal(readOf(good), 1);
+const score = (at: number, of: number): Answer => ({
+	score: at,
+	of,
+	confidence: 1,
+	probabilities: []
+});
+const picked = (choice: string): Answer => ({
+	choice,
+	confidence: 1,
+	probabilities: { [choice]: 1 }
 });
 
-test('writing that impresses counts for nothing where the wording is strained', () => {
-	const purple = { ...good, phrasing: picked('strained'), overwritten: score(3) };
-
-	const merit = meritOf(purple) ?? 1;
-
-	// Prose, voice and "finely written" still say 1: the gate is what takes them out.
-	assert.ok(merit < 0.6, `the purple piece came to ${merit}`);
-	assert.ok(merit < (meritOf({ ...good, overwritten: score(3) }) ?? 0));
+/** A passage that every answer holds at its best but for how sure the teacher is that it is what not to do. */
+const passage = (warning: number, lesson = 1): Record<string, Answer> => ({
+	underline: score(3, 3),
+	draft: picked('finished'),
+	editor: picked('leave'),
+	memory: picked('image'),
+	anyone: score(2, 2),
+	lesson: { noul: lesson },
+	again: { noul: 1 },
+	aloud: { noul: 1 },
+	warning: { noul: warning },
+	lost: score(2, 2),
+	stop: { noul: 1 },
+	skip: score(0, 2),
+	audience: picked('literary')
 });
 
-test('physical detail is not missed in a page of talk', () => {
-	const talk = { ...good, talk: score(4, 4), specific: score(0) };
-	const narration = { ...good, talk: score(0, 4), specific: score(0) };
-
-	assert.equal(meritOf(talk), 1);
-	assert.ok((meritOf(narration) ?? 1) < 1);
+test('merit is the mean of nine answers, the teacher’s warning the other way round', () => {
+	assert.equal(plain(passage(0)), 1);
+	assert.equal(plain(passage(1)), 8 / 9);
+	assert.equal(plain({ ...passage(0), draft: picked('worked') }), (8 + 0.6) / 9);
 });
 
-test('an option that says a question does not apply takes it out of the count', () => {
-	assert.equal(meritOf({ ...good, figures: picked('none'), emotion: picked('slight') }), 1);
+test('up to half sure that it is what not to do, nothing is taken from a passage', () => {
+	assert.equal(gated(passage(0.2)), plain(passage(0.2)));
+	assert.equal(gated(passage(0.5)), plain(passage(0.5)));
 });
 
-test('prose far from a reader of today counts against the read and not against the merit', () => {
-	const old = { ...good, archaic: { noul: 1 }, effort: score(3) };
-
-	assert.equal(meritOf(old), 1);
-	assert.ok((readOf(old) ?? 1) < 1);
+test('past that, what ornament takes in counts for less, and for nothing when certain', () => {
+	const overdone = passage(1, 0.3);
+	// Of the nine, the editor and the example to learn from are left, and the warning counts for nothing.
+	assert.ok(Math.abs(gated(overdone) - (1 + 0.3) / 9) < 1e-9);
+	assert.ok(plain(overdone) > 0.8);
+	assert.ok(gated(passage(0.75)) < plain(passage(0.75)));
+	assert.ok(gated(passage(0.75)) > gated(passage(1)));
 });
 
-test('what reads as ready-made or asserted weighs less the more archaic the piece', () => {
-	const faults = { readymade: score(0), emotion: picked('asserted') };
-	const recent = meritOf({ ...good, ...faults }) ?? 0;
-	const old = meritOf({ ...good, ...faults, archaic: { noul: 1 } }) ?? 0;
-
-	assert.ok(recent < 0.75, `a piece of today came to ${recent}`);
-	assert.equal(old, 1);
+test('the read is whether a reader is taken in and goes on, and does not skip', () => {
+	assert.equal(read(passage(0)), 1);
+	assert.equal(read({ ...passage(0), skip: score(2, 2) }), 2 / 3);
 });
 
-test('a piece holds its reader by its story or by its people, whichever it does best', () => {
-	const still = { open: { noul: 0 }, stakes: score(0), happens: score(0) };
-	const comedy = { ...good, ...still, funny: score(2, 2) };
-	const neither = { ...comedy, friction: { noul: 0 }, feeling: score(0), funny: score(0, 2) };
-
-	assert.ok((readOf(comedy) ?? 0) >= 0.7);
-	assert.equal(readOf(neither), 0);
+test('a book is the mean of its passages, with how far apart they are and what judges nothing', () => {
+	const valued = value([{ answers: passage(0) }, { answers: passage(1, 0.3) }]);
+	assert.equal(valued.passages, 2);
+	assert.equal(valued.merit.highest, 1);
+	assert.equal(valued.merit.lowest, Number(((1 + 0.3) / 9).toFixed(4)));
+	assert.ok(valued.merit.value < valued.merit.plain);
+	assert.deepEqual(valued.profile.writtenFor, { literary: 1 });
+	assert.equal(valued.profile.whatNotToDo, 0.5);
+	assert.equal(valued.pulse.length, 2);
 });
 
-test('the merit of a book is its mean and its best tenth; its read counts the opening twice', () => {
-	const dull = { ...good, prose: score(0), voice: score(0), fine: { noul: 0 }, open: { noul: 0 } };
-	const pieces = [good, ...Array.from({ length: 9 }, () => dull)].map((answers) => ({ answers }));
-
-	const valued = value(pieces);
-
-	assert.equal(valued.pieces, 10);
-	assert.equal(valued.merit.bestTenth, 1);
-	assert.ok(valued.merit.value > valued.merit.mean);
-	assert.ok(valued.read.value > valued.read.mean, 'the good piece is the opening');
-	assert.equal(valued.pulse.length, 10);
-	assert.deepEqual(valued.profile.phrasing, { apt: 1 });
-});
-
-test('the longest run of slack pieces is told', () => {
-	const slack = {
-		...good,
-		open: { noul: 0 },
-		friction: { noul: 0 },
-		stakes: score(0),
-		happens: score(0),
-		feeling: score(0),
-		effort: score(3)
-	};
-	const pieces = [good, slack, slack, slack, good, slack].map((answers) => ({ answers }));
-
-	assert.equal(value(pieces).read.longestSlackRun, 3);
+test('the rules are those the books were checked with: changing them is another valuation', () => {
+	assert.equal(rulesHash, 'sha256:f3e3051dc2bd');
 });

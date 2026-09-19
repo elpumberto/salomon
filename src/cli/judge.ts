@@ -3,49 +3,55 @@ import { parseArgs } from 'node:util';
 import { TypeSafeClient } from '@typesafe-ai/sdk';
 import type { Question } from '@typesafe-ai/sdk';
 import { tokens, usd } from '../estimate.ts';
-import { across, judgeAll, name, pieces, together, whole } from '../judge.ts';
+import { across, judgeAll, name, pieces, ranges, sample, together, whole } from '../judge.ts';
 import { key } from '../keys.ts';
 import { rulesHash, sets } from '../questions.ts';
 import { readBook } from '../read/index.ts';
 import { listed } from '../library.ts';
-import { against, chosen, panel, sample } from '../panel.ts';
 import { identify, jevRecord, keep } from '../records.ts';
 import { percent, table } from '../show.ts';
-import { value } from '../value.ts';
+import { value, way } from '../value.ts';
 
 /**
- * Asks Jev a set of questions about some sections of a book, a call a passage, and records what it
- * said under `records/`. It sends nothing unless told to with `--go`: without it, it shows the
- * questions as they would be asked, the passages, and about what it would cost. Sections are
- * numbered as `npm run normalize -- --sections` lists them, and given as `4,9,16-18`; left out,
- * they are those `gutenberg.json` says are the story of the book. A section
- * is a passage; `--pieces 1000` cuts each in pieces of about as many words, and `--together`
- * sends each range of sections as one text; `--across` cuts the pieces over the sections as one
- * text, for a book whose sections are a few lines each. `--panel 12` takes as many pieces, evenly spread, and
- * sets each side by side with each passage of the panel of anchors, both ways round.
+ * Asks Jev about a book, a call a passage, and records what it said under `records/`. It sends
+ * nothing unless told to with `--go`: without it, it shows the questions as they would be asked,
+ * the passages, and about what it would cost.
+ *
+ * Told nothing else, it judges the book the way books are valued: the `gut` questions, of twelve
+ * passages of 3,000 words spread over its story and cut across its sections. The story is the
+ * sections `gutenberg.json` says, or those given as `--sections 4,9,16-18`, numbered as `npm run
+ * normalize -- --sections` lists them.
+ *
+ * Told how, it is a trial of something and is recorded as one. `--questions` names another set. A
+ * section is then a passage; `--pieces 1000` cuts each in pieces of about as many words,
+ * `--across` cuts them over the sections as one text, `--together` sends each range of sections
+ * as one text, and `--sample 12` takes as many of the passages, evenly spread.
  */
 
 const { values, positionals } = parseArgs({
 	allowPositionals: true,
 	options: {
 		sections: { type: 'string' },
-		questions: { type: 'string', default: 'reading' },
+		questions: { type: 'string' },
 		pieces: { type: 'string' },
 		together: { type: 'boolean', default: false },
 		across: { type: 'boolean', default: false },
-		panel: { type: 'string' },
+		sample: { type: 'string' },
 		go: { type: 'boolean', default: false },
 		remarks: { type: 'string' }
 	}
 });
 const [path] = positionals;
-const set = (values.panel ? 'sideBySide' : values.questions) as keyof typeof sets;
+const trial = Boolean(
+	values.questions || values.pieces || values.together || values.across || values.sample
+);
+const set = (values.questions ?? way.questions) as keyof typeof sets;
 // A book of the list says which of its sections are the story: those are judged when none are named.
 const wanted =
 	values.sections ?? (await listed()).find(({ slug }) => slug === parse(path ?? '').name)?.story;
 if (!path || !wanted || !(set in sets)) {
 	console.error(
-		`usage: npm run judge -- <book.epub | book.txt> [--sections 4,9,16-18] [--questions ${Object.keys(sets).join('|')}] [--pieces words] [--together] [--across] [--panel pieces] [--go] [--remarks text]`
+		`usage: npm run judge -- <book.epub | book.txt> [--sections 4,9,16-18] [--go] [--remarks text]\n       and for a trial: [--questions ${Object.keys(sets).join('|')}] [--pieces words] [--across] [--together] [--sample passages]`
 	);
 	process.exit(1);
 }
@@ -53,33 +59,26 @@ if (!path || !wanted || !(set in sets)) {
 const questions = sets[set];
 const rules = rulesHash(questions);
 const book = await readBook(path);
-const cut = (values.across ? all : each)(wanted);
-
-function ranges(list: string): number[][] {
-	return list.split(',').map((part) => {
-		const [from, to = from] = part.split('-').map(Number);
-		if (!from || !to || to < from) throw new Error(`Not a section nor a range of them: ${part}`);
-		return Array.from({ length: to - from + 1 }, (_, step) => from - 1 + step);
-	});
-}
-
-function all(list: string) {
-	return across(book, ranges(list).flat(), Number(values.pieces ?? 1000));
-}
 
 function each(list: string) {
 	return ranges(list).flatMap((indexes) => {
 		const [from = 0] = indexes;
 		if (values.together) return [together(book, from, indexes.at(-1) ?? from)];
 		return indexes.flatMap((index) =>
-			values.pieces || values.panel
-				? pieces(book, index, Number(values.pieces ?? 1000))
-				: [whole(book, index)]
+			values.pieces ? pieces(book, index, Number(values.pieces)) : [whole(book, index)]
 		);
 	});
 }
 
-const passages = values.panel ? against(sample(cut, Number(values.panel)), await panel()) : cut;
+function cut(list: string) {
+	if (!trial) return sample(across(book, ranges(list).flat(), way.words), way.passages);
+	const all = values.across
+		? across(book, ranges(list).flat(), Number(values.pieces ?? 1000))
+		: each(list);
+	return values.sample ? sample(all, Number(values.sample)) : all;
+}
+
+const passages = cut(wanted);
 
 const text = (value: Question['instructions']) =>
 	typeof value === 'string' ? value : JSON.stringify(value);
@@ -130,9 +129,8 @@ if (passages.length <= 12) {
 		'\n\nA score is where the passage falls among the levels, then how sure Jev is of it.\n'
 	);
 	console.log(table(judged, Object.keys(questions)));
-} else if (values.panel) {
-	console.log('\n\nHow often its pieces were chosen over the panel:', chosen(judged));
-} else if (set === 'passage') {
+}
+if (set === way.questions && judged.length > 1) {
 	const { pulse, ...valued } = value(judged);
 	console.log('\n');
 	console.dir(valued, { depth: 4 });
@@ -143,7 +141,8 @@ if (judged.length > 0) {
 		await identify(path, book),
 		at,
 		{ questions: set, rules, asked: questions },
-		judged
+		judged,
+		trial ? 'experiment' : 'valuation'
 	);
 	const remarks = [
 		values.remarks,

@@ -1,10 +1,10 @@
 import { join } from 'node:path';
-import { words } from './book.ts';
-import type { Book } from './book.ts';
-import { measure, pieces } from './judge.ts';
-import type { Judged, Passage } from './judge.ts';
-import { listed } from './library.ts';
-import { readBook } from './read/index.ts';
+import { words } from '../../../src/book.ts';
+import type { Book } from '../../../src/book.ts';
+import { measure, pieces } from '../../../src/judge.ts';
+import type { Judged, Passage } from '../../../src/judge.ts';
+import { listed } from '../../../src/library.ts';
+import { readBook } from '../../../src/read/index.ts';
 
 /**
  * A panel of passages of known standing that pieces of a book are set against, side by side,
@@ -14,7 +14,7 @@ import { readBook } from './read/index.ts';
  * one; of its pieces, the one nearest to a third of it being speech.
  */
 
-const root = join(import.meta.dirname, '..');
+const root = join(import.meta.dirname, '../../..');
 
 export function anchorOf(book: Book): string {
 	const long = book.sections
@@ -40,15 +40,6 @@ export async function panel(): Promise<{ slug: string; text: string }[]> {
 			text: anchorOf(await readBook(join(root, 'books', `${slug}.epub`)))
 		}))
 	);
-}
-
-/** As many pieces of the story as asked for, evenly spread from its first to its last. */
-export function sample(all: Passage[], count: number): Passage[] {
-	if (all.length <= count) return all;
-	return Array.from(
-		{ length: count },
-		(_, at) => all[Math.round((at * (all.length - 1)) / (count - 1))]
-	).filter((one): one is Passage => one !== undefined);
 }
 
 /** Each piece against each anchor, both ways round: `variant` says which anchor and where the piece sat. */

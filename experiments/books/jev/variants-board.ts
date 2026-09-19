@@ -1,9 +1,8 @@
-import { readdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
 import type { Answer } from '../../../src/judge.ts';
+import { jevRecordsOf } from '../../../src/records.ts';
 import type { JevRecord } from '../../../src/records.ts';
-import { meritOf, value } from '../../../src/value.ts';
-import { gated, plain, read, rules } from './gut-value.ts';
+import { gated, plain, read, rules } from '../../../src/value.ts';
+import { meritOf, value } from './passage-value.ts';
 import { all, board, ladders } from './scoreboard.ts';
 import type { Scores } from './scoreboard.ts';
 
@@ -12,11 +11,9 @@ import type { Scores } from './scoreboard.ts';
  * the questions that on their own put most pairs of books in order: which carry the signal.
  */
 
-const root = join(import.meta.dirname, '../../../records/books');
 const variants = new Map<string, Record<string, JevRecord>>();
 for (const slug of all) {
-	for (const file of (await readdir(join(root, slug))).filter((one) => one.includes('.jev.'))) {
-		const record: JevRecord = JSON.parse(await readFile(join(root, slug, file), 'utf8'));
+	for (const record of await jevRecordsOf(slug)) {
 		const name = record.remarks?.match(/^Variant: ([^.]+)\./)?.[1];
 		if (name) variants.set(name, { ...variants.get(name), [slug]: record });
 	}

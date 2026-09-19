@@ -1,6 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
 import { join, parse } from 'node:path';
 import type { Questions } from '@typesafe-ai/sdk';
 import { words } from './book.ts';
@@ -205,6 +205,11 @@ export interface JevRecord {
 	 * was sent, and Jev's answers by the name of the question.
 	 */
 	found: Omit<Judged, 'model'>[];
+	/**
+	 * What the run was for: the judging of a book the way books are valued, or a trial of something.
+	 * Records older than this say it in their remarks alone: `isValuation` knows how.
+	 */
+	purpose?: 'valuation' | 'experiment';
 	remarks?: string;
 }
 
@@ -212,7 +217,8 @@ export function jevRecord(
 	book: BookIdentity,
 	at: string,
 	asked: { questions: string; rules: string; asked: Questions },
-	judged: Judged[]
+	judged: Judged[],
+	purpose: JevRecord['purpose'] = 'experiment'
 ): JevRecord {
 	const tokensIn = judged.reduce((sum, one) => sum + one.tokensIn, 0);
 	return {
@@ -237,9 +243,40 @@ export function jevRecord(
 			usd: Number(usd(tokensIn).toFixed(6)),
 			seconds: Math.round(judged.reduce((sum, one) => sum + one.seconds, 0))
 		},
-		found: judged.map(({ model, ...rest }) => rest)
+		found: judged.map(({ model, ...rest }) => rest),
+		purpose
 	};
 }
+
+/**
+ * Whether a record is the judging of a book the way books are valued. The runs made before records
+ * said what they were for are told by their remarks: twelve passages of 3,000 words with the
+ * behavioural questions, tried on twenty books and checked on twelve, which became that way; and
+ * the books judged whole in pieces for the first valuation.
+ */
+export function isValuation(record: JevRecord): boolean {
+	if (record.purpose) return record.purpose === 'valuation';
+	return /^(Variant: gut at 3000 words\.|The check of the behavioural questions: at |Calibration: (the book|a sample|the ladder)|Check: the book )/.test(
+		record.remarks ?? ''
+	);
+}
+
+/** The books there are records of, by the name of their folder. */
+export const recorded = (base = root): Promise<string[]> =>
+	readdir(join(base, 'records', 'books')).catch(() => []);
+
+/** The records kept of a book, oldest first. */
+export async function recordsOf(slug: string, base = root): Promise<(NotesRecord | JevRecord)[]> {
+	const folder = join(base, 'records', 'books', slug);
+	const files = (await readdir(folder).catch(() => [])).filter((file) => file.endsWith('.json'));
+	return Promise.all(
+		files.sort().map(async (file) => JSON.parse(await readFile(join(folder, file), 'utf8')))
+	);
+}
+
+/** Those of them that are Jev's. */
+export const jevRecordsOf = async (slug: string, base = root): Promise<JevRecord[]> =>
+	(await recordsOf(slug, base)).filter((one): one is JevRecord => one.kind === 'jev');
 
 /**
  * Writes a record where it belongs and returns its path from the root of the repo. Its name says

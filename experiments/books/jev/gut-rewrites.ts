@@ -4,7 +4,7 @@ import { measure, pieces, whole } from '../../../src/judge.ts';
 import type { Passage } from '../../../src/judge.ts';
 import { rewritten } from './rewrites.ts';
 import { run } from './run.ts';
-import { gut } from './variants.ts';
+import { sets } from '../../../src/questions.ts';
 
 /** The behavioural questions put to a passage as it is, told dull and told overdone: whether ornament takes them in. */
 
@@ -35,10 +35,10 @@ for (const [file, slug, pick] of cases) {
 			original = pick(book);
 			return [];
 		},
-		{ set: 'gut', questions: gut },
+		{ set: 'gut', questions: sets.gut },
 		remarks
 	).catch(() => undefined);
 	if (!original) continue;
 	const all = await withRewrites(original, slug);
-	await run(file, () => all, { set: 'gut', questions: gut }, remarks);
+	await run(file, () => all, { set: 'gut', questions: sets.gut }, remarks);
 }

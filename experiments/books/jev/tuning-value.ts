@@ -1,16 +1,11 @@
-import { readdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
-import type { JevRecord } from '../../../src/records.ts';
-import { meritOf, readOf } from '../../../src/value.ts';
+import { jevRecordsOf, recorded } from '../../../src/records.ts';
+import { meritOf, readOf } from './passage-value.ts';
 
 /** What the rules of valuation make of the tuning pieces, group by group: it costs nothing. */
 
-const root = join(import.meta.dirname, '../../../records/books');
 const groups = new Map<string, { merit: number; read: number }[]>();
-for (const book of await readdir(root)) {
-	for (const file of await readdir(join(root, book))) {
-		if (!file.includes('.jev.')) continue;
-		const record: JevRecord = JSON.parse(await readFile(join(root, book, file), 'utf8'));
+for (const book of await recorded()) {
+	for (const record of await jevRecordsOf(book)) {
 		// The second round of tuning: the questions dropped after it are not among those weighed.
 		if (record.by.questions !== 'passage' || record.at < '2026-09-19T13:12') continue;
 		for (const one of record.found) {

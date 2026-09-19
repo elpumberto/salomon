@@ -1,7 +1,7 @@
-import { readdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
-import type { JevRecord } from '../../../src/records.ts';
-import { value } from '../../../src/value.ts';
+import { rulesHash } from '../../../src/questions.ts';
+import { isValuation, jevRecordsOf, recorded } from '../../../src/records.ts';
+import { passage } from './passage-questions.ts';
+import { value } from './passage-value.ts';
 
 /**
  * How the pulse of each book judged so far moves along it, from the records and asking nothing:
@@ -9,19 +9,11 @@ import { value } from '../../../src/value.ts';
  * in the middle or ends on a height is a thing of the whole that the pieces already tell.
  */
 
-const root = join(import.meta.dirname, '../../../records/books');
 const mean = (values: number[]) => values.reduce((sum, one) => sum + one, 0) / (values.length || 1);
 const rows: string[][] = [];
-for (const slug of await readdir(root)) {
-	const records: JevRecord[] = await Promise.all(
-		(await readdir(join(root, slug)))
-			.filter((file) => file.includes('.jev.'))
-			.sort()
-			.map(async (file) => JSON.parse(await readFile(join(root, slug, file), 'utf8')))
-	);
-	const whole = records.findLast(
-		(one) => one.by.questions === 'passage' && !one.remarks?.startsWith('Tuning')
-	);
+for (const slug of await recorded()) {
+	const records = await jevRecordsOf(slug);
+	const whole = records.findLast((one) => one.by.rules === rulesHash(passage) && isValuation(one));
 	if (!whole) continue;
 	const { pulse } = value(whole.found);
 	const third = Math.floor(pulse.length / 3);

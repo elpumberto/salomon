@@ -164,6 +164,24 @@ export function across(book: Book, indexes: number[], about: number): Passage[] 
 	}));
 }
 
+/** As many passages as asked for, evenly spread from the first to the last. */
+export function sample(all: Passage[], count: number): Passage[] {
+	if (all.length <= count) return all;
+	return Array.from(
+		{ length: count },
+		(_, at) => all[Math.round((at * (all.length - 1)) / (count - 1))]
+	).filter((one): one is Passage => one !== undefined);
+}
+
+/** Sections given as `4,9,16-18`, numbered from 1: each range as the indexes of its sections. */
+export function ranges(list: string): number[][] {
+	return list.split(',').map((part) => {
+		const [from, to = from] = part.split('-').map(Number);
+		if (!from || !to || to < from) throw new Error(`Not a section nor a range of them: ${part}`);
+		return Array.from({ length: to - from + 1 }, (_, step) => from - 1 + step);
+	});
+}
+
 function kept(answer: SystemOneResult<Questions>['answers'][string]): Answer {
 	if (answer.type === 'noul') return { noul: round(answer.noul) };
 	if (answer.type === 'choice') {

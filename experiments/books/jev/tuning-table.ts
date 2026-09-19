@@ -1,7 +1,7 @@
-import { readdir, readFile } from 'node:fs/promises';
-import { join } from 'node:path';
-import { rulesHash, sets } from '../../../src/questions.ts';
+import { rulesHash } from '../../../src/questions.ts';
+import { jevRecordsOf, recorded } from '../../../src/records.ts';
 import type { JevRecord } from '../../../src/records.ts';
+import { passage } from './passage-questions.ts';
 
 /**
  * Sets the tuning runs of a set of questions side by side: a row a question, a column a group of
@@ -10,14 +10,10 @@ import type { JevRecord } from '../../../src/records.ts';
  */
 
 // Of the wording the set has now: a run with another wording is another thing.
-const set = 'passage';
-const rules = rulesHash(sets[set]);
-const root = join(import.meta.dirname, '../../../records/books');
+const rules = rulesHash(passage);
 const groups = new Map<string, JevRecord['found']>();
-for (const book of await readdir(root)) {
-	for (const file of await readdir(join(root, book))) {
-		if (!file.includes('.jev.')) continue;
-		const record: JevRecord = JSON.parse(await readFile(join(root, book, file), 'utf8'));
+for (const book of await recorded()) {
+	for (const record of await jevRecordsOf(book)) {
 		if (record.by.rules !== rules || !record.remarks?.startsWith('Tuning')) continue;
 		for (const one of record.found) {
 			const way = one.variant?.split(',')[0];
