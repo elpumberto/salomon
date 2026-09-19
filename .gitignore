@@ -1,0 +1,43 @@
+node_modules
+
+# Books and everything made from them. A normalized book is the book's whole text, and so is
+# anything cut out of one: none of it belongs in the repo, whoever holds the rights.
+/books/
+
+# The same, wherever one lands by mistake.
+*.epub
+*.mobi
+*.azw
+*.azw3
+*.kfx
+*.fb2
+*.djvu
+*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env: the keys. The example has none and is the one that goes in.
+.env
+.env.*
+!.env.example
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs, archives, scratch
+*.log
+*.zip
+*.tgz
+/tmp/
+/scratch/
+
+# The site's data is made from the records by `npm run site`
+/site/data.json
+/site/cards/
+/site/libro/
+/site/book/

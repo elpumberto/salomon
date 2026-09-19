@@ -1,0 +1,3485 @@
+{
+	"kind": "jev",
+	"at": "2026-09-19T16:12:09.948Z",
+	"book": {
+		"title": "The war of the worlds",
+		"author": "H. G. Wells",
+		"language": "en",
+		"source": {
+			"file": "the-war-of-the-worlds.epub",
+			"format": "epub",
+			"sha256": "7e7ce8fbcc602198e0f028d26d8691a142737f6a6ae5a85c60f46f97bddf5d95"
+		},
+		"text": {
+			"sha256": "512a2a258cc6bc680798c9f5a95295b1e04b193ab64c43075ebcc3916bc0358e",
+			"sections": 28,
+			"words": 59778
+		}
+	},
+	"sections": [
+		2,
+		5,
+		10,
+		12,
+		14,
+		16,
+		17,
+		19,
+		21,
+		24,
+		26,
+		28
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "passage",
+		"rules": "sha256:a4f986b67c3f",
+		"asked": {
+			"happens": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much has changed by the end of it?",
+				"criteria": [
+					"At the end of the passage everything stands exactly as it did at the start",
+					"At the end a small thing stands differently from the start",
+					"At the end a character's situation, knowledge or relationship is clearly different from the start",
+					"At the end a character's situation is transformed and cannot go back to what it was"
+				]
+			},
+			"talk": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much of it is conversation between the characters, and how much narration?",
+				"criteria": [
+					"All or nearly all narration: no conversation, or a line or two",
+					"Mostly narration, with a few short exchanges between the characters",
+					"About as much conversation as narration",
+					"Mostly conversation, with some narration between the exchanges",
+					"All or nearly all conversation"
+				]
+			},
+			"place": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How well can the reader picture where it happens?",
+				"criteria": [
+					"Nothing in the passage says where this happens: voices talk in an empty room",
+					"The place is named or hinted at and cannot be pictured",
+					"The place can be pictured clearly from what the text gives",
+					"The place can be pictured vividly, with what it sounds, smells and feels like"
+				]
+			},
+			"feeling": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much of what a character feels reaches the reader?",
+				"criteria": [
+					"No character's feeling can be made out from the passage",
+					"A character's feeling can be made out, and it is a mild one",
+					"A character's feeling is plain, and it is a strong one",
+					"A character's strong feeling is conveyed so closely that the reader is placed inside it"
+				]
+			},
+			"stakes": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. What is at risk for the central character in it?",
+				"criteria": [
+					"Nothing is at risk for the central character",
+					"The central character's comfort or convenience is at risk",
+					"Something the central character cares about deeply is at risk",
+					"The central character's life, love or future is at risk"
+				]
+			},
+			"funny": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much of it is meant to be funny?",
+				"criteria": [
+					"None of it: it is told in earnest throughout",
+					"It is told in earnest, with a light touch of wit or comedy here and there",
+					"Wit, comedy or irony run through the whole passage"
+				]
+			},
+			"effort": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much effort does its language ask of the reader?",
+				"criteria": [
+					"The language is explicit, literal and straightforward: nothing in it asks for effort",
+					"The language is largely explicit, with an occasional figurative or unfamiliar turn",
+					"The language is fairly complex: figurative or ironic in places, with sentences that must be held in mind",
+					"The language is dense and complex: abstract, ironic or figurative throughout"
+				]
+			},
+			"archaic": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Is its vocabulary or spelling archaic or otherwise unfamiliar to a present-day reader?"
+			},
+			"doorway": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. What is the main pull of it for a reader?",
+				"criteria": {
+					"story": "Wanting to know what happens next",
+					"people": "The people in it",
+					"place": "The place and its atmosphere",
+					"writing": "The writing itself"
+				}
+			},
+			"readymade": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much of its wording is ready-made?",
+				"criteria": [
+					"Almost every paragraph holds a phrase or comparison that readers have met many times in print",
+					"Several phrases or comparisons in the passage are ones readers have met many times in print",
+					"One or two ready-made phrases turn up, and the rest is the writer's own wording",
+					"No ready-made phrase or comparison can be found in the passage"
+				]
+			},
+			"overwritten": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. Is its wording more elaborate than what it tells calls for?",
+				"criteria": [
+					"The wording is never more elaborate than what it describes calls for",
+					"In one or two places the wording is more elaborate than what is being told calls for",
+					"Through much of the passage the wording is more elaborate than what is being told calls for: fancy words where short clear ones would do, image piled on image for one thing",
+					"The passage is sprawling sentences, abstract words and heaps of adjectives, adverbs and metaphors that convey little information"
+				]
+			},
+			"padding": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much of it could be removed without the reader losing anything?",
+				"criteria": [
+					"Nothing could be removed from the passage without the reader losing something",
+					"A few sentences could be removed without the reader losing anything",
+					"Whole paragraphs could be removed without the reader losing anything",
+					"Most of the passage could be removed without the reader losing anything"
+				]
+			},
+			"unclear": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Is there any moment in it where it is unclear who is acting or speaking, or what physically happened?"
+			},
+			"explains": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much does the narrator explain what is already clear?",
+				"criteria": [
+					"The narrator never explains what an action or a line meant: they are left to speak for themselves",
+					"Once or twice the narrator adds what an action or a line meant when it was already clear from it",
+					"The narrator keeps explaining what actions and lines meant when it was already clear from them"
+				]
+			},
+			"steers": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much does the telling instruct the reader how to react?",
+				"criteria": [
+					"Events and people are presented, and the reaction is left to the reader",
+					"Now and then an event or a person is labelled for the reader as horrible, touching, noble or the like",
+					"The reader is told throughout how to feel about what happens: events and people come labelled as horrible, touching, noble or the like"
+				]
+			},
+			"melodrama": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Does a character's emotional reaction in it go well beyond what the situation, as shown, would explain?"
+			},
+			"informs": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Does a character tell another something the listener obviously already knows?"
+			},
+			"strings": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much is what happens and what is said arranged for the reader's benefit?",
+				"criteria": [
+					"What is done and said follows from the characters and their situation",
+					"At moments things are arranged for the reader's benefit: a character says what the listener must already know, or an event comes just when the plot needs it",
+					"Throughout, people speak and act to inform the reader or to move the plot along, and not as people in their situation would"
+				]
+			},
+			"specific": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How particular are its physical details?",
+				"criteria": [
+					"There are no physical details, or only ones that could belong to any scene of this kind",
+					"The physical details are the ones a reader would expect a scene of this kind to have",
+					"The physical details belong to this particular place, moment and people and would not fit another scene",
+					"The physical details belong to this place and moment, and some are of the kind only someone who had really watched would notice"
+				]
+			},
+			"phrasing": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. What is its wording mostly like?",
+				"criteria": {
+					"readymade": "Ready-made expressions",
+					"plain": "Plain and unremarkable",
+					"exact": "Plain but exact",
+					"apt": "Often unexpected and apt",
+					"strained": "Unexpected but strained"
+				}
+			},
+			"figures": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. What are its comparisons and metaphors mostly like?",
+				"criteria": {
+					"none": "There are none, or hardly any",
+					"familiar": "Familiar ones, that readers have met before",
+					"true": "New ones, that make the thing clearer or truer",
+					"forced": "New ones, that are decorative, forced or do not hold up when examined"
+				}
+			},
+			"emotion": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. What is its emotional weight?",
+				"criteria": {
+					"slight": "Slight, and the passage does not seek more",
+					"earned": "Sought, and earned by what the passage has shown",
+					"asserted": "Sought, but asserted through emotive words or stock situations",
+					"absent": "Absent, where the events call for it"
+				}
+			},
+			"insight": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. What does it show about how people are?",
+				"criteria": [
+					"The passage shows nothing in particular about how people behave, think or feel",
+					"The passage shows truths about people that everyone already knows",
+					"The passage shows a recognisable truth about people, seen with unusual precision",
+					"The passage shows something true about people that a reader would not have put into words before"
+				]
+			},
+			"voice": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much of its own has the voice that tells it?",
+				"criteria": [
+					"The narrating voice is anonymous and could be exchanged with that of many books",
+					"The narrating voice is competent and conventional",
+					"The narrating voice is recognisable in its habits",
+					"The narrating voice is unmistakable, with its own way of seeing"
+				]
+			},
+			"wants": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Is it clear what its main character wants at this moment?"
+			},
+			"friction": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Is there friction between characters in it, or a conflict inside a character?"
+			},
+			"open": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. At the end of it, is there a specific question that the text has raised and not yet answered?"
+			},
+			"prose": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How good is its prose, sentence by sentence?",
+				"criteria": [
+					"The prose only conveys information: no sentence has force or shape of its own",
+					"The prose is competent: correct and clear, with nothing a reader would stop over",
+					"The prose is controlled and precise: each sentence says exactly what it means to say",
+					"The prose is striking: it holds sentences a reader would go back to and reread for their own sake"
+				]
+			},
+			"fine": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Is it finely written, the work of a writer in full command of the craft?"
+			}
+		},
+		"code": {
+			"commit": "afaff5e",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 12,
+		"tokensIn": 50110,
+		"usd": 0.002105,
+		"seconds": 7
+	},
+	"found": [
+		{
+			"section": 2,
+			"piece": {
+				"at": 1,
+				"of": 60
+			},
+			"measured": {
+				"words": 998,
+				"spoken": 0,
+				"wordsPerSentence": 28.5
+			},
+			"sha256": "fb31977a9e554a4dcaa6914b66bab5c53f9c6f5601f12831e904633cdcfb5b6a",
+			"tokensIn": 4161,
+			"seconds": 0.5,
+			"answers": {
+				"happens": {
+					"score": 1,
+					"of": 3,
+					"confidence": 0,
+					"probabilities": [
+						0.4,
+						0.27,
+						0.28,
+						0.05
+					]
+				},
+				"talk": {
+					"score": 0,
+					"of": 4,
+					"confidence": 1,
+					"probabilities": [
+						1,
+						0,
+						0,
+						0,
+						0
+					]
+				},
+				"place": {
+					"score": 1.25,
+					"of": 3,
+					"confidence": 0.6,
+					"probabilities": [
+						0.08,
+						0.6,
+						0.31,
+						0.01
+					]
+				},
+				"feeling": {
+					"score": 0.33,
+					"of": 3,
+					"confidence": 0.67,
+					"probabilities": [
+						0.75,
+						0.16,
+						0.08,
+						0.01
+					]
+				},
+				"stakes": {
+					"score": 1.16,
+					"of": 3,
+					"confidence": 0,
+					"probabilities": [
+						0.6,
+						0.01,
+						0.01,
+						0.38
+					]
+				},
+				"funny": {
+					"score": 0.88,
+					"of": 2,
+					"confidence": 0.58,
+					"probabilities": [
+						0.2,
+						0.72,
+						0.08
+					]
+				},
+				"effort": {
+					"score": 2.35,
+					"of": 3,
+					"confidence": 0.63,
+					"probabilities": [
+						0,
+						0.01,
+						0.63,
+						0.36
+					]
+				},
+				"archaic": {
+					"noul": 0.53
+				},
+				"doorway": {
+					"choice": "story",
+					"confidence": 0.86,
+					"probabilities": {
+						"writing": 0.08,
+						"story": 0.89,
+						"place": 0.03,
+						"people": 0
+					}
+				},
+				"readymade": {
+					"score": 1.05,
+					"of": 3,
+					"confidence": 0.33,
+					"probabilities": [
+						0.31,
+						0.39,
+						0.23,
+						0.07
+					]
+				},
+				"overwritten": {
+					"score": 1.8,
+					"of": 3,
+					"confidence": 0.75,
+					"probabilities": [
+						0.05,
+						0.12,
+						0.81,
+						0.02
+					]
+				},
+				"padding": {
+					"score": 1.23,
+					"of": 3,
+					"confidence": 0.29,
+					"probabilities": [
+						0.24,
+						0.35,
+						0.35,
+						0.06
+					]
+				},
+				"unclear": {
+					"noul": 0.44
+				},
+				"explains": {
+					"score": 1.23,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.25,
+						0.26,
+						0.49
+					]
+				},
+				"steers": {
+					"score": 1.04,
+					"of": 2,
+					"confidence": 0.36,
+					"probabilities": [
+						0.19,
+						0.58,
+						0.23
+					]
+				},
+				"melodrama": {
+					"noul": 0.1
+				},
+				"informs": {
+					"noul": 0.16
+				},
+				"strings": {
+					"score": 1.87,
+					"of": 2,
+					"confidence": 0.8,
+					"probabilities": [
+						0.02,
+						0.09,
+						0.89
+					]
+				},
+				"specific": {
+					"score": 1.26,
+					"of": 3,
+					"confidence": 0.44,
+					"probabilities": [
+						0.15,
+						0.51,
+						0.28,
+						0.06
+					]
+				},
+				"phrasing": {
+					"choice": "apt",
+					"confidence": 0.75,
+					"probabilities": {
+						"strained": 0.01,
+						"plain": 0.03,
+						"readymade": 0.03,
+						"apt": 0.8,
+						"exact": 0.13
+					}
+				},
+				"figures": {
+					"choice": "true",
+					"confidence": 0.71,
+					"probabilities": {
+						"true": 0.78,
+						"none": 0,
+						"familiar": 0.21,
+						"forced": 0.01
+					}
+				},
+				"emotion": {
+					"choice": "asserted",
+					"confidence": 0.33,
+					"probabilities": {
+						"asserted": 0.5,
+						"earned": 0.42,
+						"absent": 0.02,
+						"slight": 0.06
+					}
+				},
+				"insight": {
+					"score": 2.33,
+					"of": 3,
+					"confidence": 0.63,
+					"probabilities": [
+						0,
+						0.02,
+						0.63,
+						0.35
+					]
+				},
+				"voice": {
+					"score": 2.34,
+					"of": 3,
+					"confidence": 0.34,
+					"probabilities": [
+						0.08,
+						0.1,
+						0.21,
+						0.61
+					]
+				},
+				"wants": {
+					"noul": 0.12
+				},
+				"friction": {
+					"noul": 0.13
+				},
+				"open": {
+					"noul": 0.62
+				},
+				"prose": {
+					"score": 2.89,
+					"of": 3,
+					"confidence": 0.89,
+					"probabilities": [
+						0,
+						0.01,
+						0.1,
+						0.89
+					]
+				},
+				"fine": {
+					"noul": 0.9
+				}
+			}
+		},
+		{
+			"section": 5,
+			"piece": {
+				"at": 6,
+				"of": 60
+			},
+			"measured": {
+				"words": 932,
+				"spoken": 0.02,
+				"wordsPerSentence": 19
+			},
+			"sha256": "f20371608cb1039423a1cff987077db9061a5ae4e3663ba6b317f7ae1a9450fa",
+			"tokensIn": 4145,
+			"seconds": 0.5,
+			"answers": {
+				"happens": {
+					"score": 2.11,
+					"of": 3,
+					"confidence": 0.72,
+					"probabilities": [
+						0.01,
+						0.07,
+						0.73,
+						0.19
+					]
+				},
+				"talk": {
+					"score": 0.83,
+					"of": 4,
+					"confidence": 0.86,
+					"probabilities": [
+						0.17,
+						0.83,
+						0,
+						0,
+						0
+					]
+				},
+				"place": {
+					"score": 2.61,
+					"of": 3,
+					"confidence": 0.61,
+					"probabilities": [
+						0,
+						0.01,
+						0.37,
+						0.62
+					]
+				},
+				"feeling": {
+					"score": 2.91,
+					"of": 3,
+					"confidence": 0.91,
+					"probabilities": [
+						0,
+						0,
+						0.08,
+						0.92
+					]
+				},
+				"stakes": {
+					"score": 2.81,
+					"of": 3,
+					"confidence": 0.81,
+					"probabilities": [
+						0.04,
+						0.03,
+						0.01,
+						0.92
+					]
+				},
+				"funny": {
+					"score": 0.21,
+					"of": 2,
+					"confidence": 0.69,
+					"probabilities": [
+						0.79,
+						0.21,
+						0
+					]
+				},
+				"effort": {
+					"score": 1.94,
+					"of": 3,
+					"confidence": 0.85,
+					"probabilities": [
+						0,
+						0.11,
+						0.85,
+						0.04
+					]
+				},
+				"archaic": {
+					"noul": 0.36
+				},
+				"doorway": {
+					"choice": "story",
+					"confidence": 0.99,
+					"probabilities": {
+						"place": 0,
+						"writing": 0.01,
+						"people": 0,
+						"story": 0.99
+					}
+				},
+				"readymade": {
+					"score": 1.32,
+					"of": 3,
+					"confidence": 0.2,
+					"probabilities": [
+						0.18,
+						0.38,
+						0.38,
+						0.06
+					]
+				},
+				"overwritten": {
+					"score": 1.67,
+					"of": 3,
+					"confidence": 0.63,
+					"probabilities": [
+						0.09,
+						0.18,
+						0.71,
+						0.02
+					]
+				},
+				"padding": {
+					"score": 1.16,
+					"of": 3,
+					"confidence": 0.35,
+					"probabilities": [
+						0.24,
+						0.38,
+						0.35,
+						0.03
+					]
+				},
+				"unclear": {
+					"noul": 0.45
+				},
+				"explains": {
+					"score": 1.18,
+					"of": 2,
+					"confidence": 0.32,
+					"probabilities": [
+						0.14,
+						0.54,
+						0.32
+					]
+				},
+				"steers": {
+					"score": 1.75,
+					"of": 2,
+					"confidence": 0.62,
+					"probabilities": [
+						0.01,
+						0.23,
+						0.76
+					]
+				},
+				"melodrama": {
+					"noul": 0.25
+				},
+				"informs": {
+					"noul": 0.24
+				},
+				"strings": {
+					"score": 0.63,
+					"of": 2,
+					"confidence": 0.06,
+					"probabilities": [
+						0.46,
+						0.45,
+						0.09
+					]
+				},
+				"specific": {
+					"score": 2.67,
+					"of": 3,
+					"confidence": 0.67,
+					"probabilities": [
+						0,
+						0.01,
+						0.31,
+						0.68
+					]
+				},
+				"phrasing": {
+					"choice": "apt",
+					"confidence": 0.78,
+					"probabilities": {
+						"apt": 0.8099999999999999,
+						"exact": 0.15,
+						"readymade": 0.01,
+						"plain": 0.02,
+						"strained": 0.01
+					}
+				},
+				"figures": {
+					"choice": "true",
+					"confidence": 0.68,
+					"probabilities": {
+						"none": 0,
+						"familiar": 0.23,
+						"true": 0.76,
+						"forced": 0.01
+					}
+				},
+				"emotion": {
+					"choice": "earned",
+					"confidence": 0.82,
+					"probabilities": {
+						"earned": 0.87,
+						"slight": 0,
+						"asserted": 0.13,
+						"absent": 0
+					}
+				},
+				"insight": {
+					"score": 2.21,
+					"of": 3,
+					"confidence": 0.74,
+					"probabilities": [
+						0,
+						0.02,
+						0.74,
+						0.24
+					]
+				},
+				"voice": {
+					"score": 2.44,
+					"of": 3,
+					"confidence": 0.44,
+					"probabilities": [
+						0.02,
+						0.12,
+						0.26,
+						0.6
+					]
+				},
+				"wants": {
+					"noul": 0.7
+				},
+				"friction": {
+					"noul": 0.96
+				},
+				"open": {
+					"noul": 0.92
+				},
+				"prose": {
+					"score": 2.89,
+					"of": 3,
+					"confidence": 0.89,
+					"probabilities": [
+						0,
+						0,
+						0.11,
+						0.89
+					]
+				},
+				"fine": {
+					"noul": 0.92
+				}
+			}
+		},
+		{
+			"section": 10,
+			"piece": {
+				"at": 12,
+				"of": 60
+			},
+			"measured": {
+				"words": 940,
+				"spoken": 0.09,
+				"wordsPerSentence": 17.1
+			},
+			"sha256": "9553c56c756ffaea6919fb3553ea50826574136324741191aa1aef5f8bbb0e5e",
+			"tokensIn": 4119,
+			"seconds": 0.6,
+			"answers": {
+				"happens": {
+					"score": 2.66,
+					"of": 3,
+					"confidence": 0.66,
+					"probabilities": [
+						0,
+						0,
+						0.34,
+						0.66
+					]
+				},
+				"talk": {
+					"score": 1,
+					"of": 4,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						1,
+						0,
+						0,
+						0
+					]
+				},
+				"place": {
+					"score": 2.89,
+					"of": 3,
+					"confidence": 0.89,
+					"probabilities": [
+						0,
+						0,
+						0.1,
+						0.9
+					]
+				},
+				"feeling": {
+					"score": 2.65,
+					"of": 3,
+					"confidence": 0.65,
+					"probabilities": [
+						0,
+						0,
+						0.35,
+						0.65
+					]
+				},
+				"stakes": {
+					"score": 2.96,
+					"of": 3,
+					"confidence": 0.96,
+					"probabilities": [
+						0,
+						0,
+						0.04,
+						0.96
+					]
+				},
+				"funny": {
+					"score": 0.63,
+					"of": 2,
+					"confidence": 0.44,
+					"probabilities": [
+						0.37,
+						0.63,
+						0
+					]
+				},
+				"effort": {
+					"score": 1.42,
+					"of": 3,
+					"confidence": 0.57,
+					"probabilities": [
+						0.01,
+						0.57,
+						0.42,
+						0
+					]
+				},
+				"archaic": {
+					"noul": 0.34
+				},
+				"doorway": {
+					"choice": "story",
+					"confidence": 1,
+					"probabilities": {
+						"people": 0,
+						"writing": 0,
+						"story": 1,
+						"place": 0
+					}
+				},
+				"readymade": {
+					"score": 1.09,
+					"of": 3,
+					"confidence": 0.57,
+					"probabilities": [
+						0.17,
+						0.58,
+						0.24,
+						0.01
+					]
+				},
+				"overwritten": {
+					"score": 0.8,
+					"of": 3,
+					"confidence": 0.47,
+					"probabilities": [
+						0.36,
+						0.48,
+						0.16,
+						0
+					]
+				},
+				"padding": {
+					"score": 1.15,
+					"of": 3,
+					"confidence": 0.45,
+					"probabilities": [
+						0.2,
+						0.47,
+						0.32,
+						0.01
+					]
+				},
+				"unclear": {
+					"noul": 0.3
+				},
+				"explains": {
+					"score": 1.05,
+					"of": 2,
+					"confidence": 0.31,
+					"probabilities": [
+						0.21,
+						0.53,
+						0.26
+					]
+				},
+				"steers": {
+					"score": 0.52,
+					"of": 2,
+					"confidence": 0.22,
+					"probabilities": [
+						0.51,
+						0.47,
+						0.02
+					]
+				},
+				"melodrama": {
+					"noul": 0.3
+				},
+				"informs": {
+					"noul": 0.27
+				},
+				"strings": {
+					"score": 0.78,
+					"of": 2,
+					"confidence": 0.3,
+					"probabilities": [
+						0.34,
+						0.54,
+						0.12
+					]
+				},
+				"specific": {
+					"score": 2.63,
+					"of": 3,
+					"confidence": 0.63,
+					"probabilities": [
+						0,
+						0.01,
+						0.35,
+						0.64
+					]
+				},
+				"phrasing": {
+					"choice": "exact",
+					"confidence": 0.35,
+					"probabilities": {
+						"strained": 0,
+						"plain": 0.18,
+						"exact": 0.49,
+						"readymade": 0.03,
+						"apt": 0.3
+					}
+				},
+				"figures": {
+					"choice": "familiar",
+					"confidence": 0.61,
+					"probabilities": {
+						"familiar": 0.71,
+						"true": 0.26,
+						"forced": 0,
+						"none": 0.03
+					}
+				},
+				"emotion": {
+					"choice": "earned",
+					"confidence": 0.84,
+					"probabilities": {
+						"slight": 0,
+						"asserted": 0.12,
+						"absent": 0,
+						"earned": 0.88
+					}
+				},
+				"insight": {
+					"score": 2.13,
+					"of": 3,
+					"confidence": 0.78,
+					"probabilities": [
+						0,
+						0.04,
+						0.78,
+						0.18
+					]
+				},
+				"voice": {
+					"score": 2.53,
+					"of": 3,
+					"confidence": 0.53,
+					"probabilities": [
+						0.02,
+						0.09,
+						0.24,
+						0.65
+					]
+				},
+				"wants": {
+					"noul": 0.87
+				},
+				"friction": {
+					"noul": 0.75
+				},
+				"open": {
+					"noul": 0.87
+				},
+				"prose": {
+					"score": 2.46,
+					"of": 3,
+					"confidence": 0.46,
+					"probabilities": [
+						0,
+						0.03,
+						0.46,
+						0.51
+					]
+				},
+				"fine": {
+					"noul": 0.88
+				}
+			}
+		},
+		{
+			"section": 12,
+			"piece": {
+				"at": 17,
+				"of": 60
+			},
+			"measured": {
+				"words": 1050,
+				"spoken": 0.01,
+				"wordsPerSentence": 21
+			},
+			"sha256": "027271d21de087e20d5028f27f55281254e9b46bcac3943d975088fce2afb1b9",
+			"tokensIn": 4244,
+			"seconds": 0.5,
+			"answers": {
+				"happens": {
+					"score": 2.41,
+					"of": 3,
+					"confidence": 0.56,
+					"probabilities": [
+						0,
+						0.01,
+						0.56,
+						0.43
+					]
+				},
+				"talk": {
+					"score": 0.65,
+					"of": 4,
+					"confidence": 0.71,
+					"probabilities": [
+						0.35,
+						0.65,
+						0,
+						0,
+						0
+					]
+				},
+				"place": {
+					"score": 2.94,
+					"of": 3,
+					"confidence": 0.94,
+					"probabilities": [
+						0,
+						0,
+						0.06,
+						0.94
+					]
+				},
+				"feeling": {
+					"score": 2.2,
+					"of": 3,
+					"confidence": 0.68,
+					"probabilities": [
+						0,
+						0.05,
+						0.68,
+						0.26
+					]
+				},
+				"stakes": {
+					"score": 2.98,
+					"of": 3,
+					"confidence": 0.98,
+					"probabilities": [
+						0,
+						0,
+						0.02,
+						0.98
+					]
+				},
+				"funny": {
+					"score": 0.28,
+					"of": 2,
+					"confidence": 0.57,
+					"probabilities": [
+						0.72,
+						0.28,
+						0
+					]
+				},
+				"effort": {
+					"score": 1.56,
+					"of": 3,
+					"confidence": 0.56,
+					"probabilities": [
+						0,
+						0.43,
+						0.57,
+						0
+					]
+				},
+				"archaic": {
+					"noul": 0.33
+				},
+				"doorway": {
+					"choice": "story",
+					"confidence": 0.94,
+					"probabilities": {
+						"people": 0,
+						"writing": 0,
+						"story": 0.96,
+						"place": 0.04
+					}
+				},
+				"readymade": {
+					"score": 1.37,
+					"of": 3,
+					"confidence": 0.29,
+					"probabilities": [
+						0.13,
+						0.41,
+						0.42,
+						0.04
+					]
+				},
+				"overwritten": {
+					"score": 0.92,
+					"of": 3,
+					"confidence": 0.44,
+					"probabilities": [
+						0.32,
+						0.44,
+						0.24,
+						0
+					]
+				},
+				"padding": {
+					"score": 0.81,
+					"of": 3,
+					"confidence": 0.4,
+					"probabilities": [
+						0.4,
+						0.4,
+						0.19,
+						0.01
+					]
+				},
+				"unclear": {
+					"noul": 0.33
+				},
+				"explains": {
+					"score": 0.66,
+					"of": 2,
+					"confidence": 0.19,
+					"probabilities": [
+						0.44,
+						0.46,
+						0.1
+					]
+				},
+				"steers": {
+					"score": 0.77,
+					"of": 2,
+					"confidence": 0.54,
+					"probabilities": [
+						0.27,
+						0.69,
+						0.04
+					]
+				},
+				"melodrama": {
+					"noul": 0.15
+				},
+				"informs": {
+					"noul": 0.19
+				},
+				"strings": {
+					"score": 1.03,
+					"of": 2,
+					"confidence": 0.29,
+					"probabilities": [
+						0.22,
+						0.53,
+						0.25
+					]
+				},
+				"specific": {
+					"score": 2.73,
+					"of": 3,
+					"confidence": 0.73,
+					"probabilities": [
+						0,
+						0.01,
+						0.24,
+						0.75
+					]
+				},
+				"phrasing": {
+					"choice": "apt",
+					"confidence": 0.53,
+					"probabilities": {
+						"exact": 0.3,
+						"plain": 0.06,
+						"apt": 0.63,
+						"readymade": 0.01,
+						"strained": 0
+					}
+				},
+				"figures": {
+					"choice": "true",
+					"confidence": 0.5,
+					"probabilities": {
+						"none": 0.05,
+						"forced": 0,
+						"familiar": 0.32,
+						"true": 0.63
+					}
+				},
+				"emotion": {
+					"choice": "earned",
+					"confidence": 0.93,
+					"probabilities": {
+						"earned": 0.95,
+						"absent": 0,
+						"slight": 0,
+						"asserted": 0.05
+					}
+				},
+				"insight": {
+					"score": 2.1,
+					"of": 3,
+					"confidence": 0.78,
+					"probabilities": [
+						0,
+						0.06,
+						0.78,
+						0.16
+					]
+				},
+				"voice": {
+					"score": 2.5,
+					"of": 3,
+					"confidence": 0.5,
+					"probabilities": [
+						0.01,
+						0.11,
+						0.25,
+						0.63
+					]
+				},
+				"wants": {
+					"noul": 0.76
+				},
+				"friction": {
+					"noul": 0.72
+				},
+				"open": {
+					"noul": 0.64
+				},
+				"prose": {
+					"score": 2.8,
+					"of": 3,
+					"confidence": 0.8,
+					"probabilities": [
+						0,
+						0.01,
+						0.18,
+						0.81
+					]
+				},
+				"fine": {
+					"noul": 0.91
+				}
+			}
+		},
+		{
+			"section": 14,
+			"piece": {
+				"at": 22,
+				"of": 60
+			},
+			"measured": {
+				"words": 964,
+				"spoken": 0.3,
+				"wordsPerSentence": 11.8
+			},
+			"sha256": "491984ffa23ead3556e4f22e53e44e33a8584732005bdbeb64a42b6d0f3bf97f",
+			"tokensIn": 4260,
+			"seconds": 0.5,
+			"answers": {
+				"happens": {
+					"score": 2.02,
+					"of": 3,
+					"confidence": 0.83,
+					"probabilities": [
+						0.01,
+						0.06,
+						0.84,
+						0.09
+					]
+				},
+				"talk": {
+					"score": 1.61,
+					"of": 4,
+					"confidence": 0.49,
+					"probabilities": [
+						0,
+						0.47,
+						0.44,
+						0.09,
+						0
+					]
+				},
+				"place": {
+					"score": 2.83,
+					"of": 3,
+					"confidence": 0.83,
+					"probabilities": [
+						0,
+						0.01,
+						0.16,
+						0.83
+					]
+				},
+				"feeling": {
+					"score": 2.87,
+					"of": 3,
+					"confidence": 0.87,
+					"probabilities": [
+						0,
+						0,
+						0.13,
+						0.87
+					]
+				},
+				"stakes": {
+					"score": 2.97,
+					"of": 3,
+					"confidence": 0.97,
+					"probabilities": [
+						0,
+						0,
+						0.02,
+						0.98
+					]
+				},
+				"funny": {
+					"score": 0.82,
+					"of": 2,
+					"confidence": 0.64,
+					"probabilities": [
+						0.21,
+						0.76,
+						0.03
+					]
+				},
+				"effort": {
+					"score": 1.82,
+					"of": 3,
+					"confidence": 0.81,
+					"probabilities": [
+						0,
+						0.18,
+						0.82,
+						0
+					]
+				},
+				"archaic": {
+					"noul": 0.28
+				},
+				"doorway": {
+					"choice": "story",
+					"confidence": 0.9,
+					"probabilities": {
+						"story": 0.93,
+						"people": 0.02,
+						"place": 0.02,
+						"writing": 0.03
+					}
+				},
+				"readymade": {
+					"score": 1.01,
+					"of": 3,
+					"confidence": 0.67,
+					"probabilities": [
+						0.16,
+						0.68,
+						0.16,
+						0
+					]
+				},
+				"overwritten": {
+					"score": 1.02,
+					"of": 3,
+					"confidence": 0.41,
+					"probabilities": [
+						0.29,
+						0.41,
+						0.3,
+						0
+					]
+				},
+				"padding": {
+					"score": 1.23,
+					"of": 3,
+					"confidence": 0.41,
+					"probabilities": [
+						0.18,
+						0.44,
+						0.35,
+						0.03
+					]
+				},
+				"unclear": {
+					"noul": 0.43
+				},
+				"explains": {
+					"score": 1.36,
+					"of": 2,
+					"confidence": 0.25,
+					"probabilities": [
+						0.07,
+						0.5,
+						0.43
+					]
+				},
+				"steers": {
+					"score": 0.76,
+					"of": 2,
+					"confidence": 0.55,
+					"probabilities": [
+						0.27,
+						0.7,
+						0.03
+					]
+				},
+				"melodrama": {
+					"noul": 0.53
+				},
+				"informs": {
+					"noul": 0.51
+				},
+				"strings": {
+					"score": 0.63,
+					"of": 2,
+					"confidence": 0.22,
+					"probabilities": [
+						0.44,
+						0.48,
+						0.08
+					]
+				},
+				"specific": {
+					"score": 2.7,
+					"of": 3,
+					"confidence": 0.7,
+					"probabilities": [
+						0,
+						0.01,
+						0.27,
+						0.72
+					]
+				},
+				"phrasing": {
+					"choice": "apt",
+					"confidence": 0.5,
+					"probabilities": {
+						"apt": 0.6,
+						"exact": 0.27,
+						"plain": 0.08,
+						"strained": 0.01,
+						"readymade": 0.04
+					}
+				},
+				"figures": {
+					"choice": "familiar",
+					"confidence": 0.48,
+					"probabilities": {
+						"familiar": 0.61,
+						"true": 0.34,
+						"forced": 0.02,
+						"none": 0.03
+					}
+				},
+				"emotion": {
+					"choice": "earned",
+					"confidence": 0.85,
+					"probabilities": {
+						"slight": 0,
+						"absent": 0,
+						"asserted": 0.1,
+						"earned": 0.9
+					}
+				},
+				"insight": {
+					"score": 2.29,
+					"of": 3,
+					"confidence": 0.69,
+					"probabilities": [
+						0,
+						0.01,
+						0.69,
+						0.3
+					]
+				},
+				"voice": {
+					"score": 2.53,
+					"of": 3,
+					"confidence": 0.53,
+					"probabilities": [
+						0.01,
+						0.08,
+						0.28,
+						0.63
+					]
+				},
+				"wants": {
+					"noul": 0.7
+				},
+				"friction": {
+					"noul": 0.94
+				},
+				"open": {
+					"noul": 0.81
+				},
+				"prose": {
+					"score": 2.7,
+					"of": 3,
+					"confidence": 0.7,
+					"probabilities": [
+						0,
+						0.01,
+						0.28,
+						0.71
+					]
+				},
+				"fine": {
+					"noul": 0.89
+				}
+			}
+		},
+		{
+			"section": 16,
+			"piece": {
+				"at": 28,
+				"of": 60
+			},
+			"measured": {
+				"words": 923,
+				"spoken": 0.01,
+				"wordsPerSentence": 23.7
+			},
+			"sha256": "6175646a20f8f0a333c0d256d3a964bcb2b6f8232e1cf00c7e54a14e631e7a60",
+			"tokensIn": 4115,
+			"seconds": 0.6,
+			"answers": {
+				"happens": {
+					"score": 2.3,
+					"of": 3,
+					"confidence": 0.67,
+					"probabilities": [
+						0,
+						0.01,
+						0.67,
+						0.32
+					]
+				},
+				"talk": {
+					"score": 0.74,
+					"of": 4,
+					"confidence": 0.79,
+					"probabilities": [
+						0.26,
+						0.74,
+						0,
+						0,
+						0
+					]
+				},
+				"place": {
+					"score": 2.87,
+					"of": 3,
+					"confidence": 0.87,
+					"probabilities": [
+						0,
+						0.02,
+						0.09,
+						0.89
+					]
+				},
+				"feeling": {
+					"score": 2.07,
+					"of": 3,
+					"confidence": 0.68,
+					"probabilities": [
+						0,
+						0.12,
+						0.68,
+						0.2
+					]
+				},
+				"stakes": {
+					"score": 2.96,
+					"of": 3,
+					"confidence": 0.96,
+					"probabilities": [
+						0.01,
+						0.01,
+						0,
+						0.98
+					]
+				},
+				"funny": {
+					"score": 0.05,
+					"of": 2,
+					"confidence": 0.93,
+					"probabilities": [
+						0.95,
+						0.05,
+						0
+					]
+				},
+				"effort": {
+					"score": 2.09,
+					"of": 3,
+					"confidence": 0.81,
+					"probabilities": [
+						0,
+						0.05,
+						0.81,
+						0.14
+					]
+				},
+				"archaic": {
+					"noul": 0.57
+				},
+				"doorway": {
+					"choice": "story",
+					"confidence": 0.76,
+					"probabilities": {
+						"place": 0.1,
+						"writing": 0.08,
+						"people": 0,
+						"story": 0.82
+					}
+				},
+				"readymade": {
+					"score": 1.32,
+					"of": 3,
+					"confidence": 0.47,
+					"probabilities": [
+						0.1,
+						0.49,
+						0.39,
+						0.02
+					]
+				},
+				"overwritten": {
+					"score": 1.49,
+					"of": 3,
+					"confidence": 0.48,
+					"probabilities": [
+						0.13,
+						0.26,
+						0.6,
+						0.01
+					]
+				},
+				"padding": {
+					"score": 0.9,
+					"of": 3,
+					"confidence": 0.1,
+					"probabilities": [
+						0.39,
+						0.36,
+						0.23,
+						0.02
+					]
+				},
+				"unclear": {
+					"noul": 0.35
+				},
+				"explains": {
+					"score": 1.09,
+					"of": 2,
+					"confidence": 0.15,
+					"probabilities": [
+						0.24,
+						0.43,
+						0.33
+					]
+				},
+				"steers": {
+					"score": 0.65,
+					"of": 2,
+					"confidence": 0.4,
+					"probabilities": [
+						0.38,
+						0.59,
+						0.03
+					]
+				},
+				"melodrama": {
+					"noul": 0.17
+				},
+				"informs": {
+					"noul": 0.14
+				},
+				"strings": {
+					"score": 1.26,
+					"of": 2,
+					"confidence": 0.28,
+					"probabilities": [
+						0.11,
+						0.52,
+						0.37
+					]
+				},
+				"specific": {
+					"score": 2.77,
+					"of": 3,
+					"confidence": 0.77,
+					"probabilities": [
+						0,
+						0.01,
+						0.22,
+						0.77
+					]
+				},
+				"phrasing": {
+					"choice": "apt",
+					"confidence": 0.84,
+					"probabilities": {
+						"readymade": 0.01,
+						"exact": 0.11,
+						"strained": 0,
+						"plain": 0.01,
+						"apt": 0.87
+					}
+				},
+				"figures": {
+					"choice": "true",
+					"confidence": 0.88,
+					"probabilities": {
+						"none": 0,
+						"forced": 0,
+						"true": 0.91,
+						"familiar": 0.09
+					}
+				},
+				"emotion": {
+					"choice": "earned",
+					"confidence": 0.91,
+					"probabilities": {
+						"absent": 0.01,
+						"earned": 0.9299999999999999,
+						"asserted": 0.05,
+						"slight": 0.01
+					}
+				},
+				"insight": {
+					"score": 2.01,
+					"of": 3,
+					"confidence": 0.7,
+					"probabilities": [
+						0.03,
+						0.09,
+						0.73,
+						0.15
+					]
+				},
+				"voice": {
+					"score": 2.59,
+					"of": 3,
+					"confidence": 0.59,
+					"probabilities": [
+						0.02,
+						0.08,
+						0.18,
+						0.72
+					]
+				},
+				"wants": {
+					"noul": 0.31
+				},
+				"friction": {
+					"noul": 0.29
+				},
+				"open": {
+					"noul": 0.63
+				},
+				"prose": {
+					"score": 2.89,
+					"of": 3,
+					"confidence": 0.89,
+					"probabilities": [
+						0,
+						0,
+						0.11,
+						0.89
+					]
+				},
+				"fine": {
+					"noul": 0.9
+				}
+			}
+		},
+		{
+			"section": 17,
+			"piece": {
+				"at": 33,
+				"of": 60
+			},
+			"measured": {
+				"words": 1030,
+				"spoken": 0.09,
+				"wordsPerSentence": 15.6
+			},
+			"sha256": "1edcf7047460487137d5c0465ed65ea4ebac72007d3089dbbdb627628907d1ca",
+			"tokensIn": 4261,
+			"seconds": 0.6,
+			"answers": {
+				"happens": {
+					"score": 2.11,
+					"of": 3,
+					"confidence": 0.85,
+					"probabilities": [
+						0,
+						0.01,
+						0.86,
+						0.13
+					]
+				},
+				"talk": {
+					"score": 0.99,
+					"of": 4,
+					"confidence": 0.99,
+					"probabilities": [
+						0.01,
+						0.99,
+						0,
+						0,
+						0
+					]
+				},
+				"place": {
+					"score": 2.87,
+					"of": 3,
+					"confidence": 0.87,
+					"probabilities": [
+						0,
+						0.01,
+						0.1,
+						0.89
+					]
+				},
+				"feeling": {
+					"score": 2.69,
+					"of": 3,
+					"confidence": 0.69,
+					"probabilities": [
+						0,
+						0,
+						0.31,
+						0.69
+					]
+				},
+				"stakes": {
+					"score": 2.66,
+					"of": 3,
+					"confidence": 0.66,
+					"probabilities": [
+						0.01,
+						0.05,
+						0.21,
+						0.73
+					]
+				},
+				"funny": {
+					"score": 0.25,
+					"of": 2,
+					"confidence": 0.62,
+					"probabilities": [
+						0.76,
+						0.24,
+						0
+					]
+				},
+				"effort": {
+					"score": 1.46,
+					"of": 3,
+					"confidence": 0.53,
+					"probabilities": [
+						0.01,
+						0.53,
+						0.46,
+						0
+					]
+				},
+				"archaic": {
+					"noul": 0.58
+				},
+				"doorway": {
+					"choice": "story",
+					"confidence": 0.98,
+					"probabilities": {
+						"place": 0,
+						"story": 0.99,
+						"writing": 0.01,
+						"people": 0
+					}
+				},
+				"readymade": {
+					"score": 1.22,
+					"of": 3,
+					"confidence": 0.52,
+					"probabilities": [
+						0.13,
+						0.54,
+						0.31,
+						0.02
+					]
+				},
+				"overwritten": {
+					"score": 0.76,
+					"of": 3,
+					"confidence": 0.24,
+					"probabilities": [
+						0.45,
+						0.34,
+						0.21,
+						0
+					]
+				},
+				"padding": {
+					"score": 0.82,
+					"of": 3,
+					"confidence": 0.18,
+					"probabilities": [
+						0.44,
+						0.33,
+						0.19,
+						0.04
+					]
+				},
+				"unclear": {
+					"noul": 0.52
+				},
+				"explains": {
+					"score": 0.84,
+					"of": 2,
+					"confidence": 0.33,
+					"probabilities": [
+						0.3,
+						0.55,
+						0.15
+					]
+				},
+				"steers": {
+					"score": 0.89,
+					"of": 2,
+					"confidence": 0.8,
+					"probabilities": [
+						0.12,
+						0.86,
+						0.02
+					]
+				},
+				"melodrama": {
+					"noul": 0.29
+				},
+				"informs": {
+					"noul": 0.39
+				},
+				"strings": {
+					"score": 0.68,
+					"of": 2,
+					"confidence": 0.17,
+					"probabilities": [
+						0.44,
+						0.45,
+						0.11
+					]
+				},
+				"specific": {
+					"score": 2.83,
+					"of": 3,
+					"confidence": 0.83,
+					"probabilities": [
+						0,
+						0.01,
+						0.14,
+						0.85
+					]
+				},
+				"phrasing": {
+					"choice": "apt",
+					"confidence": 0.59,
+					"probabilities": {
+						"plain": 0.04,
+						"apt": 0.67,
+						"readymade": 0.01,
+						"strained": 0.01,
+						"exact": 0.27
+					}
+				},
+				"figures": {
+					"choice": "familiar",
+					"confidence": 0.18,
+					"probabilities": {
+						"familiar": 0.39,
+						"forced": 0.01,
+						"none": 0.25,
+						"true": 0.35
+					}
+				},
+				"emotion": {
+					"choice": "earned",
+					"confidence": 0.86,
+					"probabilities": {
+						"slight": 0,
+						"earned": 0.9,
+						"absent": 0,
+						"asserted": 0.1
+					}
+				},
+				"insight": {
+					"score": 2.38,
+					"of": 3,
+					"confidence": 0.61,
+					"probabilities": [
+						0,
+						0.01,
+						0.6,
+						0.39
+					]
+				},
+				"voice": {
+					"score": 2,
+					"of": 3,
+					"confidence": 0,
+					"probabilities": [
+						0.1,
+						0.19,
+						0.33,
+						0.38
+					]
+				},
+				"wants": {
+					"noul": 0.72
+				},
+				"friction": {
+					"noul": 0.94
+				},
+				"open": {
+					"noul": 0.56
+				},
+				"prose": {
+					"score": 2.64,
+					"of": 3,
+					"confidence": 0.64,
+					"probabilities": [
+						0,
+						0.02,
+						0.33,
+						0.65
+					]
+				},
+				"fine": {
+					"noul": 0.83
+				}
+			}
+		},
+		{
+			"section": 19,
+			"piece": {
+				"at": 39,
+				"of": 60
+			},
+			"measured": {
+				"words": 965,
+				"spoken": 0.07,
+				"wordsPerSentence": 18.6
+			},
+			"sha256": "3bbebc30ce59dc60a56592047309e30d23de66d7625731206c7c98ddecc22269",
+			"tokensIn": 4182,
+			"seconds": 0.8,
+			"answers": {
+				"happens": {
+					"score": 2.86,
+					"of": 3,
+					"confidence": 0.86,
+					"probabilities": [
+						0,
+						0,
+						0.14,
+						0.86
+					]
+				},
+				"talk": {
+					"score": 1,
+					"of": 4,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						1,
+						0,
+						0,
+						0
+					]
+				},
+				"place": {
+					"score": 2.83,
+					"of": 3,
+					"confidence": 0.83,
+					"probabilities": [
+						0,
+						0,
+						0.17,
+						0.83
+					]
+				},
+				"feeling": {
+					"score": 2.63,
+					"of": 3,
+					"confidence": 0.63,
+					"probabilities": [
+						0,
+						0.01,
+						0.35,
+						0.64
+					]
+				},
+				"stakes": {
+					"score": 3,
+					"of": 3,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"funny": {
+					"score": 0.34,
+					"of": 2,
+					"confidence": 0.49,
+					"probabilities": [
+						0.66,
+						0.34,
+						0
+					]
+				},
+				"effort": {
+					"score": 1.49,
+					"of": 3,
+					"confidence": 0.5,
+					"probabilities": [
+						0.01,
+						0.5,
+						0.49,
+						0
+					]
+				},
+				"archaic": {
+					"noul": 0.4
+				},
+				"doorway": {
+					"choice": "story",
+					"confidence": 1,
+					"probabilities": {
+						"people": 0,
+						"place": 0,
+						"writing": 0,
+						"story": 1
+					}
+				},
+				"readymade": {
+					"score": 1.41,
+					"of": 3,
+					"confidence": 0.32,
+					"probabilities": [
+						0.13,
+						0.37,
+						0.45,
+						0.05
+					]
+				},
+				"overwritten": {
+					"score": 0.87,
+					"of": 3,
+					"confidence": 0.45,
+					"probabilities": [
+						0.34,
+						0.46,
+						0.2,
+						0
+					]
+				},
+				"padding": {
+					"score": 0.85,
+					"of": 3,
+					"confidence": 0.5,
+					"probabilities": [
+						0.33,
+						0.5,
+						0.16,
+						0.01
+					]
+				},
+				"unclear": {
+					"noul": 0.47
+				},
+				"explains": {
+					"score": 0.84,
+					"of": 2,
+					"confidence": 0.24,
+					"probabilities": [
+						0.33,
+						0.5,
+						0.17
+					]
+				},
+				"steers": {
+					"score": 0.25,
+					"of": 2,
+					"confidence": 0.63,
+					"probabilities": [
+						0.76,
+						0.23,
+						0.01
+					]
+				},
+				"melodrama": {
+					"noul": 0.22
+				},
+				"informs": {
+					"noul": 0.25
+				},
+				"strings": {
+					"score": 0.79,
+					"of": 2,
+					"confidence": 0.31,
+					"probabilities": [
+						0.34,
+						0.54,
+						0.12
+					]
+				},
+				"specific": {
+					"score": 2.89,
+					"of": 3,
+					"confidence": 0.89,
+					"probabilities": [
+						0,
+						0,
+						0.11,
+						0.89
+					]
+				},
+				"phrasing": {
+					"choice": "exact",
+					"confidence": 0.51,
+					"probabilities": {
+						"readymade": 0.01,
+						"strained": 0,
+						"plain": 0.06,
+						"exact": 0.61,
+						"apt": 0.32
+					}
+				},
+				"figures": {
+					"choice": "familiar",
+					"confidence": 0.33,
+					"probabilities": {
+						"forced": 0,
+						"none": 0.2,
+						"true": 0.3,
+						"familiar": 0.5
+					}
+				},
+				"emotion": {
+					"choice": "earned",
+					"confidence": 0.89,
+					"probabilities": {
+						"earned": 0.91,
+						"asserted": 0.07,
+						"absent": 0.01,
+						"slight": 0.01
+					}
+				},
+				"insight": {
+					"score": 2.07,
+					"of": 3,
+					"confidence": 0.79,
+					"probabilities": [
+						0,
+						0.07,
+						0.79,
+						0.14
+					]
+				},
+				"voice": {
+					"score": 2.48,
+					"of": 3,
+					"confidence": 0.48,
+					"probabilities": [
+						0.02,
+						0.1,
+						0.27,
+						0.61
+					]
+				},
+				"wants": {
+					"noul": 0.42
+				},
+				"friction": {
+					"noul": 0.51
+				},
+				"open": {
+					"noul": 0.85
+				},
+				"prose": {
+					"score": 2.56,
+					"of": 3,
+					"confidence": 0.56,
+					"probabilities": [
+						0,
+						0.02,
+						0.39,
+						0.59
+					]
+				},
+				"fine": {
+					"noul": 0.89
+				}
+			}
+		},
+		{
+			"section": 21,
+			"piece": {
+				"at": 44,
+				"of": 60
+			},
+			"measured": {
+				"words": 929,
+				"spoken": 0,
+				"wordsPerSentence": 23.2
+			},
+			"sha256": "5ecd447fff3d5a7ba005d1930d2fae99aefcf5c2578c02ee346f17749e70c188",
+			"tokensIn": 4095,
+			"seconds": 0.7,
+			"answers": {
+				"happens": {
+					"score": 2.12,
+					"of": 3,
+					"confidence": 0.81,
+					"probabilities": [
+						0.01,
+						0.02,
+						0.81,
+						0.16
+					]
+				},
+				"talk": {
+					"score": 0.13,
+					"of": 4,
+					"confidence": 0.9,
+					"probabilities": [
+						0.88,
+						0.12,
+						0,
+						0,
+						0
+					]
+				},
+				"place": {
+					"score": 2.92,
+					"of": 3,
+					"confidence": 0.92,
+					"probabilities": [
+						0,
+						0,
+						0.08,
+						0.92
+					]
+				},
+				"feeling": {
+					"score": 2.77,
+					"of": 3,
+					"confidence": 0.77,
+					"probabilities": [
+						0,
+						0,
+						0.23,
+						0.77
+					]
+				},
+				"stakes": {
+					"score": 3,
+					"of": 3,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"funny": {
+					"score": 0.33,
+					"of": 2,
+					"confidence": 0.51,
+					"probabilities": [
+						0.68,
+						0.32,
+						0
+					]
+				},
+				"effort": {
+					"score": 1.94,
+					"of": 3,
+					"confidence": 0.89,
+					"probabilities": [
+						0,
+						0.08,
+						0.89,
+						0.03
+					]
+				},
+				"archaic": {
+					"noul": 0.37
+				},
+				"doorway": {
+					"choice": "story",
+					"confidence": 0.95,
+					"probabilities": {
+						"story": 0.97,
+						"writing": 0.01,
+						"place": 0.02,
+						"people": 0
+					}
+				},
+				"readymade": {
+					"score": 1.42,
+					"of": 3,
+					"confidence": 0.42,
+					"probabilities": [
+						0.05,
+						0.47,
+						0.48,
+						0
+					]
+				},
+				"overwritten": {
+					"score": 1.25,
+					"of": 3,
+					"confidence": 0.25,
+					"probabilities": [
+						0.2,
+						0.35,
+						0.45,
+						0
+					]
+				},
+				"padding": {
+					"score": 0.81,
+					"of": 3,
+					"confidence": 0.44,
+					"probabilities": [
+						0.37,
+						0.45,
+						0.17,
+						0.01
+					]
+				},
+				"unclear": {
+					"noul": 0.38
+				},
+				"explains": {
+					"score": 0.92,
+					"of": 2,
+					"confidence": 0.28,
+					"probabilities": [
+						0.28,
+						0.52,
+						0.2
+					]
+				},
+				"steers": {
+					"score": 1.13,
+					"of": 2,
+					"confidence": 0.61,
+					"probabilities": [
+						0.06,
+						0.75,
+						0.19
+					]
+				},
+				"melodrama": {
+					"noul": 0.3
+				},
+				"informs": {
+					"noul": 0.18
+				},
+				"strings": {
+					"score": 0.62,
+					"of": 2,
+					"confidence": 0.08,
+					"probabilities": [
+						0.47,
+						0.44,
+						0.09
+					]
+				},
+				"specific": {
+					"score": 2.59,
+					"of": 3,
+					"confidence": 0.59,
+					"probabilities": [
+						0,
+						0,
+						0.4,
+						0.6
+					]
+				},
+				"phrasing": {
+					"choice": "apt",
+					"confidence": 0.71,
+					"probabilities": {
+						"apt": 0.77,
+						"exact": 0.18,
+						"plain": 0.03,
+						"strained": 0.01,
+						"readymade": 0.01
+					}
+				},
+				"figures": {
+					"choice": "true",
+					"confidence": 0.66,
+					"probabilities": {
+						"true": 0.74,
+						"familiar": 0.22,
+						"none": 0.03,
+						"forced": 0.01
+					}
+				},
+				"emotion": {
+					"choice": "earned",
+					"confidence": 0.93,
+					"probabilities": {
+						"slight": 0,
+						"earned": 0.95,
+						"absent": 0,
+						"asserted": 0.05
+					}
+				},
+				"insight": {
+					"score": 2.14,
+					"of": 3,
+					"confidence": 0.83,
+					"probabilities": [
+						0,
+						0.02,
+						0.83,
+						0.15
+					]
+				},
+				"voice": {
+					"score": 2.52,
+					"of": 3,
+					"confidence": 0.52,
+					"probabilities": [
+						0.01,
+						0.1,
+						0.24,
+						0.65
+					]
+				},
+				"wants": {
+					"noul": 0.74
+				},
+				"friction": {
+					"noul": 0.93
+				},
+				"open": {
+					"noul": 0.83
+				},
+				"prose": {
+					"score": 2.84,
+					"of": 3,
+					"confidence": 0.84,
+					"probabilities": [
+						0,
+						0,
+						0.15,
+						0.85
+					]
+				},
+				"fine": {
+					"noul": 0.9
+				}
+			}
+		},
+		{
+			"section": 24,
+			"piece": {
+				"at": 49,
+				"of": 60
+			},
+			"measured": {
+				"words": 1045,
+				"spoken": 0,
+				"wordsPerSentence": 21.8
+			},
+			"sha256": "560a19f1c838681b97beb1e293b4f16cbb88e5ce25c49946abd8dc81517deda7",
+			"tokensIn": 4232,
+			"seconds": 0.7,
+			"answers": {
+				"happens": {
+					"score": 1.68,
+					"of": 3,
+					"confidence": 0.59,
+					"probabilities": [
+						0.04,
+						0.27,
+						0.64,
+						0.05
+					]
+				},
+				"talk": {
+					"score": 0,
+					"of": 4,
+					"confidence": 1,
+					"probabilities": [
+						1,
+						0,
+						0,
+						0,
+						0
+					]
+				},
+				"place": {
+					"score": 2.31,
+					"of": 3,
+					"confidence": 0.67,
+					"probabilities": [
+						0,
+						0.01,
+						0.67,
+						0.32
+					]
+				},
+				"feeling": {
+					"score": 2.99,
+					"of": 3,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						0.01,
+						0.99
+					]
+				},
+				"stakes": {
+					"score": 2.98,
+					"of": 3,
+					"confidence": 0.98,
+					"probabilities": [
+						0,
+						0,
+						0.02,
+						0.98
+					]
+				},
+				"funny": {
+					"score": 0.42,
+					"of": 2,
+					"confidence": 0.38,
+					"probabilities": [
+						0.59,
+						0.41,
+						0
+					]
+				},
+				"effort": {
+					"score": 2,
+					"of": 3,
+					"confidence": 0.88,
+					"probabilities": [
+						0,
+						0.06,
+						0.88,
+						0.06
+					]
+				},
+				"archaic": {
+					"noul": 0.3
+				},
+				"doorway": {
+					"choice": "story",
+					"confidence": 0.82,
+					"probabilities": {
+						"place": 0,
+						"story": 0.87,
+						"writing": 0.11,
+						"people": 0.02
+					}
+				},
+				"readymade": {
+					"score": 1.27,
+					"of": 3,
+					"confidence": 0.48,
+					"probabilities": [
+						0.12,
+						0.51,
+						0.35,
+						0.02
+					]
+				},
+				"overwritten": {
+					"score": 1.34,
+					"of": 3,
+					"confidence": 0.32,
+					"probabilities": [
+						0.16,
+						0.36,
+						0.47,
+						0.01
+					]
+				},
+				"padding": {
+					"score": 1.04,
+					"of": 3,
+					"confidence": 0.4,
+					"probabilities": [
+						0.28,
+						0.42,
+						0.28,
+						0.02
+					]
+				},
+				"unclear": {
+					"noul": 0.23
+				},
+				"explains": {
+					"score": 1.25,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.17,
+						0.41,
+						0.42
+					]
+				},
+				"steers": {
+					"score": 0.72,
+					"of": 2,
+					"confidence": 0.34,
+					"probabilities": [
+						0.36,
+						0.56,
+						0.08
+					]
+				},
+				"melodrama": {
+					"noul": 0.3
+				},
+				"informs": {
+					"noul": 0.07
+				},
+				"strings": {
+					"score": 0.44,
+					"of": 2,
+					"confidence": 0.34,
+					"probabilities": [
+						0.63,
+						0.3,
+						0.07
+					]
+				},
+				"specific": {
+					"score": 2.72,
+					"of": 3,
+					"confidence": 0.72,
+					"probabilities": [
+						0,
+						0,
+						0.27,
+						0.73
+					]
+				},
+				"phrasing": {
+					"choice": "apt",
+					"confidence": 0.68,
+					"probabilities": {
+						"readymade": 0.01,
+						"strained": 0.01,
+						"plain": 0.05,
+						"exact": 0.19,
+						"apt": 0.74
+					}
+				},
+				"figures": {
+					"choice": "true",
+					"confidence": 0.53,
+					"probabilities": {
+						"familiar": 0.33,
+						"none": 0.01,
+						"true": 0.65,
+						"forced": 0.01
+					}
+				},
+				"emotion": {
+					"choice": "earned",
+					"confidence": 0.95,
+					"probabilities": {
+						"asserted": 0.03,
+						"slight": 0,
+						"earned": 0.97,
+						"absent": 0
+					}
+				},
+				"insight": {
+					"score": 2.51,
+					"of": 3,
+					"confidence": 0.51,
+					"probabilities": [
+						0,
+						0,
+						0.48,
+						0.52
+					]
+				},
+				"voice": {
+					"score": 2.83,
+					"of": 3,
+					"confidence": 0.83,
+					"probabilities": [
+						0.01,
+						0.03,
+						0.09,
+						0.87
+					]
+				},
+				"wants": {
+					"noul": 0.77
+				},
+				"friction": {
+					"noul": 0.97
+				},
+				"open": {
+					"noul": 0.88
+				},
+				"prose": {
+					"score": 2.91,
+					"of": 3,
+					"confidence": 0.91,
+					"probabilities": [
+						0,
+						0,
+						0.08,
+						0.92
+					]
+				},
+				"fine": {
+					"noul": 0.91
+				}
+			}
+		},
+		{
+			"section": 26,
+			"piece": {
+				"at": 55,
+				"of": 60
+			},
+			"measured": {
+				"words": 1028,
+				"spoken": 0.03,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "0b92ba41ff279d331db40f09c4e76596065302d5032953763867bcc3301f6cd2",
+			"tokensIn": 4268,
+			"seconds": 0.7,
+			"answers": {
+				"happens": {
+					"score": 1.99,
+					"of": 3,
+					"confidence": 0.96,
+					"probabilities": [
+						0,
+						0.02,
+						0.96,
+						0.02
+					]
+				},
+				"talk": {
+					"score": 0,
+					"of": 4,
+					"confidence": 1,
+					"probabilities": [
+						1,
+						0,
+						0,
+						0,
+						0
+					]
+				},
+				"place": {
+					"score": 3,
+					"of": 3,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"feeling": {
+					"score": 2.83,
+					"of": 3,
+					"confidence": 0.83,
+					"probabilities": [
+						0,
+						0,
+						0.17,
+						0.83
+					]
+				},
+				"stakes": {
+					"score": 2.89,
+					"of": 3,
+					"confidence": 0.89,
+					"probabilities": [
+						0,
+						0.05,
+						0.01,
+						0.94
+					]
+				},
+				"funny": {
+					"score": 0.16,
+					"of": 2,
+					"confidence": 0.77,
+					"probabilities": [
+						0.85,
+						0.15,
+						0
+					]
+				},
+				"effort": {
+					"score": 1.94,
+					"of": 3,
+					"confidence": 0.86,
+					"probabilities": [
+						0,
+						0.1,
+						0.86,
+						0.04
+					]
+				},
+				"archaic": {
+					"noul": 0.36
+				},
+				"doorway": {
+					"choice": "story",
+					"confidence": 0.58,
+					"probabilities": {
+						"people": 0,
+						"story": 0.69,
+						"writing": 0.01,
+						"place": 0.3
+					}
+				},
+				"readymade": {
+					"score": 1.08,
+					"of": 3,
+					"confidence": 0.59,
+					"probabilities": [
+						0.17,
+						0.6,
+						0.22,
+						0.01
+					]
+				},
+				"overwritten": {
+					"score": 1.63,
+					"of": 3,
+					"confidence": 0.6,
+					"probabilities": [
+						0.08,
+						0.22,
+						0.69,
+						0.01
+					]
+				},
+				"padding": {
+					"score": 1.27,
+					"of": 3,
+					"confidence": 0.16,
+					"probabilities": [
+						0.21,
+						0.37,
+						0.37,
+						0.05
+					]
+				},
+				"unclear": {
+					"noul": 0.5
+				},
+				"explains": {
+					"score": 0.96,
+					"of": 2,
+					"confidence": 0.16,
+					"probabilities": [
+						0.3,
+						0.44,
+						0.26
+					]
+				},
+				"steers": {
+					"score": 1.09,
+					"of": 2,
+					"confidence": 0.41,
+					"probabilities": [
+						0.15,
+						0.61,
+						0.24
+					]
+				},
+				"melodrama": {
+					"noul": 0.3
+				},
+				"informs": {
+					"noul": 0.05
+				},
+				"strings": {
+					"score": 0.61,
+					"of": 2,
+					"confidence": 0.09,
+					"probabilities": [
+						0.49,
+						0.42,
+						0.09
+					]
+				},
+				"specific": {
+					"score": 2.69,
+					"of": 3,
+					"confidence": 0.69,
+					"probabilities": [
+						0,
+						0.01,
+						0.3,
+						0.69
+					]
+				},
+				"phrasing": {
+					"choice": "apt",
+					"confidence": 0.81,
+					"probabilities": {
+						"plain": 0.02,
+						"apt": 0.86,
+						"strained": 0.02,
+						"exact": 0.08,
+						"readymade": 0.02
+					}
+				},
+				"figures": {
+					"choice": "true",
+					"confidence": 0.69,
+					"probabilities": {
+						"true": 0.76,
+						"none": 0.01,
+						"forced": 0.02,
+						"familiar": 0.21
+					}
+				},
+				"emotion": {
+					"choice": "earned",
+					"confidence": 0.83,
+					"probabilities": {
+						"absent": 0,
+						"earned": 0.88,
+						"slight": 0,
+						"asserted": 0.12
+					}
+				},
+				"insight": {
+					"score": 2.21,
+					"of": 3,
+					"confidence": 0.73,
+					"probabilities": [
+						0,
+						0.03,
+						0.73,
+						0.24
+					]
+				},
+				"voice": {
+					"score": 2.55,
+					"of": 3,
+					"confidence": 0.55,
+					"probabilities": [
+						0.02,
+						0.09,
+						0.2,
+						0.68
+					]
+				},
+				"wants": {
+					"noul": 0.49
+				},
+				"friction": {
+					"noul": 0.8
+				},
+				"open": {
+					"noul": 0.89
+				},
+				"prose": {
+					"score": 2.83,
+					"of": 3,
+					"confidence": 0.83,
+					"probabilities": [
+						0,
+						0.01,
+						0.16,
+						0.83
+					]
+				},
+				"fine": {
+					"noul": 0.88
+				}
+			}
+		},
+		{
+			"section": 28,
+			"piece": {
+				"at": 60,
+				"of": 60
+			},
+			"measured": {
+				"words": 904,
+				"spoken": 0,
+				"wordsPerSentence": 32.3
+			},
+			"sha256": "44b14cb43f8ba37821b357f69d9391a73f65727e447da6a80efb010245a833f1",
+			"tokensIn": 4028,
+			"seconds": 0.6,
+			"answers": {
+				"happens": {
+					"score": 2.79,
+					"of": 3,
+					"confidence": 0.79,
+					"probabilities": [
+						0,
+						0.01,
+						0.18,
+						0.81
+					]
+				},
+				"talk": {
+					"score": 0,
+					"of": 4,
+					"confidence": 1,
+					"probabilities": [
+						1,
+						0,
+						0,
+						0,
+						0
+					]
+				},
+				"place": {
+					"score": 2.47,
+					"of": 3,
+					"confidence": 0.47,
+					"probabilities": [
+						0,
+						0.07,
+						0.37,
+						0.56
+					]
+				},
+				"feeling": {
+					"score": 2.95,
+					"of": 3,
+					"confidence": 0.95,
+					"probabilities": [
+						0,
+						0,
+						0.05,
+						0.95
+					]
+				},
+				"stakes": {
+					"score": 2.17,
+					"of": 3,
+					"confidence": 0.17,
+					"probabilities": [
+						0.23,
+						0.03,
+						0.09,
+						0.65
+					]
+				},
+				"funny": {
+					"score": 0.09,
+					"of": 2,
+					"confidence": 0.86,
+					"probabilities": [
+						0.91,
+						0.09,
+						0
+					]
+				},
+				"effort": {
+					"score": 2.4,
+					"of": 3,
+					"confidence": 0.59,
+					"probabilities": [
+						0,
+						0.01,
+						0.59,
+						0.4
+					]
+				},
+				"archaic": {
+					"noul": 0.43
+				},
+				"doorway": {
+					"choice": "writing",
+					"confidence": 0.78,
+					"probabilities": {
+						"place": 0.01,
+						"story": 0.14,
+						"people": 0.01,
+						"writing": 0.84
+					}
+				},
+				"readymade": {
+					"score": 1.28,
+					"of": 3,
+					"confidence": 0.34,
+					"probabilities": [
+						0.19,
+						0.4,
+						0.35,
+						0.06
+					]
+				},
+				"overwritten": {
+					"score": 2.01,
+					"of": 3,
+					"confidence": 0.8,
+					"probabilities": [
+						0.01,
+						0.07,
+						0.81,
+						0.1
+					]
+				},
+				"padding": {
+					"score": 1.22,
+					"of": 3,
+					"confidence": 0.13,
+					"probabilities": [
+						0.25,
+						0.33,
+						0.38,
+						0.04
+					]
+				},
+				"unclear": {
+					"noul": 0.44
+				},
+				"explains": {
+					"score": 0.92,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.41,
+						0.26,
+						0.33
+					]
+				},
+				"steers": {
+					"score": 1.02,
+					"of": 2,
+					"confidence": 0.28,
+					"probabilities": [
+						0.23,
+						0.52,
+						0.25
+					]
+				},
+				"melodrama": {
+					"noul": 0.41
+				},
+				"informs": {
+					"noul": 0.17
+				},
+				"strings": {
+					"score": 1.46,
+					"of": 2,
+					"confidence": 0.19,
+					"probabilities": [
+						0.15,
+						0.25,
+						0.6
+					]
+				},
+				"specific": {
+					"score": 2.45,
+					"of": 3,
+					"confidence": 0.45,
+					"probabilities": [
+						0,
+						0.05,
+						0.44,
+						0.51
+					]
+				},
+				"phrasing": {
+					"choice": "apt",
+					"confidence": 0.87,
+					"probabilities": {
+						"apt": 0.9,
+						"exact": 0.04,
+						"plain": 0.02,
+						"readymade": 0.02,
+						"strained": 0.02
+					}
+				},
+				"figures": {
+					"choice": "true",
+					"confidence": 0.8,
+					"probabilities": {
+						"familiar": 0.13,
+						"true": 0.85,
+						"none": 0,
+						"forced": 0.02
+					}
+				},
+				"emotion": {
+					"choice": "earned",
+					"confidence": 0.92,
+					"probabilities": {
+						"earned": 0.94,
+						"absent": 0,
+						"slight": 0,
+						"asserted": 0.06
+					}
+				},
+				"insight": {
+					"score": 2.57,
+					"of": 3,
+					"confidence": 0.57,
+					"probabilities": [
+						0,
+						0.01,
+						0.41,
+						0.58
+					]
+				},
+				"voice": {
+					"score": 2.86,
+					"of": 3,
+					"confidence": 0.86,
+					"probabilities": [
+						0.01,
+						0.01,
+						0.09,
+						0.89
+					]
+				},
+				"wants": {
+					"noul": 0.29
+				},
+				"friction": {
+					"noul": 0.88
+				},
+				"open": {
+					"noul": 0.39
+				},
+				"prose": {
+					"score": 2.94,
+					"of": 3,
+					"confidence": 0.94,
+					"probabilities": [
+						0,
+						0.01,
+						0.05,
+						0.94
+					]
+				},
+				"fine": {
+					"noul": 0.91
+				}
+			}
+		}
+	],
+	"remarks": "Variant: passage at 1000 words. Twelve passages spread over the story, cut across its sections."
+}

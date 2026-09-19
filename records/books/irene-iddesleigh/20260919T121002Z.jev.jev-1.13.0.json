@@ -1,0 +1,600 @@
+{
+	"kind": "jev",
+	"at": "2026-09-19T12:10:02.948Z",
+	"book": {
+		"title": "Irene Iddesleigh",
+		"author": "Amanda McKittrick Ros",
+		"language": "en",
+		"source": {
+			"file": "irene-iddesleigh.epub",
+			"format": "epub",
+			"sha256": "f6ff046fc63ccd41a47cdaa3e52657ae61c6f5cccab6cca5d002f97a9aae6e89"
+		},
+		"text": {
+			"sha256": "0d4ddc2b43b3d1769ad7644e82404c3f6e63c39fdd7d79be7bbcec503b8ea137",
+			"sections": 22,
+			"words": 33583
+		}
+	},
+	"sections": [
+		3,
+		6,
+		7,
+		10
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "taste",
+		"rules": "sha256:b7087bb04b65",
+		"asked": {
+			"fresh": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much of its wording is the writer's own, and how much stock phrases?",
+				"criteria": [
+					"Stock phrases and clichés throughout: the wording any writer would reach for first",
+					"Plain, serviceable wording, with a stock phrase here and there",
+					"Precise wording, with now and then an image or a turn of phrase that is the writer's own",
+					"Striking wording throughout: images and turns of phrase that a reader remembers"
+				]
+			},
+			"clear": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How easy is it to follow, sentence by sentence?",
+				"criteria": [
+					"Hard to follow: sentences so tangled or so ornate that they have to be read twice",
+					"Mostly clear, with some sentences that have to be read twice",
+					"Clear throughout: every sentence says what it means at first reading"
+				]
+			},
+			"overdone": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much does the writing overdo it?",
+				"criteria": [
+					"Restrained: no more words, ornament or emotion than what is told needs",
+					"Now and then more adjectives, ornament or emotion than what is told needs",
+					"Overwrought throughout: piled-up adjectives, exclamations, grand words for small things"
+				]
+			},
+			"shown": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How does the reader learn what the characters feel?",
+				"criteria": [
+					"The narrator names the feelings outright: he was angry, she felt sad",
+					"The narrator mostly names the feelings, and sometimes they show in what a character does or says",
+					"The feelings mostly show in what the characters do, say and notice, and are sometimes named",
+					"The feelings show in what the characters do, say and notice, and are left for the reader to name"
+				]
+			},
+			"people": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much are its characters like real people?",
+				"criteria": [
+					"Figures of a single trait: the hero, the villain, the beauty, the fool",
+					"Recognisable types, with a personal touch here and there",
+					"People with motives of their own, who want things that get in each other's way",
+					"People with contradictions, who surprise the reader and still ring true"
+				]
+			},
+			"insight": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much does it tell the reader about how people are?",
+				"criteria": [
+					"Nothing beyond the events of the story",
+					"A commonplace remark or two about people or life",
+					"Observations on how people think and behave that ring true",
+					"It shows something about people in a way the reader had not seen it put before"
+				]
+			},
+			"pull": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much does it make the reader want to go on reading?",
+				"criteria": [
+					"Nothing is at issue, and the reader has no reason to go on",
+					"The reader is mildly curious about what comes next",
+					"The reader wants to know how what is at issue turns out",
+					"The reader has to know what happens next, and it is hard to stop reading"
+				]
+			},
+			"drag": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much of it could be cut without loss?",
+				"criteria": [
+					"Nothing: every part of it moves the story on or gives the reader something",
+					"A part here and there goes on longer than it needs",
+					"Long stretches repeat what is known or dwell on what does not matter"
+				]
+			},
+			"fun": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Would most readers of today enjoy reading it?"
+			},
+			"fine": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Is it finely written, the work of a writer in full command of the craft?"
+			},
+			"danger": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How much physical danger are the characters in?",
+				"criteria": [
+					"None: nobody is at risk of being hurt",
+					"Hardship or a threat: hunger, thirst, exhaustion, or someone who says they will harm them",
+					"Some of the characters are close to dying",
+					"The characters fight for their lives, and people are killed"
+				]
+			}
+		},
+		"code": {
+			"commit": "0411666",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 4,
+		"tokensIn": 12340,
+		"usd": 0.000518,
+		"seconds": 2
+	},
+	"found": [
+		{
+			"section": 3,
+			"measured": {
+				"words": 541,
+				"spoken": 0.01,
+				"wordsPerSentence": 33.8
+			},
+			"sha256": "1345c82c99256fb35b7f5582ba0f201215a07c93344a0f796a2948b828a7590f",
+			"tokensIn": 2005,
+			"seconds": 0.5,
+			"answers": {
+				"fresh": {
+					"score": 1.33,
+					"of": 3,
+					"confidence": 0,
+					"probabilities": [
+						0.44,
+						0.09,
+						0.17,
+						0.3
+					]
+				},
+				"clear": {
+					"score": 0.44,
+					"of": 2,
+					"confidence": 0.34,
+					"probabilities": [
+						0.56,
+						0.44,
+						0
+					]
+				},
+				"overdone": {
+					"score": 2,
+					"of": 2,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"shown": {
+					"score": 2.35,
+					"of": 3,
+					"confidence": 0.35,
+					"probabilities": [
+						0.03,
+						0.06,
+						0.44,
+						0.47
+					]
+				},
+				"people": {
+					"score": 0.57,
+					"of": 3,
+					"confidence": 0.43,
+					"probabilities": [
+						0.49,
+						0.45,
+						0.05,
+						0.01
+					]
+				},
+				"insight": {
+					"score": 1.55,
+					"of": 3,
+					"confidence": 0.48,
+					"probabilities": [
+						0.01,
+						0.47,
+						0.49,
+						0.03
+					]
+				},
+				"pull": {
+					"score": 1.49,
+					"of": 3,
+					"confidence": 0.51,
+					"probabilities": [
+						0,
+						0.52,
+						0.47,
+						0.01
+					]
+				},
+				"drag": {
+					"score": 1.6,
+					"of": 2,
+					"confidence": 0.39,
+					"probabilities": [
+						0.02,
+						0.35,
+						0.63
+					]
+				},
+				"fun": {
+					"noul": 0.23
+				},
+				"fine": {
+					"noul": 0.35
+				},
+				"danger": {
+					"score": 0.03,
+					"of": 3,
+					"confidence": 0.97,
+					"probabilities": [
+						0.97,
+						0.03,
+						0,
+						0
+					]
+				}
+			}
+		},
+		{
+			"section": 6,
+			"measured": {
+				"words": 1130,
+				"spoken": 0.05,
+				"wordsPerSentence": 40.4
+			},
+			"sha256": "6e1272b7c187670b2a474e81495db46fd17e8485163ceae0d53ce48cc7c7856a",
+			"tokensIn": 2744,
+			"seconds": 0.3,
+			"answers": {
+				"fresh": {
+					"score": 1.29,
+					"of": 3,
+					"confidence": 0,
+					"probabilities": [
+						0.48,
+						0.06,
+						0.14,
+						0.32
+					]
+				},
+				"clear": {
+					"score": 0.12,
+					"of": 2,
+					"confidence": 0.82,
+					"probabilities": [
+						0.88,
+						0.12,
+						0
+					]
+				},
+				"overdone": {
+					"score": 2,
+					"of": 2,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"shown": {
+					"score": 0.99,
+					"of": 3,
+					"confidence": 0.7,
+					"probabilities": [
+						0.16,
+						0.7,
+						0.14,
+						0
+					]
+				},
+				"people": {
+					"score": 1.3,
+					"of": 3,
+					"confidence": 0.45,
+					"probabilities": [
+						0.13,
+						0.46,
+						0.39,
+						0.02
+					]
+				},
+				"insight": {
+					"score": 1.9,
+					"of": 3,
+					"confidence": 0.78,
+					"probabilities": [
+						0.01,
+						0.15,
+						0.78,
+						0.06
+					]
+				},
+				"pull": {
+					"score": 2.05,
+					"of": 3,
+					"confidence": 0.75,
+					"probabilities": [
+						0,
+						0.1,
+						0.75,
+						0.15
+					]
+				},
+				"drag": {
+					"score": 1.67,
+					"of": 2,
+					"confidence": 0.51,
+					"probabilities": [
+						0.02,
+						0.29,
+						0.69
+					]
+				},
+				"fun": {
+					"noul": 0.18
+				},
+				"fine": {
+					"noul": 0.19
+				},
+				"danger": {
+					"score": 0,
+					"of": 3,
+					"confidence": 1,
+					"probabilities": [
+						1,
+						0,
+						0,
+						0
+					]
+				}
+			}
+		},
+		{
+			"section": 7,
+			"measured": {
+				"words": 1508,
+				"spoken": 0.46,
+				"wordsPerSentence": 40.8
+			},
+			"sha256": "14c9bb7b8ae5d5a395d39fedf6b34201845d3ecdd6628ff65a5ad1bcb7bc7bb4",
+			"tokensIn": 3180,
+			"seconds": 0.4,
+			"answers": {
+				"fresh": {
+					"score": 1.8,
+					"of": 3,
+					"confidence": 0,
+					"probabilities": [
+						0.33,
+						0.04,
+						0.13,
+						0.5
+					]
+				},
+				"clear": {
+					"score": 0.04,
+					"of": 2,
+					"confidence": 0.94,
+					"probabilities": [
+						0.96,
+						0.04,
+						0
+					]
+				},
+				"overdone": {
+					"score": 2,
+					"of": 2,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"shown": {
+					"score": 1.53,
+					"of": 3,
+					"confidence": 0.48,
+					"probabilities": [
+						0.04,
+						0.41,
+						0.53,
+						0.02
+					]
+				},
+				"people": {
+					"score": 1.41,
+					"of": 3,
+					"confidence": 0.4,
+					"probabilities": [
+						0.1,
+						0.44,
+						0.42,
+						0.04
+					]
+				},
+				"insight": {
+					"score": 1.95,
+					"of": 3,
+					"confidence": 0.77,
+					"probabilities": [
+						0,
+						0.13,
+						0.78,
+						0.09
+					]
+				},
+				"pull": {
+					"score": 1.79,
+					"of": 3,
+					"confidence": 0.65,
+					"probabilities": [
+						0,
+						0.28,
+						0.65,
+						0.07
+					]
+				},
+				"drag": {
+					"score": 1.75,
+					"of": 2,
+					"confidence": 0.63,
+					"probabilities": [
+						0.02,
+						0.21,
+						0.77
+					]
+				},
+				"fun": {
+					"noul": 0.17
+				},
+				"fine": {
+					"noul": 0.25
+				},
+				"danger": {
+					"score": 0,
+					"of": 3,
+					"confidence": 1,
+					"probabilities": [
+						1,
+						0,
+						0,
+						0
+					]
+				}
+			}
+		},
+		{
+			"section": 10,
+			"measured": {
+				"words": 2446,
+				"spoken": 0.44,
+				"wordsPerSentence": 29.8
+			},
+			"sha256": "e264f607c534ce955b6e0898a3b06cf145cba9f421bce17648a40579af64542e",
+			"tokensIn": 4411,
+			"seconds": 0.6,
+			"answers": {
+				"fresh": {
+					"score": 1.58,
+					"of": 3,
+					"confidence": 0,
+					"probabilities": [
+						0.42,
+						0.03,
+						0.09,
+						0.46
+					]
+				},
+				"clear": {
+					"score": 0.05,
+					"of": 2,
+					"confidence": 0.92,
+					"probabilities": [
+						0.95,
+						0.05,
+						0
+					]
+				},
+				"overdone": {
+					"score": 2,
+					"of": 2,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"shown": {
+					"score": 1.21,
+					"of": 3,
+					"confidence": 0.63,
+					"probabilities": [
+						0.08,
+						0.64,
+						0.28,
+						0
+					]
+				},
+				"people": {
+					"score": 1.64,
+					"of": 3,
+					"confidence": 0.54,
+					"probabilities": [
+						0.08,
+						0.25,
+						0.62,
+						0.05
+					]
+				},
+				"insight": {
+					"score": 2.02,
+					"of": 3,
+					"confidence": 0.77,
+					"probabilities": [
+						0,
+						0.1,
+						0.77,
+						0.13
+					]
+				},
+				"pull": {
+					"score": 2.22,
+					"of": 3,
+					"confidence": 0.7,
+					"probabilities": [
+						0,
+						0.04,
+						0.7,
+						0.26
+					]
+				},
+				"drag": {
+					"score": 1.75,
+					"of": 2,
+					"confidence": 0.63,
+					"probabilities": [
+						0.02,
+						0.22,
+						0.76
+					]
+				},
+				"fun": {
+					"noul": 0.16
+				},
+				"fine": {
+					"noul": 0.19
+				},
+				"danger": {
+					"score": 0.04,
+					"of": 3,
+					"confidence": 0.96,
+					"probabilities": [
+						0.97,
+						0.03,
+						0,
+						0
+					]
+				}
+			}
+		}
+	],
+	"remarks": "Experiment 4: questions of taste, put to passages told worse on purpose by a language model, to a novel known for bad writing and to chapters of two that last."
+}

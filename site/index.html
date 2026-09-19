@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Salomón</title>
+		<meta
+			name="description"
+			content="Books read blind by a machine: how well written, and how good a read. A machine's hunch, not a verdict."
+		/>
+		<style>
+			:root {
+				--ink: #1f2937;
+				--soft: #4b5563;
+				--faint: #6b7280;
+				--paper: #fffdf8;
+				--band: #f3ece0;
+				--rule: #c9bfa9;
+				--merit: #9b2335;
+				--read: #1f6f8b;
+				--green: #3a7d44;
+			}
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				margin: 0;
+				background: var(--paper);
+				color: var(--ink);
+				font:
+					17px/1.55 Georgia,
+					'Times New Roman',
+					serif;
+			}
+			main {
+				max-width: 1080px;
+				margin: 0 auto;
+				padding: 0 20px 80px;
+			}
+			header {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				padding: 28px 0 8px;
+			}
+			h1 {
+				font-size: 44px;
+				margin: 0;
+			}
+			h2 {
+				font-size: 27px;
+				margin: 56px 0 8px;
+			}
+			p {
+				margin: 10px 0;
+				max-width: 46em;
+			}
+			.lede {
+				font-size: 21px;
+				color: var(--soft);
+			}
+			.sans,
+			button,
+			select,
+			th,
+			.small,
+			label {
+				font-family: Helvetica, Arial, sans-serif;
+			}
+			.small {
+				font-size: 13.5px;
+				color: var(--faint);
+			}
+			a {
+				color: var(--merit);
+			}
+			button,
+			select {
+				font-size: 14px;
+				padding: 6px 12px;
+				border: 1px solid var(--rule);
+				background: #fff;
+				border-radius: 6px;
+				cursor: pointer;
+				color: var(--ink);
+			}
+			button.on {
+				background: var(--ink);
+				color: #fff;
+				border-color: var(--ink);
+			}
+			table {
+				border-collapse: collapse;
+				width: 100%;
+				font-size: 15.5px;
+			}
+			th {
+				text-align: left;
+				font-size: 12px;
+				letter-spacing: 0.06em;
+				text-transform: uppercase;
+				color: var(--faint);
+				padding: 8px 8px;
+				border-bottom: 1px solid var(--rule);
+				cursor: pointer;
+				white-space: nowrap;
+			}
+			td {
+				padding: 7px 8px;
+				border-bottom: 1px solid #ece5d6;
+				vertical-align: baseline;
+			}
+			tr.book {
+				cursor: pointer;
+			}
+			tr.book:hover,
+			tr.chosen {
+				background: var(--band);
+			}
+			td.num {
+				font-family: Helvetica, Arial, sans-serif;
+				font-variant-numeric: tabular-nums;
+				text-align: right;
+				white-space: nowrap;
+				width: 1%;
+			}
+			.bar {
+				display: inline-block;
+				height: 7px;
+				border-radius: 4px;
+				vertical-align: middle;
+				margin-left: 6px;
+			}
+			.stamp {
+				font:
+					bold 11px Helvetica,
+					Arial,
+					sans-serif;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				border: 1.5px solid;
+				border-radius: 4px;
+				padding: 2px 6px;
+				white-space: nowrap;
+			}
+			.floor td {
+				font:
+					11px Helvetica,
+					Arial,
+					sans-serif;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: #9a8c73;
+				background: var(--band);
+				padding: 4px 8px;
+			}
+			#map,
+			#card {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+			#tip {
+				position: fixed;
+				pointer-events: none;
+				background: var(--ink);
+				color: #fff;
+				font:
+					13px Helvetica,
+					Arial,
+					sans-serif;
+				padding: 6px 9px;
+				border-radius: 5px;
+				display: none;
+				z-index: 5;
+				max-width: 260px;
+			}
+			.sliders {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 6px 28px;
+				margin: 14px 0;
+			}
+			.sliders label {
+				display: grid;
+				grid-template-columns: 1fr 120px 2.2em;
+				gap: 8px;
+				align-items: center;
+				font-size: 14px;
+			}
+			input[type='range'] {
+				accent-color: var(--merit);
+				width: 100%;
+			}
+			.row {
+				display: flex;
+				gap: 10px;
+				align-items: center;
+				flex-wrap: wrap;
+				margin: 12px 0;
+			}
+			.warning {
+				margin: 22px 0 26px;
+				padding: 16px 22px 14px;
+				border: 2px solid #d97706;
+				border-left-width: 10px;
+				border-radius: 6px;
+				background: #fff7e6;
+				font-size: 16.5px;
+			}
+			.warning h3 {
+				margin: 0 0 6px;
+				font-size: 20px;
+				color: #9a3412;
+			}
+			.warning ul {
+				margin: 6px 0 4px;
+				padding-left: 20px;
+			}
+			.warning li {
+				margin: 5px 0;
+				max-width: 50em;
+			}
+			.caveat {
+				border-left: 3px solid #d97706;
+				padding: 4px 12px;
+				color: var(--soft);
+				font-size: 15px;
+			}
+			footer {
+				margin-top: 64px;
+				padding-top: 16px;
+				border-top: 1px solid var(--rule);
+			}
+			@media (max-width: 640px) {
+				h1 {
+					font-size: 34px;
+				}
+				.hide {
+					display: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<header>
+				<h1>Salomón</h1>
+				<div class="row"><button id="es">Español</button><button id="en">English</button></div>
+			</header>
+			<p class="lede" data-t="lede"></p>
+			<aside class="warning" data-t="warning"></aside>
+			<p data-t="what1"></p>
+			<p data-t="what2"></p>
+
+			<h2 data-t="mapTitle"></h2>
+			<p class="small" data-t="mapNote"></p>
+			<svg id="map" viewBox="0 0 1080 520"></svg>
+
+			<h2 data-t="rankTitle"></h2>
+			<p class="small" data-t="rankNote"></p>
+			<table id="ranking"></table>
+
+			<h2 data-t="weighTitle"></h2>
+			<p data-t="weighNote"></p>
+			<div class="sliders" id="sliders"></div>
+			<div class="row">
+				<label class="sans"
+					><input type="checkbox" id="guard" checked /> <span data-t="guard"></span
+				></label>
+				<button id="reset" data-t="reset"></button>
+			</div>
+
+			<h2 data-t="cardTitle"></h2>
+			<p class="small" data-t="cardNote"></p>
+			<div class="row">
+				<select id="pick"></select
+				><button id="download" data-t="download"></button><a id="share" class="small"></a>
+			</div>
+			<div id="caveat"></div>
+			<div id="cardBox"></div>
+
+			<h2 data-t="readTitle"></h2>
+			<p data-t="read1"></p>
+			<p data-t="read2"></p>
+			<p data-t="read3"></p>
+			<p data-t="read4"></p>
+
+			<h2 data-t="proposeTitle"></h2>
+			<p data-t="propose"></p>
+
+			<footer class="small">
+				<span data-t="hunch"></span> · <span id="rules"></span> ·
+				<a href="https://github.com/elpumberto/salomon">github.com/elpumberto/salomon</a>
+			</footer>
+		</main>
+		<div id="tip"></div>
+
+		<script>
+			const repo = 'https://github.com/elpumberto/salomon';
+			const texts = {
+				en: {
+					warning:
+						'<h3>Before anything else: this is an experiment, not criticism</h3><ul><li><b>What you see is a machine’s hunch.</b> A model that reads twelve passages of a book, blind, and answers closed questions. It is an analysis of texts, and no verdict on a book, on its author or on whoever loves it.</li><li><b>There are books this way of judging cannot place well</b>, and it is not their fault: those that break the conventions on purpose, as <i>Ulysses</i> does; those whose worth is in the whole and not in the page; those judged in translation or in a poor copy; and famous ones the machine may know by heart.</li><li><b>It does not tell a great novel from a good one</b>, it says nothing sure across genres, and “a good read” hardly tells more than the two ends apart.</li><li><b>If a book you care for comes out badly here, the limit is most likely the method’s and not the book’s.</b> The stamps are a game.</li></ul>',
+					lede: 'Books read blind by a machine: how well written, and how good a read. Two numbers, because whoever rates a book by its literary merit and whoever rates it by how much they liked it are weighing the same book differently.',
+					what1:
+						'Salomón is an experiment with <a href="https://docs.typesafe.ai">Jev</a>, a model that writes nothing: it answers closed questions with probabilities. Of each book it reads twelve passages of 3,000 words, with no title nor author, and of each it is asked fourteen things about what a reader, an editor or a teacher of writing would do with it. The rest is arithmetic anyone can redo.',
+					what2: `Whether it gets it right was checked on books of known standing, in ladders within a genre: in 28 pairs of 28 the better book came out higher, 10 of them of books it had never seen. How it got there, what it cost and everything that was run is <a href="${repo}/blob/main/docs/README.md">written down</a>.`,
+					mapTitle: 'The books judged so far',
+					mapNote:
+						'Merit across, a good read up; the colour is whom the machine held the book written for. The upright scale is stretched: every book reads between 0.59 and 0.79. Touch a book to see it.',
+					rankTitle: 'The ranking',
+					rankNote:
+						'Merit says on which floor a book stands. Within a floor, a hundredth or two is an order within a genre and no distance: it does not tell a great novel from a good one.',
+					weighTitle: 'Weigh it yourself',
+					weighNote:
+						'Merit is the mean of nine answers. Move them and the map and the ranking move with you: it asks nothing of anybody, the answers are already had. The guard is what keeps a passage overdone on purpose from passing for fine writing.',
+					guard: 'Guard against ornament',
+					reset: 'As Salomón weighs it',
+					cardTitle: 'A card to share',
+					cardNote:
+						'The stamp comes from how the two numbers meet among the books judged. It is the most playful thing here, and the least to be trusted.',
+					download: 'Download PNG',
+					share: 'A link to this card',
+					readTitle: 'How to read it',
+					read1:
+						'<b>Three floors.</b> Written by the yard, under 0.62: the half-dime novel, the newspaper serial. The competent seller, 0.63 to 0.72. Well written, 0.74 and over. That much was checked; which of two books on a floor is the greater was not, and across genres only the floor means anything.',
+					read2:
+						'<b>A good read is the weaker number.</b> It tells the ends apart and leans to action. It could not be much more: of what readers say of a book on a site of ratings, three hundredths are owed to the book and thirty to who the reader is.',
+					read3:
+						'<b>What can mislead.</b> The copy judged is what is judged: a translation is its translator’s prose. The machine may know a famous page by heart though it is told no title. Old, formal prose is taken for prose with literary aims. The latest written stand highest, which may be their worth or the taste of a model of our day.',
+					read4: `More in <a href="${repo}/blob/main/docs/books/reading-a-valuation.md">how to read a valuation</a>.`,
+					proposeTitle: 'Propose a book',
+					propose: `Nobody can have a book judged from here. <a href="${repo}/issues/new?title=A%20book%20for%20Salom%C3%B3n">Propose one</a>, best of all in the public domain, and with luck two more of its kind: one held better and one held worse.`,
+					hunch: 'A machine’s hunch, not a verdict',
+					cols: ['', 'Book', 'Merit', 'A good read', 'Written for', ''],
+					floors: ['Well written', 'The competent seller', 'Written by the yard'],
+					mapFloors: [
+						['Well', 'written'],
+						['The competent', 'seller'],
+						['Written', 'by the yard']
+					],
+					whom: {
+						literary: 'those who read for the writing',
+						wide: 'the widest public',
+						children: 'children',
+						general: 'readers in general'
+					},
+					stamps: {
+						round: 'A rounded work',
+						slog: 'Illustrious, and demanding',
+						guilty: 'Guilty pleasure',
+						skip: 'Skippable',
+						middling: 'Neither here nor there'
+					},
+					answers: {
+						underline: 'A reader would mark it to keep',
+						draft: 'Every word reads as weighed',
+						editor: 'An editor would leave it be',
+						memory: 'Remembered a week later',
+						anyone: 'Only this writer could have written it',
+						lesson: 'A teacher’s example to learn from',
+						again: 'A reader would come back to it',
+						aloud: 'A pleasure to read aloud',
+						warning: 'Not a teacher’s example of what not to do'
+					},
+					card: {
+						merit: 'LITERARY MERIT',
+						read: 'A GOOD READ',
+						outOf: 'out of 10',
+						pulse: 'ITS MERIT, PASSAGE BY PASSAGE',
+						bars: [
+							'An example to learn from',
+							'Every word weighed',
+							'Even from end to end',
+							'Takes the reader in',
+							'Hard to put down'
+						],
+						written: 'Written for'
+					},
+					axis: ['literary merit →', 'a good read →'],
+					number: (v) => v.toFixed(1),
+					two: (v) => v.toFixed(2)
+				},
+				es: {
+					warning:
+						'<h3>Antes de nada: esto es un experimento, no crítica literaria</h3><ul><li><b>Lo que ves es la corazonada de una máquina.</b> Un modelo que lee doce pasajes de un libro, a ciegas, y responde preguntas cerradas. Es un análisis de textos, y no un veredicto sobre un libro, sobre su autor ni sobre quien lo adora.</li><li><b>Hay libros que esta forma de juzgar no sabe colocar bien</b>, y no es culpa suya: los que rompen las convenciones a propósito, como <i>Ulysses</i>; los que valen por el conjunto y no por la página; los que se juzgan en traducción o en una mala copia; y los famosos, que la máquina puede saberse de memoria.</li><li><b>No distingue una gran novela de una buena</b>, no dice nada seguro entre géneros distintos, y «se lee bien» apenas separa más que los dos extremos.</li><li><b>Si un libro que te importa sale mal parado aquí, lo más probable es que el límite sea del método y no del libro.</b> Los sellos son un juego.</li></ul>',
+					lede: 'Libros leídos a ciegas por una máquina: cómo de bien escritos están y cómo de bien se leen. Dos notas, porque quien puntúa un libro por su mérito literario y quien lo puntúa por lo que le gustó están pesando el mismo libro de forma distinta.',
+					what1:
+						'Salomón es un experimento con <a href="https://docs.typesafe.ai">Jev</a>, un modelo que no escribe nada: responde preguntas cerradas con probabilidades. De cada libro lee doce pasajes de 3.000 palabras, sin título ni autor, y de cada uno se le preguntan catorce cosas sobre qué haría con él un lector, un editor o un profesor de escritura. El resto es aritmética que cualquiera puede rehacer.',
+					what2: `Si acierta se comprobó con libros de fama conocida, en escaleras dentro de un mismo género: en 28 parejas de 28 el mejor libro salió por encima, 10 de ellas de libros que no había visto nunca. Cómo se llegó hasta ahí, lo que costó y todo lo que se ejecutó está <a href="${repo}/blob/main/docs/README.md">escrito</a> (en inglés).`,
+					mapTitle: 'Los libros juzgados hasta ahora',
+					mapNote:
+						'El mérito en horizontal, lo bien que se lee en vertical; el color es para quién cree la máquina que está escrito. La escala vertical está estirada: todos se leen entre 0,59 y 0,79. Toca un libro para verlo.',
+					rankTitle: 'La clasificación',
+					rankNote:
+						'El mérito dice en qué piso está un libro. Dentro de un piso, una centésima o dos son un orden dentro de un género y no una distancia: no distingue una gran novela de una buena.',
+					weighTitle: 'Pésalo tú',
+					weighNote:
+						'El mérito es la media de nueve respuestas. Muévelas y el mapa y la clasificación se mueven contigo: no se le pregunta nada a nadie, las respuestas ya están. La salvaguarda es lo que impide que un pasaje recargado a propósito pase por buena prosa.',
+					guard: 'Salvaguarda contra el adorno',
+					reset: 'Como lo pesa Salomón',
+					cardTitle: 'Una ficha para compartir',
+					cardNote:
+						'El sello sale de cómo se cruzan las dos notas entre los libros juzgados. Es lo más juguetón de todo esto, y lo menos de fiar.',
+					download: 'Descargar PNG',
+					share: 'Enlace a esta ficha',
+					readTitle: 'Cómo leerlo',
+					read1:
+						'<b>Tres pisos.</b> Escrito a destajo, por debajo de 0,62: la novela de quiosco, el folletín. El superventas competente, de 0,63 a 0,72. Bien escrito, de 0,74 para arriba. Eso se comprobó; cuál de dos libros de un mismo piso es el mayor, no, y entre géneros distintos solo el piso significa algo.',
+					read2:
+						'<b>«Se lee bien» es la nota floja.</b> Distingue los extremos y tira hacia la acción. No podía ser mucho más: de lo que los lectores dicen de un libro en un sitio de puntuaciones, tres centésimas se deben al libro y treinta a quién es el lector.',
+					read3:
+						'<b>Lo que puede engañar.</b> Se juzga la copia que se juzga: una traducción es la prosa de su traductor. La máquina puede saberse de memoria una página famosa aunque no se le diga el título. A la prosa antigua y formal la toma por prosa con aspiraciones literarias. Los más modernos salen los más altos, que puede ser su valor o el gusto de un modelo de hoy.',
+					read4: `Más en <a href="${repo}/blob/main/docs/books/reading-a-valuation.md">cómo leer una valoración</a> (en inglés).`,
+					proposeTitle: 'Propón un libro',
+					propose: `Desde aquí nadie puede hacer juzgar un libro. <a href="${repo}/issues/new?title=Un%20libro%20para%20Salom%C3%B3n">Propón uno</a>, mejor si está en dominio público, y con suerte dos más de su género: uno tenido por mejor y otro por peor.`,
+					hunch: 'La corazonada de una máquina, no un veredicto',
+					cols: ['', 'Libro', 'Mérito', 'Se lee bien', 'Escrito para', ''],
+					floors: ['Bien escrito', 'El superventas competente', 'Escrito a destajo'],
+					mapFloors: [
+						['Bien', 'escrito'],
+						['El superventas', 'competente'],
+						['Escrito', 'a destajo']
+					],
+					whom: {
+						literary: 'quien lee por la escritura',
+						wide: 'el gran público',
+						children: 'niños',
+						general: 'lectores en general'
+					},
+					stamps: {
+						round: 'Obra redonda',
+						slog: 'Ilustre y exigente',
+						guilty: 'Placer culpable',
+						skip: 'Prescindible',
+						middling: 'Ni fu ni fa'
+					},
+					answers: {
+						underline: 'Un lector subrayaría algo',
+						draft: 'Cada palabra parece pesada',
+						editor: 'Un editor no lo tocaría',
+						memory: 'Se recuerda una semana después',
+						anyone: 'Solo este autor pudo escribirlo',
+						lesson: 'Un profesor lo pondría de ejemplo',
+						again: 'Un lector volvería a él',
+						aloud: 'Da gusto leerlo en voz alta',
+						warning: 'No es ejemplo de lo que no hay que hacer'
+					},
+					card: {
+						merit: 'MÉRITO LITERARIO',
+						read: 'SE LEE BIEN',
+						outOf: 'sobre 10',
+						pulse: 'SU MÉRITO, PASAJE A PASAJE',
+						bars: [
+							'Un ejemplo a seguir',
+							'Cada palabra pesada',
+							'Parejo de principio a fin',
+							'Atrapa al lector',
+							'Cuesta soltarlo'
+						],
+						written: 'Escrito para'
+					},
+					axis: ['mérito literario →', 'se lee bien →'],
+					number: (v) => v.toFixed(1).replace('.', ','),
+					two: (v) => v.toFixed(2).replace('.', ',')
+				}
+			};
+			const colour = {
+				literary: '#9b2335',
+				wide: '#1f6f8b',
+				children: '#3a7d44',
+				general: '#6b7280'
+			};
+			const stampColour = {
+				round: '#2e6b4f',
+				slog: '#9b2335',
+				guilty: '#c2512f',
+				skip: '#6b6459',
+				middling: '#7a6a4a'
+			};
+			const $ = (id) => document.getElementById(id);
+			const esc = (text) =>
+				String(text).replace(
+					/[&<>"]/g,
+					(c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]
+				);
+			const mean = (values) => values.reduce((sum, one) => sum + one, 0) / (values.length || 1);
+
+			let data,
+				lang,
+				chosen,
+				sort = 'merit';
+			const weights = {};
+			let guard = true;
+
+			// The same arithmetic as src/value.ts, with a weight for each answer.
+			function meritOf(passage) {
+				const at = (id) => passage[data.answers.indexOf(id)];
+				const warning = at('warning');
+				const from = data.rules.warningFrom;
+				const gate = guard ? 1 - Math.max(0, warning - from) / (1 - from) : 1;
+				let sum = weights.warning * (1 - warning),
+					total = weights.warning;
+				for (const id of data.rules.merit) {
+					sum += weights[id] * at(id) * (data.rules.takenIn.includes(id) ? gate : 1);
+					total += weights[id];
+				}
+				return total ? sum / total : 0;
+			}
+			function weigh() {
+				for (const book of data.books) {
+					book.pulse = book.passages.map(meritOf);
+					book.m = mean(book.pulse);
+					book.r = book.read.value;
+					book.who = Object.entries(book.profile.writtenFor).sort(([, a], [, b]) => b - a)[0][0];
+				}
+				const reads = data.books.map((b) => b.r).sort((a, b) => a - b);
+				const low = reads[Math.floor(reads.length / 3)],
+					high = reads[Math.floor((2 * reads.length) / 3)];
+				for (const book of data.books) {
+					const top = book.m >= 0.735,
+						bottom = book.m < 0.625;
+					book.stamp = top
+						? book.r <= low
+							? 'slog'
+							: 'round'
+						: book.r >= high
+							? 'guilty'
+							: bottom
+								? 'skip'
+								: 'middling';
+				}
+			}
+
+			function drawMap() {
+				const t = texts[lang],
+					box = { x: 60, y: 14, w: 1000, h: 440 },
+					xs = [0.1, 0.92],
+					ys = [0.57, 0.81];
+				const px = (v) => box.x + ((v - xs[0]) / (xs[1] - xs[0])) * box.w,
+					py = (v) => box.y + box.h - ((v - ys[0]) / (ys[1] - ys[0])) * box.h;
+				const floors = [
+					[xs[0], 0.625, '#f3ece0'],
+					[0.625, 0.735, '#faf6ee'],
+					[0.735, xs[1], '#f3ece0']
+				];
+				$('map').innerHTML =
+					`${floors.map(([a, b, fill]) => `<rect x="${px(a)}" y="${box.y}" width="${px(b) - px(a)}" height="${box.h}" fill="${fill}"/>`).join('')}
+					${floors.map(([a, b], n) => t.mapFloors[2 - n].map((line, at) => `<text x="${(px(a) + px(b)) / 2}" y="${box.y + 16 + at * 12}" font-size="10" letter-spacing="1.2" text-anchor="middle" fill="#9a8c73" font-family="Helvetica, Arial, sans-serif">${esc(line.toUpperCase())}</text>`).join('')).join('')}
+					${[0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].map((v) => `<text x="${px(v)}" y="${box.y + box.h + 18}" font-size="12" text-anchor="middle" fill="#6b7280" font-family="Helvetica, Arial, sans-serif">${v.toFixed(1)}</text>`).join('')}
+					${[0.6, 0.65, 0.7, 0.75, 0.8].map((v) => `<line x1="${box.x}" y1="${py(v)}" x2="${box.x + box.w}" y2="${py(v)}" stroke="#e5dfd2" stroke-dasharray="2 4"/><text x="${box.x - 8}" y="${py(v) + 4}" font-size="12" text-anchor="end" fill="#6b7280" font-family="Helvetica, Arial, sans-serif">${v.toFixed(2)}</text>`).join('')}
+					<rect x="${box.x}" y="${box.y}" width="${box.w}" height="${box.h}" fill="none" stroke="#c9bfa9"/>
+					<text x="${box.x + box.w / 2}" y="${box.y + box.h + 42}" font-size="14" text-anchor="middle" fill="#1f2937">${esc(t.axis[0])}</text>
+					<text transform="translate(16 ${box.y + box.h / 2}) rotate(-90)" font-size="14" text-anchor="middle" fill="#1f2937">${esc(t.axis[1])}</text>
+					${data.books.map((b) => `<circle data-slug="${b.slug}" cx="${px(Math.max(xs[0], b.m))}" cy="${py(b.r)}" r="${b.slug === chosen ? 10 : 7}" fill="${colour[b.who]}" stroke="${b.slug === chosen ? '#1f2937' : '#fffdf8'}" stroke-width="${b.slug === chosen ? 2.5 : 1.2}" style="cursor:pointer"/>`).join('')}`;
+			}
+
+			function drawRanking() {
+				const t = texts[lang];
+				const books = [...data.books].sort((a, b) => (sort === 'read' ? b.r - a.r : b.m - a.m));
+				const floorOf = (b) => (b.m >= 0.735 ? 0 : b.m >= 0.625 ? 1 : 2);
+				let last = -1;
+				$('ranking').innerHTML =
+					`<tr>${t.cols.map((name, n) => `<th data-sort="${n === 2 ? 'merit' : n === 3 ? 'read' : ''}" class="${n === 4 ? 'hide' : ''}">${esc(name)}${(n === 2 && sort === 'merit') || (n === 3 && sort === 'read') ? ' ↓' : ''}</th>`).join('')}</tr>${books
+						.map((b, at) => {
+							const floor =
+								sort === 'merit' && floorOf(b) !== last
+									? `<tr class="floor"><td colspan="6">${esc(t.floors[(last = floorOf(b))])}</td></tr>`
+									: '';
+							return `${floor}<tr class="book${b.slug === chosen ? ' chosen' : ''}" data-slug="${b.slug}"><td class="num">${at + 1}</td><td><i>${esc(b.title)}</i>${b.caveat ? '*' : ''} <span class="small">${esc(b.author ?? '')}</span></td><td class="num">${t.two(b.m)}<span class="bar" style="width:${Math.round(b.m * 50)}px;background:var(--merit)"></span></td><td class="num">${t.two(b.r)}<span class="bar" style="width:${Math.round(b.r * 50)}px;background:var(--read)"></span></td><td class="small hide" style="color:${colour[b.who]}">${esc(t.whom[b.who])}</td><td><span class="stamp" style="color:${stampColour[b.stamp]}">${esc(t.stamps[b.stamp])}</span></td></tr>`;
+						})
+						.join('')}`;
+			}
+
+			function smooth(points) {
+				let d = `M${points[0][0]},${points[0][1]}`;
+				for (let i = 0; i < points.length - 1; i++) {
+					const [x0, y0] = points[Math.max(i - 1, 0)],
+						[x1, y1] = points[i],
+						[x2, y2] = points[i + 1],
+						[x3, y3] = points[Math.min(i + 2, points.length - 1)];
+					d += ` C${x1 + (x2 - x0) / 6},${y1 + (y2 - y0) / 6} ${x2 - (x3 - x1) / 6},${y2 - (y3 - y1) / 6} ${x2},${y2}`;
+				}
+				return d;
+			}
+
+			function card(book) {
+				const t = texts[lang],
+					c = t.card,
+					W = 1200,
+					H = 630,
+					serif = "Georgia, 'Times New Roman', serif",
+					sans = 'Helvetica, Arial, sans-serif';
+				const at = (id) => mean(book.passages.map((p) => p[data.answers.indexOf(id)]));
+				const bars = [
+					book.profile.toLearnFrom,
+					book.profile.readsLike.finished ?? 0,
+					1 - (Math.max(...book.pulse) - Math.min(...book.pulse)),
+					at('lost'),
+					at('stop')
+				];
+				const stamp = t.stamps[book.stamp].toUpperCase(),
+					stampWidth = Math.max(250, stamp.length * 20 + 56),
+					titleSize = Math.min(44, Math.floor(1500 / Math.max(book.title.length, 20)));
+				const points = book.pulse.map((v, n) => [
+					64 + (484 * n) / Math.max(1, book.pulse.length - 1),
+					560 - 78 * v
+				]);
+				const half = (x, caption, v, fill) =>
+					`<text x="${x}" y="222" text-anchor="middle" font-family="${sans}" font-size="20" font-weight="700" letter-spacing="4" fill="${fill}">${caption}</text><text x="${x}" y="342" text-anchor="middle" font-family="${serif}" font-size="140" font-weight="700" fill="#1f1b16">${t.number(v * 10)}</text><rect x="${x - 170}" y="390" width="340" height="9" rx="4.5" fill="#e3dac6"/><rect x="${x - 170}" y="390" width="${340 * v}" height="9" rx="4.5" fill="${fill}"/><text x="${x}" y="422" text-anchor="middle" font-family="${sans}" font-size="15" fill="#6f6556">${c.outOf}</text>`;
+				return `<svg xmlns="http://www.w3.org/2000/svg" id="card" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}"><rect width="${W}" height="${H}" fill="#fbf6ea"/><rect x="18" y="18" width="${W - 36}" height="${H - 36}" fill="none" stroke="#d9cdb4" stroke-width="2"/>
+					<text x="64" y="92" font-family="${serif}" font-size="${titleSize}" font-weight="700" font-style="italic" fill="#1f1b16">${esc(book.title)}${book.caveat ? '*' : ''}</text>
+					<text x="64" y="128" font-family="${sans}" font-size="20" fill="#6f6556">${esc(book.author ?? '')}</text>
+					<g transform="translate(${W - 64 - stampWidth / 2} 98) rotate(-6)"><rect x="${-stampWidth / 2}" y="-36" width="${stampWidth}" height="72" rx="10" fill="none" stroke="${stampColour[book.stamp]}" stroke-width="4"/><rect x="${-stampWidth / 2 + 8}" y="-28" width="${stampWidth - 16}" height="56" rx="5" fill="none" stroke="${stampColour[book.stamp]}" stroke-width="1.5"/><text y="10" text-anchor="middle" font-family="${sans}" font-size="28" font-weight="800" letter-spacing="2" fill="${stampColour[book.stamp]}">${esc(stamp)}</text></g>
+					${half(330, c.merit, book.m, '#9b2335')}${half(870, c.read, book.r, '#1f6f8b')}
+					<line x1="600" y1="176" x2="600" y2="404" stroke="#8a7f6a" stroke-width="3"/><path d="M600 160 l-7 18 h14 z" fill="#8a7f6a"/><rect x="578" y="404" width="44" height="6" rx="3" fill="#8a7f6a"/><rect x="596" y="410" width="8" height="22" rx="3" fill="#8a7f6a"/>
+					<text x="64" y="466" font-family="${sans}" font-size="13" font-weight="700" letter-spacing="2" fill="#6f6556">${c.pulse}</text>
+					<line x1="64" y1="560" x2="548" y2="560" stroke="#d9cdb4"/><path d="${smooth(points)}" fill="none" stroke="#9b2335" stroke-width="3"/>${points.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="3.5" fill="#9b2335"/>`).join('')}
+					${bars.map((v, n) => `<text x="652" y="${471 + n * 21}" font-family="${sans}" font-size="14.5" fill="#1f1b16">${esc(c.bars[n])}</text><rect x="850" y="${462 + n * 21}" width="286" height="8" rx="4" fill="#e3dac6"/><rect x="850" y="${462 + n * 21}" width="${286 * Math.max(0, Math.min(1, v))}" height="8" rx="4" fill="#8a7f6a"/>`).join('')}
+					<text x="64" y="${H - 34}" font-family="${sans}" font-size="14.5" fill="#6f6556">${esc(c.written)} ${esc(t.whom[book.who])} · ${esc(t.hunch.toLowerCase())} · ${data.valuation.slice(7)} · ${book.judged}</text>
+					<text x="${W - 64}" y="${H - 34}" text-anchor="end" font-family="${sans}" font-size="14.5" font-weight="700" fill="#1f1b16">salomon.pumberto.com</text></svg>`;
+			}
+
+			function drawCard() {
+				const book = data.books.find((b) => b.slug === chosen);
+				$('pick').innerHTML = [...data.books]
+					.sort((a, b) => a.title.localeCompare(b.title))
+					.map(
+						(b) =>
+							`<option value="${b.slug}"${b.slug === chosen ? ' selected' : ''}>${esc(b.title)}</option>`
+					)
+					.join('');
+				$('cardBox').innerHTML = card(book);
+				// A page of its own for each book, whose address shows the card wherever it is pasted.
+				$('share').href = `${lang === 'es' ? 'libro' : 'book'}/${book.slug}/`;
+				$('share').textContent = texts[lang].share;
+				$('caveat').innerHTML = book.caveat
+					? `<p class="caveat">* ${esc(book.caveat[lang])}</p>`
+					: '';
+			}
+
+			function drawSliders() {
+				const t = texts[lang];
+				$('sliders').innerHTML = [...data.rules.merit, 'warning']
+					.map(
+						(id) =>
+							`<label>${esc(t.answers[id])}<input type="range" min="0" max="2" step="0.1" value="${weights[id]}" data-id="${id}"/><span>${weights[id].toFixed(1)}</span></label>`
+					)
+					.join('');
+				$('guard').checked = guard;
+			}
+
+			function draw() {
+				const t = texts[lang];
+				document.documentElement.lang = lang;
+				for (const node of document.querySelectorAll('[data-t]'))
+					node.innerHTML = t[node.dataset.t];
+				$('es').className = lang === 'es' ? 'on' : '';
+				$('en').className = lang === 'en' ? 'on' : '';
+				$('rules').textContent = `${data.valuation.slice(7)} · ${data.books.length}`;
+				weigh();
+				drawMap();
+				drawRanking();
+				drawSliders();
+				drawCard();
+			}
+			function choose(slug, scroll) {
+				chosen = slug;
+				drawMap();
+				drawRanking();
+				drawCard();
+				if (scroll) $('cardBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
+			}
+
+			function download() {
+				const book = data.books.find((b) => b.slug === chosen),
+					svg = card(book);
+				const image = new Image();
+				image.onload = () => {
+					const canvas = Object.assign(document.createElement('canvas'), {
+						width: 2400,
+						height: 1260
+					});
+					canvas.getContext('2d').drawImage(image, 0, 0, 2400, 1260);
+					canvas.toBlob((blob) =>
+						Object.assign(document.createElement('a'), {
+							href: URL.createObjectURL(blob),
+							download: `salomon-${book.slug}-${lang}.png`
+						}).click()
+					);
+				};
+				image.src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+			}
+
+			fetch('data.json')
+				.then((response) => response.json())
+				.then((loaded) => {
+					data = loaded;
+					for (const id of [...data.rules.merit, 'warning']) weights[id] = 1;
+					lang =
+						localStorage.getItem('lang') ?? (navigator.language.startsWith('es') ? 'es' : 'en');
+					chosen = data.books[0].slug;
+					// `?book=` opens the page on a book; `?card=` shows its card and nothing else, to be made a picture of.
+					const asked = new URLSearchParams(location.search);
+					if (asked.get('lang') in texts) lang = asked.get('lang');
+					const wanted = asked.get('card') ?? asked.get('book');
+					if (data.books.some((b) => b.slug === wanted)) chosen = wanted;
+					if (asked.get('card')) {
+						weigh();
+						document.body.style.margin = 0;
+						document.body.innerHTML = card(data.books.find((b) => b.slug === chosen));
+						return;
+					}
+					draw();
+					if (asked.get('book')) $('cardBox').scrollIntoView({ block: 'center' });
+					for (const code of ['es', 'en'])
+						$(code).onclick = () => {
+							lang = code;
+							localStorage.setItem('lang', code);
+							draw();
+						};
+					$('ranking').onclick = (event) => {
+						const head = event.target.closest('th'),
+							row = event.target.closest('tr.book');
+						if (head?.dataset.sort) {
+							sort = head.dataset.sort;
+							drawRanking();
+						} else if (row) choose(row.dataset.slug, true);
+					};
+					$('map').onclick = (event) =>
+						event.target.dataset.slug && choose(event.target.dataset.slug, true);
+					$('map').onmousemove = (event) => {
+						const book = data.books.find((b) => b.slug === event.target.dataset?.slug),
+							tip = $('tip');
+						if (!book) return (tip.style.display = 'none');
+						tip.innerHTML = `<i>${esc(book.title)}</i><br>${texts[lang].two(book.m)} · ${texts[lang].two(book.r)} · ${esc(texts[lang].stamps[book.stamp])}`;
+						Object.assign(tip.style, {
+							display: 'block',
+							left: `${event.clientX + 14}px`,
+							top: `${event.clientY + 14}px`
+						});
+					};
+					$('map').onmouseleave = () => ($('tip').style.display = 'none');
+					$('sliders').oninput = (event) => {
+						weights[event.target.dataset.id] = Number(event.target.value);
+						event.target.nextElementSibling.textContent = Number(event.target.value).toFixed(1);
+						weigh();
+						drawMap();
+						drawRanking();
+						drawCard();
+					};
+					$('guard').onchange = (event) => {
+						guard = event.target.checked;
+						weigh();
+						drawMap();
+						drawRanking();
+						drawCard();
+					};
+					$('reset').onclick = () => {
+						for (const id in weights) weights[id] = 1;
+						guard = true;
+						draw();
+					};
+					$('pick').onchange = (event) => choose(event.target.value);
+					$('download').onclick = download;
+				});
+		</script>
+	</body>
+</html>

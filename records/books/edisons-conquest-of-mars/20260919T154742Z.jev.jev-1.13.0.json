@@ -1,0 +1,1431 @@
+{
+	"kind": "jev",
+	"at": "2026-09-19T15:47:42.766Z",
+	"book": {
+		"title": "Edison's Conquest of Mars",
+		"author": "Garrett Putman Serviss",
+		"language": "en",
+		"source": {
+			"file": "edisons-conquest-of-mars.epub",
+			"format": "epub",
+			"sha256": "b047127648470fdd4d96b221058194b2538a6c80838de6bbf7a8de4b0c6c8801"
+		},
+		"text": {
+			"sha256": "215d117ac3d169135ead77a5956739faff8ddfc8b63d5f88f9c8d78f0ffb2e22",
+			"sections": 306,
+			"words": 65330
+		}
+	},
+	"sections": [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "inContext",
+		"rules": "sha256:d6187b7ef523",
+		"asked": {
+			"acts": {
+				"type": "choice",
+				"instructions": "`chapter` is a chapter of a novel, and `the story so far` tells what a reader knows on reaching it. What does its main character do in it?",
+				"criteria": {
+					"expected": "What the story so far would lead one to expect of them",
+					"fitting": "Something the story so far did not lead one to expect, and which fits what is known of them",
+					"unfitting": "Something the story so far did not lead one to expect, and which does not fit what is known of them",
+					"nothing": "Nothing of note"
+				}
+			},
+			"reveals": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel, and `the story so far` tells what a reader knows on reaching it. What does it show of its people?",
+				"criteria": [
+					"The chapter shows its people as the story so far had shown them",
+					"The chapter adds a trait or a detail to someone the reader already knew",
+					"The chapter shows a side of someone that the story so far had not shown, and that changes how the reader sees them"
+				]
+			},
+			"torn": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel, and `the story so far` tells what a reader knows on reaching it. Is anyone in it in two minds?",
+				"criteria": [
+					"Nobody in the chapter is in two minds about anything",
+					"A character hesitates a moment before doing what they do",
+					"A character is torn between two things they want or believe, and the chapter dwells on it"
+				]
+			},
+			"sides": {
+				"type": "choice",
+				"instructions": "`chapter` is a chapter of a novel, and `the story so far` tells what a reader knows on reaching it. Whose side is the reader on in its main conflict?",
+				"criteria": {
+					"none": "There is no conflict between people in the chapter",
+					"one": "One side is in the right and the other in the wrong",
+					"both": "Both sides have a real claim on the reader's sympathy"
+				}
+			},
+			"pays": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel, and `the story so far` tells what a reader knows on reaching it. What does it do with what the story so far had left pending?",
+				"criteria": [
+					"The chapter touches nothing that the story so far had left pending",
+					"The chapter moves forward something that the story so far had left pending",
+					"The chapter settles something that the story so far had left pending"
+				]
+			}
+		},
+		"code": {
+			"commit": "e5b89bd",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 21,
+		"tokensIn": 105074,
+		"usd": 0.004413,
+		"seconds": 12
+	},
+	"found": [
+		{
+			"section": 1,
+			"measured": {
+				"words": 3461,
+				"spoken": null,
+				"wordsPerSentence": 21.6
+			},
+			"variant": "with the story so far",
+			"sha256": "20b9ebf2ac3f7b94ad156d9e60338fcbdd732510834f78c55f9f688f6dc7aec0",
+			"tokensIn": 5131,
+			"seconds": 0.4,
+			"answers": {
+				"acts": {
+					"choice": "nothing",
+					"confidence": 0.48,
+					"probabilities": {
+						"fitting": 0.16,
+						"expected": 0.22,
+						"unfitting": 0.02,
+						"nothing": 0.6
+					}
+				},
+				"reveals": {
+					"score": 1.31,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.27,
+						0.16,
+						0.57
+					]
+				},
+				"torn": {
+					"score": 0.21,
+					"of": 2,
+					"confidence": 0.69,
+					"probabilities": [
+						0.84,
+						0.12,
+						0.04
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.95,
+					"probabilities": {
+						"both": 0,
+						"one": 0.97,
+						"none": 0.03
+					}
+				},
+				"pays": {
+					"score": 0.44,
+					"of": 2,
+					"confidence": 0.34,
+					"probabilities": [
+						0.64,
+						0.27,
+						0.09
+					]
+				}
+			}
+		},
+		{
+			"section": 2,
+			"measured": {
+				"words": 3000,
+				"spoken": null,
+				"wordsPerSentence": 20.1
+			},
+			"variant": "with the story so far",
+			"sha256": "e160bdf245fb0394589bc0865c8ab769af2cd68f8be50529c6b543aac17fd541",
+			"tokensIn": 4782,
+			"seconds": 0.6,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.89,
+					"probabilities": {
+						"fitting": 0.03,
+						"expected": 0.92,
+						"nothing": 0.04,
+						"unfitting": 0.01
+					}
+				},
+				"reveals": {
+					"score": 1.33,
+					"of": 2,
+					"confidence": 0.32,
+					"probabilities": [
+						0.06,
+						0.55,
+						0.39
+					]
+				},
+				"torn": {
+					"score": 0.82,
+					"of": 2,
+					"confidence": 0.21,
+					"probabilities": [
+						0.35,
+						0.48,
+						0.17
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.94,
+					"probabilities": {
+						"none": 0.04,
+						"one": 0.96,
+						"both": 0
+					}
+				},
+				"pays": {
+					"score": 1.19,
+					"of": 2,
+					"confidence": 0.67,
+					"probabilities": [
+						0.01,
+						0.78,
+						0.21
+					]
+				}
+			}
+		},
+		{
+			"section": 3,
+			"measured": {
+				"words": 3202,
+				"spoken": null,
+				"wordsPerSentence": 19.1
+			},
+			"variant": "with the story so far",
+			"sha256": "3f70092a34af90784c9e05359f928faaa50cc837b41547a74e4b1ef6030dab6f",
+			"tokensIn": 5097,
+			"seconds": 0.6,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.93,
+					"probabilities": {
+						"fitting": 0.03,
+						"nothing": 0.02,
+						"expected": 0.95,
+						"unfitting": 0
+					}
+				},
+				"reveals": {
+					"score": 1.4,
+					"of": 2,
+					"confidence": 0.1,
+					"probabilities": [
+						0.07,
+						0.45,
+						0.48
+					]
+				},
+				"torn": {
+					"score": 0.44,
+					"of": 2,
+					"confidence": 0.34,
+					"probabilities": [
+						0.58,
+						0.39,
+						0.03
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.96,
+					"probabilities": {
+						"one": 0.97,
+						"none": 0.03,
+						"both": 0
+					}
+				},
+				"pays": {
+					"score": 1.74,
+					"of": 2,
+					"confidence": 0.62,
+					"probabilities": [
+						0,
+						0.25,
+						0.75
+					]
+				}
+			}
+		},
+		{
+			"section": 4,
+			"measured": {
+				"words": 3120,
+				"spoken": null,
+				"wordsPerSentence": 22
+			},
+			"variant": "with the story so far",
+			"sha256": "1c5fcf1f787d028b58fb2e3b0604d2f9742cce7b570b16e4c57988a39538e48d",
+			"tokensIn": 4885,
+			"seconds": 0.7,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.94,
+					"probabilities": {
+						"expected": 0.96,
+						"unfitting": 0,
+						"nothing": 0.01,
+						"fitting": 0.03
+					}
+				},
+				"reveals": {
+					"score": 1.28,
+					"of": 2,
+					"confidence": 0.39,
+					"probabilities": [
+						0.07,
+						0.59,
+						0.34
+					]
+				},
+				"torn": {
+					"score": 0.44,
+					"of": 2,
+					"confidence": 0.34,
+					"probabilities": [
+						0.67,
+						0.21,
+						0.12
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.66,
+					"probabilities": {
+						"none": 0.02,
+						"one": 0.77,
+						"both": 0.21
+					}
+				},
+				"pays": {
+					"score": 1.19,
+					"of": 2,
+					"confidence": 0.71,
+					"probabilities": [
+						0,
+						0.81,
+						0.19
+					]
+				}
+			}
+		},
+		{
+			"section": 5,
+			"measured": {
+				"words": 3009,
+				"spoken": null,
+				"wordsPerSentence": 20.9
+			},
+			"variant": "with the story so far",
+			"sha256": "5e0007b57819b4c6b9bb919a9b5f1804f0ab56760d994d3a57754a57830129da",
+			"tokensIn": 4767,
+			"seconds": 0.6,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.6,
+					"probabilities": {
+						"unfitting": 0.02,
+						"fitting": 0.23,
+						"expected": 0.7,
+						"nothing": 0.05
+					}
+				},
+				"reveals": {
+					"score": 1.26,
+					"of": 2,
+					"confidence": 0.49,
+					"probabilities": [
+						0.04,
+						0.66,
+						0.3
+					]
+				},
+				"torn": {
+					"score": 0.42,
+					"of": 2,
+					"confidence": 0.38,
+					"probabilities": [
+						0.6,
+						0.38,
+						0.02
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.59,
+					"probabilities": {
+						"one": 0.73,
+						"none": 0.27,
+						"both": 0
+					}
+				},
+				"pays": {
+					"score": 1.24,
+					"of": 2,
+					"confidence": 0.61,
+					"probabilities": [
+						0.01,
+						0.74,
+						0.25
+					]
+				}
+			}
+		},
+		{
+			"section": 6,
+			"measured": {
+				"words": 3041,
+				"spoken": null,
+				"wordsPerSentence": 24.1
+			},
+			"variant": "with the story so far",
+			"sha256": "e347571fcad15047d6a6f81934c0f39bb80c2421bc0decea78f5d2fade210343",
+			"tokensIn": 4827,
+			"seconds": 0.5,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.68,
+					"probabilities": {
+						"expected": 0.76,
+						"nothing": 0.04,
+						"fitting": 0.17,
+						"unfitting": 0.03
+					}
+				},
+				"reveals": {
+					"score": 1.13,
+					"of": 2,
+					"confidence": 0.43,
+					"probabilities": [
+						0.13,
+						0.62,
+						0.25
+					]
+				},
+				"torn": {
+					"score": 1.06,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.36,
+						0.23,
+						0.41
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.68,
+					"probabilities": {
+						"none": 0.21,
+						"one": 0.79,
+						"both": 0
+					}
+				},
+				"pays": {
+					"score": 1.1,
+					"of": 2,
+					"confidence": 0.71,
+					"probabilities": [
+						0.05,
+						0.8,
+						0.15
+					]
+				}
+			}
+		},
+		{
+			"section": 7,
+			"measured": {
+				"words": 3001,
+				"spoken": null,
+				"wordsPerSentence": 17.1
+			},
+			"variant": "with the story so far",
+			"sha256": "768f213f985b88b551217ab495b2b5426f18647fa0b31b24bbf8f8a2c7589b65",
+			"tokensIn": 4875,
+			"seconds": 0.5,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.66,
+					"probabilities": {
+						"unfitting": 0.02,
+						"nothing": 0.01,
+						"expected": 0.74,
+						"fitting": 0.23
+					}
+				},
+				"reveals": {
+					"score": 1.27,
+					"of": 2,
+					"confidence": 0.35,
+					"probabilities": [
+						0.08,
+						0.57,
+						0.35
+					]
+				},
+				"torn": {
+					"score": 1.05,
+					"of": 2,
+					"confidence": 0.84,
+					"probabilities": [
+						0.03,
+						0.89,
+						0.08
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.99,
+					"probabilities": {
+						"none": 0,
+						"both": 0,
+						"one": 1
+					}
+				},
+				"pays": {
+					"score": 1.8,
+					"of": 2,
+					"confidence": 0.7,
+					"probabilities": [
+						0,
+						0.19,
+						0.81
+					]
+				}
+			}
+		},
+		{
+			"section": 8,
+			"measured": {
+				"words": 3138,
+				"spoken": null,
+				"wordsPerSentence": 16.5
+			},
+			"variant": "with the story so far",
+			"sha256": "f7e61420505d59f7d008a51b28bb28b12a7f2f17be028813107553154e434b13",
+			"tokensIn": 4950,
+			"seconds": 0.5,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.74,
+					"probabilities": {
+						"unfitting": 0.01,
+						"expected": 0.81,
+						"nothing": 0,
+						"fitting": 0.18
+					}
+				},
+				"reveals": {
+					"score": 1.41,
+					"of": 2,
+					"confidence": 0.29,
+					"probabilities": [
+						0.03,
+						0.53,
+						0.44
+					]
+				},
+				"torn": {
+					"score": 1.04,
+					"of": 2,
+					"confidence": 0.65,
+					"probabilities": [
+						0.09,
+						0.77,
+						0.14
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.98,
+					"probabilities": {
+						"one": 0.99,
+						"none": 0.01,
+						"both": 0
+					}
+				},
+				"pays": {
+					"score": 1.95,
+					"of": 2,
+					"confidence": 0.93,
+					"probabilities": [
+						0,
+						0.04,
+						0.96
+					]
+				}
+			}
+		},
+		{
+			"section": 9,
+			"measured": {
+				"words": 3030,
+				"spoken": null,
+				"wordsPerSentence": 16.5
+			},
+			"variant": "with the story so far",
+			"sha256": "aeefec6ba566d3fb0b7d2ab7545f83ba626c418e7f6af374278934b67dcde005",
+			"tokensIn": 4825,
+			"seconds": 0.6,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.94,
+					"probabilities": {
+						"nothing": 0,
+						"unfitting": 0,
+						"expected": 0.96,
+						"fitting": 0.04
+					}
+				},
+				"reveals": {
+					"score": 1.21,
+					"of": 2,
+					"confidence": 0.44,
+					"probabilities": [
+						0.08,
+						0.63,
+						0.29
+					]
+				},
+				"torn": {
+					"score": 0.45,
+					"of": 2,
+					"confidence": 0.32,
+					"probabilities": [
+						0.57,
+						0.41,
+						0.02
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.96,
+					"probabilities": {
+						"none": 0.02,
+						"both": 0.01,
+						"one": 0.97
+					}
+				},
+				"pays": {
+					"score": 1.23,
+					"of": 2,
+					"confidence": 0.62,
+					"probabilities": [
+						0.01,
+						0.75,
+						0.24
+					]
+				}
+			}
+		},
+		{
+			"section": 10,
+			"measured": {
+				"words": 3145,
+				"spoken": null,
+				"wordsPerSentence": 21.3
+			},
+			"variant": "with the story so far",
+			"sha256": "0bdf8104ef7adef2e382eb15d513fb45dded9be01bcf4c6584112055d4d75f00",
+			"tokensIn": 5000,
+			"seconds": 0.5,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.8,
+					"probabilities": {
+						"fitting": 0.12,
+						"nothing": 0.01,
+						"expected": 0.86,
+						"unfitting": 0.01
+					}
+				},
+				"reveals": {
+					"score": 1.62,
+					"of": 2,
+					"confidence": 0.43,
+					"probabilities": [
+						0.02,
+						0.34,
+						0.64
+					]
+				},
+				"torn": {
+					"score": 0.5,
+					"of": 2,
+					"confidence": 0.25,
+					"probabilities": [
+						0.53,
+						0.44,
+						0.03
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.98,
+					"probabilities": {
+						"none": 0.01,
+						"one": 0.99,
+						"both": 0
+					}
+				},
+				"pays": {
+					"score": 1.98,
+					"of": 2,
+					"confidence": 0.97,
+					"probabilities": [
+						0,
+						0.02,
+						0.98
+					]
+				}
+			}
+		},
+		{
+			"section": 11,
+			"measured": {
+				"words": 3009,
+				"spoken": null,
+				"wordsPerSentence": 22.5
+			},
+			"variant": "with the story so far",
+			"sha256": "2dfb62c397f28d86ee6a217f2e4f9411cefc8eaafe92744984cfcf172d310066",
+			"tokensIn": 4831,
+			"seconds": 0.6,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.87,
+					"probabilities": {
+						"fitting": 0.02,
+						"expected": 0.91,
+						"unfitting": 0,
+						"nothing": 0.07
+					}
+				},
+				"reveals": {
+					"score": 1.38,
+					"of": 2,
+					"confidence": 0.25,
+					"probabilities": [
+						0.06,
+						0.5,
+						0.44
+					]
+				},
+				"torn": {
+					"score": 0.3,
+					"of": 2,
+					"confidence": 0.54,
+					"probabilities": [
+						0.78,
+						0.14,
+						0.08
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.93,
+					"probabilities": {
+						"one": 0.95,
+						"none": 0.04,
+						"both": 0.01
+					}
+				},
+				"pays": {
+					"score": 1.26,
+					"of": 2,
+					"confidence": 0.59,
+					"probabilities": [
+						0.01,
+						0.72,
+						0.27
+					]
+				}
+			}
+		},
+		{
+			"section": 12,
+			"measured": {
+				"words": 3017,
+				"spoken": null,
+				"wordsPerSentence": 24.9
+			},
+			"variant": "with the story so far",
+			"sha256": "2a9c63dded78ff94feac0489368c8e44b5c581fb6f3693a3e2028cd29ae02b5a",
+			"tokensIn": 4825,
+			"seconds": 0.6,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.88,
+					"probabilities": {
+						"nothing": 0.04,
+						"unfitting": 0,
+						"expected": 0.91,
+						"fitting": 0.05
+					}
+				},
+				"reveals": {
+					"score": 1.04,
+					"of": 2,
+					"confidence": 0.61,
+					"probabilities": [
+						0.11,
+						0.74,
+						0.15
+					]
+				},
+				"torn": {
+					"score": 1.27,
+					"of": 2,
+					"confidence": 0.27,
+					"probabilities": [
+						0.11,
+						0.51,
+						0.38
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.96,
+					"probabilities": {
+						"both": 0.01,
+						"none": 0.02,
+						"one": 0.97
+					}
+				},
+				"pays": {
+					"score": 1.04,
+					"of": 2,
+					"confidence": 0.91,
+					"probabilities": [
+						0.01,
+						0.94,
+						0.05
+					]
+				}
+			}
+		},
+		{
+			"section": 13,
+			"measured": {
+				"words": 3120,
+				"spoken": null,
+				"wordsPerSentence": 20.5
+			},
+			"variant": "with the story so far",
+			"sha256": "2f2a69335bedd3933a37ecbdbeecf04a13819f8e04e0db63737bbfe0812b8ba3",
+			"tokensIn": 5015,
+			"seconds": 0.7,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.91,
+					"probabilities": {
+						"unfitting": 0,
+						"expected": 0.93,
+						"nothing": 0,
+						"fitting": 0.07
+					}
+				},
+				"reveals": {
+					"score": 1.38,
+					"of": 2,
+					"confidence": 0.3,
+					"probabilities": [
+						0.04,
+						0.54,
+						0.42
+					]
+				},
+				"torn": {
+					"score": 0.91,
+					"of": 2,
+					"confidence": 0.81,
+					"probabilities": [
+						0.11,
+						0.87,
+						0.02
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.97,
+					"probabilities": {
+						"both": 0.01,
+						"one": 0.98,
+						"none": 0.01
+					}
+				},
+				"pays": {
+					"score": 1.35,
+					"of": 2,
+					"confidence": 0.45,
+					"probabilities": [
+						0.01,
+						0.63,
+						0.36
+					]
+				}
+			}
+		},
+		{
+			"section": 14,
+			"measured": {
+				"words": 3004,
+				"spoken": null,
+				"wordsPerSentence": 20.7
+			},
+			"variant": "with the story so far",
+			"sha256": "83aa9f84666bf53f097b54b2bffcbfc8b02ea01eb43f41eed7fcff85f4f02998",
+			"tokensIn": 4846,
+			"seconds": 0.7,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.44,
+					"probabilities": {
+						"unfitting": 0.05,
+						"nothing": 0.02,
+						"fitting": 0.35,
+						"expected": 0.58
+					}
+				},
+				"reveals": {
+					"score": 1.61,
+					"of": 2,
+					"confidence": 0.42,
+					"probabilities": [
+						0.05,
+						0.29,
+						0.66
+					]
+				},
+				"torn": {
+					"score": 1.28,
+					"of": 2,
+					"confidence": 0.5,
+					"probabilities": [
+						0.03,
+						0.66,
+						0.31
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.96,
+					"probabilities": {
+						"none": 0.02,
+						"both": 0.01,
+						"one": 0.97
+					}
+				},
+				"pays": {
+					"score": 1.27,
+					"of": 2,
+					"confidence": 0.56,
+					"probabilities": [
+						0.01,
+						0.71,
+						0.28
+					]
+				}
+			}
+		},
+		{
+			"section": 15,
+			"measured": {
+				"words": 3303,
+				"spoken": null,
+				"wordsPerSentence": 20.6
+			},
+			"variant": "with the story so far",
+			"sha256": "7abf951555dcba8cffd15bc034f2ad79310e5ce77a32a9bb9c24ef604959c9d9",
+			"tokensIn": 5218,
+			"seconds": 0.7,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.49,
+					"probabilities": {
+						"unfitting": 0.01,
+						"expected": 0.63,
+						"nothing": 0.01,
+						"fitting": 0.35
+					}
+				},
+				"reveals": {
+					"score": 1.36,
+					"of": 2,
+					"confidence": 0.27,
+					"probabilities": [
+						0.06,
+						0.51,
+						0.43
+					]
+				},
+				"torn": {
+					"score": 0.62,
+					"of": 2,
+					"confidence": 0.25,
+					"probabilities": [
+						0.44,
+						0.5,
+						0.06
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 1,
+					"probabilities": {
+						"both": 0,
+						"one": 1,
+						"none": 0
+					}
+				},
+				"pays": {
+					"score": 1.59,
+					"of": 2,
+					"confidence": 0.38,
+					"probabilities": [
+						0.01,
+						0.4,
+						0.59
+					]
+				}
+			}
+		},
+		{
+			"section": 16,
+			"measured": {
+				"words": 3011,
+				"spoken": null,
+				"wordsPerSentence": 23.2
+			},
+			"variant": "with the story so far",
+			"sha256": "d722080e150b1b24dbb0969f1cea8a54ca2d25b103638ee3e7f51670bf7868bc",
+			"tokensIn": 4821,
+			"seconds": 0.7,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.84,
+					"probabilities": {
+						"unfitting": 0.01,
+						"fitting": 0.09,
+						"expected": 0.87,
+						"nothing": 0.03
+					}
+				},
+				"reveals": {
+					"score": 1.53,
+					"of": 2,
+					"confidence": 0.3,
+					"probabilities": [
+						0.02,
+						0.42,
+						0.56
+					]
+				},
+				"torn": {
+					"score": 1.22,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.26,
+						0.26,
+						0.48
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.94,
+					"probabilities": {
+						"both": 0,
+						"none": 0.03,
+						"one": 0.97
+					}
+				},
+				"pays": {
+					"score": 1.18,
+					"of": 2,
+					"confidence": 0.72,
+					"probabilities": [
+						0.01,
+						0.81,
+						0.18
+					]
+				}
+			}
+		},
+		{
+			"section": 17,
+			"measured": {
+				"words": 3210,
+				"spoken": null,
+				"wordsPerSentence": 19.8
+			},
+			"variant": "with the story so far",
+			"sha256": "719e0f169093ae77f0174e78e034f791a41a4fc2d1b686afed7d464b49ee7f7e",
+			"tokensIn": 5177,
+			"seconds": 0.5,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.82,
+					"probabilities": {
+						"unfitting": 0.01,
+						"nothing": 0.01,
+						"expected": 0.87,
+						"fitting": 0.11
+					}
+				},
+				"reveals": {
+					"score": 1.46,
+					"of": 2,
+					"confidence": 0.19,
+					"probabilities": [
+						0.04,
+						0.46,
+						0.5
+					]
+				},
+				"torn": {
+					"score": 0.4,
+					"of": 2,
+					"confidence": 0.41,
+					"probabilities": [
+						0.64,
+						0.33,
+						0.03
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.98,
+					"probabilities": {
+						"both": 0,
+						"none": 0.01,
+						"one": 0.99
+					}
+				},
+				"pays": {
+					"score": 1.72,
+					"of": 2,
+					"confidence": 0.58,
+					"probabilities": [
+						0,
+						0.27,
+						0.73
+					]
+				}
+			}
+		},
+		{
+			"section": 18,
+			"measured": {
+				"words": 3080,
+				"spoken": null,
+				"wordsPerSentence": 19.9
+			},
+			"variant": "with the story so far",
+			"sha256": "e2da4b24dced0948a273f50cef5a9d2546f02262ea72f7c6c63e723cdd012838",
+			"tokensIn": 4929,
+			"seconds": 0.7,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.98,
+					"probabilities": {
+						"expected": 0.99,
+						"unfitting": 0,
+						"nothing": 0,
+						"fitting": 0.01
+					}
+				},
+				"reveals": {
+					"score": 1.17,
+					"of": 2,
+					"confidence": 0.49,
+					"probabilities": [
+						0.09,
+						0.66,
+						0.25
+					]
+				},
+				"torn": {
+					"score": 0.53,
+					"of": 2,
+					"confidence": 0.24,
+					"probabilities": [
+						0.49,
+						0.49,
+						0.02
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.99,
+					"probabilities": {
+						"none": 0.01,
+						"one": 0.99,
+						"both": 0
+					}
+				},
+				"pays": {
+					"score": 1.54,
+					"of": 2,
+					"confidence": 0.3,
+					"probabilities": [
+						0,
+						0.46,
+						0.54
+					]
+				}
+			}
+		},
+		{
+			"section": 19,
+			"measured": {
+				"words": 3087,
+				"spoken": null,
+				"wordsPerSentence": 23.6
+			},
+			"variant": "with the story so far",
+			"sha256": "a3b550ee769f336667f1bfe5060883922a687f68a87d62b3e84874d73190a8a2",
+			"tokensIn": 4783,
+			"seconds": 0.5,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.9,
+					"probabilities": {
+						"nothing": 0.04,
+						"fitting": 0.03,
+						"unfitting": 0,
+						"expected": 0.93
+					}
+				},
+				"reveals": {
+					"score": 1.53,
+					"of": 2,
+					"confidence": 0.29,
+					"probabilities": [
+						0.04,
+						0.39,
+						0.57
+					]
+				},
+				"torn": {
+					"score": 1.57,
+					"of": 2,
+					"confidence": 0.36,
+					"probabilities": [
+						0.14,
+						0.14,
+						0.72
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.68,
+					"probabilities": {
+						"none": 0,
+						"both": 0.21,
+						"one": 0.79
+					}
+				},
+				"pays": {
+					"score": 1.92,
+					"of": 2,
+					"confidence": 0.88,
+					"probabilities": [
+						0,
+						0.08,
+						0.92
+					]
+				}
+			}
+		},
+		{
+			"section": 20,
+			"measured": {
+				"words": 3184,
+				"spoken": null,
+				"wordsPerSentence": 24.5
+			},
+			"variant": "with the story so far",
+			"sha256": "74c045ac053ecd657e2e0ab1054413e8a1c89daa4306ee766b9200388dd8adfc",
+			"tokensIn": 5072,
+			"seconds": 0.6,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.93,
+					"probabilities": {
+						"nothing": 0.01,
+						"unfitting": 0,
+						"expected": 0.95,
+						"fitting": 0.04
+					}
+				},
+				"reveals": {
+					"score": 1.59,
+					"of": 2,
+					"confidence": 0.39,
+					"probabilities": [
+						0.05,
+						0.31,
+						0.64
+					]
+				},
+				"torn": {
+					"score": 1.88,
+					"of": 2,
+					"confidence": 0.81,
+					"probabilities": [
+						0.01,
+						0.1,
+						0.89
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.51,
+					"probabilities": {
+						"one": 0.67,
+						"both": 0.32,
+						"none": 0.01
+					}
+				},
+				"pays": {
+					"score": 1.63,
+					"of": 2,
+					"confidence": 0.45,
+					"probabilities": [
+						0.01,
+						0.36,
+						0.63
+					]
+				}
+			}
+		},
+		{
+			"section": 21,
+			"measured": {
+				"words": 4337,
+				"spoken": null,
+				"wordsPerSentence": 22.1
+			},
+			"variant": "with the story so far",
+			"sha256": "7046f89c23a5d08ff785d113f6f8115edb6757a265630bd2d1030e9a2c2cd762",
+			"tokensIn": 6418,
+			"seconds": 0.7,
+			"answers": {
+				"acts": {
+					"choice": "expected",
+					"confidence": 0.57,
+					"probabilities": {
+						"fitting": 0.27,
+						"unfitting": 0.02,
+						"nothing": 0.04,
+						"expected": 0.67
+					}
+				},
+				"reveals": {
+					"score": 1.76,
+					"of": 2,
+					"confidence": 0.64,
+					"probabilities": [
+						0.04,
+						0.17,
+						0.79
+					]
+				},
+				"torn": {
+					"score": 1.16,
+					"of": 2,
+					"confidence": 0.18,
+					"probabilities": [
+						0.2,
+						0.45,
+						0.35
+					]
+				},
+				"sides": {
+					"choice": "one",
+					"confidence": 0.99,
+					"probabilities": {
+						"one": 1,
+						"none": 0,
+						"both": 0
+					}
+				},
+				"pays": {
+					"score": 1.99,
+					"of": 2,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				}
+			}
+		}
+	],
+	"remarks": "What each chapter does to the people of the story, asked with what the reader knows so far beside it, from the reading notes of google/gemini-3.1-flash-lite."
+}

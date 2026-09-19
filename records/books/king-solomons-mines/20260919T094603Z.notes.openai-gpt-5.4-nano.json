@@ -1,0 +1,71 @@
+{
+	"kind": "notes",
+	"at": "2026-09-19T09:46:03.280Z",
+	"book": {
+		"title": "King Solomon's Mines",
+		"author": "H. Rider Haggard",
+		"language": "en",
+		"source": {
+			"file": "king-solomons-mines.epub",
+			"format": "epub",
+			"sha256": "a973b4b2634ea470705e7ad789ba24c1b6b3517498a5fdaa20909c5b04c11491"
+		},
+		"text": {
+			"sha256": "25b42eae3f0db74e839c8f8b919cd8337023a39adceba73087cd64c3ccecceba",
+			"sections": 24,
+			"words": 81994
+		}
+	},
+	"sections": {
+		"from": 4,
+		"to": 18
+	},
+	"by": {
+		"model": "openai/gpt-5.4-nano",
+		"through": "OpenRouter",
+		"routing": {
+			"sort": "price"
+		},
+		"providers": {
+			"Azure": {
+				"calls": 59,
+				"notKept": 43,
+				"usd": 0.075004
+			}
+		},
+		"rules": "sha256:7035f9a10552",
+		"code": {
+			"commit": "87798df",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 59,
+		"tokensIn": 164598,
+		"tokensOut": 39416,
+		"tokensThinking": 0,
+		"usd": 0.075001,
+		"seconds": 392
+	},
+	"found": {
+		"story": 14,
+		"apparatus": 1,
+		"people": 17,
+		"threads": 23,
+		"threadsSettledOnReview": 0,
+		"threadsLeftOpen": 6,
+		"synopsis": {
+			"withinLength": 1,
+			"of": 14,
+			"longestWords": 458
+		},
+		"notes": {
+			"sha256": "efb93bda6ccf11def68e0cbd56b64b368444b06ff108fba839359091c27817b9"
+		}
+	},
+	"failed": {
+		"section": 19,
+		"why": "OpenRouter 200: openai/gpt-5.4-nano did not answer in JSON (it stopped for: content_filter)"
+	},
+	"remarks": "The same rules with another model, to set it beside the others: cheapest provider first. Taken up again once after it broke."
+}

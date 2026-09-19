@@ -1,0 +1,605 @@
+{
+	"kind": "jev",
+	"at": "2026-09-19T12:11:32.505Z",
+	"book": {
+		"title": "Don Quijote",
+		"author": "Miguel de Cervantes Saavedra",
+		"language": "es",
+		"source": {
+			"file": "don-quijote.epub",
+			"format": "epub",
+			"sha256": "1e8a26017d9b58797fa20aab9ba0016153c2ca6613031ad7500fec9f1fcb2655"
+		},
+		"text": {
+			"sha256": "081eb14847ddfae01aa3809589e591d1f7ee886281406129e83393e5f0c95eff",
+			"sections": 138,
+			"words": 381757
+		}
+	},
+	"sections": [
+		4,
+		8,
+		11,
+		15
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "reading",
+		"rules": "sha256:ee93bf3e94da",
+		"asked": {
+			"happens": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much happens in it?",
+				"criteria": [
+					"Nothing happens: the narrator explains, reflects or describes, and no event takes place",
+					"Little happens: the characters talk, travel or wait, and they end the chapter much as they began it",
+					"An event takes place that changes the situation of the characters",
+					"One event follows another, and the situation of the characters changes more than once"
+				]
+			},
+			"danger": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much physical danger are the characters in?",
+				"criteria": [
+					"None: nobody is at risk of being hurt",
+					"Hardship or a threat: hunger, thirst, exhaustion, or someone who says they will harm them",
+					"Some of the characters are close to dying",
+					"The characters fight for their lives, and people are killed"
+				]
+			},
+			"stakes": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. What do the characters stand to gain or lose in what happens in it?",
+				"criteria": [
+					"Nothing that matters to them",
+					"Something they care about but could do without: comfort, a sum of money, their pride",
+					"Something that changes the course of a life: a marriage, a fortune, a position, a friendship",
+					"Their lives, or the lives of people close to them"
+				]
+			},
+			"talk": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much of it is conversation between the characters, and how much narration?",
+				"criteria": [
+					"All or nearly all narration: no conversation, or a line or two",
+					"Mostly narration, with a few short exchanges between the characters",
+					"About as much conversation as narration",
+					"Mostly conversation, with some narration between the exchanges",
+					"All or nearly all conversation"
+				]
+			},
+			"scenery": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much of it describes places, landscape, weather, buildings or objects?",
+				"criteria": [
+					"Places and things are named but not described",
+					"Places or things are described in a few sentences here and there",
+					"Places or things are described at length in several passages",
+					"Most of the chapter describes places or things"
+				]
+			},
+			"feelings": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much does it tell of what the characters feel and think?",
+				"criteria": [
+					"Only what the characters do and say is told, not what they feel or think",
+					"A feeling or a thought is mentioned now and then, in a few words",
+					"What a character feels or thinks is told at length in some passages",
+					"Most of the chapter tells what a character feels or thinks"
+				]
+			},
+			"humour": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How funny or ironic is the telling?",
+				"criteria": [
+					"Told in earnest from beginning to end, with no jokes and no irony",
+					"Mostly in earnest, with a joke or an ironic remark here and there",
+					"Funny or ironic through much of the chapter"
+				]
+			},
+			"words": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How hard are its words for a reader of today?",
+				"criteria": [
+					"Plain everyday words throughout",
+					"Mostly plain words, with some that are old-fashioned or uncommon",
+					"Many old-fashioned, learned or uncommon words"
+				]
+			},
+			"sentences": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How long are its sentences?",
+				"criteria": [
+					"Short sentences, most of them of a single clause",
+					"Sentences of ordinary length, some short and some long",
+					"Long sentences of many clauses, one inside another"
+				]
+			},
+			"firstPerson": {
+				"type": "noul",
+				"instructions": "`chapter` is a chapter of a novel. Is it told in the first person, by a narrator who takes part in what happens?"
+			},
+			"hook": {
+				"type": "noul",
+				"instructions": "`chapter` is a chapter of a novel. Does it end with something left unresolved that makes the reader want to know what comes next?"
+			}
+		},
+		"code": {
+			"commit": "0411666",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 4,
+		"tokensIn": 17185,
+		"usd": 0.000722,
+		"seconds": 5
+	},
+	"found": [
+		{
+			"section": 4,
+			"measured": {
+				"words": 575,
+				"spoken": null,
+				"wordsPerSentence": 63.9
+			},
+			"sha256": "6b9de856673886512cd919389115d36aefaea48fa1fee559f8285ef525420dec",
+			"tokensIn": 2049,
+			"seconds": 1.2,
+			"answers": {
+				"happens": {
+					"score": 0.2,
+					"of": 3,
+					"confidence": 0.8,
+					"probabilities": [
+						0.9,
+						0.01,
+						0.08,
+						0.01
+					]
+				},
+				"danger": {
+					"score": 0,
+					"of": 3,
+					"confidence": 1,
+					"probabilities": [
+						1,
+						0,
+						0,
+						0
+					]
+				},
+				"stakes": {
+					"score": 1.12,
+					"of": 3,
+					"confidence": 0.1,
+					"probabilities": [
+						0.28,
+						0.32,
+						0.39,
+						0.01
+					]
+				},
+				"talk": {
+					"score": 0.01,
+					"of": 4,
+					"confidence": 0.99,
+					"probabilities": [
+						1,
+						0,
+						0,
+						0,
+						0
+					]
+				},
+				"scenery": {
+					"score": 0.01,
+					"of": 3,
+					"confidence": 0.99,
+					"probabilities": [
+						0.99,
+						0.01,
+						0,
+						0
+					]
+				},
+				"feelings": {
+					"score": 0.03,
+					"of": 3,
+					"confidence": 0.97,
+					"probabilities": [
+						0.98,
+						0.02,
+						0,
+						0
+					]
+				},
+				"humour": {
+					"score": 0.18,
+					"of": 2,
+					"confidence": 0.73,
+					"probabilities": [
+						0.89,
+						0.05,
+						0.06
+					]
+				},
+				"words": {
+					"score": 2,
+					"of": 2,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"sentences": {
+					"score": 2,
+					"of": 2,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"firstPerson": {
+					"noul": 0.04
+				},
+				"hook": {
+					"noul": 0.05
+				}
+			}
+		},
+		{
+			"section": 8,
+			"measured": {
+				"words": 1879,
+				"spoken": null,
+				"wordsPerSentence": 52.2
+			},
+			"sha256": "ca5952461883df036afb628a6835146be785901a88e63aa9db1bd92e4a55f736",
+			"tokensIn": 4072,
+			"seconds": 2.9,
+			"answers": {
+				"happens": {
+					"score": 2.46,
+					"of": 3,
+					"confidence": 0.46,
+					"probabilities": [
+						0.09,
+						0.04,
+						0.18,
+						0.69
+					]
+				},
+				"danger": {
+					"score": 0.02,
+					"of": 3,
+					"confidence": 0.98,
+					"probabilities": [
+						0.98,
+						0.02,
+						0,
+						0
+					]
+				},
+				"stakes": {
+					"score": 1.83,
+					"of": 3,
+					"confidence": 0.59,
+					"probabilities": [
+						0.03,
+						0.24,
+						0.61,
+						0.12
+					]
+				},
+				"talk": {
+					"score": 0.14,
+					"of": 4,
+					"confidence": 0.88,
+					"probabilities": [
+						0.86,
+						0.14,
+						0,
+						0,
+						0
+					]
+				},
+				"scenery": {
+					"score": 1.17,
+					"of": 3,
+					"confidence": 0.74,
+					"probabilities": [
+						0.05,
+						0.74,
+						0.21,
+						0
+					]
+				},
+				"feelings": {
+					"score": 2.66,
+					"of": 3,
+					"confidence": 0.66,
+					"probabilities": [
+						0,
+						0,
+						0.33,
+						0.67
+					]
+				},
+				"humour": {
+					"score": 1.87,
+					"of": 2,
+					"confidence": 0.81,
+					"probabilities": [
+						0,
+						0.12,
+						0.88
+					]
+				},
+				"words": {
+					"score": 1.98,
+					"of": 2,
+					"confidence": 0.97,
+					"probabilities": [
+						0,
+						0.02,
+						0.98
+					]
+				},
+				"sentences": {
+					"score": 1.99,
+					"of": 2,
+					"confidence": 0.98,
+					"probabilities": [
+						0,
+						0.01,
+						0.99
+					]
+				},
+				"firstPerson": {
+					"noul": 0.03
+				},
+				"hook": {
+					"noul": 0.88
+				}
+			}
+		},
+		{
+			"section": 11,
+			"measured": {
+				"words": 2464,
+				"spoken": null,
+				"wordsPerSentence": 53.6
+			},
+			"sha256": "b5a282e08edb8ea953a7184397354183675b9ea0af02563592f64c9b4933b42a",
+			"tokensIn": 5110,
+			"seconds": 0.6,
+			"answers": {
+				"happens": {
+					"score": 2.99,
+					"of": 3,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						0.01,
+						0.99
+					]
+				},
+				"danger": {
+					"score": 1.26,
+					"of": 3,
+					"confidence": 0.73,
+					"probabilities": [
+						0,
+						0.74,
+						0.26,
+						0
+					]
+				},
+				"stakes": {
+					"score": 1.22,
+					"of": 3,
+					"confidence": 0.77,
+					"probabilities": [
+						0,
+						0.86,
+						0.06,
+						0.08
+					]
+				},
+				"talk": {
+					"score": 1.85,
+					"of": 4,
+					"confidence": 0.71,
+					"probabilities": [
+						0,
+						0.25,
+						0.65,
+						0.1,
+						0
+					]
+				},
+				"scenery": {
+					"score": 0.88,
+					"of": 3,
+					"confidence": 0.84,
+					"probabilities": [
+						0.14,
+						0.84,
+						0.02,
+						0
+					]
+				},
+				"feelings": {
+					"score": 1.84,
+					"of": 3,
+					"confidence": 0.79,
+					"probabilities": [
+						0,
+						0.18,
+						0.79,
+						0.03
+					]
+				},
+				"humour": {
+					"score": 1.98,
+					"of": 2,
+					"confidence": 0.96,
+					"probabilities": [
+						0,
+						0.02,
+						0.98
+					]
+				},
+				"words": {
+					"score": 1.93,
+					"of": 2,
+					"confidence": 0.9,
+					"probabilities": [
+						0,
+						0.07,
+						0.93
+					]
+				},
+				"sentences": {
+					"score": 1.97,
+					"of": 2,
+					"confidence": 0.95,
+					"probabilities": [
+						0,
+						0.03,
+						0.97
+					]
+				},
+				"firstPerson": {
+					"noul": 0.04
+				},
+				"hook": {
+					"noul": 0.92
+				}
+			}
+		},
+		{
+			"section": 15,
+			"measured": {
+				"words": 3005,
+				"spoken": null,
+				"wordsPerSentence": 51.8
+			},
+			"sha256": "f0a8d180f4fd66983b9f48c297707cdbc785c7181fd801eff1538d10281048b8",
+			"tokensIn": 5954,
+			"seconds": 0.5,
+			"answers": {
+				"happens": {
+					"score": 2.99,
+					"of": 3,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"danger": {
+					"score": 2.07,
+					"of": 3,
+					"confidence": 0.62,
+					"probabilities": [
+						0,
+						0.16,
+						0.62,
+						0.22
+					]
+				},
+				"stakes": {
+					"score": 2.38,
+					"of": 3,
+					"confidence": 0.38,
+					"probabilities": [
+						0.01,
+						0.28,
+						0.03,
+						0.68
+					]
+				},
+				"talk": {
+					"score": 1.89,
+					"of": 4,
+					"confidence": 0.71,
+					"probabilities": [
+						0,
+						0.23,
+						0.65,
+						0.12,
+						0
+					]
+				},
+				"scenery": {
+					"score": 0.97,
+					"of": 3,
+					"confidence": 0.87,
+					"probabilities": [
+						0.08,
+						0.87,
+						0.05,
+						0
+					]
+				},
+				"feelings": {
+					"score": 1.58,
+					"of": 3,
+					"confidence": 0.58,
+					"probabilities": [
+						0.01,
+						0.4,
+						0.59,
+						0
+					]
+				},
+				"humour": {
+					"score": 1.96,
+					"of": 2,
+					"confidence": 0.94,
+					"probabilities": [
+						0,
+						0.03,
+						0.97
+					]
+				},
+				"words": {
+					"score": 1.97,
+					"of": 2,
+					"confidence": 0.96,
+					"probabilities": [
+						0,
+						0.02,
+						0.98
+					]
+				},
+				"sentences": {
+					"score": 1.95,
+					"of": 2,
+					"confidence": 0.93,
+					"probabilities": [
+						0,
+						0.05,
+						0.95
+					]
+				},
+				"firstPerson": {
+					"noul": 0.02
+				},
+				"hook": {
+					"noul": 0.98
+				}
+			}
+		}
+	],
+	"remarks": "Experiment 7: a book in Spanish, with the questions in English as for the others."
+}

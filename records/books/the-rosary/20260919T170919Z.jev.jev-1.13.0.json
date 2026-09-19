@@ -1,0 +1,508 @@
+{
+	"kind": "jev",
+	"at": "2026-09-19T17:09:19.385Z",
+	"book": {
+		"title": "The Rosary",
+		"author": "Florence L. Barclay",
+		"language": "en",
+		"source": {
+			"file": "the-rosary.epub",
+			"format": "epub",
+			"sha256": "5b405eac4673554aabe3ac4e35e06d6c4023af55a2e651ede72d809dfa455862"
+		},
+		"text": {
+			"sha256": "8fb03f0ef0337adde281e0c09b4d677eabb370c1cbf20944fc3c457a81287e1b",
+			"sections": 39,
+			"words": 105056
+		}
+	},
+	"sections": [
+		16
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "gut",
+		"rules": "sha256:387e135f4f84",
+		"asked": {
+			"underline": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. What would a reader mark in it to keep?",
+				"criteria": [
+					"A reader would mark nothing in this passage",
+					"A reader might mark a sentence of this passage for what it says",
+					"A reader would mark a sentence of this passage for how it is said",
+					"A reader would copy out more than one sentence of this passage, for how they are said"
+				]
+			},
+			"draft": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. What does it read like?",
+				"criteria": {
+					"first": "A first draft, written fast and not gone over",
+					"worked": "A text gone over until it was clean",
+					"finished": "A text in which every word has been weighed"
+				}
+			},
+			"editor": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. What would a good editor do with it?",
+				"criteria": {
+					"cut": "Cut most of it",
+					"trim": "Trim it here and there",
+					"leave": "Leave it as it is"
+				}
+			},
+			"memory": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. A week after reading it, what would a reader remember of it?",
+				"criteria": {
+					"nothing": "Nothing",
+					"events": "What happened in it",
+					"feeling": "How it made them feel",
+					"image": "An image or a phrase from it"
+				}
+			},
+			"slush": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. Sent to a publisher today with no name on it, what would become of the book it is from?",
+				"criteria": {
+					"rejected": "It would be turned down within a page",
+					"read": "It would be read with interest and turned down",
+					"wanted": "It would be taken on"
+				}
+			},
+			"anyone": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. Who could have written it?",
+				"criteria": [
+					"Anyone who writes could have written this passage",
+					"A competent professional could have written this passage",
+					"Only a writer with a manner of their own could have written this passage"
+				]
+			},
+			"lesson": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Would a teacher of writing give it to a class as an example to learn from?"
+			},
+			"warning": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Would a teacher of writing give it to a class as an example of what not to do?"
+			},
+			"again": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Would a reader who has finished the book come back to read this passage again?"
+			},
+			"aloud": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Would it be a pleasure to read aloud?"
+			},
+			"skip": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How would a reader go through it?",
+				"criteria": [
+					"A reader would read every word of this passage",
+					"A reader would skim some paragraphs of this passage",
+					"A reader would skip ahead to where something happens"
+				]
+			},
+			"lost": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How far would it take a reader in?",
+				"criteria": [
+					"A reader would stay aware of reading words on a page",
+					"A reader would follow this passage with interest",
+					"A reader would forget where they are while reading this passage"
+				]
+			},
+			"stop": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Reaching the end of it, would a reader rather go on reading than stop for the day?"
+			},
+			"audience": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. Whom is it written for?",
+				"criteria": {
+					"children": "Children",
+					"wide": "The widest public, to pass the time",
+					"general": "Readers in general",
+					"literary": "Readers who read for the writing"
+				}
+			}
+		},
+		"code": {
+			"commit": "b00170d",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 3,
+		"tokensIn": 15196,
+		"usd": 0.000638,
+		"seconds": 2
+	},
+	"found": [
+		{
+			"section": 16,
+			"piece": {
+				"at": 16,
+				"of": 35
+			},
+			"measured": {
+				"words": 3458,
+				"spoken": null,
+				"wordsPerSentence": 16.8
+			},
+			"sha256": "a6bc9708798ab525a19894b643701954ca8925f6235d4c920ffb3b03831d236e",
+			"tokensIn": 5654,
+			"seconds": 1,
+			"answers": {
+				"underline": {
+					"score": 2.93,
+					"of": 3,
+					"confidence": 0.93,
+					"probabilities": [
+						0,
+						0.01,
+						0.05,
+						0.94
+					]
+				},
+				"draft": {
+					"choice": "finished",
+					"confidence": 0.87,
+					"probabilities": {
+						"worked": 0.08,
+						"finished": 0.92,
+						"first": 0
+					}
+				},
+				"editor": {
+					"choice": "trim",
+					"confidence": 0.45,
+					"probabilities": {
+						"leave": 0.36,
+						"trim": 0.63,
+						"cut": 0.01
+					}
+				},
+				"memory": {
+					"choice": "events",
+					"confidence": 0.68,
+					"probabilities": {
+						"image": 0.13,
+						"nothing": 0,
+						"events": 0.76,
+						"feeling": 0.11
+					}
+				},
+				"slush": {
+					"choice": "wanted",
+					"confidence": 0.43,
+					"probabilities": {
+						"read": 0.22,
+						"wanted": 0.62,
+						"rejected": 0.16
+					}
+				},
+				"anyone": {
+					"score": 1.87,
+					"of": 2,
+					"confidence": 0.8,
+					"probabilities": [
+						0,
+						0.13,
+						0.87
+					]
+				},
+				"lesson": {
+					"noul": 0.7
+				},
+				"warning": {
+					"noul": 0.28
+				},
+				"again": {
+					"noul": 0.64
+				},
+				"aloud": {
+					"noul": 0.78
+				},
+				"skip": {
+					"score": 0.23,
+					"of": 2,
+					"confidence": 0.65,
+					"probabilities": [
+						0.8,
+						0.17,
+						0.03
+					]
+				},
+				"lost": {
+					"score": 1.28,
+					"of": 2,
+					"confidence": 0.54,
+					"probabilities": [
+						0.02,
+						0.69,
+						0.29
+					]
+				},
+				"stop": {
+					"noul": 0.86
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 0.46,
+					"probabilities": {
+						"general": 0.21,
+						"literary": 0.59,
+						"wide": 0.2,
+						"children": 0
+					}
+				}
+			}
+		},
+		{
+			"section": 16,
+			"piece": {
+				"at": 16,
+				"of": 35
+			},
+			"measured": {
+				"words": 1199,
+				"spoken": 0,
+				"wordsPerSentence": 7.7
+			},
+			"variant": "flat, by google/gemini-3.1-flash-lite",
+			"sha256": "c1a31f10e4a5956f31f0efc4ce40612e5977cccdab76a07dc56da48c673d68e7",
+			"tokensIn": 2780,
+			"seconds": 0.7,
+			"answers": {
+				"underline": {
+					"score": 2.59,
+					"of": 3,
+					"confidence": 0.59,
+					"probabilities": [
+						0.01,
+						0.1,
+						0.2,
+						0.69
+					]
+				},
+				"draft": {
+					"choice": "worked",
+					"confidence": 0.47,
+					"probabilities": {
+						"worked": 0.65,
+						"finished": 0.29,
+						"first": 0.06
+					}
+				},
+				"editor": {
+					"choice": "trim",
+					"confidence": 0.76,
+					"probabilities": {
+						"cut": 0.02,
+						"trim": 0.84,
+						"leave": 0.14
+					}
+				},
+				"memory": {
+					"choice": "events",
+					"confidence": 0.87,
+					"probabilities": {
+						"events": 0.9,
+						"image": 0.07,
+						"nothing": 0,
+						"feeling": 0.03
+					}
+				},
+				"slush": {
+					"choice": "read",
+					"confidence": 0.21,
+					"probabilities": {
+						"wanted": 0.18,
+						"read": 0.47,
+						"rejected": 0.35
+					}
+				},
+				"anyone": {
+					"score": 1.22,
+					"of": 2,
+					"confidence": 0.3,
+					"probabilities": [
+						0.12,
+						0.54,
+						0.34
+					]
+				},
+				"lesson": {
+					"noul": 0.36
+				},
+				"warning": {
+					"noul": 0.47
+				},
+				"again": {
+					"noul": 0.47
+				},
+				"aloud": {
+					"noul": 0.65
+				},
+				"skip": {
+					"score": 0.2,
+					"of": 2,
+					"confidence": 0.71,
+					"probabilities": [
+						0.83,
+						0.15,
+						0.02
+					]
+				},
+				"lost": {
+					"score": 1.08,
+					"of": 2,
+					"confidence": 0.85,
+					"probabilities": [
+						0.01,
+						0.9,
+						0.09
+					]
+				},
+				"stop": {
+					"noul": 0.81
+				},
+				"audience": {
+					"choice": "wide",
+					"confidence": 0.44,
+					"probabilities": {
+						"wide": 0.59,
+						"children": 0.01,
+						"general": 0.31,
+						"literary": 0.09
+					}
+				}
+			}
+		},
+		{
+			"section": 16,
+			"piece": {
+				"at": 16,
+				"of": 35
+			},
+			"measured": {
+				"words": 4038,
+				"spoken": 0,
+				"wordsPerSentence": 19.5
+			},
+			"variant": "purple, by google/gemini-3.1-flash-lite",
+			"sha256": "34a00942f664738ce1684af6e73d68f0db31c1e2a7ee2b23fe4ff8fab808f68d",
+			"tokensIn": 6762,
+			"seconds": 0.6,
+			"answers": {
+				"underline": {
+					"score": 2.89,
+					"of": 3,
+					"confidence": 0.89,
+					"probabilities": [
+						0.01,
+						0.01,
+						0.06,
+						0.92
+					]
+				},
+				"draft": {
+					"choice": "finished",
+					"confidence": 0.86,
+					"probabilities": {
+						"finished": 0.91,
+						"worked": 0.06,
+						"first": 0.03
+					}
+				},
+				"editor": {
+					"choice": "trim",
+					"confidence": 0.66,
+					"probabilities": {
+						"cut": 0.2,
+						"leave": 0.02,
+						"trim": 0.78
+					}
+				},
+				"memory": {
+					"choice": "events",
+					"confidence": 0.68,
+					"probabilities": {
+						"events": 0.77,
+						"nothing": 0,
+						"feeling": 0.12,
+						"image": 0.11
+					}
+				},
+				"slush": {
+					"choice": "read",
+					"confidence": 0.11,
+					"probabilities": {
+						"read": 0.41,
+						"rejected": 0.35,
+						"wanted": 0.24
+					}
+				},
+				"anyone": {
+					"score": 1.95,
+					"of": 2,
+					"confidence": 0.92,
+					"probabilities": [
+						0.01,
+						0.04,
+						0.95
+					]
+				},
+				"lesson": {
+					"noul": 0.32
+				},
+				"warning": {
+					"noul": 0.8
+				},
+				"again": {
+					"noul": 0.63
+				},
+				"aloud": {
+					"noul": 0.7
+				},
+				"skip": {
+					"score": 0.37,
+					"of": 2,
+					"confidence": 0.44,
+					"probabilities": [
+						0.69,
+						0.24,
+						0.07
+					]
+				},
+				"lost": {
+					"score": 1.03,
+					"of": 2,
+					"confidence": 0.56,
+					"probabilities": [
+						0.13,
+						0.71,
+						0.16
+					]
+				},
+				"stop": {
+					"noul": 0.85
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 0.83,
+					"probabilities": {
+						"general": 0.07,
+						"literary": 0.88,
+						"children": 0,
+						"wide": 0.05
+					}
+				}
+			}
+		}
+	],
+	"remarks": "The check of the behavioural questions, the test of ornament: the middle passage as it is, told dull and told overdone."
+}

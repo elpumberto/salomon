@@ -1,0 +1,71 @@
+{
+	"kind": "notes",
+	"at": "2026-09-19T09:50:02.450Z",
+	"book": {
+		"title": "King Solomon's Mines",
+		"author": "H. Rider Haggard",
+		"language": "en",
+		"source": {
+			"file": "king-solomons-mines.epub",
+			"format": "epub",
+			"sha256": "a973b4b2634ea470705e7ad789ba24c1b6b3517498a5fdaa20909c5b04c11491"
+		},
+		"text": {
+			"sha256": "25b42eae3f0db74e839c8f8b919cd8337023a39adceba73087cd64c3ccecceba",
+			"sections": 24,
+			"words": 81994
+		}
+	},
+	"sections": {
+		"from": 4,
+		"to": 4
+	},
+	"by": {
+		"model": "qwen/qwen3.5-flash-02-23",
+		"through": "OpenRouter",
+		"routing": {
+			"sort": "price"
+		},
+		"providers": {
+			"Alibaba": {
+				"calls": 4,
+				"notKept": 3,
+				"usd": 0.002413
+			}
+		},
+		"rules": "sha256:7035f9a10552",
+		"code": {
+			"commit": "87798df",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 4,
+		"tokensIn": 16845,
+		"tokensOut": 5072,
+		"tokensThinking": 0,
+		"usd": 0.002414,
+		"seconds": 36
+	},
+	"found": {
+		"story": 0,
+		"apparatus": 1,
+		"people": 0,
+		"threads": 0,
+		"threadsSettledOnReview": 0,
+		"threadsLeftOpen": 0,
+		"synopsis": {
+			"withinLength": 0,
+			"of": 0,
+			"longestWords": 0
+		},
+		"notes": {
+			"sha256": "7b7f9ca580a59ab34fd3eb24522c4cb372c6d160ea7c32e1c67e2299366cf5bd"
+		}
+	},
+	"failed": {
+		"section": 5,
+		"why": "The model answered section_notes in another shape than asked, three times: the last had so_far, cast, threads, section"
+	},
+	"remarks": "Its one provider, Alibaba, takes the shape asked for as leave to answer in any JSON, and the model answers in another shape: these rules cannot be run with it as it is served."
+}

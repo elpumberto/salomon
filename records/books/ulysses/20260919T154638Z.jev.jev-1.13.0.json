@@ -1,0 +1,247 @@
+{
+	"kind": "jev",
+	"at": "2026-09-19T15:46:38.018Z",
+	"book": {
+		"title": "Ulysses",
+		"author": "James Joyce",
+		"language": "en",
+		"source": {
+			"file": "ulysses.epub",
+			"format": "epub",
+			"sha256": "fc8de32bd10981c2c4234b7a9cb6d5391ceacf8032137d6d4230d4416cf00ed2"
+		},
+		"text": {
+			"sha256": "574898ab9714e95529a57441d16a8ccd4a0826a97ef7ff96a74305bff81d6d80",
+			"sections": 80,
+			"words": 264639
+		}
+	},
+	"sections": [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "book",
+		"rules": "sha256:4f981d6de2bf",
+		"asked": {
+			"unity": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How much are the chapters parts of one whole?",
+				"criteria": [
+					"The chapters are episodes that could come in another order, or be left out, without the rest changing",
+					"The chapters follow one another in time, and several lead to nothing later",
+					"Most chapters follow from what came before and prepare what comes after",
+					"Every chapter follows from what came before and prepares what comes after: the whole is one action"
+				]
+			},
+			"cause": {
+				"type": "choice",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Why do the main events of the story happen, mostly?",
+				"criteria": {
+					"people": "Because of what the characters decide and do",
+					"events": "Because of earlier events of the story",
+					"chance": "Because of outside events or coincidence",
+					"none": "With no evident connection between them"
+				}
+			},
+			"settled": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. What becomes of the questions the story raises?",
+				"criteria": [
+					"Most of what the story raises is dropped and never settled",
+					"Some of what the story raises is settled, and several things are dropped",
+					"Nearly all that the story raises is settled by the end, or pointedly left open"
+				]
+			},
+			"ending": {
+				"type": "choice",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. What brings about the resolution at the end?",
+				"criteria": {
+					"own": "The central character's own action",
+					"prepared": "Another character's action, or an event, that the story had prepared",
+					"unprepared": "An outside event or a stroke of luck that the story had not prepared",
+					"none": "Nothing is resolved"
+				}
+			},
+			"change": {
+				"type": "choice",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. What has become of the central character by the end?",
+				"criteria": {
+					"same": "They are as they were at the start, and nothing new is revealed of them",
+					"seen": "They are as they were at the start, but the reader sees them differently",
+					"steps": "They have changed, by steps that the chapters show",
+					"abrupt": "They have changed all at once, with no steps leading to it"
+				}
+			},
+			"rising": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How does the pressure on the central characters move across the book?",
+				"criteria": [
+					"The pressure on the central characters is much the same from beginning to end",
+					"The pressure on the central characters rises and falls with no direction",
+					"The pressure on the central characters rises, with rests, to a height near the end"
+				]
+			},
+			"wants": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How many of its people want something of their own?",
+				"criteria": [
+					"One character wants something, and the rest are there to help or to hinder",
+					"Two sides want opposite things, and everyone belongs to one of them",
+					"Several characters each want something of their own, and their wants get in each other's way"
+				]
+			},
+			"beyond": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How far do its concerns go beyond the people in it?",
+				"criteria": [
+					"The story concerns only the events and the people in it",
+					"The story touches in passing on something that matters beyond the people in it",
+					"Something that matters beyond the people in it is at the centre of the story"
+				]
+			},
+			"spare": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Is there a storyline in it that could be taken out without the main story losing anything?"
+			},
+			"turn": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Does the story take a turn that the chapters before it did not lead one to expect, and that still follows from them?"
+			}
+		},
+		"code": {
+			"commit": "e5b89bd",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 1,
+		"tokensIn": 6277,
+		"usd": 0.000264,
+		"seconds": 1
+	},
+	"found": [
+		{
+			"section": 1,
+			"through": 20,
+			"variant": "the outline from the notes of google/gemini-3.1-flash-lite",
+			"measured": {
+				"words": 3379,
+				"spoken": null,
+				"wordsPerSentence": 0
+			},
+			"sha256": "2dbfebb10b5217e0bcbd1d6dc3727171f29902ef3a7e429fec3328a26e7a8dfc",
+			"tokensIn": 6277,
+			"seconds": 0.6,
+			"answers": {
+				"unity": {
+					"score": 2.08,
+					"of": 3,
+					"confidence": 0.71,
+					"probabilities": [
+						0,
+						0.1,
+						0.71,
+						0.19
+					]
+				},
+				"cause": {
+					"choice": "people",
+					"confidence": 0.89,
+					"probabilities": {
+						"chance": 0.04,
+						"none": 0,
+						"people": 0.93,
+						"events": 0.03
+					}
+				},
+				"settled": {
+					"score": 1.75,
+					"of": 2,
+					"confidence": 0.63,
+					"probabilities": [
+						0,
+						0.25,
+						0.75
+					]
+				},
+				"ending": {
+					"choice": "own",
+					"confidence": 0.58,
+					"probabilities": {
+						"prepared": 0.29,
+						"none": 0.01,
+						"unprepared": 0.01,
+						"own": 0.6900000000000001
+					}
+				},
+				"change": {
+					"choice": "steps",
+					"confidence": 0.68,
+					"probabilities": {
+						"same": 0,
+						"seen": 0.24,
+						"steps": 0.76,
+						"abrupt": 0
+					}
+				},
+				"rising": {
+					"score": 1.91,
+					"of": 2,
+					"confidence": 0.86,
+					"probabilities": [
+						0,
+						0.09,
+						0.91
+					]
+				},
+				"wants": {
+					"score": 1.92,
+					"of": 2,
+					"confidence": 0.87,
+					"probabilities": [
+						0.04,
+						0.01,
+						0.95
+					]
+				},
+				"beyond": {
+					"score": 1.73,
+					"of": 2,
+					"confidence": 0.59,
+					"probabilities": [
+						0.02,
+						0.24,
+						0.74
+					]
+				},
+				"spare": {
+					"noul": 0.76
+				},
+				"turn": {
+					"noul": 0.7
+				}
+			}
+		}
+	],
+	"remarks": "The questions of the whole book, put to an outline made from the reading notes."
+}

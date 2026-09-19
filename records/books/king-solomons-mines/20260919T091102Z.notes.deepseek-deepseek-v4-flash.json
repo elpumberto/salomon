@@ -1,0 +1,65 @@
+{
+	"kind": "notes",
+	"at": "2026-09-19T09:11:02.626Z",
+	"book": {
+		"title": "King Solomon's Mines",
+		"author": "H. Rider Haggard",
+		"language": "en",
+		"source": {
+			"file": "king-solomons-mines.epub",
+			"format": "epub",
+			"sha256": "a973b4b2634ea470705e7ad789ba24c1b6b3517498a5fdaa20909c5b04c11491"
+		},
+		"text": {
+			"sha256": "25b42eae3f0db74e839c8f8b919cd8337023a39adceba73087cd64c3ccecceba",
+			"sections": 24,
+			"words": 81994
+		}
+	},
+	"sections": {
+		"from": 4,
+		"to": 24
+	},
+	"by": {
+		"model": "deepseek/deepseek-v4-flash",
+		"through": "OpenRouter",
+		"providers": {
+			"Baidu": 10,
+			"StreamLake": 7,
+			"Venice": 3,
+			"OpenInference": 9,
+			"DigitalOcean": 5,
+			"Alibaba": 2,
+			"DeepInfra": 1,
+			"Parasail": 1,
+			"AtlasCloud": 1,
+			"NextBit": 2,
+			"Mancer 2": 2
+		},
+		"rules": "sha256:7035f9a10552",
+		"code": {
+			"commit": "32d5cc6",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 62,
+		"tokensIn": 191413,
+		"tokensOut": 93046,
+		"tokensThinking": 56600,
+		"usd": 0.028776,
+		"seconds": 1502
+	},
+	"found": {
+		"story": 21,
+		"apparatus": 0,
+		"people": 19,
+		"threads": 14,
+		"threadsSettledOnReview": 0,
+		"threadsLeftOpen": 0,
+		"notes": {
+			"sha256": "a6fe79494cf7985f2017f6b7b98129eb411e326e16afe8b7b8bd83bf358201c3"
+		}
+	},
+	"remarks": "Second rules for the notes: a call of its own for what the reader knows so far, held to its length by code, and a last look at the threads left open. Two earlier runs under almost these rules were given up and left no record: one where a provider thought past the limit of tokens and its answer came cut, one where a provider hung for good. Between them they cost some $0.022 by OpenRouter's count, of which $0.005 no code kept track of. Since then a call has a time limit, an answer of no use is asked for again, and what it cost is counted."
+}

@@ -1,0 +1,484 @@
+{
+	"kind": "jev",
+	"at": "2026-09-19T12:10:54.752Z",
+	"book": {
+		"title": "King Solomon's Mines",
+		"author": "H. Rider Haggard",
+		"language": "en",
+		"source": {
+			"file": "king-solomons-mines.epub",
+			"format": "epub",
+			"sha256": "a973b4b2634ea470705e7ad789ba24c1b6b3517498a5fdaa20909c5b04c11491"
+		},
+		"text": {
+			"sha256": "25b42eae3f0db74e839c8f8b919cd8337023a39adceba73087cd64c3ccecceba",
+			"sections": 24,
+			"words": 81994
+		}
+	},
+	"sections": [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "side by side",
+		"rules": "sha256:dd97a4ed237b",
+		"asked": {
+			"better": {
+				"type": "choice",
+				"instructions": "`first` and `second` are two passages of novels. Which of the two is the better written?",
+				"criteria": {
+					"first": "The passage in `first`",
+					"second": "The passage in `second`"
+				}
+			},
+			"danger": {
+				"type": "choice",
+				"instructions": "`first` and `second` are two passages of novels. In which of the two are the characters in more physical danger?",
+				"criteria": {
+					"first": "The passage in `first`",
+					"second": "The passage in `second`"
+				}
+			}
+		},
+		"code": {
+			"commit": "0411666",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 14,
+		"tokensIn": 62608,
+		"usd": 0.00263,
+		"seconds": 9
+	},
+	"found": [
+		{
+			"section": 1,
+			"variant": "Austen I / Ros IV",
+			"measured": {
+				"words": 1930,
+				"spoken": 0.33,
+				"wordsPerSentence": 19.5
+			},
+			"sha256": "0f6453d1496fda5dc35f3d6a7e8ef81573cea24815162abac4f0825864d4147f",
+			"tokensIn": 3007,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.99,
+					"probabilities": {
+						"second": 0,
+						"first": 1
+					}
+				},
+				"danger": {
+					"choice": "second",
+					"confidence": 0.48,
+					"probabilities": {
+						"second": 0.74,
+						"first": 0.26
+					}
+				}
+			}
+		},
+		{
+			"section": 1,
+			"variant": "Austen I / Ros IV, the other way round",
+			"measured": {
+				"words": 1930,
+				"spoken": 0.33,
+				"wordsPerSentence": 19.5
+			},
+			"sha256": "598bcf012b36fd86e542532d471dbdf22614990472e9cc015ff5c51ddfd2f741",
+			"tokensIn": 3007,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.99,
+					"probabilities": {
+						"second": 0.99,
+						"first": 0.01
+					}
+				},
+				"danger": {
+					"choice": "first",
+					"confidence": 0.62,
+					"probabilities": {
+						"second": 0.19,
+						"first": 0.81
+					}
+				}
+			}
+		},
+		{
+			"section": 2,
+			"variant": "Austen I / Austen I flat",
+			"measured": {
+				"words": 1260,
+				"spoken": 0.5,
+				"wordsPerSentence": 10.9
+			},
+			"sha256": "e3a5933a650247bd53ad217165750d380fa563095ba118fcc04640b7c48b2d0b",
+			"tokensIn": 2051,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 1,
+					"probabilities": {
+						"first": 1,
+						"second": 0
+					}
+				},
+				"danger": {
+					"choice": "first",
+					"confidence": 0.49,
+					"probabilities": {
+						"first": 0.74,
+						"second": 0.26
+					}
+				}
+			}
+		},
+		{
+			"section": 2,
+			"variant": "Austen I / Austen I flat, the other way round",
+			"measured": {
+				"words": 1260,
+				"spoken": 0.5,
+				"wordsPerSentence": 10.9
+			},
+			"sha256": "be3c9a21bc5f63a9d9ce22be936c65675bbe0295862f3fd27576b8849a91d9ff",
+			"tokensIn": 2051,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 1,
+					"probabilities": {
+						"second": 1,
+						"first": 0
+					}
+				},
+				"danger": {
+					"choice": "first",
+					"confidence": 0.15,
+					"probabilities": {
+						"second": 0.43,
+						"first": 0.57
+					}
+				}
+			}
+		},
+		{
+			"section": 3,
+			"variant": "Austen I / Austen I purple",
+			"measured": {
+				"words": 1987,
+				"spoken": 0.28,
+				"wordsPerSentence": 14.2
+			},
+			"sha256": "724a5b76fee29d2b21140d4d24bdda9be392530ed0bec2561602a838f28b689f",
+			"tokensIn": 3232,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.99,
+					"probabilities": {
+						"first": 1,
+						"second": 0
+					}
+				},
+				"danger": {
+					"choice": "first",
+					"confidence": 0.39,
+					"probabilities": {
+						"first": 0.69,
+						"second": 0.31
+					}
+				}
+			}
+		},
+		{
+			"section": 3,
+			"variant": "Austen I / Austen I purple, the other way round",
+			"measured": {
+				"words": 1987,
+				"spoken": 0.28,
+				"wordsPerSentence": 14.2
+			},
+			"sha256": "a746d4f60717c3c875caaf9499b48e9493d037ad68fa6d1626beaa6b3ab91775",
+			"tokensIn": 3232,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.97,
+					"probabilities": {
+						"second": 0.99,
+						"first": 0.01
+					}
+				},
+				"danger": {
+					"choice": "first",
+					"confidence": 0.02,
+					"probabilities": {
+						"second": 0.49,
+						"first": 0.51
+					}
+				}
+			}
+		},
+		{
+			"section": 4,
+			"variant": "Haggard V 4/5 / flat",
+			"measured": {
+				"words": 1643,
+				"spoken": 0.01,
+				"wordsPerSentence": 17.1
+			},
+			"sha256": "36e528d9ca9b82fdbe990043e8eca8a2ee1fab1371cb1a444725251cc8a166e9",
+			"tokensIn": 2423,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 1,
+					"probabilities": {
+						"first": 1,
+						"second": 0
+					}
+				},
+				"danger": {
+					"choice": "first",
+					"confidence": 0.85,
+					"probabilities": {
+						"first": 0.92,
+						"second": 0.08
+					}
+				}
+			}
+		},
+		{
+			"section": 4,
+			"variant": "Haggard V 4/5 / flat, the other way round",
+			"measured": {
+				"words": 1643,
+				"spoken": 0.01,
+				"wordsPerSentence": 17.1
+			},
+			"sha256": "49055c7689b37bfde14a933090ea5251f96defbee900d5ff6acd28b5b6981807",
+			"tokensIn": 2423,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 1,
+					"probabilities": {
+						"first": 0,
+						"second": 1
+					}
+				},
+				"danger": {
+					"choice": "second",
+					"confidence": 0.72,
+					"probabilities": {
+						"first": 0.14,
+						"second": 0.86
+					}
+				}
+			}
+		},
+		{
+			"section": 5,
+			"variant": "Haggard V 4/5 / purple",
+			"measured": {
+				"words": 2167,
+				"spoken": 0.01,
+				"wordsPerSentence": 25.2
+			},
+			"sha256": "2d87d98744fe51b10aa4af526a84ac0ff26018152cce5d2e56da92dbff26c717",
+			"tokensIn": 3424,
+			"seconds": 0.5,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.68,
+					"probabilities": {
+						"second": 0.16,
+						"first": 0.84
+					}
+				},
+				"danger": {
+					"choice": "first",
+					"confidence": 0.13,
+					"probabilities": {
+						"second": 0.43,
+						"first": 0.57
+					}
+				}
+			}
+		},
+		{
+			"section": 5,
+			"variant": "Haggard V 4/5 / purple, the other way round",
+			"measured": {
+				"words": 2167,
+				"spoken": 0.01,
+				"wordsPerSentence": 25.2
+			},
+			"sha256": "52b941b2341fe393e862fcadd835e9d0c4e46893096bf9065449da2bd2545543",
+			"tokensIn": 3424,
+			"seconds": 0.6,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.39,
+					"probabilities": {
+						"second": 0.7,
+						"first": 0.3
+					}
+				},
+				"danger": {
+					"choice": "first",
+					"confidence": 0.72,
+					"probabilities": {
+						"second": 0.14,
+						"first": 0.86
+					}
+				}
+			}
+		},
+		{
+			"section": 6,
+			"variant": "Austen I / Haggard I",
+			"measured": {
+				"words": 4301,
+				"spoken": 0.37,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "273c70a3695c8aa5ca84dac21c9c801aae1b21e45cdc6b711a6f077b4ceefbd2",
+			"tokensIn": 5994,
+			"seconds": 0.6,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.75,
+					"probabilities": {
+						"second": 0.12,
+						"first": 0.88
+					}
+				},
+				"danger": {
+					"choice": "second",
+					"confidence": 1,
+					"probabilities": {
+						"second": 1,
+						"first": 0
+					}
+				}
+			}
+		},
+		{
+			"section": 6,
+			"variant": "Austen I / Haggard I, the other way round",
+			"measured": {
+				"words": 4301,
+				"spoken": 0.37,
+				"wordsPerSentence": 17.4
+			},
+			"sha256": "16b782afd04550082e0bee4fa73e3ae3fe876fc25d769e22398f8dc92e26e8bc",
+			"tokensIn": 5994,
+			"seconds": 2.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.73,
+					"probabilities": {
+						"second": 0.86,
+						"first": 0.14
+					}
+				},
+				"danger": {
+					"choice": "first",
+					"confidence": 1,
+					"probabilities": {
+						"second": 0,
+						"first": 1
+					}
+				}
+			}
+		},
+		{
+			"section": 7,
+			"variant": "Haggard XIV / Austen XXXIV",
+			"measured": {
+				"words": 8174,
+				"spoken": 0.22,
+				"wordsPerSentence": 23.5
+			},
+			"sha256": "d27e22b16f619d74232a5d61a51f30f04f7f25a15b9f8beb4c836d870067d767",
+			"tokensIn": 11173,
+			"seconds": 0.9,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.23,
+					"probabilities": {
+						"first": 0.61,
+						"second": 0.39
+					}
+				},
+				"danger": {
+					"choice": "first",
+					"confidence": 1,
+					"probabilities": {
+						"first": 1,
+						"second": 0
+					}
+				}
+			}
+		},
+		{
+			"section": 7,
+			"variant": "Haggard XIV / Austen XXXIV, the other way round",
+			"measured": {
+				"words": 8174,
+				"spoken": 0.22,
+				"wordsPerSentence": 23.5
+			},
+			"sha256": "594b8058f7c37e1ee2762d19c1df73bb479d07f711e7e1f4f4a39d0d2c24015a",
+			"tokensIn": 11173,
+			"seconds": 1.9,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.1,
+					"probabilities": {
+						"second": 0.55,
+						"first": 0.45
+					}
+				},
+				"danger": {
+					"choice": "second",
+					"confidence": 1,
+					"probabilities": {
+						"second": 1,
+						"first": 0
+					}
+				}
+			}
+		}
+	],
+	"remarks": "Experiment 6: two passages side by side and which is the better written, asked both ways round. Here a section is the number of the pair, not of a section of the book: the pairs are of passages of three books and of rewrites of them."
+}

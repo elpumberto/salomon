@@ -1,0 +1,14 @@
+#!/bin/sh
+# Refuses a commit that would give an API key away: see src/guard.ts. `npm install` points git at
+# this folder.
+
+# A commit made from an editor may not have the shell's PATH, and with it nvm's node.
+if ! command -v node >/dev/null 2>&1 && [ -s "$HOME/.nvm/nvm.sh" ]; then
+	. "$HOME/.nvm/nvm.sh" >/dev/null 2>&1
+fi
+if ! command -v node >/dev/null 2>&1; then
+	echo "pre-commit: node is not on the PATH, so the commit cannot be checked for API keys." >&2
+	exit 1
+fi
+
+exec node "$(git rev-parse --show-toplevel)/src/cli/guard.ts"
