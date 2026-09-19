@@ -21,6 +21,16 @@ reads a book and writes it to `books/normalized/` as JSON: title, author, langua
 
 In an EPUB the sections are the ones its table of contents points at, or its headings when it has none. In plain text they are guessed from the lines that read like a chapter's heading. Project Gutenberg's licence comes off both.
 
+## Keys
+
+Two services are paid for, each with a key of yours: [Jev](https://console.typesafe.ai/keys), and [OpenRouter](https://openrouter.ai/settings/keys) for the language models that read a book ahead of it. Copy `.env.example` to `.env` and put them there; git ignores `.env`. OpenRouter lets a key be given a credit limit, which is worth doing.
+
+    npm run test:apis
+
+checks both against the real services: that a made-up key is turned down, that yours is taken, and that each answers a sentence the way the code expects. It prints what that took, which is a few millionths of a dollar.
+
+`npm install` sets a git hook that refuses a commit carrying a key: the value of any in `.env` wherever it turns up, what looks like one, `.env` itself, or a value in `.env.example`.
+
 ## Working on it
 
-Node 22.18 or later, which runs the TypeScript as it is. `npm test` runs the tests, `npm run check` the types, `npm run lint` Prettier.
+Node 22.18 or later, which runs the TypeScript as it is. `npm test` runs the tests, none of which touches the network; `npm run check` the types, `npm run lint` Prettier.
