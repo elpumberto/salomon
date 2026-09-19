@@ -15,8 +15,14 @@ function fake(status: number, body: unknown) {
 test('an answer comes back parsed, with what it cost', async () => {
 	const { asked, fetcher } = fake(200, {
 		model: 'some/model-0731',
+		provider: 'SomeCloud',
 		choices: [{ message: { content: '{"asleep":true}' }, finish_reason: 'stop' }],
-		usage: { prompt_tokens: 40, completion_tokens: 6, cost: 0.0000031 }
+		usage: {
+			prompt_tokens: 40,
+			completion_tokens: 86,
+			cost: 0.0000031,
+			completion_tokens_details: { reasoning_tokens: 80 }
+		}
 	});
 
 	const answer = await createOpenRouter('a-key', fetcher).askJson<{ asleep: boolean }>({
@@ -29,7 +35,8 @@ test('an answer comes back parsed, with what it cost', async () => {
 	assert.deepEqual(answer, {
 		value: { asleep: true },
 		model: 'some/model-0731',
-		usage: { tokensIn: 40, tokensOut: 6, usd: 0.0000031 }
+		provider: 'SomeCloud',
+		usage: { tokensIn: 40, tokensOut: 86, tokensThinking: 80, usd: 0.0000031 }
 	});
 	assert.equal(asked[0]?.url, 'https://openrouter.ai/api/v1/chat/completions');
 	assert.equal(new Headers(asked[0]?.init.headers).get('authorization'), 'Bearer a-key');

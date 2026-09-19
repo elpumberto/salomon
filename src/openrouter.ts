@@ -40,20 +40,63 @@ export interface Answer<T> {
 	value: T;
 	/** The model that answered, as OpenRouter names it. */
 	model: string;
-	usage: { tokensIn: number; tokensOut: number; usd: number };
+	/** Who ran it: OpenRouter sends the same model to one provider or another, and they differ. */
+	provider: string | null;
+	usage: Usage;
+}
+
+export interface Usage {
+	tokensIn: number;
+	/** All that the model wrote, its thinking included: it is paid for like the rest. */
+	tokensOut: number;
+	/** The part of `tokensOut` spent thinking before the answer, by the models that do. */
+	tokensThinking: number;
+	usd: number;
+}
+
+/** What a model costs, in dollars per million tokens. */
+export interface Price {
+	usdPerMillionIn: number;
+	usdPerMillionOut: number;
 }
 
 interface Body {
 	error?: { message?: string; code?: number };
 	data?: Record<string, unknown>;
 	model?: string;
+	provider?: string;
 	choices?: { message?: { content?: string | null }; finish_reason?: string }[];
-	usage?: { prompt_tokens?: number; completion_tokens?: number; cost?: number };
+	usage?: {
+		prompt_tokens?: number;
+		completion_tokens?: number;
+		cost?: number;
+		completion_tokens_details?: { reasoning_tokens?: number } | null;
+	};
+}
+
+/** Too many calls, or a fault on their side: worth another try. */
+const passing = (status: number) => status === 408 || status === 429 || status >= 500;
+const tries = 3;
+
+/** The catalogue is public: a price takes no key and costs nothing. */
+export async function price(model: string, fetcher: typeof fetch = fetch): Promise<Price | null> {
+	const response = await fetcher(`${api}/models`);
+	if (!response.ok) return null;
+	const { data } = (await response.json()) as {
+		data: { id: string; pricing: { prompt: string; completion: string } }[];
+	};
+	const found = data.find(({ id }) => id === model);
+	return found
+		? {
+				usdPerMillionIn: Number(found.pricing.prompt) * 1_000_000,
+				usdPerMillionOut: Number(found.pricing.completion) * 1_000_000
+			}
+		: null;
 }
 
 /** `fetch` is for the tests, which bring their own. */
 export function createOpenRouter(apiKey: string, fetcher: typeof fetch = fetch) {
-	async function call(path: string, body?: unknown): Promise<Body> {
+	async function once(path: string, body?: unknown): Promise<Body> {
 		const response = await fetcher(`${api}${path}`, {
 			method: body === undefined ? 'GET' : 'POST',
 			headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
@@ -68,6 +111,19 @@ export function createOpenRouter(apiKey: string, fetcher: typeof fetch = fetch) 
 			);
 		}
 		return answer;
+	}
+
+	async function call(path: string, body?: unknown): Promise<Body> {
+		for (let attempt = 1; ; attempt++) {
+			try {
+				return await once(path, body);
+			} catch (error) {
+				// A network that drops is a TypeError from `fetch`.
+				const worthIt = error instanceof OpenRouterError ? passing(error.status) : true;
+				if (!worthIt || attempt === tries) throw error;
+				await new Promise((resolve) => setTimeout(resolve, 1000 * 2 ** (attempt - 1)));
+			}
+		}
 	}
 
 	return {
@@ -109,9 +165,11 @@ export function createOpenRouter(apiKey: string, fetcher: typeof fetch = fetch) 
 			return {
 				value,
 				model: answer.model ?? model,
+				provider: answer.provider ?? null,
 				usage: {
 					tokensIn: answer.usage?.prompt_tokens ?? 0,
 					tokensOut: answer.usage?.completion_tokens ?? 0,
+					tokensThinking: answer.usage?.completion_tokens_details?.reasoning_tokens ?? 0,
 					usd: answer.usage?.cost ?? 0
 				}
 			};
