@@ -3,7 +3,7 @@ import { parseArgs } from 'node:util';
 import { TypeSafeClient } from '@typesafe-ai/sdk';
 import type { Question } from '@typesafe-ai/sdk';
 import { tokens, usd } from '../estimate.ts';
-import { judgeAll, name, pieces, together, whole } from '../judge.ts';
+import { across, judgeAll, name, pieces, together, whole } from '../judge.ts';
 import { key } from '../keys.ts';
 import { rulesHash, sets } from '../questions.ts';
 import { readBook } from '../read/index.ts';
@@ -19,7 +19,8 @@ import { value } from '../value.ts';
  * numbered as `npm run normalize -- --sections` lists them, and given as `4,9,16-18`; left out,
  * they are those `gutenberg.json` says are the story of the book. A section
  * is a passage; `--pieces 1000` cuts each in pieces of about as many words, and `--together`
- * sends each range of sections as one text. `--panel 12` takes as many pieces, evenly spread, and
+ * sends each range of sections as one text; `--across` cuts the pieces over the sections as one
+ * text, for a book whose sections are a few lines each. `--panel 12` takes as many pieces, evenly spread, and
  * sets each side by side with each passage of the panel of anchors, both ways round.
  */
 
@@ -30,6 +31,7 @@ const { values, positionals } = parseArgs({
 		questions: { type: 'string', default: 'reading' },
 		pieces: { type: 'string' },
 		together: { type: 'boolean', default: false },
+		across: { type: 'boolean', default: false },
 		panel: { type: 'string' },
 		go: { type: 'boolean', default: false },
 		remarks: { type: 'string' }
@@ -42,7 +44,7 @@ const wanted =
 	values.sections ?? (await listed()).find(({ slug }) => slug === parse(path ?? '').name)?.story;
 if (!path || !wanted || !(set in sets)) {
 	console.error(
-		`usage: npm run judge -- <book.epub | book.txt> [--sections 4,9,16-18] [--questions ${Object.keys(sets).join('|')}] [--pieces words] [--together] [--panel pieces] [--go] [--remarks text]`
+		`usage: npm run judge -- <book.epub | book.txt> [--sections 4,9,16-18] [--questions ${Object.keys(sets).join('|')}] [--pieces words] [--together] [--across] [--panel pieces] [--go] [--remarks text]`
 	);
 	process.exit(1);
 }
@@ -50,17 +52,32 @@ if (!path || !wanted || !(set in sets)) {
 const questions = sets[set];
 const rules = rulesHash(questions);
 const book = await readBook(path);
-const cut = wanted.split(',').flatMap((part) => {
-	const [from, to = from] = part.split('-').map(Number);
-	if (!from || !to || to < from) throw new Error(`Not a section nor a range of them: ${part}`);
-	if (values.together) return [together(book, from - 1, to - 1)];
-	const indexes = Array.from({ length: to - from + 1 }, (_, step) => from - 1 + step);
-	return indexes.flatMap((index) =>
-		values.pieces || values.panel
-			? pieces(book, index, Number(values.pieces ?? 1000))
-			: [whole(book, index)]
-	);
-});
+const cut = (values.across ? all : each)(wanted);
+
+function ranges(list: string): number[][] {
+	return list.split(',').map((part) => {
+		const [from, to = from] = part.split('-').map(Number);
+		if (!from || !to || to < from) throw new Error(`Not a section nor a range of them: ${part}`);
+		return Array.from({ length: to - from + 1 }, (_, step) => from - 1 + step);
+	});
+}
+
+function all(list: string) {
+	return across(book, ranges(list).flat(), Number(values.pieces ?? 1000));
+}
+
+function each(list: string) {
+	return ranges(list).flatMap((indexes) => {
+		const [from = 0] = indexes;
+		if (values.together) return [together(book, from, indexes.at(-1) ?? from)];
+		return indexes.flatMap((index) =>
+			values.pieces || values.panel
+				? pieces(book, index, Number(values.pieces ?? 1000))
+				: [whole(book, index)]
+		);
+	});
+}
+
 const passages = values.panel ? against(sample(cut, Number(values.panel)), await panel()) : cut;
 
 const text = (value: Question['instructions']) =>

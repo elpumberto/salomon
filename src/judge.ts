@@ -135,6 +135,35 @@ export function pieces(book: Book, index: number, about: number): Passage[] {
 	}));
 }
 
+/**
+ * Sections in a row cut as one text, where a paragraph ends, in pieces of about as many words: for
+ * a book whose sections are a few lines each, under the headlines of a newspaper. A piece is of
+ * the section it starts in.
+ */
+export function across(book: Book, indexes: number[], about: number): Passage[] {
+	const paragraphs = indexes.flatMap((index) =>
+		section(book, index).paragraphs.map((text) => ({ index, text }))
+	);
+	const total = words(paragraphs.map(({ text }) => text).join(' '));
+	const count = Math.max(1, Math.round(total / about));
+	const cut: (typeof paragraphs)[] = [[]];
+	let sofar = 0;
+	for (const paragraph of paragraphs) {
+		if (cut.length < count && sofar >= (total * cut.length) / count) cut.push([]);
+		cut.at(-1)?.push(paragraph);
+		sofar += words(paragraph.text);
+	}
+	return cut.map((piece, at) => ({
+		section: (piece[0]?.index ?? 0) + 1,
+		piece: { at: at + 1, of: cut.length },
+		state: { chapter: piece.map(({ text }) => text).join('\n\n') },
+		measured: measure(
+			piece.map(({ text }) => text),
+			quotationMarks(book)
+		)
+	}));
+}
+
 function kept(answer: SystemOneResult<Questions>['answers'][string]): Answer {
 	if (answer.type === 'noul') return { noul: round(answer.noul) };
 	if (answer.type === 'choice') {

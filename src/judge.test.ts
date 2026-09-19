@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { test } from 'node:test';
 import { noul, score } from '@typesafe-ai/sdk';
 import type { Book } from './book.ts';
-import { judge, measure, name, pieces, together, whole } from './judge.ts';
+import { across, judge, measure, name, pieces, together, whole } from './judge.ts';
 import type { AskJev } from './judge.ts';
 import { rulesHash } from './questions.ts';
 import { jevRecord, keep } from './records.ts';
@@ -98,6 +98,24 @@ test('a section is cut in pieces where a paragraph ends, and sections in a row g
 	const both = together(long, 0, 1);
 	assert.equal(name(both), '§1–2');
 	assert.ok(both.state.chapter?.endsWith('ten\n\nII\n\neleven'));
+});
+
+test('sections of a few lines each are cut as one text', () => {
+	const paper: Book = {
+		...book,
+		sections: ['one two', 'three four', 'five six', 'seven eight'].map((text, at) => ({
+			title: `HEADLINE ${at}`,
+			paragraphs: [text]
+		}))
+	};
+
+	const cut = across(paper, [0, 1, 2, 3], 4);
+
+	assert.deepEqual(
+		cut.map((one) => one.state.chapter),
+		['one two\n\nthree four', 'five six\n\nseven eight']
+	);
+	assert.deepEqual(cut.map(name), ['§1 1/2', '§3 2/2']);
 });
 
 test('a section that does not fit in a call is not sent', async () => {

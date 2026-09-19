@@ -112,3 +112,29 @@ With the rules of valuation `42d05b82bc8b` and the panel asked again, 1,296 call
 2. They are frozen, which the hash of their wording in every record tells, and the ten books are judged whole in pieces of the same size, since a chapter is 1,700 words in one book and 11,000 in another and Jev does not score a chapter as it scores its pieces. Of the two longest books a sample of chapters is judged.
 3. What comes out is set beside what was expected, and the questions and the weights are changed as it takes.
 4. They are frozen again. Ten other books are chosen by the same scheme in other genres, and what is expected of them is written down and committed before any is judged. They are judged with nothing changed. If something is changed after seeing them, they have become books the questions were set on, and the check needs ten more.
+
+## The ten that check it
+
+Chosen by the same scheme in other genres, with no author of the first ten nor of the panel among them. What is expected was written, and committed, before any was judged.
+
+| Ladder                    | Top                                        | Middle                                                   | Bottom                                                                                                            |
+| ------------------------- | ------------------------------------------ | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Detection                 | _The Moonstone_, Wilkie Collins, 1868      | _The Mysterious Affair at Styles_, Agatha Christie, 1920 | _The Mystery of a Hansom Cab_, Fergus Hume, 1886, a runaway seller of its day                                     |
+| Scientific romance        | _The War of the Worlds_, H. G. Wells, 1898 | _The Lost World_, Arthur Conan Doyle, 1912               | _Edison's Conquest of Mars_, Garrett P. Serviss, 1898, a newspaper serial                                         |
+| In Spanish                | _La Regenta_, Leopoldo Alas, 1884–85       | _La barraca_, Vicente Blasco Ibáñez, 1898                | _El cocinero de su majestad_, Manuel Fernández y González, 1857, a folletín by one who dictated them by the dozen |
+| Alone, for its difficulty | _Ulysses_, James Joyce, 1922               |                                                          |                                                                                                                   |
+
+| Book                              | Literary merit                                           | A good read                                                     |
+| --------------------------------- | -------------------------------------------------------- | --------------------------------------------------------------- |
+| _The Moonstone_                   | High                                                     | Middle to high: long, told by many voices at a Victorian pace   |
+| _The Mysterious Affair at Styles_ | Middle: plain prose that serves the puzzle               | High, and above its merit                                       |
+| _The Mystery of a Hansom Cab_     | Low: melodrama in stock phrases                          | Middle                                                          |
+| _The War of the Worlds_           | High                                                     | High                                                            |
+| _The Lost World_                  | Middle                                                   | High, and above its merit                                       |
+| _Edison's Conquest of Mars_       | Lowest of those in English                               | Low to middle                                                   |
+| _La Regenta_                      | Highest of the three in Spanish                          | Below its merit: slow and dense                                 |
+| _La barraca_                      | Middle to high                                           | Middle to high                                                  |
+| _El cocinero de su majestad_      | Lowest of the three in Spanish                           | Middle: all talk and incident                                   |
+| _Ulysses_                         | High; and a risk, told here beforehand, that it does not | Lowest of those in English but perhaps for the newspaper serial |
+
+What would count against the questions and the rules: a ladder out of order in merit; _The Mysterious Affair at Styles_ or _The Lost World_ not reading better than they are worth; _La Regenta_ or _Ulysses_ not being worth more than they read. The risk with _Ulysses_ is that prose which breaks the conventions on purpose be taken for strained or unclear, and lose the merit that the gate takes from ornament: if it does, the rules have the taste of the realist novel, which those who studied the matter warned of. The three in Spanish are judged alone, as _Don Quijote_ was, and compared among themselves. Two books come in sections of a few lines under the headlines of a newspaper, _Edison's Conquest of Mars_ throughout and _Ulysses_ in one episode: their pieces are cut across the sections, of the same size as the rest. Nothing else differs from how the first ten were judged: the `passage` questions of wording `a4f986b67c3f`, the panel asked with `ad82418b829f`, the rules of valuation `42d05b82bc8b`.
