@@ -138,3 +138,34 @@ Chosen by the same scheme in other genres, with no author of the first ten nor o
 | _Ulysses_                         | High; and a risk, told here beforehand, that it does not | Lowest of those in English but perhaps for the newspaper serial |
 
 What would count against the questions and the rules: a ladder out of order in merit; _The Mysterious Affair at Styles_ or _The Lost World_ not reading better than they are worth; _La Regenta_ or _Ulysses_ not being worth more than they read. The risk with _Ulysses_ is that prose which breaks the conventions on purpose be taken for strained or unclear, and lose the merit that the gate takes from ornament: if it does, the rules have the taste of the realist novel, which those who studied the matter warned of. The three in Spanish are judged alone, as _Don Quijote_ was, and compared among themselves. Two books come in sections of a few lines under the headlines of a newspaper, _Edison's Conquest of Mars_ throughout and _Ulysses_ in one episode: their pieces are cut across the sections, of the same size as the rest. Nothing else differs from how the first ten were judged: the `passage` questions of wording `a4f986b67c3f`, the panel asked with `ad82418b829f`, the rules of valuation `42d05b82bc8b`.
+
+## What the check showed
+
+Judged on 2026-09-19 with nothing changed: 2,434 calls, 9.6 million tokens, $0.40.
+
+| Book                                | Pieces | Merit | A good read | Merit alone: mean, best tenth | Better written than the panel | Read alone | More enjoyed than the panel |
+| ----------------------------------- | ------ | ----- | ----------- | ----------------------------- | ----------------------------- | ---------- | --------------------------- |
+| _The War of the Worlds_             | 59     | 0.74  | 0.53        | 0.75, 0.81                    | 0.71                          | 0.53       | 0.53                        |
+| _The Lost World_                    | 73     | 0.60  | 0.61        | 0.65, 0.72                    | 0.52                          | 0.55       | 0.66                        |
+| _The Moonstone_                     | 206    | 0.60  | 0.46        | 0.64, 0.74                    | 0.52                          | 0.53       | 0.40                        |
+| _The Mysterious Affair at Styles_   | 57     | 0.57  | 0.60        | 0.63, 0.70                    | 0.47                          | 0.56       | 0.64                        |
+| _Ulysses_                           | 250    | 0.57  | 0.24        | 0.63, 0.82                    | 0.44                          | 0.42       | 0.06                        |
+| _The Mystery of a Hansom Cab_       | 84     | 0.40  | 0.47        | 0.50, 0.63                    | 0.25                          | 0.53       | 0.42                        |
+| _Edison's Conquest of Mars_         | 65     | 0.38  | 0.45        | 0.49, 0.59                    | 0.24                          | 0.46       | 0.45                        |
+| _La barraca_, alone                 | 52     |       |             | 0.74, 0.79                    |                               | 0.49       |                             |
+| _La Regenta_, alone                 | 303    |       |             | 0.72, 0.78                    |                               | 0.51       |                             |
+| _El cocinero de su majestad_, alone | 277    |       |             | 0.61, 0.72                    |                               | 0.54       |                             |
+
+What held:
+
+- Merit falls along the two ladders in English, and the bottom of all three is the bottom: the runaway seller, the newspaper serial and the folletín, each well under the rung above it.
+- The two valuations part the way they were expected to in all four books named beforehand. _La Regenta_ and _Ulysses_ are worth more than they read, 0.72 to 0.51 alone and 0.57 to 0.24; _The Mysterious Affair at Styles_ and _The Lost World_ read better than they are worth, though by a hair, 0.60 to 0.57 and 0.61 to 0.60.
+- _Ulysses_ is the worst read of the twenty, a hair under _Irene Iddesleigh_: set beside a passage of the panel 144 times, it was taken for the more enjoyable in 6.
+
+What did not:
+
+- _La barraca_ came out over _La Regenta_, 0.74 to 0.72 alone: the top two rungs in Spanish the wrong way round, by less than what separates any other two rungs. Blasco Ibáñez writes for the senses, which the questions reward; what makes Clarín's the greater novel is its people over nine hundred pages, which no piece of a thousand words shows.
+- The risk told beforehand came true by half. The best tenth of the pieces of _Ulysses_ is the best of all twenty books, 0.82; its mean is that of _The Moonstone_, and against the panel it is chosen as the better written less than half the time, 0.44. Prose that breaks the conventions is rewarded where Jev can follow it and marked down where it cannot: the rules do have the taste of the novel that tells a story plainly.
+- As a read, _The War of the Worlds_ and _The Moonstone_ were expected high and come out in the middle, as _Pride and Prejudice_ and _Dracula_ did. The read tells the ends apart, _Tarzan of the Apes_ from _Ulysses_, and little in between.
+
+So merit, as these questions and rules have it, orders books within a genre as those who know them would, in seventeen of the eighteen pairs of books of a same ladder and in eight of the nine among the books that had no part in setting them, and tells prose written for the ages from prose written by the yard. It does not tell a great novel from a good one, which takes the whole book, and it has a taste. A good read is the weaker valuation: it says which of the two a book is more of, and ranks only the extremes.
