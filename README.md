@@ -45,6 +45,12 @@ Told how, `judge` is a trial of something and is recorded as one: `--questions` 
 
 How it came to this, from what is known of what makes a book good to the check on books never seen, is laid out in order in [docs/](docs/README.md), with everything that was run and what it cost; the experiments are under [experiments/books/jev/](experiments/books/jev/). What Jev reads well, where it gets stuck and what moves its answers besides the text was [tried on chapters whose answers were known](docs/books/jev-experiments.md). A first valuation, of twenty-nine questions about the qualities of the writing and a panel of passages to set a book against, was set on [ten books of known standing and checked on ten others](docs/books/calibration.md). The twenty then became a bench on which [other questions and other sizes of passage](docs/books/other-ways.md) were tried by one yardstick; the way that did best was checked on twelve books more, and is the one in use. What only the whole book shows, how it is built, how it ends and whose side it takes, is asked of an outline made from the reading notes and of each chapter with the story so far beside it: [what that tells, and what it does not](docs/books/whole-book.md).
 
+## The site
+
+    npm run site
+
+writes `site/data.json` from the records: every book judged the way books are valued, with its valuation and what each answer came to, passage by passage. [site/index.html](site/index.html) is one static page, in Spanish and in English, that reads it: the books on a map, the ranking, the nine answers to weigh another way, which asks nothing of anybody, and a card of each book to share. Nobody can have a book judged from it. What a record cannot say of a book, that the copy judged was a poor one, is in `site/books.json`. To see it, serve the folder: `python3 -m http.server -d site`. A workflow publishes it from `main`.
+
 ## Keys
 
 Two services are paid for, each with a key of yours: [Jev](https://console.typesafe.ai/keys), and [OpenRouter](https://openrouter.ai/settings/keys) for the language models that read a book ahead of it. Copy `.env.example` to `.env` and put them there; git ignores `.env`. OpenRouter lets a key be given a credit limit, which is worth doing.
