@@ -1,0 +1,376 @@
+{
+	"kind": "jev",
+	"at": "2026-09-19T12:05:02.546Z",
+	"book": {
+		"title": "King Solomon's Mines",
+		"author": "H. Rider Haggard",
+		"language": "en",
+		"source": {
+			"file": "king-solomons-mines.epub",
+			"format": "epub",
+			"sha256": "a973b4b2634ea470705e7ad789ba24c1b6b3517498a5fdaa20909c5b04c11491"
+		},
+		"text": {
+			"sha256": "25b42eae3f0db74e839c8f8b919cd8337023a39adceba73087cd64c3ccecceba",
+			"sections": 24,
+			"words": 81994
+		}
+	},
+	"sections": [
+		15,
+		16,
+		17,
+		18,
+		19
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "reading",
+		"rules": "sha256:ee93bf3e94da",
+		"asked": {
+			"happens": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much happens in it?",
+				"criteria": [
+					"Nothing happens: the narrator explains, reflects or describes, and no event takes place",
+					"Little happens: the characters talk, travel or wait, and they end the chapter much as they began it",
+					"An event takes place that changes the situation of the characters",
+					"One event follows another, and the situation of the characters changes more than once"
+				]
+			},
+			"danger": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much physical danger are the characters in?",
+				"criteria": [
+					"None: nobody is at risk of being hurt",
+					"Hardship or a threat: hunger, thirst, exhaustion, or someone who says they will harm them",
+					"Some of the characters are close to dying",
+					"The characters fight for their lives, and people are killed"
+				]
+			},
+			"stakes": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. What do the characters stand to gain or lose in what happens in it?",
+				"criteria": [
+					"Nothing that matters to them",
+					"Something they care about but could do without: comfort, a sum of money, their pride",
+					"Something that changes the course of a life: a marriage, a fortune, a position, a friendship",
+					"Their lives, or the lives of people close to them"
+				]
+			},
+			"talk": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much of it is conversation between the characters, and how much narration?",
+				"criteria": [
+					"All or nearly all narration: no conversation, or a line or two",
+					"Mostly narration, with a few short exchanges between the characters",
+					"About as much conversation as narration",
+					"Mostly conversation, with some narration between the exchanges",
+					"All or nearly all conversation"
+				]
+			},
+			"scenery": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much of it describes places, landscape, weather, buildings or objects?",
+				"criteria": [
+					"Places and things are named but not described",
+					"Places or things are described in a few sentences here and there",
+					"Places or things are described at length in several passages",
+					"Most of the chapter describes places or things"
+				]
+			},
+			"feelings": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much does it tell of what the characters feel and think?",
+				"criteria": [
+					"Only what the characters do and say is told, not what they feel or think",
+					"A feeling or a thought is mentioned now and then, in a few words",
+					"What a character feels or thinks is told at length in some passages",
+					"Most of the chapter tells what a character feels or thinks"
+				]
+			},
+			"humour": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How funny or ironic is the telling?",
+				"criteria": [
+					"Told in earnest from beginning to end, with no jokes and no irony",
+					"Mostly in earnest, with a joke or an ironic remark here and there",
+					"Funny or ironic through much of the chapter"
+				]
+			},
+			"words": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How hard are its words for a reader of today?",
+				"criteria": [
+					"Plain everyday words throughout",
+					"Mostly plain words, with some that are old-fashioned or uncommon",
+					"Many old-fashioned, learned or uncommon words"
+				]
+			},
+			"sentences": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How long are its sentences?",
+				"criteria": [
+					"Short sentences, most of them of a single clause",
+					"Sentences of ordinary length, some short and some long",
+					"Long sentences of many clauses, one inside another"
+				]
+			},
+			"firstPerson": {
+				"type": "noul",
+				"instructions": "`chapter` is a chapter of a novel. Is it told in the first person, by a narrator who takes part in what happens?"
+			},
+			"hook": {
+				"type": "noul",
+				"instructions": "`chapter` is a chapter of a novel. Does it end with something left unresolved that makes the reader want to know what comes next?"
+			}
+		},
+		"code": {
+			"commit": "0411666",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 2,
+		"tokensIn": 48631,
+		"usd": 0.002043,
+		"seconds": 10
+	},
+	"found": [
+		{
+			"section": 16,
+			"through": 18,
+			"measured": {
+				"words": 13263,
+				"spoken": 0.23,
+				"wordsPerSentence": 24.7
+			},
+			"sha256": "76e46cfb85fa84c25e092bdf9624798a6e26ba66e64c9667e5678b8266e52446",
+			"tokensIn": 18520,
+			"seconds": 5.8,
+			"answers": {
+				"happens": {
+					"score": 2.99,
+					"of": 3,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						0.01,
+						0.99
+					]
+				},
+				"danger": {
+					"score": 3,
+					"of": 3,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"stakes": {
+					"score": 3,
+					"of": 3,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"talk": {
+					"score": 1.21,
+					"of": 4,
+					"confidence": 0.82,
+					"probabilities": [
+						0,
+						0.8,
+						0.19,
+						0.01,
+						0
+					]
+				},
+				"scenery": {
+					"score": 1.66,
+					"of": 3,
+					"confidence": 0.66,
+					"probabilities": [
+						0,
+						0.34,
+						0.66,
+						0
+					]
+				},
+				"feelings": {
+					"score": 2,
+					"of": 3,
+					"confidence": 0.97,
+					"probabilities": [
+						0,
+						0.01,
+						0.98,
+						0.01
+					]
+				},
+				"humour": {
+					"score": 1.08,
+					"of": 2,
+					"confidence": 0.87,
+					"probabilities": [
+						0.01,
+						0.91,
+						0.08
+					]
+				},
+				"words": {
+					"score": 1.68,
+					"of": 2,
+					"confidence": 0.52,
+					"probabilities": [
+						0,
+						0.32,
+						0.68
+					]
+				},
+				"sentences": {
+					"score": 1.85,
+					"of": 2,
+					"confidence": 0.77,
+					"probabilities": [
+						0,
+						0.15,
+						0.85
+					]
+				},
+				"firstPerson": {
+					"noul": 0.98
+				},
+				"hook": {
+					"noul": 0.14
+				}
+			}
+		},
+		{
+			"section": 15,
+			"through": 19,
+			"measured": {
+				"words": 22024,
+				"spoken": 0.3,
+				"wordsPerSentence": 22.8
+			},
+			"sha256": "8da38ad6b50a4ab7d36c1ffc45f02d8d1c3cca14bf11aa190dabaa8627dfe2ab",
+			"tokensIn": 30111,
+			"seconds": 3.9,
+			"answers": {
+				"happens": {
+					"score": 2.99,
+					"of": 3,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						0.01,
+						0.99
+					]
+				},
+				"danger": {
+					"score": 2.99,
+					"of": 3,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						0.01,
+						0.99
+					]
+				},
+				"stakes": {
+					"score": 2.99,
+					"of": 3,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						0.01,
+						0.99
+					]
+				},
+				"talk": {
+					"score": 1.66,
+					"of": 4,
+					"confidence": 0.64,
+					"probabilities": [
+						0,
+						0.38,
+						0.57,
+						0.05,
+						0
+					]
+				},
+				"scenery": {
+					"score": 1.72,
+					"of": 3,
+					"confidence": 0.71,
+					"probabilities": [
+						0,
+						0.28,
+						0.72,
+						0
+					]
+				},
+				"feelings": {
+					"score": 1.99,
+					"of": 3,
+					"confidence": 0.94,
+					"probabilities": [
+						0,
+						0.03,
+						0.95,
+						0.02
+					]
+				},
+				"humour": {
+					"score": 1.12,
+					"of": 2,
+					"confidence": 0.8,
+					"probabilities": [
+						0.01,
+						0.86,
+						0.13
+					]
+				},
+				"words": {
+					"score": 1.68,
+					"of": 2,
+					"confidence": 0.52,
+					"probabilities": [
+						0,
+						0.32,
+						0.68
+					]
+				},
+				"sentences": {
+					"score": 1.76,
+					"of": 2,
+					"confidence": 0.64,
+					"probabilities": [
+						0,
+						0.24,
+						0.76
+					]
+				},
+				"firstPerson": {
+					"noul": 0.98
+				},
+				"hook": {
+					"noul": 0.97
+				}
+			}
+		}
+	],
+	"remarks": "Experiment 2b: several chapters as one text, up to near the most a call takes, to set beside the same chapters one by one."
+}

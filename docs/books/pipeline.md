@@ -113,11 +113,12 @@ Jev charges for what it reads, $0.042 a million tokens, and nothing for its answ
 
 What each step has taken when it was run, from the [records](../../records/README.md):
 
-| Step               | Book                 | Words  | By                             | Calls | Tokens in | Tokens out | Cost    | Time       | When       |
-| ------------------ | -------------------- | ------ | ------------------------------ | ----- | --------- | ---------- | ------- | ---------- | ---------- |
-| Take reading notes | King Solomon's Mines | 81,994 | `google/gemini-3.1-flash-lite` | 41    | 145,016   | 16,217     | $0.0606 | 1 min 25 s | 2026-09-19 |
-| Judge each chapter | not run yet          |        | Jev                            |       |           |            |         |            |            |
-| Judge the whole    | not run yet          |        | Jev                            |       |           |            |         |            |            |
+| Step                                                                      | Book                 | Words  | By                             | Calls | Tokens in | Tokens out | Cost    | Time       | When       |
+| ------------------------------------------------------------------------- | -------------------- | ------ | ------------------------------ | ----- | --------- | ---------- | ------- | ---------- | ---------- |
+| Take reading notes                                                        | King Solomon's Mines | 81,994 | `google/gemini-3.1-flash-lite` | 41    | 145,016   | 16,217     | $0.0606 | 1 min 25 s | 2026-09-19 |
+| Judge it in pieces of 1,000 words, 29 questions a piece                   | Treasure Island      | 67,655 | Jev, `jev-1.13.0`              | 68    | 288,901   | free       | $0.0121 | 1 min 12 s | 2026-09-19 |
+| Set twelve of its pieces against a panel of six passages, both ways round | Treasure Island      | 67,655 | Jev, `jev-1.13.0`              | 144   | 446,376   | free       | $0.0187 | 1 min 41 s | 2026-09-19 |
+| Judge the whole                                                           | not run yet          |        | Jev                            |       |           |            |         |            |            |
 
 The model that takes the notes was chosen among nine, each tried on the same book: [who takes the notes](notes-experiments.md) has every run, what it cost and why it was kept or let go. What that showed about cost and time:
 
@@ -125,7 +126,8 @@ The model that takes the notes was chosen among nine, each tried on the same boo
 - What a model thinks is paid for as output: up to 87% of what one of them wrote. It also makes its cost hard to foresee, a single answer running to 24,000 tokens.
 - OpenRouter sends the same model to one provider or another, 11 of them in one run. They differ in price, up to five times; in whether the model thinks; and in how closely it follows its instructions. Asking for the cheapest first made the same notes 42% cheaper and better kept to their limits.
 - Not only the calls that come back are paid for. A call cut off for taking too long is billed for what the model had written by then, and nothing on this side says how much: of the $0.46 that choosing a model cost, a quarter is in no record. It happens to models that think, on providers that are slow.
-- A call to Jev with one sentence and two questions took 347 tokens: what goes around the text counts, and an estimate made from the text alone falls short.
+- With Jev the questions weigh as much as the text: each adds some 110 tokens to every call, so a piece of 1,000 words, 1,300 tokens by itself, comes to 4,200 with 29 questions. A call with one sentence and two questions took 347.
+- Jev is the cheap part: a book judged piece by piece costs a fifth of what taking its notes does. What Jev was tried on before settling the questions, and what that cost, is in [what Jev can tell of a chapter](jev-experiments.md).
 
 ## The valuation
 

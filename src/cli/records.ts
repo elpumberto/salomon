@@ -3,8 +3,8 @@ import { join } from 'node:path';
 import type { NotesRecord } from '../records.ts';
 
 /**
- * Sets the records of a book side by side, a column a run, oldest first: what was run, what it
- * took and what came of it. With no book given, it says which books have records. `--markdown`
+ * Sets the records of the notes of a book side by side, a column a run, oldest first: what was run,
+ * what it took and what came of it. With no book given, it says which books have records. `--markdown`
  * prints them as a table for the docs instead, a row a run, each with a link to its record.
  */
 
@@ -20,7 +20,10 @@ if (!slug) {
 	process.exit(0);
 }
 
-const files = (await readdir(join(root, slug))).filter((file) => file.endsWith('.json')).sort();
+// Only the records of notes: a record says its step in its name, after when it was run.
+const files = (await readdir(join(root, slug)))
+	.filter((file) => /^[^.]+\.notes\..*\.json$/.test(file))
+	.sort();
 const records: NotesRecord[] = await Promise.all(
 	files.map(async (file) => JSON.parse(await readFile(join(root, slug, file), 'utf8')))
 );

@@ -1,0 +1,563 @@
+{
+	"kind": "jev",
+	"at": "2026-09-19T12:06:03.240Z",
+	"book": {
+		"title": "King Solomon's Mines",
+		"author": "H. Rider Haggard",
+		"language": "en",
+		"source": {
+			"file": "king-solomons-mines.epub",
+			"format": "epub",
+			"sha256": "a973b4b2634ea470705e7ad789ba24c1b6b3517498a5fdaa20909c5b04c11491"
+		},
+		"text": {
+			"sha256": "25b42eae3f0db74e839c8f8b919cd8337023a39adceba73087cd64c3ccecceba",
+			"sections": 24,
+			"words": 81994
+		}
+	},
+	"sections": [
+		4,
+		6,
+		9,
+		16,
+		18,
+		21
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "wording",
+		"rules": "sha256:38c374ceb888",
+		"asked": {
+			"danger_reworded": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much are the bodies and lives of the characters at risk?",
+				"criteria": [
+					"Everyone is safe throughout the chapter",
+					"The characters suffer from want or weariness, or are threatened with violence that does not come",
+					"A character nearly dies",
+					"There is fighting, and characters die in it"
+				]
+			},
+			"danger_numbers": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. Rate the physical danger the characters are in, from 0 for none to 3 for deadly.",
+				"criteria": [
+					"0",
+					"1",
+					"2",
+					"3"
+				]
+			},
+			"talk_reworded": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much of the chapter is dialogue?",
+				"criteria": [
+					"The narrator tells everything, and the characters hardly speak",
+					"The narrator tells most of it, and the characters exchange a few words now and then",
+					"The chapter is divided evenly between what the narrator tells and what the characters say to each other",
+					"The characters speaking to each other take up most of the chapter, and the narrator fills the gaps",
+					"The chapter is characters speaking to each other, and the narrator hardly says a word"
+				]
+			},
+			"talk_yes": {
+				"type": "noul",
+				"instructions": "`chapter` is a chapter of a novel. Is more than half of it conversation between the characters?"
+			},
+			"happens_longer": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much happens in it?",
+				"criteria": [
+					"Nothing happens: the narrator explains, reflects or describes, and no event takes place",
+					"The characters talk, travel or wait, and they end the chapter much as they began it",
+					"One thing happens that changes the situation of the characters a little",
+					"One thing happens that changes the situation of the characters for good",
+					"Several things happen, each of which changes the situation of the characters",
+					"So much happens that the whole story is turned around: the characters end the chapter in another world from the one they began it in"
+				]
+			},
+			"humour_reworded": {
+				"type": "score",
+				"instructions": "`chapter` is a chapter of a novel. How much does it try to make the reader smile?",
+				"criteria": [
+					"It does not try: the chapter is serious throughout",
+					"It is serious, but a witty or comic remark comes up once or twice",
+					"Wit, comedy or irony run through the whole chapter"
+				]
+			},
+			"hook_reworded": {
+				"type": "noul",
+				"instructions": "`chapter` is a chapter of a novel. When it ends, is the reader left in suspense about what will happen to the characters?"
+			}
+		},
+		"code": {
+			"commit": "0411666",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 6,
+		"tokensIn": 35479,
+		"usd": 0.00149,
+		"seconds": 5
+	},
+	"found": [
+		{
+			"section": 4,
+			"measured": {
+				"words": 580,
+				"spoken": 0.02,
+				"wordsPerSentence": 38.7
+			},
+			"sha256": "32803b22debb3b763a73174b71d410b0e3404f48fecff6fcdbc7362d144442d2",
+			"tokensIn": 1609,
+			"seconds": 0.8,
+			"answers": {
+				"danger_reworded": {
+					"score": 0.11,
+					"of": 3,
+					"confidence": 0.89,
+					"probabilities": [
+						0.95,
+						0.01,
+						0.02,
+						0.02
+					]
+				},
+				"danger_numbers": {
+					"score": 0.02,
+					"of": 3,
+					"confidence": 0.98,
+					"probabilities": [
+						0.99,
+						0.01,
+						0,
+						0
+					]
+				},
+				"talk_reworded": {
+					"score": 0,
+					"of": 4,
+					"confidence": 1,
+					"probabilities": [
+						1,
+						0,
+						0,
+						0,
+						0
+					]
+				},
+				"talk_yes": {
+					"noul": 0.01
+				},
+				"happens_longer": {
+					"score": 0,
+					"of": 5,
+					"confidence": 1,
+					"probabilities": [
+						1,
+						0,
+						0,
+						0,
+						0,
+						0
+					]
+				},
+				"humour_reworded": {
+					"score": 0.73,
+					"of": 2,
+					"confidence": 0.55,
+					"probabilities": [
+						0.28,
+						0.7,
+						0.02
+					]
+				},
+				"hook_reworded": {
+					"noul": 0.09
+				}
+			}
+		},
+		{
+			"section": 6,
+			"measured": {
+				"words": 3539,
+				"spoken": 0.83,
+				"wordsPerSentence": 22.7
+			},
+			"sha256": "4109dbcd24e39b615c59788ed4deaa35028d0c758497a45e5c0e022909adfc71",
+			"tokensIn": 5640,
+			"seconds": 1,
+			"answers": {
+				"danger_reworded": {
+					"score": 1.81,
+					"of": 3,
+					"confidence": 0.73,
+					"probabilities": [
+						0.08,
+						0.07,
+						0.81,
+						0.04
+					]
+				},
+				"danger_numbers": {
+					"score": 0.51,
+					"of": 3,
+					"confidence": 0.49,
+					"probabilities": [
+						0.62,
+						0.29,
+						0.06,
+						0.03
+					]
+				},
+				"talk_reworded": {
+					"score": 1.68,
+					"of": 4,
+					"confidence": 0.43,
+					"probabilities": [
+						0,
+						0.48,
+						0.37,
+						0.15,
+						0
+					]
+				},
+				"talk_yes": {
+					"noul": 0.8
+				},
+				"happens_longer": {
+					"score": 2.91,
+					"of": 5,
+					"confidence": 0.27,
+					"probabilities": [
+						0.01,
+						0.07,
+						0.29,
+						0.27,
+						0.36,
+						0
+					]
+				},
+				"humour_reworded": {
+					"score": 0.83,
+					"of": 2,
+					"confidence": 0.7,
+					"probabilities": [
+						0.19,
+						0.79,
+						0.02
+					]
+				},
+				"hook_reworded": {
+					"noul": 0.94
+				}
+			}
+		},
+		{
+			"section": 9,
+			"measured": {
+				"words": 4976,
+				"spoken": 0.21,
+				"wordsPerSentence": 21.1
+			},
+			"sha256": "73c2e1a775f0c40163da147ec7d52598495d3c7b2a862dab537836f8798869a0",
+			"tokensIn": 7168,
+			"seconds": 0.6,
+			"answers": {
+				"danger_reworded": {
+					"score": 1.66,
+					"of": 3,
+					"confidence": 0.65,
+					"probabilities": [
+						0,
+						0.35,
+						0.65,
+						0
+					]
+				},
+				"danger_numbers": {
+					"score": 2.95,
+					"of": 3,
+					"confidence": 0.95,
+					"probabilities": [
+						0,
+						0,
+						0.04,
+						0.96
+					]
+				},
+				"talk_reworded": {
+					"score": 1.1,
+					"of": 4,
+					"confidence": 0.91,
+					"probabilities": [
+						0,
+						0.89,
+						0.1,
+						0.01,
+						0
+					]
+				},
+				"talk_yes": {
+					"noul": 0.13
+				},
+				"happens_longer": {
+					"score": 3.44,
+					"of": 5,
+					"confidence": 0.62,
+					"probabilities": [
+						0,
+						0.08,
+						0.11,
+						0.12,
+						0.68,
+						0.01
+					]
+				},
+				"humour_reworded": {
+					"score": 1.14,
+					"of": 2,
+					"confidence": 0.77,
+					"probabilities": [
+						0.01,
+						0.84,
+						0.15
+					]
+				},
+				"hook_reworded": {
+					"noul": 0.97
+				}
+			}
+		},
+		{
+			"section": 16,
+			"measured": {
+				"words": 3795,
+				"spoken": 0.27,
+				"wordsPerSentence": 26
+			},
+			"sha256": "96337b0f78cd13d437da3555930f5c341265c7516cca7bdf7e6646c6b44fd736",
+			"tokensIn": 5841,
+			"seconds": 0.6,
+			"answers": {
+				"danger_reworded": {
+					"score": 1.54,
+					"of": 3,
+					"confidence": 0.44,
+					"probabilities": [
+						0.01,
+						0.66,
+						0.1,
+						0.23
+					]
+				},
+				"danger_numbers": {
+					"score": 2.95,
+					"of": 3,
+					"confidence": 0.95,
+					"probabilities": [
+						0,
+						0,
+						0.05,
+						0.95
+					]
+				},
+				"talk_reworded": {
+					"score": 1.31,
+					"of": 4,
+					"confidence": 0.74,
+					"probabilities": [
+						0,
+						0.71,
+						0.27,
+						0.02,
+						0
+					]
+				},
+				"talk_yes": {
+					"noul": 0.28
+				},
+				"happens_longer": {
+					"score": 3.9,
+					"of": 5,
+					"confidence": 0.92,
+					"probabilities": [
+						0,
+						0.01,
+						0.01,
+						0.06,
+						0.91,
+						0.01
+					]
+				},
+				"humour_reworded": {
+					"score": 1.12,
+					"of": 2,
+					"confidence": 0.79,
+					"probabilities": [
+						0.01,
+						0.86,
+						0.13
+					]
+				},
+				"hook_reworded": {
+					"noul": 0.96
+				}
+			}
+		},
+		{
+			"section": 18,
+			"measured": {
+				"words": 6205,
+				"spoken": 0.15,
+				"wordsPerSentence": 25.1
+			},
+			"sha256": "999d5ade8c1c3a407b3880d5f689c7284d4f9d41cae18d4a400ee77238a3cb8f",
+			"tokensIn": 8942,
+			"seconds": 1.1,
+			"answers": {
+				"danger_reworded": {
+					"score": 2.98,
+					"of": 3,
+					"confidence": 0.98,
+					"probabilities": [
+						0,
+						0,
+						0.02,
+						0.98
+					]
+				},
+				"danger_numbers": {
+					"score": 2.99,
+					"of": 3,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"talk_reworded": {
+					"score": 1.02,
+					"of": 4,
+					"confidence": 0.97,
+					"probabilities": [
+						0.01,
+						0.97,
+						0.02,
+						0,
+						0
+					]
+				},
+				"talk_yes": {
+					"noul": 0.08
+				},
+				"happens_longer": {
+					"score": 4.63,
+					"of": 5,
+					"confidence": 0.75,
+					"probabilities": [
+						0,
+						0,
+						0,
+						0.08,
+						0.2,
+						0.72
+					]
+				},
+				"humour_reworded": {
+					"score": 0.94,
+					"of": 2,
+					"confidence": 0.86,
+					"probabilities": [
+						0.08,
+						0.9,
+						0.02
+					]
+				},
+				"hook_reworded": {
+					"noul": 0.21
+				}
+			}
+		},
+		{
+			"section": 21,
+			"measured": {
+				"words": 4050,
+				"spoken": 0.33,
+				"wordsPerSentence": 18.9
+			},
+			"sha256": "70667cf1893de414a42c254019357b3d1a20a05ca04f36b8789c44b4e1689af4",
+			"tokensIn": 6279,
+			"seconds": 0.6,
+			"answers": {
+				"danger_reworded": {
+					"score": 2.95,
+					"of": 3,
+					"confidence": 0.95,
+					"probabilities": [
+						0,
+						0,
+						0.04,
+						0.96
+					]
+				},
+				"danger_numbers": {
+					"score": 2.99,
+					"of": 3,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						0,
+						1
+					]
+				},
+				"talk_reworded": {
+					"score": 1.58,
+					"of": 4,
+					"confidence": 0.52,
+					"probabilities": [
+						0,
+						0.51,
+						0.41,
+						0.08,
+						0
+					]
+				},
+				"talk_yes": {
+					"noul": 0.44
+				},
+				"happens_longer": {
+					"score": 4.25,
+					"of": 5,
+					"confidence": 0.64,
+					"probabilities": [
+						0,
+						0,
+						0,
+						0.14,
+						0.47,
+						0.39
+					]
+				},
+				"humour_reworded": {
+					"score": 0.98,
+					"of": 2,
+					"confidence": 0.86,
+					"probabilities": [
+						0.05,
+						0.91,
+						0.04
+					]
+				},
+				"hook_reworded": {
+					"noul": 0.94
+				}
+			}
+		}
+	],
+	"remarks": "Experiment 3: the questions of the reading set asked otherwise, to see how much a number owes to the words of its question."
+}

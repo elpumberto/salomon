@@ -2,8 +2,11 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, parse } from 'node:path';
+import type { Questions } from '@typesafe-ai/sdk';
 import { words } from './book.ts';
 import type { Book } from './book.ts';
+import { usd } from './estimate.ts';
+import type { Judged } from './judge.ts';
 import { open, took } from './notes.ts';
 import type { Notes, Took } from './notes.ts';
 
@@ -171,24 +174,89 @@ export function notesRecord(book: BookIdentity, notes: Notes, lost?: Lost): Note
 	};
 }
 
+/** What Jev said of some sections of a book, and what it was asked. */
+export interface JevRecord {
+	kind: 'jev';
+	/** When the run started. */
+	at: string;
+	book: BookIdentity;
+	/** The sections judged, whole or in part, numbered from 1 as `normalize --sections` lists them. */
+	sections: number[];
+	by: {
+		/** The model as Jev named it in its answers. */
+		model: string;
+		/** The set of questions by its name, by the hash of its wording, and in full as it was asked. */
+		questions: string;
+		rules: string;
+		asked: Questions;
+		code: ReturnType<typeof code>;
+	};
+	/** Jev says the tokens and not the money: the dollars are the tokens at its list price. */
+	took: { calls: number; tokensIn: number; usd: number; seconds: number };
+	/**
+	 * Passage by passage: which part of the book it was, what code measured of it, the hash of what
+	 * was sent, and Jev's answers by the name of the question.
+	 */
+	found: Omit<Judged, 'model'>[];
+	remarks?: string;
+}
+
+export function jevRecord(
+	book: BookIdentity,
+	at: string,
+	asked: { questions: string; rules: string; asked: Questions },
+	judged: Judged[]
+): JevRecord {
+	const tokensIn = judged.reduce((sum, one) => sum + one.tokensIn, 0);
+	return {
+		kind: 'jev',
+		at,
+		book,
+		sections: [
+			...new Set(
+				judged.flatMap(({ section, through = section }) =>
+					Array.from({ length: through - section + 1 }, (_, step) => section + step)
+				)
+			)
+		].sort((one, other) => one - other),
+		by: {
+			model: [...new Set(judged.map((one) => one.model))].join(', '),
+			...asked,
+			code: code()
+		},
+		took: {
+			calls: judged.length,
+			tokensIn,
+			usd: Number(usd(tokensIn).toFixed(6)),
+			seconds: Math.round(judged.reduce((sum, one) => sum + one.seconds, 0))
+		},
+		found: judged.map(({ model, ...rest }) => rest)
+	};
+}
+
 /**
  * Writes a record where it belongs and returns its path from the root of the repo. Its name says
  * when the run started and who ran it: runs set off together start in the same second. The record
  * of a run may be written again as the run goes on; the record of another run is never written over.
  */
-export async function keep(record: NotesRecord, base = root): Promise<string> {
+export async function keep(record: NotesRecord | JevRecord, base = root): Promise<string> {
 	const slug = (name: string) => name.toLowerCase().replace(/[^a-z0-9.]+/g, '-');
 	const stamp = (record.at ?? new Date().toISOString()).replace(/[-:]|\.\d+/g, '');
 	const folder = join('records', 'books', slug(parse(record.book.source.file).name));
-	const run = (one: NotesRecord) => JSON.stringify([one.at, one.by.model, one.by.routing ?? null]);
+	const run = (one: NotesRecord | JevRecord) =>
+		JSON.stringify([
+			one.at,
+			one.by.model,
+			one.kind === 'jev' ? one.by.rules : (one.by.routing ?? null)
+		]);
 
 	await mkdir(join(base, folder), { recursive: true });
 	for (let copy = 1; ; copy++) {
 		const name = `${stamp}.${record.kind}.${slug(record.by.model)}${copy > 1 ? `.${copy}` : ''}.json`;
-		const there: NotesRecord | undefined = await readFile(join(base, folder, name), 'utf8').then(
-			JSON.parse,
-			() => undefined
-		);
+		const there: NotesRecord | JevRecord | undefined = await readFile(
+			join(base, folder, name),
+			'utf8'
+		).then(JSON.parse, () => undefined);
 		if (there && run(there) !== run(record)) continue;
 		await writeFile(join(base, folder, name), `${JSON.stringify(record, null, '\t')}\n`);
 		return join(folder, name);
