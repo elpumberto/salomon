@@ -120,3 +120,53 @@ The valuation in use is `gated`; `plain` is told beside it. What would count aga
 - The two valuations not parting as named: _Mrs. Dalloway_ and _The Age of Innocence_ worth more than they read; _Tom Swift and His Motor-Cycle_, _Riders of the Purple Sage_ and _Amanecer_ reading better than they are worth; by rank among the twelve.
 - The test of ornament failing. The middle passage of the upper two rungs of the three ladders in English and of _Mrs. Dalloway_, seven passages, is told again dull and overdone by a language model (`node third.ts rewrites`). Under `gated` the overdone passage is to come out under the passage as it is in all seven and on the bottom floor, under 0.5, in six; the dull one under the passage as it is in all seven.
 - _Mrs. Dalloway_ under 0.74 says that the mark against _Ulysses_ is a rule and not an accident of that book: prose that leaves the plainly told story is marked down. It would not undo the rest, and would have to be said wherever a merit is shown.
+
+## What the check showed
+
+Judged on 2026-09-19 with nothing changed: 170 calls to Jev and $0.04, the test of ornament among them, and some $0.10 to the model that tells the passages again.
+
+| Book                            | Merit | Plain | Lowest and highest passage | Read | To learn from | What not to do | Written for             |
+| ------------------------------- | ----- | ----- | -------------------------- | ---- | ------------- | -------------- | ----------------------- |
+| _The Wind in the Willows_       | 0.80  | 0.80  | 0.77–0.88                  | 0.75 | 0.77          | 0.15           | Children, 0.99          |
+| _The Wonderful Wizard of Oz_    | 0.75  | 0.75  | 0.73–0.79                  | 0.74 | 0.75          | 0.11           | Children, 1.00          |
+| _Tom Swift and His Motor-Cycle_ | 0.54  | 0.55  | 0.50–0.60                  | 0.71 | 0.40          | 0.33           | Children, 0.96          |
+| _The Virginian_                 | 0.80  | 0.80  | 0.76–0.86                  | 0.74 | 0.78          | 0.17           | For the writing, 0.71   |
+| _Riders of the Purple Sage_     | 0.76  | 0.76  | 0.74–0.81                  | 0.78 | 0.72          | 0.22           | For the writing, 0.48   |
+| _Deadwood Dick_                 | 0.41  | 0.54  | 0.48–0.58                  | 0.68 | 0.27          | 0.66           | The widest public, 0.80 |
+| _The Age of Innocence_          | 0.83  | 0.83  | 0.79–0.86                  | 0.74 | 0.84          | 0.14           | For the writing, 0.99   |
+| _The Rosary_                    | 0.74  | 0.74  | 0.70–0.79                  | 0.73 | 0.63          | 0.34           | For the writing, 0.54   |
+| _Three Weeks_                   | 0.67  | 0.71  | 0.67–0.74                  | 0.75 | 0.51          | 0.49           | For the writing, 0.60   |
+| _Cien años de soledad_          | 0.86  | 0.86  | 0.81–0.90                  | 0.79 | 0.86          | 0.11           | For the writing, 0.98   |
+| _Amanecer_                      | 0.48  | 0.54  | 0.45–0.62                  | 0.76 | 0.37          | 0.57           | The widest public, 0.67 |
+| _Mrs. Dalloway_                 | 0.86  | 0.86  | 0.83–0.89                  | 0.73 | 0.86          | 0.15           | For the writing, 1.00   |
+
+The middle passage of seven of them as it is, told dull and told overdone, by each merit:
+
+| Passage of                   | As it is, gated | Dull | Overdone | Overdone, plain |
+| ---------------------------- | --------------- | ---- | -------- | --------------- |
+| _The Wind in the Willows_    | 0.78            | 0.38 | 0.24     | 0.58            |
+| _The Wonderful Wizard of Oz_ | 0.74            | 0.51 | 0.20     | 0.51            |
+| _The Virginian_              | 0.76            | 0.56 | 0.21     | 0.56            |
+| _Riders of the Purple Sage_  | 0.74            | 0.50 | 0.23     | 0.57            |
+| _The Age of Innocence_       | 0.85            | 0.25 | 0.25     | 0.62            |
+| _The Rosary_                 | 0.77            | 0.58 | 0.31     | 0.63            |
+| _Mrs. Dalloway_              | 0.85            | 0.35 | 0.17     | 0.55            |
+
+What held:
+
+- **Every ladder is in order**, ten pairs of ten, by either merit; gated, a rung stands 0.17 over the next. The least sure pair held too, _The Rosary_ over _Three Weeks_ by 0.07.
+- **`gated` takes nothing from abundance and everything from ornament.** Not a hundredth from _Cien años de soledad_, _Mrs. Dalloway_, _The Age of Innocence_ nor _The Wind in the Willows_. The seven passages told overdone come to 0.17 to 0.31, all on the bottom floor and under the passage as it is; by the plain mean they would stand at 0.51 to 0.63, with the sellers. The dull ones come out under the passage as it is in all seven. It is the merit to use.
+- **The mark against _Ulysses_ is no rule.** _Mrs. Dalloway_ stands at the top of all thirty-two books with _Cien años de soledad_, 0.86, and is even throughout, 0.83 to 0.89. Prose that leaves the plainly told story is not marked down for it; what is marked down in _Ulysses_ are the episodes Jev cannot follow.
+- **The bottom is the bottom**: the half-dime novel 0.41, the syndicate's book for boys 0.54, and between them _Amanecer_, 0.48.
+- Merit and read part as named in four of five: _Mrs. Dalloway_ and _The Age of Innocence_ are worth more than they read, _Riders of the Purple Sage_ and _Amanecer_ read better than they are worth, _Amanecer_ from next to last in merit to third as a read.
+
+What did not:
+
+- **The floors were guessed a step low or high for five books**, with no ladder out of order for it. _The Wonderful Wizard of Oz_, _Riders of the Purple Sage_ and _The Rosary_ were expected on the middle floor and stand at the foot of the top one, 0.74 to 0.76; _Three Weeks_ was expected at the bottom and is in the middle; _Amanecer_ was expected in the middle and is at the bottom.
+- **_Tom Swift and His Motor-Cycle_ does not read better than it is worth**: third from last in merit, next to last as a read. The read is squeezed as ever, the twelve between 0.68 and 0.79, _Cien años de soledad_ the best of them.
+- **Whom a book is written for leans with age.** Two sellers of 1907 and 1909 are held to be for those who read for the writing, 0.60 and 0.54, as _Irene Iddesleigh_ half was: prose of a formal cast is taken for prose with literary aims. It holds among books of a same time, the three for children and the two of our day.
+- **The tellings again are not of a length with the passage.** The dull ones came out at a quarter to a half of it and the overdone at a quarter as long again and more; one overdone telling, that of _Mrs. Dalloway_, is a stub of 224 words. Three overdone tellings failed on the first run and were made on a second try, with the rest untouched.
+
+**_Amanecer_, as it was read.** Jev holds it a first draft, written fast and not gone over, 0.50, more than any other book of the thirty-two; _Irene Iddesleigh_ comes next, 0.30. The Spanish of the copy judged is careless: of 1,979 questions 384 lack their opening mark, over a hundred common words lack their accent, and a chapter is headed _N0 HAY PALABRAS_ with a nought. What was judged is that text, as the [expectations](#the-check) said of any translation; it says nothing sure of the novel in English nor of its published translation.
+
+So the behavioural questions at 3,000 words, valued `gated`, order books within a genre in all ten pairs they had not seen, as in the eighteen they were chosen on; tell what is written by the yard from the competent and from the well written; are not taken in by ornament; and do not mark difficulty down as such. Within the top floor they now spread, 0.74 to 0.86, in an order no reader would quarrel much with, which is not yet telling a great novel from a good one: the two that stand highest are also the two latest written of the well written, which may be their worth or the taste of a model of our day, and books of our day from the middle floor would tell which. The read says which of the two a book is more of, and little else.

@@ -10,14 +10,18 @@ import { alone, ladders, parting, remarks } from './third.ts';
 
 const root = join(import.meta.dirname, '../../../records/books');
 const found: Record<string, JevRecord> = {};
-const retold: [string, JevRecord][] = [];
+// Of a passage told again more than once, the record with most of its tellings.
+const retold = new Map<string, JevRecord>();
 for (const slug of [...ladders.flat(), ...alone]) {
 	const files = await readdir(join(root, slug)).catch(() => []);
 	for (const file of files.filter((one) => one.includes('.jev.'))) {
 		const record: JevRecord = JSON.parse(await readFile(join(root, slug, file), 'utf8'));
 		if (record.remarks?.startsWith(remarks)) found[slug] = record;
-		if (record.remarks?.includes('the test of ornament')) {
-			retold.push([slug, record]);
+		if (
+			record.remarks?.includes('the test of ornament') &&
+			record.found.length >= (retold.get(slug)?.found.length ?? 0)
+		) {
+			retold.set(slug, record);
 		}
 	}
 }
@@ -64,7 +68,7 @@ for (const way of ['plain', 'gated'] as const) {
 	);
 }
 
-if (retold.length)
+if (retold.size)
 	console.log(
 		`\n${'told again'.padEnd(32)}as it is       dull           overdone     (plain, gated)`
 	);

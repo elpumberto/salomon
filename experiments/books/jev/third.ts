@@ -50,19 +50,26 @@ const indexes = (story: string) =>
 const passages = (story: string) => (book: Book) => sample(across(book, indexes(story), size), 12);
 
 if (import.meta.main) {
-	const [what, story] = process.argv.slice(2);
+	const [what, story, ...more] = process.argv.slice(2);
 	const list = (await listed()).filter(({ slug }) => [...ladders.flat(), ...alone].includes(slug));
 
 	if (what === 'rewrites') {
 		await mkdir(join(books, 'rewrites'), { recursive: true });
-		for (const { slug, story = '' } of list.filter(({ slug }) => retold.includes(slug))) {
+		// `node third.ts rewrites <slug> ...` goes over those books alone: a rewrite that failed is tried again.
+		const asked = [story, ...more].filter((one): one is string => Boolean(one));
+		const which = asked.length ? asked : retold;
+		for (const { slug, story = '' } of list.filter(({ slug }) => which.includes(slug))) {
 			const original = passages(story)(await readBook(join(books, `${slug}.epub`)))[5];
 			if (!original?.state.chapter) continue;
 			const told: Passage[] = [original];
 			for (const way of Object.keys(ways) as (keyof typeof ways)[]) {
 				const file = join(books, 'rewrites', `${slug}.third.${way}.json`);
 				if (!existsSync(file)) {
-					const made = await rewrite(original.state.chapter, way).catch(() => undefined);
+					// The model that rewrites now and then answers what is no JSON: another try often lands.
+					let made: Awaited<ReturnType<typeof rewrite>> | undefined;
+					for (let attempt = 1; !made && attempt <= 3; attempt++) {
+						made = await rewrite(original.state.chapter, way).catch(() => undefined);
+					}
 					if (!made) continue;
 					const { usd, ...kept } = made;
 					await writeFile(file, JSON.stringify(kept));
