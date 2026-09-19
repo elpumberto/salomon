@@ -1,0 +1,86 @@
+{
+	"kind": "notes",
+	"at": "2026-09-19T09:46:03.287Z",
+	"book": {
+		"title": "King Solomon's Mines",
+		"author": "H. Rider Haggard",
+		"language": "en",
+		"source": {
+			"file": "king-solomons-mines.epub",
+			"format": "epub",
+			"sha256": "a973b4b2634ea470705e7ad789ba24c1b6b3517498a5fdaa20909c5b04c11491"
+		},
+		"text": {
+			"sha256": "25b42eae3f0db74e839c8f8b919cd8337023a39adceba73087cd64c3ccecceba",
+			"sections": 24,
+			"words": 81994
+		}
+	},
+	"sections": {
+		"from": 4,
+		"to": 6
+	},
+	"by": {
+		"model": "z-ai/glm-5.3-flash",
+		"through": "OpenRouter",
+		"routing": {
+			"sort": "price"
+		},
+		"providers": {
+			"Parasail": {
+				"calls": 2,
+				"notKept": 0,
+				"usd": 0.01851
+			},
+			"DeepInfra": {
+				"calls": 1,
+				"notKept": 0,
+				"usd": 0.000086
+			},
+			"Wafer": {
+				"calls": 4,
+				"notKept": 1,
+				"usd": 0.002187
+			},
+			"DigitalOcean": {
+				"calls": 2,
+				"notKept": 1,
+				"usd": 0.000721
+			}
+		},
+		"rules": "sha256:7035f9a10552",
+		"code": {
+			"commit": "87798df",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 9,
+		"tokensIn": 24079,
+		"tokensOut": 38213,
+		"tokensThinking": 33436,
+		"usd": 0.021503,
+		"seconds": 1302
+	},
+	"found": {
+		"story": 3,
+		"apparatus": 0,
+		"people": 13,
+		"threads": 8,
+		"threadsSettledOnReview": 0,
+		"threadsLeftOpen": 7,
+		"synopsis": {
+			"withinLength": 3,
+			"of": 3,
+			"longestWords": 267
+		},
+		"notes": {
+			"sha256": "6090f7801ca516d8d16743144b2668e469a0572830818494b857f89a11ae9fb7"
+		}
+	},
+	"failed": {
+		"section": 7,
+		"why": "OpenRouter 200: z-ai/glm-5.3-flash did not answer in JSON (it stopped for: length)"
+	},
+	"remarks": "The same rules with another model, to set it beside the others: cheapest provider first. Taken up again once after it broke."
+}

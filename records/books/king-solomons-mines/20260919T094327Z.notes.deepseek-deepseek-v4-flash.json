@@ -1,0 +1,75 @@
+{
+	"kind": "notes",
+	"at": "2026-09-19T09:43:27.558Z",
+	"book": {
+		"title": "King Solomon's Mines",
+		"author": "H. Rider Haggard",
+		"language": "en",
+		"source": {
+			"file": "king-solomons-mines.epub",
+			"format": "epub",
+			"sha256": "a973b4b2634ea470705e7ad789ba24c1b6b3517498a5fdaa20909c5b04c11491"
+		},
+		"text": {
+			"sha256": "25b42eae3f0db74e839c8f8b919cd8337023a39adceba73087cd64c3ccecceba",
+			"sections": 24,
+			"words": 81994
+		}
+	},
+	"sections": {
+		"from": 4,
+		"to": 24
+	},
+	"by": {
+		"model": "deepseek/deepseek-v4-flash",
+		"through": "OpenRouter",
+		"routing": {
+			"ignore": [
+				"open-inference"
+			],
+			"sort": "price"
+		},
+		"providers": {
+			"StreamLake": {
+				"calls": 52,
+				"notKept": 12,
+				"usd": 0.016616
+			},
+			"Baidu": {
+				"calls": 1,
+				"notKept": 0,
+				"usd": 0.000033
+			}
+		},
+		"rules": "sha256:7035f9a10552",
+		"code": {
+			"commit": "87798df",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 53,
+		"tokensIn": 169137,
+		"tokensOut": 103485,
+		"tokensThinking": 74201,
+		"usd": 0.01665,
+		"seconds": 2023
+	},
+	"found": {
+		"story": 21,
+		"apparatus": 0,
+		"people": 22,
+		"threads": 16,
+		"threadsSettledOnReview": 0,
+		"threadsLeftOpen": 0,
+		"synopsis": {
+			"withinLength": 20,
+			"of": 21,
+			"longestWords": 346
+		},
+		"notes": {
+			"sha256": "f05874d7b3c38b7592b2cbae86e0a95c1bd0160e25f177ed5876ec210cf95122"
+		}
+	},
+	"remarks": "The same model and rules as the run before, with OpenRouter told to try the cheapest provider first and never OpenInference, which had a hand in every section where the synopsis ran long. From this run on every call is logged with its provider and how its answer ended."
+}
