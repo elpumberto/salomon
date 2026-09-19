@@ -275,7 +275,7 @@
 			<p class="small" data-t="cardNote"></p>
 			<div class="row">
 				<select id="pick"></select
-				><button id="download" data-t="download"></button>
+				><button id="download" data-t="download"></button><a id="share" class="small"></a>
 			</div>
 			<div id="caveat"></div>
 			<div id="cardBox"></div>
@@ -321,6 +321,7 @@
 					cardNote:
 						'The stamp comes from how the two numbers meet among the books judged. It is the most playful thing here, and the least to be trusted.',
 					download: 'Download PNG',
+					share: 'A link to this card',
 					readTitle: 'How to read it',
 					read1:
 						'<b>Three floors.</b> Written by the yard, under 0.62: the half-dime novel, the newspaper serial. The competent seller, 0.63 to 0.72. Well written, 0.74 and over. That much was checked; which of two books on a floor is the greater was not, and across genres only the floor means anything.',
@@ -347,7 +348,7 @@
 					},
 					stamps: {
 						round: 'A rounded work',
-						slog: 'Illustrious slog',
+						slog: 'Illustrious, and demanding',
 						guilty: 'Guilty pleasure',
 						skip: 'Skippable',
 						middling: 'Neither here nor there'
@@ -403,6 +404,7 @@
 					cardNote:
 						'El sello sale de cómo se cruzan las dos notas entre los libros juzgados. Es lo más juguetón de todo esto, y lo menos de fiar.',
 					download: 'Descargar PNG',
+					share: 'Enlace a esta ficha',
 					readTitle: 'Cómo leerlo',
 					read1:
 						'<b>Tres pisos.</b> Escrito a destajo, por debajo de 0,62: la novela de quiosco, el folletín. El superventas competente, de 0,63 a 0,72. Bien escrito, de 0,74 para arriba. Eso se comprobó; cuál de dos libros de un mismo piso es el mayor, no, y entre géneros distintos solo el piso significa algo.',
@@ -429,7 +431,7 @@
 					},
 					stamps: {
 						round: 'Obra redonda',
-						slog: 'Tostón ilustre',
+						slog: 'Ilustre y exigente',
 						guilty: 'Placer culpable',
 						skip: 'Prescindible',
 						middling: 'Ni fu ni fa'
@@ -630,6 +632,9 @@
 					)
 					.join('');
 				$('cardBox').innerHTML = card(book);
+				// A page of its own for each book, whose address shows the card wherever it is pasted.
+				$('share').href = `${lang === 'es' ? 'libro' : 'book'}/${book.slug}/`;
+				$('share').textContent = texts[lang].share;
 				$('caveat').innerHTML = book.caveat
 					? `<p class="caveat">* ${esc(book.caveat[lang])}</p>`
 					: '';
@@ -696,7 +701,19 @@
 					lang =
 						localStorage.getItem('lang') ?? (navigator.language.startsWith('es') ? 'es' : 'en');
 					chosen = data.books[0].slug;
+					// `?book=` opens the page on a book; `?card=` shows its card and nothing else, to be made a picture of.
+					const asked = new URLSearchParams(location.search);
+					if (asked.get('lang') in texts) lang = asked.get('lang');
+					const wanted = asked.get('card') ?? asked.get('book');
+					if (data.books.some((b) => b.slug === wanted)) chosen = wanted;
+					if (asked.get('card')) {
+						weigh();
+						document.body.style.margin = 0;
+						document.body.innerHTML = card(data.books.find((b) => b.slug === chosen));
+						return;
+					}
 					draw();
+					if (asked.get('book')) $('cardBox').scrollIntoView({ block: 'center' });
 					for (const code of ['es', 'en'])
 						$(code).onclick = () => {
 							lang = code;

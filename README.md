@@ -49,7 +49,7 @@ How it came to this, from what is known of what makes a book good to the check o
 
     npm run site
 
-writes `site/data.json` from the records: every book judged the way books are valued, with its valuation and what each answer came to, passage by passage. [site/index.html](site/index.html) is one static page, in Spanish and in English, that reads it: the books on a map, the ranking, the nine answers to weigh another way, which asks nothing of anybody, and a card of each book to share. Nobody can have a book judged from it. What a record cannot say of a book, that the copy judged was a poor one, is in `site/books.json`. To see it, serve the folder: `python3 -m http.server -d site`. A workflow publishes it from `main`.
+writes `site/data.json` from the records: every book judged the way books are valued, with its valuation and what each answer came to, passage by passage. [site/index.html](site/index.html) is one static page, in Spanish and in English, that reads it: the books on a map, the ranking, the nine answers to weigh another way, which asks nothing of anybody, and a card of each book to share. Nobody can have a book judged from it. What a record cannot say of a book, that the copy judged was a poor one, is in `site/books.json`. `npm run cards` then gives each book a page of its own and a picture of its card in each language, taken by a browser with no window, so that the address of a book shows its card wherever it is pasted. To see it, serve the folder: `python3 -m http.server -d site`. A workflow publishes it from `main`.
 
 ## Keys
 
