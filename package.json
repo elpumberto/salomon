@@ -1,0 +1,29 @@
+{
+	"name": "salomon",
+	"description": "An experiment in analysing long content, whole books to begin with, using Jev.",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"engines": {
+		"node": ">=22.18"
+	},
+	"scripts": {
+		"fetch": "node src/cli/fetch.ts",
+		"normalize": "node src/cli/normalize.ts",
+		"test": "node --test",
+		"check": "tsc --noEmit",
+		"lint": "prettier --check .",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"domhandler": "^6.0.1",
+		"domutils": "^4.0.2",
+		"fflate": "^0.8.3",
+		"htmlparser2": "^12.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "^24.13.6",
+		"prettier": "^3.9.8",
+		"typescript": "^7.0.2"
+	}
+}
