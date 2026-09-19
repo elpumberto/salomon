@@ -25,7 +25,7 @@ test('an answer comes back parsed, with what it cost', async () => {
 		}
 	});
 
-	const answer = await createOpenRouter('a-key', fetcher).askJson<{ asleep: boolean }>({
+	const answer = await createOpenRouter('a-key', { fetch: fetcher }).askJson<{ asleep: boolean }>({
 		model: 'some/model',
 		system: 'Answer about the text.',
 		user: 'The cat slept.',
@@ -53,10 +53,9 @@ test('an answer comes back parsed, with what it cost', async () => {
 });
 
 test('a refusal says why, and an answer cut short is not taken for JSON', async () => {
-	const refused = createOpenRouter(
-		'a-key',
-		fake(401, { error: { message: 'User not found.', code: 401 } }).fetcher
-	);
+	const refused = createOpenRouter('a-key', {
+		fetch: fake(401, { error: { message: 'User not found.', code: 401 } }).fetcher
+	});
 	await assert.rejects(refused.keyInfo(), (error: unknown) => {
 		assert.ok(error instanceof OpenRouterError);
 		assert.equal(error.status, 401);
@@ -65,10 +64,10 @@ test('a refusal says why, and an answer cut short is not taken for JSON', async 
 		return true;
 	});
 
-	const cut = createOpenRouter(
-		'a-key',
-		fake(200, { choices: [{ message: { content: '{"asl' }, finish_reason: 'length' }] }).fetcher
-	);
+	const cut = createOpenRouter('a-key', {
+		fetch: fake(200, { choices: [{ message: { content: '{"asl' }, finish_reason: 'length' }] })
+			.fetcher
+	});
 	await assert.rejects(
 		cut.askJson({ model: 'some/model', user: '…', schema: { name: 'scene', schema: {} } }),
 		/did not answer in JSON \(it stopped for: length\)/
@@ -80,10 +79,31 @@ test('what a key has spent and may spend', async () => {
 		data: { label: 'masked', usage: 1.25, limit: 5, limit_remaining: 3.75, is_free_tier: false }
 	});
 
-	assert.deepEqual(await createOpenRouter('a-key', fetcher).keyInfo(), {
+	assert.deepEqual(await createOpenRouter('a-key', { fetch: fetcher }).keyInfo(), {
 		usedUsd: 1.25,
 		limitUsd: 5,
 		remainingUsd: 3.75,
 		freeTier: false
 	});
+});
+
+test('a provider that hangs is not waited for, and the call is tried again', async () => {
+	let calls = 0;
+	const fetcher = ((_url: string, init: RequestInit) => {
+		calls++;
+		if (calls > 1) return Promise.resolve(new Response(JSON.stringify({ data: { usage: 2 } })));
+		// Never answers: only the signal it was given ends it.
+		return new Promise((_resolve, reject) => {
+			init.signal?.addEventListener('abort', () => reject(init.signal?.reason));
+		});
+	}) as typeof fetch;
+
+	const info = await createOpenRouter('a-key', {
+		fetch: fetcher,
+		timeoutMs: 20,
+		backoffMs: 1
+	}).keyInfo();
+
+	assert.equal(calls, 2);
+	assert.equal(info.usedUsd, 2);
 });

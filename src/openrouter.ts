@@ -11,10 +11,13 @@ export const defaultModel = 'deepseek/deepseek-v4-flash';
 /** A refusal from OpenRouter or from the model behind it. Never carries the key. */
 export class OpenRouterError extends Error {
 	readonly status: number;
+	/** What was paid for an answer that was of no use, when there was one. */
+	readonly usage?: Usage;
 
-	constructor(status: number, message: string) {
+	constructor(status: number, message: string, usage?: Usage) {
 		super(`OpenRouter ${status}: ${message}`);
 		this.status = status;
+		this.usage = usage;
 	}
 }
 
@@ -94,13 +97,24 @@ export async function price(model: string, fetcher: typeof fetch = fetch): Promi
 		: null;
 }
 
-/** `fetch` is for the tests, which bring their own. */
-export function createOpenRouter(apiKey: string, fetcher: typeof fetch = fetch) {
+export interface Options {
+	/** For the tests, which bring their own. */
+	fetch?: typeof fetch;
+	/** How long a call may take. A provider that hangs would otherwise be waited for without end. */
+	timeoutMs?: number;
+	/** The first wait before another try; each one after it is twice as long. */
+	backoffMs?: number;
+}
+
+export function createOpenRouter(apiKey: string, options: Options = {}) {
+	const { fetch: fetcher = fetch, timeoutMs = 180_000, backoffMs = 1_000 } = options;
+
 	async function once(path: string, body?: unknown): Promise<Body> {
 		const response = await fetcher(`${api}${path}`, {
 			method: body === undefined ? 'GET' : 'POST',
 			headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-			body: body === undefined ? undefined : JSON.stringify(body)
+			body: body === undefined ? undefined : JSON.stringify(body),
+			signal: AbortSignal.timeout(timeoutMs)
 		});
 		const answer = (await response.json().catch(() => null)) as Body | null;
 		// A model that fails behind OpenRouter may come back as a 200 with the error inside.
@@ -118,10 +132,10 @@ export function createOpenRouter(apiKey: string, fetcher: typeof fetch = fetch) 
 			try {
 				return await once(path, body);
 			} catch (error) {
-				// A network that drops is a TypeError from `fetch`.
+				// What `fetch` itself throws is a network that drops, or a call that ran out of time.
 				const worthIt = error instanceof OpenRouterError ? passing(error.status) : true;
 				if (!worthIt || attempt === tries) throw error;
-				await new Promise((resolve) => setTimeout(resolve, 1000 * 2 ** (attempt - 1)));
+				await new Promise((resolve) => setTimeout(resolve, backoffMs * 2 ** (attempt - 1)));
 			}
 		}
 	}
@@ -153,26 +167,23 @@ export function createOpenRouter(apiKey: string, fetcher: typeof fetch = fetch) 
 			});
 
 			const choice = answer.choices?.[0];
+			const usage: Usage = {
+				tokensIn: answer.usage?.prompt_tokens ?? 0,
+				tokensOut: answer.usage?.completion_tokens ?? 0,
+				tokensThinking: answer.usage?.completion_tokens_details?.reasoning_tokens ?? 0,
+				usd: answer.usage?.cost ?? 0
+			};
 			let value: T;
 			try {
 				value = JSON.parse(choice?.message?.content ?? '') as T;
 			} catch {
 				throw new OpenRouterError(
 					200,
-					`${model} did not answer in JSON (it stopped for: ${choice?.finish_reason ?? 'no reason given'})`
+					`${model} did not answer in JSON (it stopped for: ${choice?.finish_reason ?? 'no reason given'})`,
+					usage
 				);
 			}
-			return {
-				value,
-				model: answer.model ?? model,
-				provider: answer.provider ?? null,
-				usage: {
-					tokensIn: answer.usage?.prompt_tokens ?? 0,
-					tokensOut: answer.usage?.completion_tokens ?? 0,
-					tokensThinking: answer.usage?.completion_tokens_details?.reasoning_tokens ?? 0,
-					usd: answer.usage?.cost ?? 0
-				}
-			};
+			return { value, model: answer.model ?? model, provider: answer.provider ?? null, usage };
 		}
 	};
 }

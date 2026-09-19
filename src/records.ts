@@ -4,7 +4,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, parse } from 'node:path';
 import { words } from './book.ts';
 import type { Book } from './book.ts';
-import { rules } from './notes.ts';
+import { open, took } from './notes.ts';
 import type { Notes } from './notes.ts';
 
 /**
@@ -90,6 +90,8 @@ export interface NotesRecord {
 		apparatus: number;
 		people: number;
 		threads: number;
+		/** Those a last look at the whole book found settled after all, when there was one. */
+		threadsSettledOnReview?: number;
 		threadsLeftOpen: number;
 		notes: { sha256: string };
 	};
@@ -98,43 +100,30 @@ export interface NotesRecord {
 }
 
 export function notesRecord(book: BookIdentity, notes: Notes): NotesRecord {
-	const sum = (pick: (section: Notes['sections'][number]) => number) =>
-		notes.sections.reduce((total, section) => total + pick(section), 0);
-	const timed = notes.sections.every((section) => section.seconds !== undefined);
+	const { usage, seconds, calls } = took(notes);
 	const providers: Record<string, number> = {};
-	for (const { provider } of notes.sections) {
-		if (provider) providers[provider] = (providers[provider] ?? 0) + 1;
+	for (const name of notes.sections.flatMap((section) => section.providers)) {
+		providers[name] = (providers[name] ?? 0) + 1;
 	}
 
 	return {
 		kind: 'notes',
-		at: notes.startedAt ?? null,
+		at: notes.startedAt,
 		book,
 		sections: {
 			from: (notes.sections[0]?.index ?? 0) + 1,
 			to: (notes.sections.at(-1)?.index ?? 0) + 1
 		},
-		by: {
-			model: notes.model,
-			through: 'OpenRouter',
-			providers,
-			rules: `sha256:${sha256(JSON.stringify(rules)).slice(0, 12)}`,
-			code: code()
-		},
-		took: {
-			calls: notes.sections.length,
-			tokensIn: sum((section) => section.usage.tokensIn),
-			tokensOut: sum((section) => section.usage.tokensOut),
-			tokensThinking: sum((section) => section.usage.tokensThinking),
-			usd: Number(sum((section) => section.usage.usd).toFixed(6)),
-			seconds: timed ? Math.round(sum((section) => section.seconds ?? 0)) : null
-		},
+		by: { model: notes.model, through: 'OpenRouter', providers, rules: notes.rules, code: code() },
+		took: { calls, ...usage, usd: Number(usage.usd.toFixed(6)), seconds },
 		found: {
 			story: notes.sections.filter((section) => section.kind === 'story').length,
 			apparatus: notes.sections.filter((section) => section.kind === 'apparatus').length,
 			people: notes.cast.length,
 			threads: notes.threads.length,
-			threadsLeftOpen: notes.threads.filter((thread) => thread.closed === null).length,
+			threadsSettledOnReview: notes.threads.filter((thread) => thread.review?.verdict === 'settled')
+				.length,
+			threadsLeftOpen: open(notes).length,
 			notes: { sha256: sha256(JSON.stringify(notes)) }
 		}
 	};

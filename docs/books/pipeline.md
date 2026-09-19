@@ -56,15 +56,25 @@ sequenceDiagram
 
     loop Each section, in order
         C->>M: What the reader knows so far, the cast,<br/>the open threads, the section's text
-        M-->>C: Part of the work, or around it · what happens ·<br/>what changes for whom · threads opened, moved, closed ·<br/>what the reader knows now
+        M-->>C: Part of the work, or around it · what happens ·<br/>what changes for whom · who is new ·<br/>threads opened, moved, closed
         Note over C: Brings the cast and the<br/>ledger of threads up to date
+        C->>M: What the reader knew,<br/>and what happens in the section
+        M-->>C: What the reader knows now
+        Note over C: Asks again if it runs long<br/>or lets go of the story
         C->>D: Save
     end
+    C->>M: The outline of the whole book,<br/>and the threads left open
+    M-->>C: Of each: settled, and where · still open · never a thread
+    C->>D: Save
 ```
 
 The model is told to go by the text alone, to leave out what it remembers of the book and what it thinks of it, and to write in English whatever the book's language, which is the one Jev reads best. If it gave opinions, Jev would end up judging the model's opinion of the book instead of the book.
 
-Sections are read in order because what comes out of each is what the next is read in the light of: what a reader knows so far, with nothing of what comes later in it. That is also what Jev is given with a chapter. Only that text is rewritten at every step; the cast and the threads are lists that grow, kept by code, so that what was noted early is not lost by the end. A section that stands around the work, such as a table of contents or somebody else's preface, leaves what the reader knows as it was, and is not for Jev to judge.
+Each thing it is asked is one narrow job, with a call of its own. Asked for everything at once, the model takes the notes of the section well and lets the rest go: what the reader knows so far grows past any limit and then shrinks to the last chapter, and threads stay open that the book settled long before.
+
+Sections are read in order because what comes out of each is what the next is read in the light of: what a reader knows so far, with nothing of what comes later in it. That is also what Jev is given with a chapter. It is the one text rewritten at every step, from what it was and what the section adds, and code holds it to its length. The cast and the threads are lists that grow, kept by code, so that what was noted early is not lost by the end; what each section adds to the cast is kept with the section, so that the cast can be had as a reader knew it on reaching any chapter. A section that stands around the work, such as a table of contents or somebody else's preface, leaves what the reader knows as it was, and is not for Jev to judge.
+
+A thread settled without anybody saying so is easy to miss from inside a chapter. Once the book is read, the threads still open are looked at once more with the whole of it in view, as its outline: what a book leaves unanswered should be the book's doing, not the note-taker's.
 
 ## Where the view of the whole comes from
 
@@ -103,15 +113,18 @@ Jev charges for what it reads, $0.042 a million tokens, and nothing for its answ
 
 What each step has taken when it was run, from the [records](../../records/README.md):
 
-| Step               | Book                 | Words  | By                           | Calls | Tokens in | Tokens out | Cost    | Time        | When       |
-| ------------------ | -------------------- | ------ | ---------------------------- | ----- | --------- | ---------- | ------- | ----------- | ---------- |
-| Take reading notes | King Solomon's Mines | 81,994 | `deepseek/deepseek-v4-flash` | 21    | 143,304   | 36,138     | $0.0086 | 13 min 32 s | 2026-09-19 |
-| Judge each chapter | not run yet          |        | Jev                          |       |           |            |         |             |            |
-| Judge the whole    | not run yet          |        | Jev                          |       |           |            |         |             |            |
+| Step               | Book                 | Words  | By                           | Rules          | Calls | Tokens in | Tokens out | Cost    | Time        | When       |
+| ------------------ | -------------------- | ------ | ---------------------------- | -------------- | ----- | --------- | ---------- | ------- | ----------- | ---------- |
+| Take reading notes | King Solomon's Mines | 81,994 | `deepseek/deepseek-v4-flash` | `c558d82ce81e` | 21    | 143,304   | 36,138     | $0.0086 | 13 min 32 s | 2026-09-19 |
+| Take reading notes | King Solomon's Mines | 81,994 | `deepseek/deepseek-v4-flash` | `7035f9a10552` | 62    | 191,413   | 93,046     | $0.0288 | 25 min 2 s  | 2026-09-19 |
+| Judge each chapter | not run yet          |        | Jev                          |                |       |           |            |         |             |            |
+| Judge the whole    | not run yet          |        | Jev                          |                |       |           |            |         |             |            |
 
-- Taking notes is a call after another, each waiting for the one before, so its time is the sum of them all: some 40 seconds a section.
-- Of what the model wrote, 30% was thinking before the answer, which is paid for as output.
-- OpenRouter sends the same model to one provider or another in the course of a run. They differ in price, in whether the model thinks, and in how closely it follows its instructions.
+- The first rules asked the model for everything in one call a section. They were cheap, and their notes were no good: what the reader knows so far ran from 250 words to 1,284 and then fell to the last chapter alone, and 8 threads of 16 were left open. The second rules ask for one thing a call, two or more calls a section: three times the cost and twice the time, no thread left open that the book settles, and what the reader knows kept to its length in 17 sections of 21.
+- Taking notes is a call after another, each waiting for the one before, so its time is the sum of them all: some 70 seconds a section.
+- Of what the model wrote under the second rules, 61% was thinking before the answer, which is paid for as output. One answer alone ran to 12,949 tokens.
+- OpenRouter sends the same model to one provider or another: 11 of them in one run. They differ in price, the same work costing up to nine times more with one than with another; in whether the model thinks; and in how closely it follows its instructions, down to ignoring a limit of words three times in a row.
+- A run that is given up costs money as well. Two were, on the way to the second rules: an answer cut short by a limit of tokens, and a provider that never answered. They cost some $0.022 by OpenRouter's count, $0.005 of it kept track of by no code. Since then a call has a time limit, an answer of no use is asked for again, and what it cost is counted.
 - A call to Jev with one sentence and two questions took 347 tokens: what goes around the text counts, and an estimate made from the text alone falls short.
 
 ## The valuation
