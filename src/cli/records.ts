@@ -36,7 +36,8 @@ const routing = ({ by }: NotesRecord) =>
 		? [
 				by.routing.sort && `${by.routing.sort} first`,
 				by.routing.only && `only ${by.routing.only.join(', ')}`,
-				by.routing.ignore && `without ${by.routing.ignore.join(', ')}`
+				by.routing.ignore && `without ${by.routing.ignore.join(', ')}`,
+				by.routing.data_collection && 'none that may store it'
 			]
 				.filter(Boolean)
 				.join('; ')

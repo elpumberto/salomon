@@ -200,6 +200,8 @@ export interface Routing {
 	ignore?: string[];
 	/** `price` tries the cheapest first, instead of spreading the calls among them. */
 	sort?: 'price' | 'throughput' | 'latency';
+	/** `deny` keeps away the providers that may store what they are sent, or train on it. */
+	data_collection?: 'deny';
 }
 
 /** One question to the model: its instructions, the shape of its answer and what it is handed. */

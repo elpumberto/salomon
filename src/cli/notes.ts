@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { parseArgs } from 'node:util';
 import { tokens } from '../estimate.ts';
 import { key } from '../keys.ts';
+import { isListed } from '../library.ts';
 import { begin, NotesError, open, reviewThreads, rulesHash, takeNotes, took } from '../notes.ts';
 import type { Ask, Notes, Routing } from '../notes.ts';
 import { createOpenRouter, defaultModel, OpenRouterError, price } from '../openrouter.ts';
@@ -22,7 +23,8 @@ import type { Lost } from '../records.ts';
  * OpenRouter spreads a model's calls among its providers, which differ in price and in how they
  * follow instructions, so the cheapest is tried first unless `--sort` says `throughput`, `latency`
  * or `none`. `--only` and `--ignore` take providers' slugs, with commas between. Notes taken with
- * one routing are kept apart from those taken with another.
+ * one routing are kept apart from those taken with another. A book that is not of `gutenberg.json`
+ * is only sent to providers that do not store what they are sent.
  */
 
 const { values, positionals } = parseArgs({
@@ -96,19 +98,23 @@ const slugs = (list?: string) => list?.split(',').map((slug) => slug.trim().toLo
 // and in how they follow instructions: the cheapest first, unless told otherwise. `--sort none`
 // leaves it to OpenRouter.
 const sort = values.sort ?? 'price';
+// A book that is not of the list is somebody's: no provider that may store what it is sent gets it.
+const somebodys = !(await isListed(path));
 const routing: Routing | undefined =
-	values.only || values.ignore || sort !== 'none'
+	values.only || values.ignore || sort !== 'none' || somebodys
 		? {
 				...(values.only ? { only: slugs(values.only) } : {}),
 				...(values.ignore ? { ignore: slugs(values.ignore) } : {}),
-				...(sort !== 'none' ? { sort: sort as Routing['sort'] } : {})
+				...(sort !== 'none' ? { sort: sort as Routing['sort'] } : {}),
+				...(somebodys ? { data_collection: 'deny' as const } : {})
 			}
 		: undefined;
 const routed = routing
 	? `.${[
 			routing.sort && `by-${routing.sort}`,
 			routing.only && `only-${routing.only.join('+')}`,
-			routing.ignore && `without-${routing.ignore.join('+')}`
+			routing.ignore && `without-${routing.ignore.join('+')}`,
+			routing.data_collection && 'not-stored'
 		]
 			.filter(Boolean)
 			.join('.')}`

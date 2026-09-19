@@ -25,6 +25,8 @@ sets the records of a book side by side.
 
 A record of kind `jev` carries in `by` the questions in full as they were asked, which are the rules an answer was got under, and in `found`, passage by passage, which part of the book it was, what code measured of it, the hash of what was sent, and the answers as numbers. A passage is a section, a piece of one, or several in a row; `variant` says what was done to the text or put beside it, when anything was. Jev says the tokens it took and not the money: `took.usd` is the tokens at its list price.
 
+Of a book that is not one of `gutenberg.json`, which is somebody's, `book.source` keeps the format alone: the name and the hash of the file would tell where it came from, and the hash of the text is enough to tell whether two runs read the same.
+
 A record never carries a word of the book, nor of the notes taken of it. Those stay under `books/`, which git ignores, whoever holds the rights to the book; a record tells them by their hash, which is enough to know whether two runs read the same thing.
 
 A record is not rewritten. A run that a later one makes void stays, and says so in its remarks.

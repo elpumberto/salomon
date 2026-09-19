@@ -44,7 +44,7 @@ export interface Ask {
 	schema: { name: string; schema: Record<string, unknown> };
 	maxTokens?: number;
 	/** Which providers of the model to let in: see OpenRouter's provider routing. */
-	routing?: { only?: string[]; ignore?: string[]; sort?: string };
+	routing?: { only?: string[]; ignore?: string[]; sort?: string; data_collection?: 'deny' };
 }
 
 export interface Answer<T> {

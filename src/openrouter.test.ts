@@ -30,7 +30,7 @@ test('an answer comes back parsed, with what it cost', async () => {
 		system: 'Answer about the text.',
 		user: 'The cat slept.',
 		schema: { name: 'scene', schema: { type: 'object' } },
-		routing: { ignore: ['open-inference'], sort: 'price' }
+		routing: { ignore: ['open-inference'], sort: 'price', data_collection: 'deny' }
 	});
 
 	assert.deepEqual(answer, {
@@ -55,7 +55,9 @@ test('an answer comes back parsed, with what it cost', async () => {
 	assert.deepEqual(sent.provider, {
 		require_parameters: true,
 		ignore: ['open-inference'],
-		sort: 'price'
+		sort: 'price',
+		// Asked for somebody's book: none of those that may store what they are sent.
+		data_collection: 'deny'
 	});
 });
 

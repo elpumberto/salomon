@@ -6,7 +6,7 @@ It is an experiment, not a product. How a book gets from a file to a valuation, 
 
 ## Books
 
-No book goes in the repo, nor anything made from one: `books/` is ignored whole. The ones the experiment starts from are Project Gutenberg's, listed in `gutenberg.json` with the sections of each that are the story, and whether it is a book to judge or one a passage is taken from to set others against, and
+No book goes in the repo, nor anything made from one: `books/` is ignored whole. A book that is not of the list is somebody's, and is treated so without being asked to: its notes are only taken by providers that do not store what they are sent, and what is recorded of it keeps the hash of its text and neither the name nor the hash of the file it came from. An EPUB with copy protection is not read. The ones the experiment starts from are Project Gutenberg's, listed in `gutenberg.json` with the sections of each that are the story, and whether it is a book to judge or one a passage is taken from to set others against, and
 
     npm install
     npm run fetch

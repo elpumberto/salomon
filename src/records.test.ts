@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict';
-import { mkdtemp, readdir, readFile } from 'node:fs/promises';
+import { mkdtemp, readdir, readFile, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
-import { keep } from './records.ts';
+import type { Book } from './book.ts';
+import { identify, keep } from './records.ts';
 import type { NotesRecord } from './records.ts';
 
 const record = (
@@ -56,4 +57,33 @@ test('runs set off in the same second keep a record each, and a run keeps one', 
 	assert.equal(again, first);
 	assert.equal((await readdir(join(base, 'records/books/a-made-up-book'))).length, 3);
 	assert.equal(JSON.parse(await readFile(join(base, first), 'utf8')).took.usd, 0.04);
+});
+
+test("of somebody's book the record keeps the text's hash, and nothing of the file", async () => {
+	const base = await mkdtemp(join(tmpdir(), 'salomon-records-'));
+	const book = (file: string): Book => ({
+		title: 'A Book of Today',
+		author: 'Someone Living',
+		language: 'en',
+		source: { file, format: 'epub' },
+		sections: [{ title: 'I', paragraphs: ['It begins.'] }]
+	});
+	const mine = join(base, 'Someone Living - A Book of Today (from my reader).epub');
+	const listed = join(base, 'king-solomons-mines.epub');
+	await writeFile(mine, 'not really an epub');
+	await writeFile(listed, 'not really an epub');
+
+	const private_ = await identify(
+		mine,
+		book('Someone Living - A Book of Today (from my reader).epub')
+	);
+	const public_ = await identify(listed, book('king-solomons-mines.epub'));
+
+	assert.deepEqual(private_.source, { format: 'epub' });
+	assert.equal(private_.text.sha256, public_.text.sha256);
+	assert.equal(public_.source.file, 'king-solomons-mines.epub');
+	assert.ok(public_.source.sha256);
+	const kept = await keep({ ...record('some/model', 0.01), book: private_ }, base);
+	assert.ok(kept.startsWith('records/books/a-book-of-today/'), kept);
+	assert.ok(!(await readFile(join(base, kept), 'utf8')).includes('from my reader'));
 });

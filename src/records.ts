@@ -7,6 +7,7 @@ import { words } from './book.ts';
 import type { Book } from './book.ts';
 import { usd } from './estimate.ts';
 import type { Judged } from './judge.ts';
+import { isListed } from './library.ts';
 import { open, took } from './notes.ts';
 import type { Notes, Took } from './notes.ts';
 
@@ -27,8 +28,12 @@ export interface BookIdentity {
 	title: string | null;
 	author: string | null;
 	language: string | null;
-	/** The file it was read from. The hash tells one edition from another. */
-	source: { file: string; format: string; sha256: string };
+	/**
+	 * The file it was read from: its hash tells one edition from another. Of a book that is not of
+	 * the list only the format is kept, since the name and the hash of somebody's file tell where
+	 * it came from and add nothing: the hash of the text is enough to know two runs read the same.
+	 */
+	source: { file?: string; format: string; sha256?: string };
 	/** The text once normalized. A hash that changes with the same source is the reader that changed. */
 	text: { sha256: string; sections: number; words: number };
 }
@@ -39,7 +44,9 @@ export async function identify(path: string, book: Book): Promise<BookIdentity> 
 		title,
 		author,
 		language,
-		source: { ...source, sha256: sha256(await readFile(path)) },
+		source: (await isListed(path))
+			? { ...source, sha256: sha256(await readFile(path)) }
+			: { format: source.format },
 		text: {
 			sha256: sha256(JSON.stringify(sections)),
 			sections: sections.length,
@@ -242,7 +249,12 @@ export function jevRecord(
 export async function keep(record: NotesRecord | JevRecord, base = root): Promise<string> {
 	const slug = (name: string) => name.toLowerCase().replace(/[^a-z0-9.]+/g, '-');
 	const stamp = (record.at ?? new Date().toISOString()).replace(/[-:]|\.\d+/g, '');
-	const folder = join('records', 'books', slug(parse(record.book.source.file).name));
+	const { source, title } = record.book;
+	const folder = join(
+		'records',
+		'books',
+		slug(source.file ? parse(source.file).name : (title ?? 'untitled'))
+	);
 	const run = (one: NotesRecord | JevRecord) =>
 		JSON.stringify([
 			one.at,

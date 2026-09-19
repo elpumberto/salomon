@@ -1,9 +1,9 @@
-import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { words } from './book.ts';
 import type { Book } from './book.ts';
 import { measure, pieces } from './judge.ts';
 import type { Judged, Passage } from './judge.ts';
+import { listed } from './library.ts';
 import { readBook } from './read/index.ts';
 
 /**
@@ -15,16 +15,6 @@ import { readBook } from './read/index.ts';
  */
 
 const root = join(import.meta.dirname, '..');
-
-export interface Listed {
-	slug: string;
-	title: string;
-	use?: 'judged' | 'anchor';
-	story?: string;
-}
-
-export const listed = async (): Promise<Listed[]> =>
-	JSON.parse(await readFile(join(root, 'gutenberg.json'), 'utf8'));
 
 export function anchorOf(book: Book): string {
 	const long = book.sections
