@@ -2,7 +2,7 @@
 
 This is how Salomón values a book. Another kind of work, a record or a film, would get a pipeline of its own.
 
-Jev answers closed questions about what fits in one call, some 32,000 tokens: a chapter, never a book. So a book is judged in pieces, and what holds the pieces together is made beforehand, by a language model that reads the book and takes notes. Three hands do the work, and each does one thing: code moves things along and does the sums, the language model writes down what happens and judges nothing, and Jev judges and writes nothing.
+Jev answers closed questions about what fits in one call, some 32,000 tokens: a chapter, never a book. So a book is judged by passages of it, and what only the whole shows is asked of notes that a language model takes beforehand. Three hands do the work, and each does one thing: code moves things along and does the sums, the language model writes down what happens and judges nothing, and Jev judges and writes nothing.
 
 ## The whole way
 
@@ -11,40 +11,47 @@ flowchart TD
     file([".epub or .txt"]) --> normalize["Normalize"]
     normalize --> book[("The book:<br/>sections of paragraphs")]
 
-    book --> takeNotes["Take reading notes,<br/>a section at a time, in order"]
-    takeNotes --> notes[("Reading notes:<br/>what happens in each section,<br/>what the reader knows on reaching it,<br/>the cast, the threads of the story")]
+    book --> cut["Cut twelve passages of 3,000 words,<br/>spread over the story"]
+    cut --> judge["Judge each passage, blind:<br/>what would a reader, an editor<br/>or a teacher do with it?"]
+    judge --> answers[("Answers:<br/>probabilities and scores,<br/>passage by passage")]
+    answers --> value["Value: the mean of the passages,<br/>less what ornament takes in"]
+    value --> valuation(["Merit · a good read ·<br/>what kind of book it is"])
 
-    book --> judgeChapter["Judge each chapter:<br/>its text, and what<br/>the reader knows by then"]
-    notes --> judgeChapter
-    notes --> judgeWhole["Judge the whole:<br/>the book as its notes,<br/>which fit in one call"]
-
-    judgeChapter --> answers[("Answers:<br/>probabilities and scores,<br/>by chapter and for the whole")]
-    judgeWhole --> answers
-
-    answers --> combine["Combine: along the book,<br/>then by weights"]
-    combine --> valuation(["Valuation"])
+    book -.-> takeNotes["Take reading notes,<br/>a section at a time, in order"]
+    takeNotes -.-> notes[("Reading notes:<br/>what happens, the cast,<br/>the threads of the story")]
+    notes -.-> judgeWhole["Judge the whole as its outline,<br/>and each chapter in its place"]
+    judgeWhole -.-> profile(["How it is built, how it ends,<br/>whose side it takes"])
 
     classDef code stroke:#64748b,stroke-width:2px
     classDef model stroke:#d97706,stroke-width:2px
     classDef jev stroke:#059669,stroke-width:2px
-    classDef todo stroke-dasharray:6 4
-    class normalize,combine code
+    class normalize,cut,value code
     class takeNotes model
-    class judgeChapter,judgeWhole jev
-    class judgeChapter,judgeWhole,answers,combine,valuation todo
+    class judge,judgeWhole jev
 ```
 
-Grey is code, orange the language model, green Jev; what is dashed is not built yet.
+Grey is code, orange the language model, green Jev. The solid way is what values a book, `npm run judge` and `npm run value`: a quarter of a cent and ten seconds. The dotted one adds to its profile what only the whole book shows, and is run by the scripts of [what only the whole book shows](whole-book.md): some ten cents a book, nearly all of it the notes.
 
-What each step leaves is kept under `books/`, so a step is paid for once: the notes do not have to be taken again to ask Jev something else, and nothing has to be asked again to weigh its answers another way.
+What each step leaves is kept, the book and its notes under `books/` and Jev's answers under `records/`, so a step is paid for once: nothing has to be asked again to weigh the answers another way.
 
-| Step               | By                                                          | From                                                                                       | Leaves                                                                                                                                                                                                                  |
-| ------------------ | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Normalize          | Code                                                        | An EPUB or a plain text                                                                    | The book's sections, each with its title and its paragraphs as plain text: the paragraph is where a book can be cut                                                                                                     |
-| Take reading notes | A language model, through OpenRouter: Gemini 3.1 Flash-Lite | The book, a section at a time                                                              | For each section: whether it is part of the work or stands around it, what happens, what changes for whom, the threads it touches, what a reader knows by its end. For the book: its cast and the ledger of its threads |
-| Judge each chapter | Jev                                                         | A chapter's text, with what the reader knows on reaching it                                | Answers about the chapter: how it is written, and what it does for the story                                                                                                                                            |
-| Judge the whole    | Jev                                                         | All the notes, as an outline of the book; a thread, or a character's changes, on their own | Answers about the book: whether it holds together                                                                                                                                                                       |
-| Combine            | Code                                                        | Every answer                                                                               | The valuation                                                                                                                                                                                                           |
+| Step               | By                                                          | From                                                                                        | Leaves                                                                                                                                                                                                                  |
+| ------------------ | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Normalize          | Code                                                        | An EPUB or a plain text                                                                     | The book's sections, each with its title and its paragraphs as plain text: the paragraph is where a book can be cut                                                                                                     |
+| Cut the passages   | Code                                                        | The sections that are the story, as one text                                                | Twelve passages of about 3,000 words, evenly spread from the first to the last, each ending where a paragraph ends                                                                                                      |
+| Judge each passage | Jev                                                         | The passage alone, with no title nor author                                                 | Fourteen answers about what a reader, an editor or a teacher would do with it                                                                                                                                           |
+| Value              | Code                                                        | The answers of the twelve passages                                                          | Merit and a good read, from 0 to 1; how even the book is; what it reads like and whom it is written for                                                                                                                 |
+| Take reading notes | A language model, through OpenRouter: Gemini 3.1 Flash-Lite | The book, a section at a time                                                               | For each section: whether it is part of the work or stands around it, what happens, what changes for whom, the threads it touches, what a reader knows by its end. For the book: its cast and the ledger of its threads |
+| Judge the whole    | Jev                                                         | The notes as an outline of the book; each chapter with what the reader knows on reaching it | How far it is one whole, what brings its end about, how far it looks beyond its people, in what share of its chapters both sides have a claim                                                                           |
+
+## Why passages, why twelve, why 3,000 words
+
+Each was tried, on twenty books of known standing, and is written up in [other ways of asking](other-ways.md).
+
+- **Passages and not chapters**, since a chapter is 1,700 words in one book and 11,000 in another, and Jev does not score a chapter as it scores its pieces: what is present it scores as the most of its pieces, what is a share as their mean.
+- **Twelve**, since the merit of a book judged whole is known to ±0.01, and twelve passages spread over it order books as the whole does.
+- **3,000 words**, since under 2,000 a passage of the better of two books comes out over one of the worse less often, from 2,500 to 4,000 nothing moves, and the questions are paid once a call.
+- **What people would do and not what the writing is like**, since asked so Jev orders books of known standing better with half the questions, needs no allowance for the age of the prose, and with one guard is not taken in by ornament.
+- **Blind**, since what Jev is told of a text moves what it says of it: a name or a critic's word beside a chapter of Austen took it from 0.95 to 0.53 as finely written.
 
 ## Taking the notes
 
@@ -76,49 +83,26 @@ Sections are read in order because what comes out of each is what the next is re
 
 A thread settled without anybody saying so is easy to miss from inside a chapter. Once the book is read, the threads still open are looked at once more with the whole of it in view, as its outline: what a book leaves unanswered should be the book's doing, not the note-taker's.
 
-## Where the view of the whole comes from
+## What the notes are for
 
-Jev sees a chapter at a time, and a book is more than its chapters one by one. What is true of the whole is reached in three ways.
+The notes were made to give Jev the view of the whole, and that is what they are used for; they are no part of how a passage is judged, since with what the reader knows so far beside a chapter Jev's answers about the chapter moved by 0.02. Two things are asked with them. The notes of all its sections make an outline of the book that fits in one call, and of that Jev is asked how the book is built and how it ends. And each chapter is sent with what the reader knows on reaching it, to ask what it does to the people of the story: whether someone is torn, and whether both sides of its conflict have a claim on the reader.
 
-```mermaid
-flowchart LR
-    text["A chapter's text"] --> a["How is this written?<br/>The prose, the dialogue,<br/>how much happens"]
-    text --> b
-    sofar["What the reader<br/>knows by then"] --> b["What does this do for the story?<br/>Does it move a thread, do people<br/>act as they were drawn?"]
-    outline["All the notes,<br/>as an outline"] --> c["Does the book hold together?<br/>Does the end settle what<br/>the beginning opened?"]
-    ledger["One thread, or one character's<br/>changes, from the notes"] --> c
-
-    a --> along["Along the book:<br/>its level, how even it is,<br/>where it sags"]
-    b --> along
-    along --> dimensions["Dimensions"]
-    c --> dimensions
-
-    classDef code stroke:#64748b,stroke-width:2px
-    classDef jev stroke:#059669,stroke-width:2px
-    classDef todo stroke-dasharray:6 4
-    class along,dimensions code
-    class a,b,c jev
-    class a,b,c,along,dimensions todo
-```
-
-1. **The sum of the parts.** Jev answers the same questions of every chapter, and code lines the answers up along the book. How well a book is written is how well its chapters are, and how evenly; where it drags is where little happens for long.
-2. **A chapter, knowing what came before.** Some questions are about a chapter and cannot be answered from it alone: whether it moves the story on, whether its people act as they were drawn. Jev is given what the reader knows on reaching it. It is kept short, and the questions say which part is being judged, because what stands next to a text rubs off on what Jev says of it.
-3. **The book as its notes.** The notes of all its sections make an outline of the book that fits in one call, and of that Jev can be asked what is only true of the whole.
-
-Jev does not count and does not follow a long chain of steps. Keeping track is for the notes and for code: which threads were never closed is read off the ledger, and a character's arc is what changed for them, section after section, put in a row. What Jev gets is a narrow question on a small piece of that: of one thread, whether the way it ends follows from the way it began.
+Jev does not count and does not follow a long chain of steps. Keeping track is for the notes and for code: which threads were never closed is read off the ledger, and a character's arc is what changed for them, section after section, put in a row. What that tells, and what it does not, is in [what only the whole book shows](whole-book.md): how a book is built and not how well.
 
 ## What it costs, and how long it takes
 
-Jev charges for what it reads, $0.042 a million tokens, and nothing for its answers. A language model charges for both, each by its own price, which OpenRouter lists. Normalizing is code, takes under a second and costs nothing.
+Jev charges for what it reads, $0.042 a million tokens, and nothing for its answers. A language model charges for both, each by its own price, which OpenRouter lists. Normalizing and valuing are code, take under a second and cost nothing.
 
-What each step has taken when it was run, from the [records](../../records/README.md):
+What each step has taken when it was run, from the [records](../../records/README.md), all on _Treasure Island_, 67,800 words, on 2026-09-19:
 
-| Step                                                                      | Book                 | Words  | By                             | Calls | Tokens in | Tokens out | Cost    | Time       | When       |
-| ------------------------------------------------------------------------- | -------------------- | ------ | ------------------------------ | ----- | --------- | ---------- | ------- | ---------- | ---------- |
-| Take reading notes                                                        | King Solomon's Mines | 81,994 | `google/gemini-3.1-flash-lite` | 41    | 145,016   | 16,217     | $0.0606 | 1 min 25 s | 2026-09-19 |
-| Judge it in pieces of 1,000 words, 29 questions a piece                   | Treasure Island      | 67,655 | Jev, `jev-1.13.0`              | 68    | 288,901   | free       | $0.0121 | 1 min 12 s | 2026-09-19 |
-| Set twelve of its pieces against a panel of six passages, both ways round | Treasure Island      | 67,655 | Jev, `jev-1.13.0`              | 144   | 446,376   | free       | $0.0187 | 1 min 41 s | 2026-09-19 |
-| Judge the whole                                                           | not run yet          |        | Jev                            |       |           |            |         |            |            |
+| Step                                                    | By                             | Calls | Tokens in | Tokens out | Cost    | Time  |
+| ------------------------------------------------------- | ------------------------------ | ----- | --------- | ---------- | ------- | ----- |
+| Judge twelve passages of 3,000 words, 14 questions each | Jev, `jev-1.13.0`              | 12    | 61,456    | free       | $0.0026 | 7 s   |
+| Take reading notes                                      | `google/gemini-3.1-flash-lite` | 68    | 159,687   | 24,555     | $0.0768 | 2 min |
+| Judge the whole as its outline                          | Jev                            | 1     | 9,650     | free       | $0.0004 | 1 s   |
+| Judge each chapter in its place, 5 questions each       | Jev                            | 34    | 126,776   | free       | $0.0053 | 15 s  |
+
+The first valuation judged the whole book in pieces of 1,000 words and set twelve of them against a panel of six passages, both ways round: 212 calls and $0.031 for the same book, twelve times as much for an order of books no better.
 
 The model that takes the notes was chosen among nine, each tried on the same book: [who takes the notes](notes-experiments.md) has every run, what it cost and why it was kept or let go. What that showed about cost and time:
 
@@ -126,24 +110,15 @@ The model that takes the notes was chosen among nine, each tried on the same boo
 - What a model thinks is paid for as output: up to 87% of what one of them wrote. It also makes its cost hard to foresee, a single answer running to 24,000 tokens.
 - OpenRouter sends the same model to one provider or another, 11 of them in one run. They differ in price, up to five times; in whether the model thinks; and in how closely it follows its instructions. Asking for the cheapest first made the same notes 42% cheaper and better kept to their limits.
 - Not only the calls that come back are paid for. A call cut off for taking too long is billed for what the model had written by then, and nothing on this side says how much: of the $0.46 that choosing a model cost, a quarter is in no record. It happens to models that think, on providers that are slow.
-- With Jev the questions weigh as much as the text: each adds some 110 tokens to every call, so a piece of 1,000 words, 1,300 tokens by itself, comes to 4,200 with 29 questions. A call with one sentence and two questions took 347.
-- Jev is the cheap part: a book judged piece by piece costs a fifth of what taking its notes does. What Jev was tried on before settling the questions, and what that cost, is in [what Jev can tell of a chapter](jev-experiments.md).
+- With Jev the questions weigh as much as the text on short passages: each adds some 110 tokens to every call, so a piece of 1,000 words, 1,300 tokens by itself, came to 4,200 with the 29 questions of the first valuation. At 3,000 words and fourteen questions the text is three quarters of the call, which is one reason the passages are of that size.
+- Jev is the cheap part: judging a book costs a thirtieth of what taking its notes does. What Jev was tried on before settling the questions, and what that cost, is in [what Jev can tell of a chapter](jev-experiments.md).
 
 ## The valuation
 
-```mermaid
-flowchart LR
-    dimensions["Dimensions,<br/>each from 0 to 1"] --> quality["Weighed for<br/>literary merit"]
-    dimensions --> liking["Weighed for<br/>a good read"]
-    quality --> one(["One score"])
-    liking --> other(["Another"])
+Jev is never asked whether a book is good. It is asked narrow things about what people would do with a passage, and a valuation is arithmetic on its answers, by rules that have a hash as the questions have theirs: [src/value.ts](../../src/value.ts).
 
-    classDef code stroke:#64748b,stroke-width:2px
-    classDef todo stroke-dasharray:6 4
-    class quality,liking code
-    class dimensions,quality,liking,one,other todo
-```
+- **Literary merit** is the mean of nine answers: what a reader would mark to keep, whether every word reads as weighed, what an editor would do, what is remembered a week later, who could have written it, whether a teacher would give it to a class to learn from and as what not to do, whether a reader would come back to it and enjoy it aloud. Six of them are taken in by a passage overdone on purpose; the teacher's two are not. So those six count for less the surer the teacher is that the passage is what not to do, in full up to half sure and for nothing when certain.
+- **A good read** is whether a reader would be taken in, go on rather than stop, and not skim.
+- **What judges nothing**: the lowest and the highest of its passages, which says how even the book is; what it reads like, a draft or a text with every word weighed; and whom it is written for, children, the widest public, readers in general or those who read for the writing.
 
-Jev is never asked whether a book is good. It is asked many narrow things, which add up to dimensions, and a valuation is those dimensions weighed. There is more than one way to weigh them, and that is the old argument about what a rating is for: whoever rates a book by its literary merit and whoever rates it by how much they liked it are weighing the same book differently. The dimensions are kept, so weighing them another way asks Jev nothing.
-
-Which questions, which dimensions they add up to and which weights make a valuation anyone would stand by is what the experiment is there to find.
+There is more than one way to weigh a book, and that is the old argument about what a rating is for: whoever rates a book by its literary merit and whoever rates it by how much they liked it are weighing the same book differently. The answers are kept, so weighing them another way asks Jev nothing. What a merit of 0.79 means, and what it does not, is in [how to read a valuation](reading-a-valuation.md).

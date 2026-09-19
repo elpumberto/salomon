@@ -169,3 +169,7 @@ What did not:
 - As a read, _The War of the Worlds_ and _The Moonstone_ were expected high and come out in the middle, as _Pride and Prejudice_ and _Dracula_ did. The read tells the ends apart, _Tarzan of the Apes_ from _Ulysses_, and little in between.
 
 So merit, as these questions and rules have it, orders books within a genre as those who know them would, in seventeen of the eighteen pairs of books of a same ladder and in eight of the nine among the books that had no part in setting them, and tells prose written for the ages from prose written by the yard. It does not tell a great novel from a good one, which takes the whole book, and it has a taste. A good read is the weaker valuation: it says which of the two a book is more of, and ranks only the extremes.
+
+## What came after
+
+These questions and rules were one throw of the dice. With the twenty books judged, other sizes of passage and other questions were tried on them by one yardstick, and the way that did best was checked on twelve books more: [other ways of asking](other-ways.md). It is the one in use; what is told here stands as it was found, and its numbers are had again with `node experiments/books/jev/passage-board.ts`.

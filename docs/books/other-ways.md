@@ -44,35 +44,35 @@ Some 3,000 calls to Jev and $0.69 in all.
 - **One question does as much as nine.** `draft` and `again` alone put the eighteen pairs in order; so had `prose` and `fine` among the `passage` questions. Many questions add steadiness and a profile, not a better order.
 - **The duel is a floor.** Nearly every book beats its plain retelling, 0.93 to 1.00 of the time, so that the books are not ranked by it: 14 pairs in order of 18 by which is better written, 15 by which a teacher would take. It finds the book whose writing adds nothing: _Irene Iddesleigh_ is held the better written 0.54 of the time and the more enjoyable 0.32. The retellings came out at 45 to 77 hundredths of the length asked for, some passages were refused by the model that retells, and one of _Ulysses_ ran to twenty times its length, which voids that book's duel.
 
-The twenty books by the behavioural questions at 3,000 words, twelve passages each:
+The twenty books by the behavioural questions at 3,000 words, twelve passages each; the lowest and the highest passage are told by the gated merit:
 
 | Book                              | Merit | Gated | Lowest and highest passage | Read | To learn from | What not to do | For those who read for the writing | For the widest public |
 | --------------------------------- | ----- | ----- | -------------------------- | ---- | ------------- | -------------- | ---------------------------------- | --------------------- |
 | _Pride and Prejudice_             | 0.80  | 0.80  | 0.76–0.85                  | 0.70 | 0.82          | 0.12           | 0.77                               | 0.06                  |
 | _The Sheik_                       | 0.68  | 0.68  | 0.64–0.75                  | 0.75 | 0.57          | 0.37           | 0.30                               | 0.50                  |
-| _Irene Iddesleigh_                | 0.46  | 0.19  | 0.43–0.50                  | 0.62 | 0.14          | 0.85           | 0.41                               | 0.35                  |
+| _Irene Iddesleigh_                | 0.46  | 0.19  | 0.15–0.25                  | 0.62 | 0.14          | 0.85           | 0.41                               | 0.35                  |
 | _Treasure Island_                 | 0.81  | 0.81  | 0.78–0.83                  | 0.78 | 0.83          | 0.12           | 0.14                               | 0.13                  |
 | _King Solomon's Mines_            | 0.75  | 0.75  | 0.65–0.82                  | 0.75 | 0.68          | 0.22           | 0.07                               | 0.54                  |
 | _Tarzan of the Apes_              | 0.69  | 0.69  | 0.65–0.73                  | 0.78 | 0.60          | 0.29           | 0.03                               | 0.67                  |
 | _The Turn of the Screw_           | 0.83  | 0.83  | 0.79–0.85                  | 0.77 | 0.80          | 0.21           | 0.98                               | 0.00                  |
 | _Dracula_                         | 0.76  | 0.76  | 0.71–0.81                  | 0.73 | 0.72          | 0.24           | 0.45                               | 0.25                  |
-| _Varney the Vampire_              | 0.58  | 0.50  | 0.47–0.64                  | 0.71 | 0.34          | 0.59           | 0.14                               | 0.63                  |
+| _Varney the Vampire_              | 0.58  | 0.50  | 0.30–0.64                  | 0.71 | 0.34          | 0.59           | 0.14                               | 0.63                  |
 | _The Moonstone_                   | 0.75  | 0.75  | 0.70–0.79                  | 0.72 | 0.72          | 0.27           | 0.51                               | 0.20                  |
 | _The Mysterious Affair at Styles_ | 0.74  | 0.74  | 0.71–0.77                  | 0.73 | 0.72          | 0.19           | 0.09                               | 0.55                  |
-| _The Mystery of a Hansom Cab_     | 0.59  | 0.58  | 0.53–0.64                  | 0.68 | 0.42          | 0.48           | 0.08                               | 0.68                  |
+| _The Mystery of a Hansom Cab_     | 0.59  | 0.58  | 0.52–0.64                  | 0.68 | 0.42          | 0.48           | 0.08                               | 0.68                  |
 | _The War of the Worlds_           | 0.79  | 0.79  | 0.76–0.82                  | 0.76 | 0.82          | 0.16           | 0.41                               | 0.21                  |
 | _The Lost World_                  | 0.75  | 0.75  | 0.71–0.79                  | 0.75 | 0.71          | 0.23           | 0.16                               | 0.44                  |
-| _Edison's Conquest of Mars_       | 0.61  | 0.59  | 0.56–0.70                  | 0.70 | 0.41          | 0.48           | 0.03                               | 0.63                  |
+| _Edison's Conquest of Mars_       | 0.61  | 0.59  | 0.42–0.70                  | 0.70 | 0.41          | 0.48           | 0.03                               | 0.63                  |
 | _La Regenta_                      | 0.79  | 0.79  | 0.73–0.82                  | 0.72 | 0.75          | 0.25           | 0.98                               | 0.00                  |
 | _La barraca_                      | 0.77  | 0.77  | 0.75–0.79                  | 0.76 | 0.75          | 0.22           | 0.92                               | 0.01                  |
 | _El cocinero de su majestad_      | 0.70  | 0.70  | 0.64–0.75                  | 0.73 | 0.56          | 0.34           | 0.46                               | 0.32                  |
 | _Don Quijote_                     | 0.80  | 0.80  | 0.77–0.86                  | 0.70 | 0.77          | 0.16           | 0.63                               | 0.17                  |
-| _Ulysses_                         | 0.71  | 0.63  | 0.38–0.90                  | 0.59 | 0.49          | 0.47           | 0.97                               | 0.01                  |
+| _Ulysses_                         | 0.71  | 0.63  | 0.33–0.90                  | 0.59 | 0.49          | 0.47           | 0.97                               | 0.01                  |
 
 What it is good for and what it is not:
 
 - **Three floors, and little within the top one.** Prose written by the yard, 0.46 to 0.61; the competent seller, 0.68 to 0.71; the well written, 0.74 to 0.83. Within the last the order of each ladder is right and the distances are of a hundredth or two: _The Moonstone_ over _The Mysterious Affair at Styles_ by 0.01, _La Regenta_ level with _The War of the Worlds_. It says on which floor a book is; it does not tell a great novel from a good one, any more than the `passage` rules did.
-- **_Ulysses_ is still marked down**, 0.71, with _Tarzan of the Apes_. But its passages run from 0.38 to 0.90, the lowest and the highest of all twenty books, where no other book spans two tenths: what the book is like is seen, and the mean is unkind to it.
+- **_Ulysses_ is still marked down**, 0.71, with _Tarzan of the Apes_. But its passages run from 0.33 to 0.90, the highest of all twenty books and among the lowest, where no other book of the upper floors spans two tenths: what the book is like is seen, and the mean is unkind to it.
 - **The read is still the weaker valuation**, all twenty books between 0.59 and 0.78.
 - **Whom it is written for is no mark, and says most.** Readers who read for the writing: _The Turn of the Screw_, _La Regenta_, _Ulysses_, _La barraca_, _Pride and Prejudice_. The widest public, to pass the time: _The Mystery of a Hansom Cab_, _Tarzan of the Apes_, _Varney the Vampire_, _Edison's Conquest of Mars_. _Irene Iddesleigh_ is written for those who read for the writing as much as for anyone, 0.41, and is what a teacher would show as what not to do, 0.85: it means to be literature and is not.
 
@@ -129,15 +129,15 @@ Judged on 2026-09-19 with nothing changed: 170 calls to Jev and $0.04, the test 
 | ------------------------------- | ----- | ----- | -------------------------- | ---- | ------------- | -------------- | ----------------------- |
 | _The Wind in the Willows_       | 0.80  | 0.80  | 0.77–0.88                  | 0.75 | 0.77          | 0.15           | Children, 0.99          |
 | _The Wonderful Wizard of Oz_    | 0.75  | 0.75  | 0.73–0.79                  | 0.74 | 0.75          | 0.11           | Children, 1.00          |
-| _Tom Swift and His Motor-Cycle_ | 0.54  | 0.55  | 0.50–0.60                  | 0.71 | 0.40          | 0.33           | Children, 0.96          |
+| _Tom Swift and His Motor-Cycle_ | 0.54  | 0.55  | 0.45–0.60                  | 0.71 | 0.40          | 0.33           | Children, 0.96          |
 | _The Virginian_                 | 0.80  | 0.80  | 0.76–0.86                  | 0.74 | 0.78          | 0.17           | For the writing, 0.71   |
 | _Riders of the Purple Sage_     | 0.76  | 0.76  | 0.74–0.81                  | 0.78 | 0.72          | 0.22           | For the writing, 0.48   |
-| _Deadwood Dick_                 | 0.41  | 0.54  | 0.48–0.58                  | 0.68 | 0.27          | 0.66           | The widest public, 0.80 |
+| _Deadwood Dick_                 | 0.41  | 0.54  | 0.26–0.54                  | 0.68 | 0.27          | 0.66           | The widest public, 0.80 |
 | _The Age of Innocence_          | 0.83  | 0.83  | 0.79–0.86                  | 0.74 | 0.84          | 0.14           | For the writing, 0.99   |
 | _The Rosary_                    | 0.74  | 0.74  | 0.70–0.79                  | 0.73 | 0.63          | 0.34           | For the writing, 0.54   |
-| _Three Weeks_                   | 0.67  | 0.71  | 0.67–0.74                  | 0.75 | 0.51          | 0.49           | For the writing, 0.60   |
+| _Three Weeks_                   | 0.67  | 0.71  | 0.56–0.74                  | 0.75 | 0.51          | 0.49           | For the writing, 0.60   |
 | _Cien años de soledad_          | 0.86  | 0.86  | 0.81–0.90                  | 0.79 | 0.86          | 0.11           | For the writing, 0.98   |
-| _Amanecer_                      | 0.48  | 0.54  | 0.45–0.62                  | 0.76 | 0.37          | 0.57           | The widest public, 0.67 |
+| _Amanecer_                      | 0.48  | 0.54  | 0.30–0.62                  | 0.76 | 0.37          | 0.57           | The widest public, 0.67 |
 | _Mrs. Dalloway_                 | 0.86  | 0.86  | 0.83–0.89                  | 0.73 | 0.86          | 0.15           | For the writing, 1.00   |
 
 The middle passage of seven of them as it is, told dull and told overdone, by each merit:
