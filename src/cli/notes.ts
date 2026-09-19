@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
+import { gathered } from '../book.ts';
 import { tokens } from '../estimate.ts';
 import { key } from '../keys.ts';
 import { isListed } from '../library.ts';
@@ -24,7 +25,9 @@ import type { Lost } from '../records.ts';
  * follow instructions, so the cheapest is tried first unless `--sort` says `throughput`, `latency`
  * or `none`. `--only` and `--ignore` take providers' slugs, with commas between. Notes taken with
  * one routing are kept apart from those taken with another. A book that is not of `gutenberg.json`
- * is only sent to providers that do not store what they are sent.
+ * is only sent to providers that do not store what they are sent. `--gather 3000` is for a book
+ * whose sections are a few lines each: they are gathered into sections of at least as many words,
+ * and numbered as gathered.
  */
 
 const { values, positionals } = parseArgs({
@@ -41,13 +44,14 @@ const { values, positionals } = parseArgs({
 		remarks: { type: 'string' },
 		only: { type: 'string' },
 		ignore: { type: 'string' },
-		sort: { type: 'string' }
+		sort: { type: 'string' },
+		gather: { type: 'string' }
 	}
 });
 const [path] = positionals;
 if (!path) {
 	console.error(
-		'usage: npm run notes -- <book.epub | book.txt> [--from n] [--to n] [--model id] [--max-usd n] [--go] [--redo] [--show] [--record] [--remarks text] [--only providers] [--ignore providers] [--sort price|throughput|latency|none]'
+		'usage: npm run notes -- <book.epub | book.txt> [--from n] [--to n] [--model id] [--max-usd n] [--go] [--redo] [--show] [--record] [--remarks text] [--only providers] [--ignore providers] [--sort price|throughput|latency|none] [--gather words]'
 	);
 	process.exit(1);
 }
@@ -86,7 +90,8 @@ function show(notes: Notes): void {
 const tokensOutPerSection = 4_400;
 const tokensAroundEachSection = 4_400;
 
-const book = await readBook(path);
+const gather = values.gather ? Number(values.gather) : undefined;
+const book = gather ? gathered(await readBook(path), gather) : await readBook(path);
 const from = Number(values.from ?? 1) - 1;
 const to = Math.min(Number(values.to ?? book.sections.length), book.sections.length) - 1;
 const model = values.model ?? process.env.OPENROUTER_MODEL ?? defaultModel;
@@ -123,7 +128,7 @@ const routed = routing
 const file = join(
 	import.meta.dirname,
 	'../../books/notes',
-	`${book.source.file}.${model.replaceAll('/', '_')}${routed}.json`
+	`${book.source.file}.${model.replaceAll('/', '_')}${routed}${gather ? `.gathered-${gather}` : ''}.json`
 );
 const kept: Notes | undefined = values.redo
 	? undefined
@@ -206,7 +211,10 @@ await mkdir(join(file, '..'), { recursive: true });
 console.log();
 
 // Held from the start, so that a run that breaks still has its notes to record.
-const notes = kept ?? begin(book, { model, routing });
+const notes = kept ?? {
+	...begin(book, { model, routing }),
+	...(gather ? { gathered: gather } : {})
+};
 try {
 	await takeNotes(book, {
 		ask,

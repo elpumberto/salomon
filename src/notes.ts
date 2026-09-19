@@ -185,6 +185,8 @@ export interface Notes {
 	rules: string;
 	/** Which of the model's providers were let in, when that was not left to OpenRouter. */
 	routing?: Routing;
+	/** For a book of sections a few lines each: the words its sections were gathered into at least, before it was read. Sections are numbered as gathered. */
+	gathered?: number;
 	/** When the first section was handed over. */
 	startedAt: string;
 	sections: SectionNotes[];

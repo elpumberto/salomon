@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { test } from 'node:test';
 import { noul, score } from '@typesafe-ai/sdk';
+import { gathered } from './book.ts';
 import type { Book } from './book.ts';
 import { across, judge, measure, name, pieces, together, whole } from './judge.ts';
 import type { AskJev } from './judge.ts';
@@ -116,6 +117,28 @@ test('sections of a few lines each are cut as one text', () => {
 		['one two\n\nthree four', 'five six\n\nseven eight']
 	);
 	assert.deepEqual(cut.map(name), ['§1 1/2', '§3 2/2']);
+});
+
+test('sections of a few lines are gathered into ones of some length, their titles kept in the text', () => {
+	const section = (title: string, text: string) => ({ title, paragraphs: [text] });
+	const paper: Book = {
+		...book,
+		sections: [
+			section('ONE', 'a b c'),
+			section('TWO', 'd e'),
+			section('THREE', 'f'),
+			section('A LONG ONE', 'g h i j k l'),
+			section('FOUR', 'm')
+		]
+	};
+
+	const { sections } = gathered(paper, 5);
+
+	assert.deepEqual(sections, [
+		{ title: 'ONE', paragraphs: ['a b c', 'TWO', 'd e', 'THREE', 'f'] },
+		section('A LONG ONE', 'g h i j k l'),
+		section('FOUR', 'm')
+	]);
 });
 
 test('a section that does not fit in a call is not sent', async () => {

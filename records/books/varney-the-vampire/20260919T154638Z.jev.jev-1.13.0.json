@@ -1,0 +1,459 @@
+{
+	"kind": "jev",
+	"at": "2026-09-19T15:46:38.898Z",
+	"book": {
+		"title": "Varney the vampyre; or, the feast of blood",
+		"author": "Thomas Peckett Prest",
+		"language": "en",
+		"source": {
+			"file": "varney-the-vampire.epub",
+			"format": "epub",
+			"sha256": "642d97b1e31d6188f814dd0b7556538aeaace19ad48692646cf17198ded60797"
+		},
+		"text": {
+			"sha256": "414fe761f16e9f270049100d07f8c3aca1dea156377fc7227572d67d4a7fa23c",
+			"sections": 234,
+			"words": 652302
+		}
+	},
+	"sections": [
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		22,
+		23,
+		24,
+		25,
+		26,
+		27,
+		28,
+		29,
+		30,
+		31,
+		32,
+		33,
+		34,
+		35,
+		36,
+		37,
+		38,
+		39,
+		40,
+		41,
+		42,
+		43,
+		44,
+		45,
+		46,
+		47,
+		48,
+		49,
+		50,
+		51,
+		52,
+		53,
+		54,
+		55,
+		56,
+		57,
+		58,
+		59,
+		60,
+		61,
+		62,
+		63,
+		64,
+		65,
+		66,
+		67,
+		68,
+		69,
+		70,
+		71,
+		72,
+		73,
+		74,
+		75,
+		76,
+		77,
+		78,
+		79,
+		80,
+		81,
+		82,
+		83,
+		84,
+		85,
+		86,
+		87,
+		88,
+		89,
+		90,
+		91,
+		92,
+		93,
+		94,
+		95,
+		96,
+		97,
+		98,
+		99,
+		100,
+		101,
+		102,
+		103,
+		104,
+		105,
+		106,
+		107,
+		108,
+		109,
+		110,
+		111,
+		112,
+		113,
+		114,
+		115,
+		116,
+		117,
+		118,
+		119,
+		120,
+		121,
+		122,
+		123,
+		124,
+		125,
+		126,
+		127,
+		128,
+		129,
+		130,
+		131,
+		132,
+		133,
+		134,
+		135,
+		136,
+		137,
+		138,
+		139,
+		140,
+		141,
+		142,
+		143,
+		144,
+		145,
+		146,
+		147,
+		148,
+		149,
+		150,
+		151,
+		152,
+		153,
+		154,
+		155,
+		156,
+		157,
+		158,
+		159,
+		160,
+		161,
+		162,
+		163,
+		164,
+		165,
+		166,
+		167,
+		168,
+		169,
+		170,
+		171,
+		172,
+		173,
+		174,
+		175,
+		176,
+		177,
+		178,
+		179,
+		180,
+		181,
+		182,
+		183,
+		184,
+		185,
+		186,
+		187,
+		188,
+		189,
+		190,
+		191,
+		192,
+		193,
+		194,
+		195,
+		196,
+		197,
+		198,
+		199,
+		200,
+		201,
+		202,
+		203,
+		204,
+		205,
+		206,
+		207,
+		208,
+		209,
+		210,
+		211,
+		212,
+		213,
+		214,
+		215,
+		216,
+		217,
+		218,
+		219,
+		220,
+		221,
+		222,
+		223,
+		224,
+		225,
+		226,
+		227,
+		228,
+		229,
+		230,
+		231,
+		232,
+		233,
+		234
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "book",
+		"rules": "sha256:4f981d6de2bf",
+		"asked": {
+			"unity": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How much are the chapters parts of one whole?",
+				"criteria": [
+					"The chapters are episodes that could come in another order, or be left out, without the rest changing",
+					"The chapters follow one another in time, and several lead to nothing later",
+					"Most chapters follow from what came before and prepare what comes after",
+					"Every chapter follows from what came before and prepares what comes after: the whole is one action"
+				]
+			},
+			"cause": {
+				"type": "choice",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Why do the main events of the story happen, mostly?",
+				"criteria": {
+					"people": "Because of what the characters decide and do",
+					"events": "Because of earlier events of the story",
+					"chance": "Because of outside events or coincidence",
+					"none": "With no evident connection between them"
+				}
+			},
+			"settled": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. What becomes of the questions the story raises?",
+				"criteria": [
+					"Most of what the story raises is dropped and never settled",
+					"Some of what the story raises is settled, and several things are dropped",
+					"Nearly all that the story raises is settled by the end, or pointedly left open"
+				]
+			},
+			"ending": {
+				"type": "choice",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. What brings about the resolution at the end?",
+				"criteria": {
+					"own": "The central character's own action",
+					"prepared": "Another character's action, or an event, that the story had prepared",
+					"unprepared": "An outside event or a stroke of luck that the story had not prepared",
+					"none": "Nothing is resolved"
+				}
+			},
+			"change": {
+				"type": "choice",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. What has become of the central character by the end?",
+				"criteria": {
+					"same": "They are as they were at the start, and nothing new is revealed of them",
+					"seen": "They are as they were at the start, but the reader sees them differently",
+					"steps": "They have changed, by steps that the chapters show",
+					"abrupt": "They have changed all at once, with no steps leading to it"
+				}
+			},
+			"rising": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How does the pressure on the central characters move across the book?",
+				"criteria": [
+					"The pressure on the central characters is much the same from beginning to end",
+					"The pressure on the central characters rises and falls with no direction",
+					"The pressure on the central characters rises, with rests, to a height near the end"
+				]
+			},
+			"wants": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How many of its people want something of their own?",
+				"criteria": [
+					"One character wants something, and the rest are there to help or to hinder",
+					"Two sides want opposite things, and everyone belongs to one of them",
+					"Several characters each want something of their own, and their wants get in each other's way"
+				]
+			},
+			"beyond": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How far do its concerns go beyond the people in it?",
+				"criteria": [
+					"The story concerns only the events and the people in it",
+					"The story touches in passing on something that matters beyond the people in it",
+					"Something that matters beyond the people in it is at the centre of the story"
+				]
+			},
+			"spare": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Is there a storyline in it that could be taken out without the main story losing anything?"
+			},
+			"turn": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Does the story take a turn that the chapters before it did not lead one to expect, and that still follows from them?"
+			}
+		},
+		"code": {
+			"commit": "e5b89bd",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 1,
+		"tokensIn": 12771,
+		"usd": 0.000536,
+		"seconds": 1
+	},
+	"found": [
+		{
+			"section": 3,
+			"through": 234,
+			"variant": "the outline from the notes of google/gemini-3.1-flash-lite, in brief",
+			"measured": {
+				"words": 7279,
+				"spoken": null,
+				"wordsPerSentence": 0
+			},
+			"sha256": "763328c8eb2fb5d78cb3fc5ba99b8d9ed56b27908ce05fe814ed7c03983af710",
+			"tokensIn": 12771,
+			"seconds": 0.6,
+			"answers": {
+				"unity": {
+					"score": 1.51,
+					"of": 3,
+					"confidence": 0.39,
+					"probabilities": [
+						0.12,
+						0.31,
+						0.51,
+						0.06
+					]
+				},
+				"cause": {
+					"choice": "people",
+					"confidence": 0.79,
+					"probabilities": {
+						"none": 0,
+						"chance": 0.01,
+						"events": 0.15,
+						"people": 0.84
+					}
+				},
+				"settled": {
+					"score": 1.88,
+					"of": 2,
+					"confidence": 0.82,
+					"probabilities": [
+						0.01,
+						0.11,
+						0.88
+					]
+				},
+				"ending": {
+					"choice": "own",
+					"confidence": 0.83,
+					"probabilities": {
+						"none": 0.01,
+						"unprepared": 0.01,
+						"own": 0.87,
+						"prepared": 0.11
+					}
+				},
+				"change": {
+					"choice": "steps",
+					"confidence": 0.84,
+					"probabilities": {
+						"seen": 0.09,
+						"same": 0,
+						"abrupt": 0.03,
+						"steps": 0.88
+					}
+				},
+				"rising": {
+					"score": 1.71,
+					"of": 2,
+					"confidence": 0.56,
+					"probabilities": [
+						0.01,
+						0.27,
+						0.72
+					]
+				},
+				"wants": {
+					"score": 2,
+					"of": 2,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"beyond": {
+					"score": 1.53,
+					"of": 2,
+					"confidence": 0.29,
+					"probabilities": [
+						0.09,
+						0.29,
+						0.62
+					]
+				},
+				"spare": {
+					"noul": 0.82
+				},
+				"turn": {
+					"noul": 0.75
+				}
+			}
+		}
+	],
+	"remarks": "The questions of the whole book, put to an outline made from the reading notes."
+}

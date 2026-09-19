@@ -54,3 +54,45 @@ export type Collector = ReturnType<typeof collector>;
 export function words(text: string): number {
 	return text ? text.split(' ').length : 0;
 }
+
+/**
+ * A book whose sections are a few lines each, under the headlines of a newspaper, with those
+ * gathered into sections of some length, so that it can be read a section at a time like any
+ * other. A section that is long enough stands as it is. A run of short ones is cut into sections
+ * of at least as many words, what is left at its end going with the one before; the titles of
+ * those gathered stay in the text, since they are part of what the book says.
+ */
+export function gathered(book: Book, atLeast: number): Book {
+	const size = (section: Section) => words(section.paragraphs.join(' '));
+	const sections: Section[] = [];
+	let run: Section[] = [];
+	const flush = () => {
+		const made: Section[] = [];
+		let open: Section | null = null;
+		for (const section of run) {
+			if (!open) {
+				open = { title: section.title, paragraphs: [...section.paragraphs] };
+			} else {
+				open.paragraphs.push(...(section.title ? [section.title] : []), ...section.paragraphs);
+			}
+			if (size(open) >= atLeast) {
+				made.push(open);
+				open = null;
+			}
+		}
+		const last = made.at(-1);
+		if (open && last) {
+			last.paragraphs.push(...(open.title ? [open.title] : []), ...open.paragraphs);
+		} else if (open) made.push(open);
+		sections.push(...made);
+		run = [];
+	};
+	for (const section of book.sections) {
+		if (size(section) >= atLeast) {
+			flush();
+			sections.push(section);
+		} else run.push(section);
+	}
+	flush();
+	return { ...book, sections };
+}

@@ -259,7 +259,113 @@ const sideBySide = {
 	enjoy: choice(`${pair}Which of the two would most readers enjoy reading more?`, either)
 } satisfies Questions;
 
-export const sets = { reading, passage, sideBySide } satisfies Record<string, Questions>;
+const whole =
+	'`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. ';
+
+/**
+ * What only the whole book shows, asked of an outline made from the reading notes: how it is
+ * built, how it ends, what becomes of its people. The outline is a language model's and tells what
+ * happens, not how it is told: nothing here is about the writing.
+ */
+const book = {
+	unity: score(`${whole}How much are the chapters parts of one whole?`, [
+		'The chapters are episodes that could come in another order, or be left out, without the rest changing',
+		'The chapters follow one another in time, and several lead to nothing later',
+		'Most chapters follow from what came before and prepare what comes after',
+		'Every chapter follows from what came before and prepares what comes after: the whole is one action'
+	]),
+	cause: choice(`${whole}Why do the main events of the story happen, mostly?`, {
+		people: 'Because of what the characters decide and do',
+		events: 'Because of earlier events of the story',
+		chance: 'Because of outside events or coincidence',
+		none: 'With no evident connection between them'
+	}),
+	settled: score(`${whole}What becomes of the questions the story raises?`, [
+		'Most of what the story raises is dropped and never settled',
+		'Some of what the story raises is settled, and several things are dropped',
+		'Nearly all that the story raises is settled by the end, or pointedly left open'
+	]),
+	ending: choice(`${whole}What brings about the resolution at the end?`, {
+		own: "The central character's own action",
+		prepared: "Another character's action, or an event, that the story had prepared",
+		unprepared: 'An outside event or a stroke of luck that the story had not prepared',
+		none: 'Nothing is resolved'
+	}),
+	change: choice(`${whole}What has become of the central character by the end?`, {
+		same: 'They are as they were at the start, and nothing new is revealed of them',
+		seen: 'They are as they were at the start, but the reader sees them differently',
+		steps: 'They have changed, by steps that the chapters show',
+		abrupt: 'They have changed all at once, with no steps leading to it'
+	}),
+	rising: score(`${whole}How does the pressure on the central characters move across the book?`, [
+		'The pressure on the central characters is much the same from beginning to end',
+		'The pressure on the central characters rises and falls with no direction',
+		'The pressure on the central characters rises, with rests, to a height near the end'
+	]),
+	wants: score(`${whole}How many of its people want something of their own?`, [
+		'One character wants something, and the rest are there to help or to hinder',
+		'Two sides want opposite things, and everyone belongs to one of them',
+		"Several characters each want something of their own, and their wants get in each other's way"
+	]),
+	beyond: score(`${whole}How far do its concerns go beyond the people in it?`, [
+		'The story concerns only the events and the people in it',
+		'The story touches in passing on something that matters beyond the people in it',
+		'Something that matters beyond the people in it is at the centre of the story'
+	]),
+	spare: noul(
+		`${whole}Is there a storyline in it that could be taken out without the main story losing anything?`
+	),
+	turn: noul(
+		`${whole}Does the story take a turn that the chapters before it did not lead one to expect, and that still follows from them?`
+	)
+} satisfies Questions;
+
+const known =
+	'`chapter` is a chapter of a novel, and `the story so far` tells what a reader knows on reaching it. ';
+
+/**
+ * What a chapter does to the people of the story, which takes knowing them: asked of a chapter
+ * with what the reader knows so far beside it, from the reading notes. Whether someone can
+ * surprise and still convince is the old test of a character with a life of their own.
+ */
+const inContext = {
+	acts: choice(`${known}What does its main character do in it?`, {
+		expected: 'What the story so far would lead one to expect of them',
+		fitting:
+			'Something the story so far did not lead one to expect, and which fits what is known of them',
+		unfitting:
+			'Something the story so far did not lead one to expect, and which does not fit what is known of them',
+		nothing: 'Nothing of note'
+	}),
+	reveals: score(`${known}What does it show of its people?`, [
+		'The chapter shows its people as the story so far had shown them',
+		'The chapter adds a trait or a detail to someone the reader already knew',
+		'The chapter shows a side of someone that the story so far had not shown, and that changes how the reader sees them'
+	]),
+	torn: score(`${known}Is anyone in it in two minds?`, [
+		'Nobody in the chapter is in two minds about anything',
+		'A character hesitates a moment before doing what they do',
+		'A character is torn between two things they want or believe, and the chapter dwells on it'
+	]),
+	sides: choice(`${known}Whose side is the reader on in its main conflict?`, {
+		none: 'There is no conflict between people in the chapter',
+		one: 'One side is in the right and the other in the wrong',
+		both: "Both sides have a real claim on the reader's sympathy"
+	}),
+	pays: score(`${known}What does it do with what the story so far had left pending?`, [
+		'The chapter touches nothing that the story so far had left pending',
+		'The chapter moves forward something that the story so far had left pending',
+		'The chapter settles something that the story so far had left pending'
+	])
+} satisfies Questions;
+
+export const sets = {
+	reading,
+	passage,
+	sideBySide,
+	book,
+	inContext
+} satisfies Record<string, Questions>;
 
 export type SetName = keyof typeof sets;
 
