@@ -2,6 +2,8 @@
 
 An experiment in analysing long content, whole books to begin with, using [Jev](https://docs.typesafe.ai) and models like it: ones that answer closed questions with probabilities instead of writing text.
 
+What came of it is to be seen, and weighed another way, at [salomon.pumberto.com](https://salomon.pumberto.com).
+
 It is an experiment, not a product. How a book gets from a file to a valuation, who does what on the way and what it costs is in [docs/books/pipeline.md](docs/books/pipeline.md). The repo is also the register of what was run: when, on which text, under which rules and with what result, under [records/](records/README.md).
 
 ## Books
