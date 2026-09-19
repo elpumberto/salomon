@@ -247,7 +247,12 @@ export function jevRecord(
  * of a run may be written again as the run goes on; the record of another run is never written over.
  */
 export async function keep(record: NotesRecord | JevRecord, base = root): Promise<string> {
-	const slug = (name: string) => name.toLowerCase().replace(/[^a-z0-9.]+/g, '-');
+	const slug = (name: string) =>
+		name
+			.normalize('NFD')
+			.replace(/\p{M}/gu, '')
+			.toLowerCase()
+			.replace(/[^a-z0-9.]+/g, '-');
 	const stamp = (record.at ?? new Date().toISOString()).replace(/[-:]|\.\d+/g, '');
 	const { source, title } = record.book;
 	const folder = join(

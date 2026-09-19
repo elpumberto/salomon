@@ -1,0 +1,575 @@
+{
+	"kind": "jev",
+	"at": "2026-09-19T16:29:23.679Z",
+	"book": {
+		"title": "La Barraca",
+		"author": "Vicente Blasco Ibáñez",
+		"language": "es",
+		"source": {
+			"file": "la-barraca.epub",
+			"format": "epub",
+			"sha256": "7a209800ae60fbb353c703c474b8cae0ca17f5be9d87a21aaaf3f4c559376788"
+		},
+		"text": {
+			"sha256": "ccb007b5147896bc3df36ae5ed9cd0571200e4d2c68bc0ced3c18c5ed95ea21b",
+			"sections": 14,
+			"words": 56401
+		}
+	},
+	"sections": [
+		4,
+		5,
+		8,
+		10,
+		12,
+		13
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "duel",
+		"rules": "sha256:bedb206b836f",
+		"asked": {
+			"better": {
+				"type": "choice",
+				"instructions": "`first` and `second` are two passages of novels that tell the same events. Which of the two is the better written?",
+				"criteria": {
+					"first": "The passage in `first`",
+					"second": "The passage in `second`"
+				}
+			},
+			"enjoy": {
+				"type": "choice",
+				"instructions": "`first` and `second` are two passages of novels that tell the same events. Which of the two would most readers enjoy reading more?",
+				"criteria": {
+					"first": "The passage in `first`",
+					"second": "The passage in `second`"
+				}
+			},
+			"lesson": {
+				"type": "choice",
+				"instructions": "`first` and `second` are two passages of novels that tell the same events. Which of the two would a teacher of writing rather give to a class as an example to learn from?",
+				"criteria": {
+					"first": "The passage in `first`",
+					"second": "The passage in `second`"
+				}
+			}
+		},
+		"code": {
+			"commit": "afaff5e",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 12,
+		"tokensIn": 37234,
+		"usd": 0.001564,
+		"seconds": 5
+	},
+	"found": [
+		{
+			"section": 4,
+			"piece": {
+				"at": 1,
+				"of": 53
+			},
+			"variant": "first, against its own plain retelling by google/gemini-3.1-flash-lite, 0.75 of its length",
+			"measured": {
+				"words": 1007,
+				"spoken": 0,
+				"wordsPerSentence": 30.5
+			},
+			"sha256": "6a81b6e3cd26b052baa5dd053d650c7d3b216ade7cd53b8b313ac0ac04234503",
+			"tokensIn": 3352,
+			"seconds": 0.7,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.99,
+					"probabilities": {
+						"second": 0,
+						"first": 1
+					}
+				},
+				"enjoy": {
+					"choice": "first",
+					"confidence": 0.94,
+					"probabilities": {
+						"second": 0.03,
+						"first": 0.97
+					}
+				},
+				"lesson": {
+					"choice": "first",
+					"confidence": 1,
+					"probabilities": {
+						"second": 0,
+						"first": 1
+					}
+				}
+			}
+		},
+		{
+			"section": 4,
+			"piece": {
+				"at": 1,
+				"of": 53
+			},
+			"variant": "second, against its own plain retelling by google/gemini-3.1-flash-lite, 0.75 of its length",
+			"measured": {
+				"words": 1007,
+				"spoken": 0,
+				"wordsPerSentence": 30.5
+			},
+			"sha256": "026b1b2edbf5fa7553b15ce42856b82a1e1229053bfb0d0ba4615e4d6e9f9844",
+			"tokensIn": 3352,
+			"seconds": 0.7,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.86,
+					"probabilities": {
+						"second": 0.93,
+						"first": 0.07
+					}
+				},
+				"enjoy": {
+					"choice": "second",
+					"confidence": 0.12,
+					"probabilities": {
+						"second": 0.56,
+						"first": 0.44
+					}
+				},
+				"lesson": {
+					"choice": "second",
+					"confidence": 0.65,
+					"probabilities": {
+						"second": 0.82,
+						"first": 0.18
+					}
+				}
+			}
+		},
+		{
+			"section": 5,
+			"piece": {
+				"at": 11,
+				"of": 53
+			},
+			"variant": "first, against its own plain retelling by google/gemini-3.1-flash-lite, 0.44 of its length",
+			"measured": {
+				"words": 1049,
+				"spoken": 0,
+				"wordsPerSentence": 26.9
+			},
+			"sha256": "61a142891d0672ad4b9cb140e0d05630598c66ceb7200ee0786ec637d4a9088e",
+			"tokensIn": 2950,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.96,
+					"probabilities": {
+						"second": 0.02,
+						"first": 0.98
+					}
+				},
+				"enjoy": {
+					"choice": "first",
+					"confidence": 0.85,
+					"probabilities": {
+						"second": 0.07,
+						"first": 0.93
+					}
+				},
+				"lesson": {
+					"choice": "first",
+					"confidence": 0.98,
+					"probabilities": {
+						"second": 0.01,
+						"first": 0.99
+					}
+				}
+			}
+		},
+		{
+			"section": 5,
+			"piece": {
+				"at": 11,
+				"of": 53
+			},
+			"variant": "second, against its own plain retelling by google/gemini-3.1-flash-lite, 0.44 of its length",
+			"measured": {
+				"words": 1049,
+				"spoken": 0,
+				"wordsPerSentence": 26.9
+			},
+			"sha256": "a95815038a69264a1b8fcadb923c7126e5bf9a8c2fd6c7b05adf08620d282cfe",
+			"tokensIn": 2950,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.88,
+					"probabilities": {
+						"second": 0.94,
+						"first": 0.06
+					}
+				},
+				"enjoy": {
+					"choice": "second",
+					"confidence": 0.77,
+					"probabilities": {
+						"second": 0.88,
+						"first": 0.12
+					}
+				},
+				"lesson": {
+					"choice": "second",
+					"confidence": 0.84,
+					"probabilities": {
+						"second": 0.92,
+						"first": 0.08
+					}
+				}
+			}
+		},
+		{
+			"section": 8,
+			"piece": {
+				"at": 22,
+				"of": 53
+			},
+			"variant": "first, against its own plain retelling by google/gemini-3.1-flash-lite, 0.65 of its length",
+			"measured": {
+				"words": 1036,
+				"spoken": 0,
+				"wordsPerSentence": 27.3
+			},
+			"sha256": "50c032c96d5f2729174abee2603bb95ce71bedaa0cce0dc3136c8aaa3d4fe833",
+			"tokensIn": 3309,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.97,
+					"probabilities": {
+						"first": 0.99,
+						"second": 0.01
+					}
+				},
+				"enjoy": {
+					"choice": "first",
+					"confidence": 0.84,
+					"probabilities": {
+						"first": 0.92,
+						"second": 0.08
+					}
+				},
+				"lesson": {
+					"choice": "first",
+					"confidence": 0.97,
+					"probabilities": {
+						"first": 0.99,
+						"second": 0.01
+					}
+				}
+			}
+		},
+		{
+			"section": 8,
+			"piece": {
+				"at": 22,
+				"of": 53
+			},
+			"variant": "second, against its own plain retelling by google/gemini-3.1-flash-lite, 0.65 of its length",
+			"measured": {
+				"words": 1036,
+				"spoken": 0,
+				"wordsPerSentence": 27.3
+			},
+			"sha256": "84f2335462c3070f4660daac69fe6ab0e9bc034ed70c3f6327480c4d6a9da0a2",
+			"tokensIn": 3309,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.81,
+					"probabilities": {
+						"first": 0.1,
+						"second": 0.9
+					}
+				},
+				"enjoy": {
+					"choice": "second",
+					"confidence": 0.67,
+					"probabilities": {
+						"first": 0.17,
+						"second": 0.83
+					}
+				},
+				"lesson": {
+					"choice": "second",
+					"confidence": 0.64,
+					"probabilities": {
+						"first": 0.18,
+						"second": 0.82
+					}
+				}
+			}
+		},
+		{
+			"section": 10,
+			"piece": {
+				"at": 32,
+				"of": 53
+			},
+			"variant": "first, against its own plain retelling by google/gemini-3.1-flash-lite, 0.35 of its length",
+			"measured": {
+				"words": 959,
+				"spoken": 0,
+				"wordsPerSentence": 28.2
+			},
+			"sha256": "abd0c23fe04ad9f157c96b9e3dc9dc82d57baa7bcdd3e60b8786d3682d0ae48d",
+			"tokensIn": 2672,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 1,
+					"probabilities": {
+						"second": 0,
+						"first": 1
+					}
+				},
+				"enjoy": {
+					"choice": "first",
+					"confidence": 0.94,
+					"probabilities": {
+						"second": 0.03,
+						"first": 0.97
+					}
+				},
+				"lesson": {
+					"choice": "first",
+					"confidence": 1,
+					"probabilities": {
+						"second": 0,
+						"first": 1
+					}
+				}
+			}
+		},
+		{
+			"section": 10,
+			"piece": {
+				"at": 32,
+				"of": 53
+			},
+			"variant": "second, against its own plain retelling by google/gemini-3.1-flash-lite, 0.35 of its length",
+			"measured": {
+				"words": 959,
+				"spoken": 0,
+				"wordsPerSentence": 28.2
+			},
+			"sha256": "10faed3c9db47928b3b04cf8fa36b7c55c0b2d18f03e4525b21711f1665a860c",
+			"tokensIn": 2672,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.99,
+					"probabilities": {
+						"second": 1,
+						"first": 0
+					}
+				},
+				"enjoy": {
+					"choice": "second",
+					"confidence": 0.91,
+					"probabilities": {
+						"second": 0.95,
+						"first": 0.05
+					}
+				},
+				"lesson": {
+					"choice": "second",
+					"confidence": 0.99,
+					"probabilities": {
+						"second": 0.99,
+						"first": 0.01
+					}
+				}
+			}
+		},
+		{
+			"section": 12,
+			"piece": {
+				"at": 43,
+				"of": 53
+			},
+			"variant": "first, against its own plain retelling by google/gemini-3.1-flash-lite, 0.98 of its length",
+			"measured": {
+				"words": 1004,
+				"spoken": 0,
+				"wordsPerSentence": 25.7
+			},
+			"sha256": "5890f09ed5803d81e202d615eef99e539671e68afaf70385381a5fb1f5455f42",
+			"tokensIn": 3427,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 0.8,
+					"probabilities": {
+						"first": 0.9,
+						"second": 0.1
+					}
+				},
+				"enjoy": {
+					"choice": "first",
+					"confidence": 0.11,
+					"probabilities": {
+						"first": 0.56,
+						"second": 0.44
+					}
+				},
+				"lesson": {
+					"choice": "first",
+					"confidence": 0.86,
+					"probabilities": {
+						"first": 0.93,
+						"second": 0.07
+					}
+				}
+			}
+		},
+		{
+			"section": 12,
+			"piece": {
+				"at": 43,
+				"of": 53
+			},
+			"variant": "second, against its own plain retelling by google/gemini-3.1-flash-lite, 0.98 of its length",
+			"measured": {
+				"words": 1004,
+				"spoken": 0,
+				"wordsPerSentence": 25.7
+			},
+			"sha256": "e02a1d38db63b24d64dcd1822e5cfbca2beadb739fadf79f9082575a3043ff07",
+			"tokensIn": 3427,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.74,
+					"probabilities": {
+						"second": 0.87,
+						"first": 0.13
+					}
+				},
+				"enjoy": {
+					"choice": "second",
+					"confidence": 0.13,
+					"probabilities": {
+						"second": 0.56,
+						"first": 0.44
+					}
+				},
+				"lesson": {
+					"choice": "second",
+					"confidence": 0.5,
+					"probabilities": {
+						"second": 0.75,
+						"first": 0.25
+					}
+				}
+			}
+		},
+		{
+			"section": 13,
+			"piece": {
+				"at": 53,
+				"of": 53
+			},
+			"variant": "first, against its own plain retelling by google/gemini-3.1-flash-lite, 0.47 of its length",
+			"measured": {
+				"words": 966,
+				"spoken": 0,
+				"wordsPerSentence": 18.2
+			},
+			"sha256": "3b4fa0f207796f4b6c81e93937492db6f46e8f3acad5c634bd544a424cbc1042",
+			"tokensIn": 2907,
+			"seconds": 0.3,
+			"answers": {
+				"better": {
+					"choice": "first",
+					"confidence": 1,
+					"probabilities": {
+						"second": 0,
+						"first": 1
+					}
+				},
+				"enjoy": {
+					"choice": "first",
+					"confidence": 0.97,
+					"probabilities": {
+						"second": 0.01,
+						"first": 0.99
+					}
+				},
+				"lesson": {
+					"choice": "first",
+					"confidence": 1,
+					"probabilities": {
+						"second": 0,
+						"first": 1
+					}
+				}
+			}
+		},
+		{
+			"section": 13,
+			"piece": {
+				"at": 53,
+				"of": 53
+			},
+			"variant": "second, against its own plain retelling by google/gemini-3.1-flash-lite, 0.47 of its length",
+			"measured": {
+				"words": 966,
+				"spoken": 0,
+				"wordsPerSentence": 18.2
+			},
+			"sha256": "95c99fba61987f6603bf29705cd7c4412da5328ac21e0b85a670304335fd3304",
+			"tokensIn": 2907,
+			"seconds": 0.4,
+			"answers": {
+				"better": {
+					"choice": "second",
+					"confidence": 0.94,
+					"probabilities": {
+						"first": 0.03,
+						"second": 0.97
+					}
+				},
+				"enjoy": {
+					"choice": "second",
+					"confidence": 0.79,
+					"probabilities": {
+						"first": 0.11,
+						"second": 0.89
+					}
+				},
+				"lesson": {
+					"choice": "second",
+					"confidence": 0.78,
+					"probabilities": {
+						"first": 0.11,
+						"second": 0.89
+					}
+				}
+			}
+		}
+	],
+	"remarks": "Variant: duel. Six passages of about 1,000 words, each against a plain retelling of itself, both ways round."
+}

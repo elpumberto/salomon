@@ -39,7 +39,7 @@ shows a set of questions as they would be put to Jev, the passages they would be
 
     npm run value
 
-says what the books judged so far are worth, from the records and asking nothing: their literary merit and how good a read they are, by the rules of [src/value.ts](src/value.ts), which are arithmetic on Jev's answers and have a hash of their own. Questions and rules were set on [ten books of known standing and checked on ten others](docs/books/calibration.md). What only the whole book shows, how it is built, how it ends and whose side it takes, is asked of an outline made from the reading notes and of each chapter with the story so far beside it: [what that tells, and what it does not](docs/books/whole-book.md).
+says what the books judged so far are worth, from the records and asking nothing: their literary merit and how good a read they are, by the rules of [src/value.ts](src/value.ts), which are arithmetic on Jev's answers and have a hash of their own. Questions and rules were set on [ten books of known standing and checked on ten others](docs/books/calibration.md). The twenty then became a bench on which other questions and other sizes of passage were tried by one yardstick: [other ways of asking](docs/books/other-ways.md). What only the whole book shows, how it is built, how it ends and whose side it takes, is asked of an outline made from the reading notes and of each chapter with the story so far beside it: [what that tells, and what it does not](docs/books/whole-book.md).
 
 ## Keys
 

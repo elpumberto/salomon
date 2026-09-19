@@ -1,4 +1,4 @@
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { TypeSafeClient } from '@typesafe-ai/sdk';
 import type { Questions } from '@typesafe-ai/sdk';
 import type { Book } from '../../../src/book.ts';
@@ -24,7 +24,8 @@ export async function run(
 	asked: { set: string; questions: Questions },
 	remarks: string
 ): Promise<Judged[]> {
-	const path = join(books, file);
+	// A book of the list by its file name; somebody's, by where its owner has it.
+	const path = resolve(books, file);
 	const book = await readBook(path);
 	const client = new TypeSafeClient({ apiKey: key('TYPESAFE_API_KEY') });
 	const at = new Date().toISOString();
