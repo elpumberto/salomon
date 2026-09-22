@@ -8,6 +8,17 @@
 			name="description"
 			content="Books read by a machine that is told no title and knows them all the same: how well written, on three floors. A machine's hunch, not a verdict."
 		/>
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Salomón" />
+		<meta
+			property="og:description"
+			content="Books read by a machine that is told no title and knows them all the same: how well written, on three floors. A machine's hunch, not a verdict."
+		/>
+		<meta property="og:url" content="https://salomon.pumberto.com/" />
+		<meta property="og:image" content="https://salomon.pumberto.com/cards/salomon.png" />
+		<meta property="og:image:width" content="2400" />
+		<meta property="og:image:height" content="1260" />
+		<meta name="twitter:card" content="summary_large_image" />
 		<style>
 			:root {
 				--ink: #1f2937;
@@ -286,9 +297,6 @@
 			<p data-t="read3"></p>
 			<p data-t="read4"></p>
 
-			<h2 data-t="proposeTitle"></h2>
-			<p data-t="propose"></p>
-
 			<footer class="small">
 				<span data-t="hunch"></span> · <span id="rules"></span> ·
 				<a href="https://github.com/elpumberto/salomon">github.com/elpumberto/salomon</a>
@@ -330,9 +338,9 @@
 					read3:
 						'<b>What can mislead.</b> The copy judged is what is judged: a translation is its translator’s prose. The machine names the novel from the page though it is told no title, and knows how well known it is: with every proper name changed, the famous fall by five hundredths and the well written lose most of their order among themselves; that is what fame is worth to it. Old, formal prose is taken for prose with literary aims. The latest written stand highest, which may be their worth or the taste of a model of our day.',
 					read4: `More in <a href="${repo}/blob/main/docs/books/reading-a-valuation.md">how to read a valuation</a>.`,
-					proposeTitle: 'Propose a book',
-					propose: `Nobody can have a book judged from here. <a href="${repo}/issues/new?title=A%20book%20for%20Salom%C3%B3n">Propose one</a>, best of all in the public domain, and with luck two more of its kind: one held better and one held worse.`,
 					hunch: 'A machine’s hunch, not a verdict',
+					cover:
+						'Books read by a machine that is told no title: how well written, on three floors, and what kind of read.',
 					known: (k) =>
 						`What the machine knows: it holds the book well known at ${k.famous == null ? '—' : k.famous.toFixed(2)}${k.namesChanged == null ? '' : `; with every proper name changed its merit is ${k.namesChanged.toFixed(2)}`}${k.wordings == null ? '' : `; four wordings of the questions move it by ${k.wordings.toFixed(2)}`}.`,
 					cols: ['', 'Book', 'Merit', 'A good read', 'Written for', ''],
@@ -415,9 +423,9 @@
 					read3:
 						'<b>Lo que puede engañar.</b> Se juzga la copia que se juzga: una traducción es la prosa de su traductor. La máquina nombra la novela desde la página aunque no se le diga el título, y sabe cuán conocida es: con todos los nombres propios cambiados, los famosos bajan cinco centésimas y los bien escritos pierden casi todo su orden entre sí; eso es lo que la fama vale para ella. A la prosa antigua y formal la toma por prosa con aspiraciones literarias. Los más modernos salen los más altos, que puede ser su valor o el gusto de un modelo de hoy.',
 					read4: `Más en <a href="${repo}/blob/main/docs/books/reading-a-valuation.md">cómo leer una valoración</a> (en inglés).`,
-					proposeTitle: 'Propón un libro',
-					propose: `Desde aquí nadie puede hacer juzgar un libro. <a href="${repo}/issues/new?title=Un%20libro%20para%20Salom%C3%B3n">Propón uno</a>, mejor si está en dominio público, y con suerte dos más de su género: uno tenido por mejor y otro por peor.`,
 					hunch: 'La corazonada de una máquina, no un veredicto',
+					cover:
+						'Libros leídos por una máquina a la que no se le dice el título: cómo de bien escritos, en tres pisos, y qué lectura son.',
 					known: (k) =>
 						`Lo que la máquina sabe: tiene el libro por conocido en ${k.famous == null ? '—' : k.famous.toFixed(2).replace('.', ',')}${k.namesChanged == null ? '' : `; con todos los nombres propios cambiados su mérito es ${k.namesChanged.toFixed(2).replace('.', ',')}`}${k.wordings == null ? '' : `; cuatro redacciones de las preguntas lo mueven ${k.wordings.toFixed(2).replace('.', ',')}`}.`,
 					cols: ['', 'Libro', 'Mérito', 'Se lee bien', 'Escrito para', ''],
@@ -626,6 +634,46 @@
 					<text x="${W - 64}" y="${H - 34}" text-anchor="end" font-family="${sans}" font-size="14.5" font-weight="700" fill="#1f1b16">salomon.pumberto.com</text></svg>`;
 			}
 
+			// The card of the site itself, in both languages, for wherever its address is pasted:
+			// every book on the line of merit, on its floor.
+			function cover() {
+				const W = 1200,
+					H = 630,
+					serif = "Georgia, 'Times New Roman', serif",
+					sans = 'Helvetica, Arial, sans-serif',
+					line = { x: 64, w: W - 128, y: 470 },
+					px = (m) => line.x + ((m - 0.1) / 0.8) * line.w;
+				const floors = [
+					[0.1, 0.625, 2],
+					[0.625, 0.735, 1],
+					[0.735, 0.9, 0]
+				];
+				const dots = [];
+				for (const b of [...data.books].sort((a, c) => a.m - c.m)) {
+					const x = px(b.m),
+						stack = dots.filter((d) => Math.abs(d.x - x) < 15).length;
+					dots.push({ x, y: line.y - 8 - stack * 17, title: b.title, m: b.m });
+				}
+				const ends = [dots[0], dots[dots.length - 1]];
+				return `<svg xmlns="http://www.w3.org/2000/svg" id="card" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}"><rect width="${W}" height="${H}" fill="#fbf6ea"/><rect x="18" y="18" width="${W - 36}" height="${H - 36}" fill="none" stroke="#d9cdb4" stroke-width="2"/>
+					<text x="64" y="128" font-family="${serif}" font-size="96" font-weight="700" fill="#1f1b16">Salomón</text>
+					<text x="64" y="186" font-family="${serif}" font-size="23" fill="#1f1b16">${esc(texts.es.cover)}</text>
+					<text x="64" y="222" font-family="${serif}" font-size="23" fill="#6f6556">${esc(texts.en.cover)}</text>
+					${floors.map(([from, to, n]) => `<rect x="${px(from)}" y="${line.y - 176}" width="${px(to) - px(from)}" height="176" fill="${n === 0 ? '#f0e6d2' : n === 1 ? '#f6efe0' : 'none'}"/>`).join('')}
+					${floors
+						.map(
+							([from, to, n]) =>
+								`${['es', 'en'].map((code, row) => `<text x="${(px(from) + px(to)) / 2}" y="${line.y - (n === 1 ? 116 : 158) + row * 18}" text-anchor="middle" font-family="${sans}" font-size="12.5" font-weight="700" letter-spacing="1.5" fill="#6f6556">${esc(texts[code].floors[n].toUpperCase())}</text>`).join('')}`
+						)
+						.join('')}
+					<line x1="${line.x}" y1="${line.y}" x2="${line.x + line.w}" y2="${line.y}" stroke="#8a7f6a" stroke-width="2"/>
+					${dots.map((d) => `<circle cx="${d.x}" cy="${d.y}" r="6.5" fill="#9b2335" stroke="#fbf6ea" stroke-width="1.5"/>`).join('')}
+					${ends.map((d, n) => `<text x="${d.x}" y="${line.y + 24}" text-anchor="${n ? 'end' : 'start'}" font-family="${serif}" font-size="16" font-style="italic" fill="#1f1b16">${esc(d.title)}</text>`).join('')}
+					<text x="${W / 2}" y="${line.y + 24}" text-anchor="middle" font-family="${sans}" font-size="14" fill="#6f6556">${esc(texts.es.card.merit)} · ${esc(texts.en.card.merit)} →</text>
+					<text x="64" y="${H - 34}" font-family="${sans}" font-size="14.5" fill="#6f6556">${esc(texts.es.hunch.toLowerCase())} · ${esc(texts.en.hunch.toLowerCase())} · ${data.valuation.slice(7)} · ${data.books.length}</text>
+					<text x="${W - 64}" y="${H - 34}" text-anchor="end" font-family="${sans}" font-size="14.5" font-weight="700" fill="#1f1b16">salomon.pumberto.com</text></svg>`;
+			}
+
 			function drawCard() {
 				const book = data.books.find((b) => b.slug === chosen);
 				$('pick').innerHTML = [...data.books]
@@ -713,7 +761,10 @@
 					if (asked.get('card')) {
 						weigh();
 						document.body.style.margin = 0;
-						document.body.innerHTML = card(data.books.find((b) => b.slug === chosen));
+						document.body.innerHTML =
+							asked.get('card') === 'salomon'
+								? cover()
+								: card(data.books.find((b) => b.slug === chosen));
 						return;
 					}
 					draw();

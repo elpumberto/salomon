@@ -66,23 +66,27 @@ const escape = (text: string) =>
 	);
 
 await mkdir(join(site, 'cards'), { recursive: true });
+const shoot = (picture: string, query: string) =>
+	run(
+		chrome,
+		[
+			'--headless',
+			'--no-sandbox',
+			'--hide-scrollbars',
+			'--force-device-scale-factor=2',
+			'--virtual-time-budget=5000',
+			'--window-size=1200,630',
+			`--screenshot=${join(site, picture)}`,
+			`http://127.0.0.1:${port}/index.html?card=${query}`
+		],
+		{ timeout: 60_000 }
+	);
+// The site's own card, in both languages at once, which the front page names as its picture.
+await shoot('cards/salomon.png', 'salomon');
 for (const book of books) {
 	for (const [lang, t] of Object.entries(words)) {
 		const picture = `cards/${book.slug}.${lang}.png`;
-		await run(
-			chrome,
-			[
-				'--headless',
-				'--no-sandbox',
-				'--hide-scrollbars',
-				'--force-device-scale-factor=2',
-				'--virtual-time-budget=5000',
-				'--window-size=1200,630',
-				`--screenshot=${join(site, picture)}`,
-				`http://127.0.0.1:${port}/index.html?card=${book.slug}&lang=${lang}`
-			],
-			{ timeout: 60_000 }
-		);
+		await shoot(picture, `${book.slug}&lang=${lang}`);
 		const to = `/?book=${book.slug}&lang=${lang}`;
 		const title = escape(`${book.title} · Salomón`);
 		const says = escape(

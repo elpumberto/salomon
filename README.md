@@ -70,3 +70,5 @@ checks both against the real services: that a made-up key is turned down, that y
 ## Working on it
 
 Node 22.18 or later, which runs the TypeScript as it is. `npm test` runs the tests, none of which touches the network; `npm run check` the types, `npm run lint` Prettier.
+
+All of it is under the [MIT licence](LICENSE); the books are not in it, and Project Gutenberg's are its own.
