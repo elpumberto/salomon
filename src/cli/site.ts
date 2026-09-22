@@ -25,13 +25,29 @@ const list = Object.fromEntries((await listed()).map((one) => [one.slug, one]));
 const asked = rulesHash(sets[way.questions]);
 const ids = [...rules.merit, 'warning', ...rules.read, 'skip'];
 
+const mean = (values: number[]) => values.reduce((sum, one) => sum + one, 0) / (values.length || 1);
+const round = (one: number) => Number(one.toFixed(3));
+
 const books = [];
 for (const slug of await recorded()) {
-	const judged = (await jevRecordsOf(slug)).findLast(
-		(one) => one.by.rules === asked && isValuation(one)
-	);
+	const records = await jevRecordsOf(slug);
+	const judged = records.findLast((one) => one.by.rules === asked && isValuation(one));
 	if (!judged) continue;
 	const { pulse, ...valued } = value(judged.found);
+	// What the judge knows of the book, and what the valuation is without it: `docs/books/against-the-canon.md`.
+	const knowing = records.findLast((one) => one.by.questions === 'recognise-jev');
+	const disguised = records.findLast((one) => one.by.questions === 'gut-disguised');
+	const wordings = ['second', 'third', 'fourth']
+		.map((name) => records.findLast((one) => one.by.questions === `gut-${name}`))
+		.filter((one) => one !== undefined);
+	const merits = [valued.merit.value, ...wordings.map((one) => value(one.found).merit.value)];
+	const known = {
+		...(knowing
+			? { famous: round(mean(knowing.found.map(({ answers }) => unit(answers, 'famous')))) }
+			: {}),
+		...(disguised ? { namesChanged: round(value(disguised.found).merit.value) } : {}),
+		...(wordings.length ? { wordings: round(Math.max(...merits) - Math.min(...merits)) } : {})
+	};
 	books.push({
 		slug,
 		title: about[slug]?.title ?? list[slug]?.title ?? judged.book.title,
@@ -41,6 +57,7 @@ for (const slug of await recorded()) {
 		...(about[slug]?.caveat ? { caveat: about[slug].caveat } : {}),
 		judged: judged.at.slice(0, 10),
 		...valued,
+		...(Object.keys(known).length ? { known } : {}),
 		// What each answer came to, from 0 to 1, in the order of `answers`.
 		passages: judged.found.map(({ answers }) =>
 			ids.map((id) => Number(unit(answers, id).toFixed(3)))

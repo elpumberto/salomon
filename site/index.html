@@ -6,7 +6,7 @@
 		<title>Salomón</title>
 		<meta
 			name="description"
-			content="Books read blind by a machine: how well written, and how good a read. A machine's hunch, not a verdict."
+			content="Books read by a machine that is told no title and knows them all the same: how well written, on three floors. A machine's hunch, not a verdict."
 		/>
 		<style>
 			:root {
@@ -301,8 +301,8 @@
 			const texts = {
 				en: {
 					warning:
-						'<h3>Before anything else: this is an experiment, not criticism</h3><ul><li><b>What you see is a machine’s hunch.</b> A model that reads twelve passages of a book, blind, and answers closed questions. It is an analysis of texts, and no verdict on a book, on its author or on whoever loves it.</li><li><b>There are books this way of judging cannot place well</b>, and it is not their fault: those that break the conventions on purpose, as <i>Ulysses</i> does; those whose worth is in the whole and not in the page; those judged in translation or in a poor copy; and famous ones the machine may know by heart.</li><li><b>It does not tell a great novel from a good one</b>, it says nothing sure across genres, and “a good read” hardly tells more than the two ends apart.</li><li><b>If a book you care for comes out badly here, the limit is most likely the method’s and not the book’s.</b> The stamps are a game.</li></ul>',
-					lede: 'Books read blind by a machine: how well written, and how good a read. Two numbers, because whoever rates a book by its literary merit and whoever rates it by how much they liked it are weighing the same book differently.',
+						'<h3>Before anything else: this is an experiment, not criticism</h3><ul><li><b>What you see is a machine’s hunch.</b> A model that reads twelve passages of a book, told no title, and answers closed questions. It is an analysis of texts, and no verdict on a book, on its author or on whoever loves it.</li><li><b>There are books this way of judging cannot place well</b>, and it is not their fault: those that break the conventions on purpose, as <i>Ulysses</i> does; those whose worth is in the whole and not in the page; those judged in translation or in a poor copy.</li><li><b>The machine knows the book.</b> It is told no title, and it names the novel from the page for every one of these; what it knows of a book’s fame is worth some hundredths of its number, and each book says how much below its card.</li><li><b>It does not tell a great novel from a good one</b>, it says nothing sure across genres, and “a good read” agrees with what readers say no better than chance: it is a profile, not a mark.</li><li><b>If a book you care for comes out badly here, the limit is most likely the method’s and not the book’s.</b> The stamps are a game.</li></ul>',
+					lede: 'Books read by a machine that is told no title and knows them all the same: how well written, on three floors, and what kind of read. A merit that carries some hundredths of the book’s fame, and a machine that says how many.',
 					what1:
 						'Salomón is an experiment with <a href="https://docs.typesafe.ai">Jev</a>, a model that writes nothing: it answers closed questions with probabilities. Of each book it reads twelve passages of 3,000 words, with no title nor author, and of each it is asked fourteen things about what a reader, an editor or a teacher of writing would do with it. The rest is arithmetic anyone can redo.',
 					what2: `Whether it gets it right was checked on books of known standing, in ladders within a genre: in 28 pairs of 28 the better book came out higher, 10 of them of books it had never seen. How it got there, what it cost and everything that was run is <a href="${repo}/blob/main/docs/README.md">written down</a>.`,
@@ -326,13 +326,15 @@
 					read1:
 						'<b>Three floors.</b> Written by the yard, under 0.62: the half-dime novel, the newspaper serial. The competent seller, 0.63 to 0.72. Well written, 0.74 and over. That much was checked; which of two books on a floor is the greater was not, and across genres only the floor means anything.',
 					read2:
-						'<b>A good read is the weaker number.</b> It tells the ends apart and leans to action. It could not be much more: of what readers say of a book on a site of ratings, three hundredths are owed to the book and thirty to who the reader is.',
+						'<b>A good read is no valuation.</b> Set against what readers say of the same books on Goodreads, it agrees no better than chance, and merit itself predicts their rating better. It is kept as a profile of what kind of read a book is, not as a measure of how good a one.',
 					read3:
-						'<b>What can mislead.</b> The copy judged is what is judged: a translation is its translator’s prose. The machine may know a famous page by heart though it is told no title. Old, formal prose is taken for prose with literary aims. The latest written stand highest, which may be their worth or the taste of a model of our day.',
+						'<b>What can mislead.</b> The copy judged is what is judged: a translation is its translator’s prose. The machine names the novel from the page though it is told no title, and knows how well known it is: with every proper name changed, the famous fall by five hundredths and the well written lose most of their order among themselves; that is what fame is worth to it. Old, formal prose is taken for prose with literary aims. The latest written stand highest, which may be their worth or the taste of a model of our day.',
 					read4: `More in <a href="${repo}/blob/main/docs/books/reading-a-valuation.md">how to read a valuation</a>.`,
 					proposeTitle: 'Propose a book',
 					propose: `Nobody can have a book judged from here. <a href="${repo}/issues/new?title=A%20book%20for%20Salom%C3%B3n">Propose one</a>, best of all in the public domain, and with luck two more of its kind: one held better and one held worse.`,
 					hunch: 'A machine’s hunch, not a verdict',
+					known: (k) =>
+						`What the machine knows: it holds the book well known at ${k.famous == null ? '—' : k.famous.toFixed(2)}${k.namesChanged == null ? '' : `; with every proper name changed its merit is ${k.namesChanged.toFixed(2)}`}${k.wordings == null ? '' : `; four wordings of the questions move it by ${k.wordings.toFixed(2)}`}.`,
 					cols: ['', 'Book', 'Merit', 'A good read', 'Written for', ''],
 					floors: ['Well written', 'The competent seller', 'Written by the yard'],
 					mapFloors: [
@@ -384,8 +386,8 @@
 				},
 				es: {
 					warning:
-						'<h3>Antes de nada: esto es un experimento, no crítica literaria</h3><ul><li><b>Lo que ves es la corazonada de una máquina.</b> Un modelo que lee doce pasajes de un libro, a ciegas, y responde preguntas cerradas. Es un análisis de textos, y no un veredicto sobre un libro, sobre su autor ni sobre quien lo adora.</li><li><b>Hay libros que esta forma de juzgar no sabe colocar bien</b>, y no es culpa suya: los que rompen las convenciones a propósito, como <i>Ulysses</i>; los que valen por el conjunto y no por la página; los que se juzgan en traducción o en una mala copia; y los famosos, que la máquina puede saberse de memoria.</li><li><b>No distingue una gran novela de una buena</b>, no dice nada seguro entre géneros distintos, y «se lee bien» apenas separa más que los dos extremos.</li><li><b>Si un libro que te importa sale mal parado aquí, lo más probable es que el límite sea del método y no del libro.</b> Los sellos son un juego.</li></ul>',
-					lede: 'Libros leídos a ciegas por una máquina: cómo de bien escritos están y cómo de bien se leen. Dos notas, porque quien puntúa un libro por su mérito literario y quien lo puntúa por lo que le gustó están pesando el mismo libro de forma distinta.',
+						'<h3>Antes de nada: esto es un experimento, no crítica literaria</h3><ul><li><b>Lo que ves es la corazonada de una máquina.</b> Un modelo que lee doce pasajes de un libro, sin que se le diga el título, y responde preguntas cerradas. Es un análisis de textos, y no un veredicto sobre un libro, sobre su autor ni sobre quien lo adora.</li><li><b>Hay libros que esta forma de juzgar no sabe colocar bien</b>, y no es culpa suya: los que rompen las convenciones a propósito, como <i>Ulysses</i>; los que valen por el conjunto y no por la página; los que se juzgan en traducción o en una mala copia.</li><li><b>La máquina conoce el libro.</b> No se le dice el título y aun así nombra la novela desde la página, en todos estos; lo que sabe de la fama de un libro vale unas centésimas de su nota, y cada libro dice cuántas bajo su ficha.</li><li><b>No distingue una gran novela de una buena</b>, no dice nada seguro entre géneros distintos, y «se lee bien» coincide con lo que dicen los lectores como lo haría el azar: es un perfil, no una nota.</li><li><b>Si un libro que te importa sale mal parado aquí, lo más probable es que el límite sea del método y no del libro.</b> Los sellos son un juego.</li></ul>',
+					lede: 'Libros leídos por una máquina a la que no se le dice el título y que los conoce igual: cómo de bien escritos, en tres pisos, y qué clase de lectura son. Un mérito que lleva dentro unas centésimas de la fama del libro, y una máquina que dice cuántas.',
 					what1:
 						'Salomón es un experimento con <a href="https://docs.typesafe.ai">Jev</a>, un modelo que no escribe nada: responde preguntas cerradas con probabilidades. De cada libro lee doce pasajes de 3.000 palabras, sin título ni autor, y de cada uno se le preguntan catorce cosas sobre qué haría con él un lector, un editor o un profesor de escritura. El resto es aritmética que cualquiera puede rehacer.',
 					what2: `Si acierta se comprobó con libros de fama conocida, en escaleras dentro de un mismo género: en 28 parejas de 28 el mejor libro salió por encima, 10 de ellas de libros que no había visto nunca. Cómo se llegó hasta ahí, lo que costó y todo lo que se ejecutó está <a href="${repo}/blob/main/docs/README.md">escrito</a> (en inglés).`,
@@ -409,13 +411,15 @@
 					read1:
 						'<b>Tres pisos.</b> Escrito a destajo, por debajo de 0,62: la novela de quiosco, el folletín. El superventas competente, de 0,63 a 0,72. Bien escrito, de 0,74 para arriba. Eso se comprobó; cuál de dos libros de un mismo piso es el mayor, no, y entre géneros distintos solo el piso significa algo.',
 					read2:
-						'<b>«Se lee bien» es la nota floja.</b> Distingue los extremos y tira hacia la acción. No podía ser mucho más: de lo que los lectores dicen de un libro en un sitio de puntuaciones, tres centésimas se deben al libro y treinta a quién es el lector.',
+						'<b>«Se lee bien» no es una valoración.</b> Puesta al lado de lo que los lectores dicen de los mismos libros en Goodreads, coincide con ellos como lo haría el azar, y el propio mérito predice mejor su nota. Se conserva como perfil de qué clase de lectura es un libro, no como medida de si es buena.',
 					read3:
-						'<b>Lo que puede engañar.</b> Se juzga la copia que se juzga: una traducción es la prosa de su traductor. La máquina puede saberse de memoria una página famosa aunque no se le diga el título. A la prosa antigua y formal la toma por prosa con aspiraciones literarias. Los más modernos salen los más altos, que puede ser su valor o el gusto de un modelo de hoy.',
+						'<b>Lo que puede engañar.</b> Se juzga la copia que se juzga: una traducción es la prosa de su traductor. La máquina nombra la novela desde la página aunque no se le diga el título, y sabe cuán conocida es: con todos los nombres propios cambiados, los famosos bajan cinco centésimas y los bien escritos pierden casi todo su orden entre sí; eso es lo que la fama vale para ella. A la prosa antigua y formal la toma por prosa con aspiraciones literarias. Los más modernos salen los más altos, que puede ser su valor o el gusto de un modelo de hoy.',
 					read4: `Más en <a href="${repo}/blob/main/docs/books/reading-a-valuation.md">cómo leer una valoración</a> (en inglés).`,
 					proposeTitle: 'Propón un libro',
 					propose: `Desde aquí nadie puede hacer juzgar un libro. <a href="${repo}/issues/new?title=Un%20libro%20para%20Salom%C3%B3n">Propón uno</a>, mejor si está en dominio público, y con suerte dos más de su género: uno tenido por mejor y otro por peor.`,
 					hunch: 'La corazonada de una máquina, no un veredicto',
+					known: (k) =>
+						`Lo que la máquina sabe: tiene el libro por conocido en ${k.famous == null ? '—' : k.famous.toFixed(2).replace('.', ',')}${k.namesChanged == null ? '' : `; con todos los nombres propios cambiados su mérito es ${k.namesChanged.toFixed(2).replace('.', ',')}`}${k.wordings == null ? '' : `; cuatro redacciones de las preguntas lo mueven ${k.wordings.toFixed(2).replace('.', ',')}`}.`,
 					cols: ['', 'Libro', 'Mérito', 'Se lee bien', 'Escrito para', ''],
 					floors: ['Bien escrito', 'El superventas competente', 'Escrito a destajo'],
 					mapFloors: [
@@ -635,9 +639,9 @@
 				// A page of its own for each book, whose address shows the card wherever it is pasted.
 				$('share').href = `${lang === 'es' ? 'libro' : 'book'}/${book.slug}/`;
 				$('share').textContent = texts[lang].share;
-				$('caveat').innerHTML = book.caveat
-					? `<p class="caveat">* ${esc(book.caveat[lang])}</p>`
-					: '';
+				$('caveat').innerHTML =
+					(book.caveat ? `<p class="caveat">* ${esc(book.caveat[lang])}</p>` : '') +
+					(book.known ? `<p class="caveat">${esc(texts[lang].known(book.known))}</p>` : '');
 			}
 
 			function drawSliders() {
