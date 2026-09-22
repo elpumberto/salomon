@@ -1,0 +1,137 @@
+{
+	"kind": "jev",
+	"at": "2026-09-22T10:22:09.589Z",
+	"book": {
+		"title": "The Lost World",
+		"author": "Arthur Conan Doyle",
+		"language": "en",
+		"source": {
+			"file": "the-lost-world.epub",
+			"format": "epub",
+			"sha256": "f86e15ec47936c70c0d2fd37a6339106ee49d1c7f20bf8aebabe91c097208cac"
+		},
+		"text": {
+			"sha256": "d13830a7fdea4cf36c0be5d89b9434fcec8fe0e347cddba2443ef7a9dfe2d329",
+			"sections": 20,
+			"words": 75498
+		}
+	},
+	"sections": [
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "whole-scholar",
+		"rules": "sha256:a93653d6fd28",
+		"asked": {
+			"essay": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How much would a critic find to say about this novel?",
+				"criteria": [
+					"A critic would find nothing to say about this novel",
+					"A critic would give this novel a paragraph in a survey of its kind",
+					"A critic would find an essay in this novel",
+					"A critic would find more in this novel than an essay could hold"
+				]
+			},
+			"course": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. What would become of it in a university course on the novel?",
+				"criteria": [
+					"This novel would not be assigned",
+					"This novel would be read as an example of its genre",
+					"This novel would be read for how it is made",
+					"This novel would be read as a turn in what the novel can do"
+				]
+			},
+			"imitate": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would later writers imitate the way it is made?"
+			},
+			"century": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would it still be read a century from now?"
+			},
+			"founded": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Did it start something: a kind of novel, a figure, a way of telling that others took up?"
+			}
+		},
+		"code": {
+			"commit": "b079bec",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 1,
+		"tokensIn": 5175,
+		"usd": 0.000217,
+		"seconds": 0
+	},
+	"found": [
+		{
+			"section": 4,
+			"through": 20,
+			"variant": "the outline from the notes of google/gemini-3.1-flash-lite",
+			"measured": {
+				"words": 3275,
+				"spoken": null,
+				"wordsPerSentence": 0
+			},
+			"sha256": "3940db0289ec26855dfae615e97a52010d6a8d03478f4b0cce8c807b9c5bb7e9",
+			"tokensIn": 5175,
+			"seconds": 0.3,
+			"answers": {
+				"essay": {
+					"score": 1.97,
+					"of": 3,
+					"confidence": 0.63,
+					"probabilities": [
+						0,
+						0.19,
+						0.64,
+						0.17
+					]
+				},
+				"course": {
+					"score": 1.19,
+					"of": 3,
+					"confidence": 0.77,
+					"probabilities": [
+						0.02,
+						0.79,
+						0.18,
+						0.01
+					]
+				},
+				"imitate": {
+					"noul": 0.51
+				},
+				"century": {
+					"noul": 0.59
+				},
+				"founded": {
+					"noul": 0.64
+				}
+			}
+		}
+	],
+	"purpose": "experiment",
+	"remarks": "The scholar's questions, of what will become of the book, put to the outline made from the reading notes."
+}

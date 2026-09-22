@@ -1,0 +1,786 @@
+{
+	"kind": "jev",
+	"at": "2026-09-22T10:05:27.967Z",
+	"book": {
+		"title": "The prisoner of Zenda",
+		"author": "Anthony Hope",
+		"language": "en",
+		"source": {
+			"file": "the-prisoner-of-zenda.epub",
+			"format": "epub",
+			"sha256": "1549161e2499c19d043138177eb0a748377af55696a40b6a43f2685cfbe7260d"
+		},
+		"text": {
+			"sha256": "b2f1d60870ab7c108a816d7c866ba2510a8a13177f933544afa991851b7cbec6",
+			"sections": 22,
+			"words": 53408
+		}
+	},
+	"sections": [
+		1,
+		3,
+		4,
+		7,
+		8,
+		10,
+		12,
+		14,
+		15,
+		18,
+		19,
+		21
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "critics",
+		"rules": "sha256:26a38eee2fa4",
+		"asked": {
+			"formalist": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel of some 3,000 words. Read it as a critic of form would: one who weighs the shape of the sentences, the handling of point of view and time, the pattern of the whole, and cares nothing for the moral or the message. What is it to such a critic?",
+				"criteria": [
+					"To a critic of form, this passage is of no literary interest",
+					"To a critic of form, this passage is competent work and no more",
+					"To a critic of form, this passage is of real distinction"
+				]
+			},
+			"moralist": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel of some 3,000 words. Read it as a critic of the moral tradition would: one who asks whether it tells the truth about how people live and what they owe each other, and whether it enlarges the reader's sympathy, and cares little for technique for its own sake. What is it to such a critic?",
+				"criteria": [
+					"To a critic of the moral tradition, this passage is of no literary interest",
+					"To a critic of the moral tradition, this passage is competent work and no more",
+					"To a critic of the moral tradition, this passage is of real distinction"
+				]
+			},
+			"publisher": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel of some 3,000 words. Read it as an editor at a commercial publisher would: one who asks whether it will hold readers and sell, and whether the writing does its job without getting in the way. What is it to such an editor?",
+				"criteria": [
+					"To a commercial editor, this passage is of no literary interest",
+					"To a commercial editor, this passage is competent work and no more",
+					"To a commercial editor, this passage is of real distinction"
+				]
+			},
+			"reader": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel of some 3,000 words. Read it as an ordinary reader would: one who reads for pleasure, wants to be taken in and carried along, and has no theory of literature. What is it to such a reader?",
+				"criteria": [
+					"To an ordinary reader, this passage is of no literary interest",
+					"To an ordinary reader, this passage is competent work and no more",
+					"To an ordinary reader, this passage is of real distinction"
+				]
+			}
+		},
+		"code": {
+			"commit": "94d450b",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 12,
+		"tokensIn": 58658,
+		"usd": 0.002464,
+		"seconds": 6
+	},
+	"found": [
+		{
+			"section": 1,
+			"piece": {
+				"at": 1,
+				"of": 18
+			},
+			"measured": {
+				"words": 2971,
+				"spoken": 0.23,
+				"wordsPerSentence": 19.9
+			},
+			"variant": "critics",
+			"sha256": "ba18ecf533068dcdc64586a9ce8ebcd15c4f23c417be96256f47291ef4014cbd",
+			"tokensIn": 4880,
+			"seconds": 0.6,
+			"answers": {
+				"formalist": {
+					"score": 1.8,
+					"of": 2,
+					"confidence": 0.69,
+					"probabilities": [
+						0,
+						0.2,
+						0.8
+					]
+				},
+				"moralist": {
+					"score": 1.19,
+					"of": 2,
+					"confidence": 0.61,
+					"probabilities": [
+						0.03,
+						0.74,
+						0.23
+					]
+				},
+				"publisher": {
+					"score": 1.72,
+					"of": 2,
+					"confidence": 0.57,
+					"probabilities": [
+						0.01,
+						0.26,
+						0.73
+					]
+				},
+				"reader": {
+					"score": 1.74,
+					"of": 2,
+					"confidence": 0.61,
+					"probabilities": [
+						0.01,
+						0.25,
+						0.74
+					]
+				}
+			}
+		},
+		{
+			"section": 3,
+			"piece": {
+				"at": 3,
+				"of": 18
+			},
+			"measured": {
+				"words": 2949,
+				"spoken": 0.44,
+				"wordsPerSentence": 11.9
+			},
+			"variant": "critics",
+			"sha256": "d4b6634e72941d3a27332df395be34121ec1b853ffce6b0376db2d04fb58536f",
+			"tokensIn": 5090,
+			"seconds": 0.6,
+			"answers": {
+				"formalist": {
+					"score": 1.71,
+					"of": 2,
+					"confidence": 0.56,
+					"probabilities": [
+						0,
+						0.29,
+						0.71
+					]
+				},
+				"moralist": {
+					"score": 1.4,
+					"of": 2,
+					"confidence": 0.3,
+					"probabilities": [
+						0.03,
+						0.54,
+						0.43
+					]
+				},
+				"publisher": {
+					"score": 1.74,
+					"of": 2,
+					"confidence": 0.61,
+					"probabilities": [
+						0.01,
+						0.24,
+						0.75
+					]
+				},
+				"reader": {
+					"score": 1.78,
+					"of": 2,
+					"confidence": 0.67,
+					"probabilities": [
+						0,
+						0.21,
+						0.79
+					]
+				}
+			}
+		},
+		{
+			"section": 4,
+			"piece": {
+				"at": 4,
+				"of": 18
+			},
+			"measured": {
+				"words": 2959,
+				"spoken": 0.15,
+				"wordsPerSentence": 18
+			},
+			"variant": "critics",
+			"sha256": "5bdd0d479c6b09d6aa4d97419b2a97facfc57b4f2b00d6d9a3d669e90d7f236d",
+			"tokensIn": 4739,
+			"seconds": 0.5,
+			"answers": {
+				"formalist": {
+					"score": 1.68,
+					"of": 2,
+					"confidence": 0.52,
+					"probabilities": [
+						0,
+						0.31,
+						0.69
+					]
+				},
+				"moralist": {
+					"score": 1.32,
+					"of": 2,
+					"confidence": 0.43,
+					"probabilities": [
+						0.03,
+						0.62,
+						0.35
+					]
+				},
+				"publisher": {
+					"score": 1.72,
+					"of": 2,
+					"confidence": 0.58,
+					"probabilities": [
+						0.01,
+						0.27,
+						0.72
+					]
+				},
+				"reader": {
+					"score": 1.74,
+					"of": 2,
+					"confidence": 0.62,
+					"probabilities": [
+						0,
+						0.25,
+						0.75
+					]
+				}
+			}
+		},
+		{
+			"section": 7,
+			"piece": {
+				"at": 6,
+				"of": 18
+			},
+			"measured": {
+				"words": 2944,
+				"spoken": 0.34,
+				"wordsPerSentence": 12.1
+			},
+			"variant": "critics",
+			"sha256": "0f6ae762b3bc30bcd2a256b1d4286620300c2aa3ed3d897ecccc1ea5a2290946",
+			"tokensIn": 5010,
+			"seconds": 0.5,
+			"answers": {
+				"formalist": {
+					"score": 1.63,
+					"of": 2,
+					"confidence": 0.45,
+					"probabilities": [
+						0.01,
+						0.36,
+						0.63
+					]
+				},
+				"moralist": {
+					"score": 1.47,
+					"of": 2,
+					"confidence": 0.21,
+					"probabilities": [
+						0.02,
+						0.49,
+						0.49
+					]
+				},
+				"publisher": {
+					"score": 1.56,
+					"of": 2,
+					"confidence": 0.35,
+					"probabilities": [
+						0.01,
+						0.41,
+						0.58
+					]
+				},
+				"reader": {
+					"score": 1.69,
+					"of": 2,
+					"confidence": 0.54,
+					"probabilities": [
+						0.01,
+						0.3,
+						0.69
+					]
+				}
+			}
+		},
+		{
+			"section": 8,
+			"piece": {
+				"at": 7,
+				"of": 18
+			},
+			"measured": {
+				"words": 2966,
+				"spoken": 0.49,
+				"wordsPerSentence": 10.2
+			},
+			"variant": "critics",
+			"sha256": "88e98da3e97bddd1165e2760077278f630c1ae0d98680d84747634f7d05fe1f0",
+			"tokensIn": 5110,
+			"seconds": 0.6,
+			"answers": {
+				"formalist": {
+					"score": 1.7,
+					"of": 2,
+					"confidence": 0.55,
+					"probabilities": [
+						0,
+						0.29,
+						0.71
+					]
+				},
+				"moralist": {
+					"score": 1.49,
+					"of": 2,
+					"confidence": 0.24,
+					"probabilities": [
+						0.02,
+						0.47,
+						0.51
+					]
+				},
+				"publisher": {
+					"score": 1.69,
+					"of": 2,
+					"confidence": 0.54,
+					"probabilities": [
+						0.01,
+						0.29,
+						0.7
+					]
+				},
+				"reader": {
+					"score": 1.76,
+					"of": 2,
+					"confidence": 0.64,
+					"probabilities": [
+						0,
+						0.23,
+						0.77
+					]
+				}
+			}
+		},
+		{
+			"section": 10,
+			"piece": {
+				"at": 9,
+				"of": 18
+			},
+			"measured": {
+				"words": 2999,
+				"spoken": 0.39,
+				"wordsPerSentence": 15.1
+			},
+			"variant": "critics",
+			"sha256": "6671cb54dd0e5d8c7593a7591ee8d5b390d7de8fd344dec407c1991e2bf8fa0a",
+			"tokensIn": 4869,
+			"seconds": 0.6,
+			"answers": {
+				"formalist": {
+					"score": 1.75,
+					"of": 2,
+					"confidence": 0.62,
+					"probabilities": [
+						0,
+						0.25,
+						0.75
+					]
+				},
+				"moralist": {
+					"score": 1.8,
+					"of": 2,
+					"confidence": 0.7,
+					"probabilities": [
+						0.01,
+						0.18,
+						0.81
+					]
+				},
+				"publisher": {
+					"score": 1.66,
+					"of": 2,
+					"confidence": 0.49,
+					"probabilities": [
+						0.01,
+						0.31,
+						0.68
+					]
+				},
+				"reader": {
+					"score": 1.8,
+					"of": 2,
+					"confidence": 0.7,
+					"probabilities": [
+						0,
+						0.19,
+						0.81
+					]
+				}
+			}
+		},
+		{
+			"section": 12,
+			"piece": {
+				"at": 10,
+				"of": 18
+			},
+			"measured": {
+				"words": 2918,
+				"spoken": 0.39,
+				"wordsPerSentence": 12.6
+			},
+			"variant": "critics",
+			"sha256": "4a9da5387966a394595f567850df00de8654d2f6328e9358587a36d872ff33ca",
+			"tokensIn": 4892,
+			"seconds": 0.5,
+			"answers": {
+				"formalist": {
+					"score": 1.77,
+					"of": 2,
+					"confidence": 0.66,
+					"probabilities": [
+						0,
+						0.22,
+						0.78
+					]
+				},
+				"moralist": {
+					"score": 1.42,
+					"of": 2,
+					"confidence": 0.29,
+					"probabilities": [
+						0.03,
+						0.52,
+						0.45
+					]
+				},
+				"publisher": {
+					"score": 1.71,
+					"of": 2,
+					"confidence": 0.56,
+					"probabilities": [
+						0.01,
+						0.26,
+						0.73
+					]
+				},
+				"reader": {
+					"score": 1.79,
+					"of": 2,
+					"confidence": 0.68,
+					"probabilities": [
+						0,
+						0.21,
+						0.79
+					]
+				}
+			}
+		},
+		{
+			"section": 14,
+			"piece": {
+				"at": 12,
+				"of": 18
+			},
+			"measured": {
+				"words": 2959,
+				"spoken": 0.24,
+				"wordsPerSentence": 12.8
+			},
+			"variant": "critics",
+			"sha256": "fc9739f259f558453402dbe5ed6c6455d9a8c00c88b5da99f1d2c439d867859f",
+			"tokensIn": 4857,
+			"seconds": 0.5,
+			"answers": {
+				"formalist": {
+					"score": 1.7,
+					"of": 2,
+					"confidence": 0.55,
+					"probabilities": [
+						0,
+						0.29,
+						0.71
+					]
+				},
+				"moralist": {
+					"score": 1.32,
+					"of": 2,
+					"confidence": 0.41,
+					"probabilities": [
+						0.04,
+						0.6,
+						0.36
+					]
+				},
+				"publisher": {
+					"score": 1.6,
+					"of": 2,
+					"confidence": 0.4,
+					"probabilities": [
+						0.01,
+						0.37,
+						0.62
+					]
+				},
+				"reader": {
+					"score": 1.72,
+					"of": 2,
+					"confidence": 0.58,
+					"probabilities": [
+						0.01,
+						0.27,
+						0.72
+					]
+				}
+			}
+		},
+		{
+			"section": 15,
+			"piece": {
+				"at": 13,
+				"of": 18
+			},
+			"measured": {
+				"words": 3095,
+				"spoken": 0.3,
+				"wordsPerSentence": 15.8
+			},
+			"variant": "critics",
+			"sha256": "d45090850266b789e3c40483c5de42e5952dce4c942f5f1622b7cc6bd9deea65",
+			"tokensIn": 5028,
+			"seconds": 0.5,
+			"answers": {
+				"formalist": {
+					"score": 1.7,
+					"of": 2,
+					"confidence": 0.55,
+					"probabilities": [
+						0,
+						0.29,
+						0.71
+					]
+				},
+				"moralist": {
+					"score": 1.54,
+					"of": 2,
+					"confidence": 0.31,
+					"probabilities": [
+						0.02,
+						0.42,
+						0.56
+					]
+				},
+				"publisher": {
+					"score": 1.63,
+					"of": 2,
+					"confidence": 0.44,
+					"probabilities": [
+						0.01,
+						0.35,
+						0.64
+					]
+				},
+				"reader": {
+					"score": 1.73,
+					"of": 2,
+					"confidence": 0.6,
+					"probabilities": [
+						0.01,
+						0.25,
+						0.74
+					]
+				}
+			}
+		},
+		{
+			"section": 18,
+			"piece": {
+				"at": 15,
+				"of": 18
+			},
+			"measured": {
+				"words": 2944,
+				"spoken": 0.08,
+				"wordsPerSentence": 13.6
+			},
+			"variant": "critics",
+			"sha256": "19c62db21fd3c3839c53e42c10a2725bc72081f28af704fbbbea1567696f0be5",
+			"tokensIn": 4685,
+			"seconds": 0.5,
+			"answers": {
+				"formalist": {
+					"score": 1.77,
+					"of": 2,
+					"confidence": 0.65,
+					"probabilities": [
+						0,
+						0.22,
+						0.78
+					]
+				},
+				"moralist": {
+					"score": 1.54,
+					"of": 2,
+					"confidence": 0.32,
+					"probabilities": [
+						0.02,
+						0.41,
+						0.57
+					]
+				},
+				"publisher": {
+					"score": 1.65,
+					"of": 2,
+					"confidence": 0.48,
+					"probabilities": [
+						0.01,
+						0.32,
+						0.67
+					]
+				},
+				"reader": {
+					"score": 1.77,
+					"of": 2,
+					"confidence": 0.66,
+					"probabilities": [
+						0.01,
+						0.21,
+						0.78
+					]
+				}
+			}
+		},
+		{
+			"section": 19,
+			"piece": {
+				"at": 16,
+				"of": 18
+			},
+			"measured": {
+				"words": 3087,
+				"spoken": 0.05,
+				"wordsPerSentence": 20.6
+			},
+			"variant": "critics",
+			"sha256": "2b1541e603495b1f81f05b2e95f87b8b020ce4a1378a50511810ff2e2780f77a",
+			"tokensIn": 4772,
+			"seconds": 0.5,
+			"answers": {
+				"formalist": {
+					"score": 1.77,
+					"of": 2,
+					"confidence": 0.65,
+					"probabilities": [
+						0,
+						0.23,
+						0.77
+					]
+				},
+				"moralist": {
+					"score": 1.57,
+					"of": 2,
+					"confidence": 0.35,
+					"probabilities": [
+						0.02,
+						0.4,
+						0.58
+					]
+				},
+				"publisher": {
+					"score": 1.62,
+					"of": 2,
+					"confidence": 0.43,
+					"probabilities": [
+						0.02,
+						0.34,
+						0.64
+					]
+				},
+				"reader": {
+					"score": 1.75,
+					"of": 2,
+					"confidence": 0.62,
+					"probabilities": [
+						0.01,
+						0.24,
+						0.75
+					]
+				}
+			}
+		},
+		{
+			"section": 21,
+			"piece": {
+				"at": 18,
+				"of": 18
+			},
+			"measured": {
+				"words": 2951,
+				"spoken": 0.17,
+				"wordsPerSentence": 18.1
+			},
+			"variant": "critics",
+			"sha256": "4751a1d7ea018d9e63255e551d4574e6c6cc72ac05309a395442f9ca41575fb3",
+			"tokensIn": 4726,
+			"seconds": 0.5,
+			"answers": {
+				"formalist": {
+					"score": 1.68,
+					"of": 2,
+					"confidence": 0.51,
+					"probabilities": [
+						0,
+						0.32,
+						0.68
+					]
+				},
+				"moralist": {
+					"score": 1.68,
+					"of": 2,
+					"confidence": 0.52,
+					"probabilities": [
+						0.01,
+						0.3,
+						0.69
+					]
+				},
+				"publisher": {
+					"score": 1.46,
+					"of": 2,
+					"confidence": 0.25,
+					"probabilities": [
+						0.02,
+						0.5,
+						0.48
+					]
+				},
+				"reader": {
+					"score": 1.58,
+					"of": 2,
+					"confidence": 0.37,
+					"probabilities": [
+						0.01,
+						0.4,
+						0.59
+					]
+				}
+			}
+		}
+	],
+	"purpose": "experiment",
+	"remarks": "Variant: critics. The judged passages, each put to four schools of criticism at once: what the passage is to a critic of form, to one of the moral tradition, to a commercial editor and to an ordinary reader."
+}

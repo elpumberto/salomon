@@ -1,0 +1,816 @@
+{
+	"accessed": "2026-09-22",
+	"method": {
+		"goodreads": "Work page fetched directly; averageRating and ratingsCount read from the page JSON (work-level, all editions). Counts move by the minute.",
+		"librarything": "Work pages are behind a Cloudflare challenge. Numbers come from the public JSON endpoint https://www.librarything.com/api/json/workinfo.js?ids=<ISBNs>, fed ISBNs of the title from Open Library; the work that most ISBNs resolve to and with most members is taken. It returns the average rating on a 10-point (half-star) scale, here halved to /5 (so up to three decimals) and kept raw as rating_10; \"members\" (copies) and \"reviews\"; it does not expose the number of ratings, so count is null.",
+		"syllabi": "Open Syllabus Analytics/Explorer is behind a Cloudflare challenge. Counts are match_count from the Open Syllabus Galaxy API (https://galaxy-api-prod.opensyllabus.org/os-titles/search-works/<query>, detail at /os-titles/detail/<id>), index timestamp 2025-10-30. Where the same work appears as several records, the largest is taken and the others noted, never summed."
+	},
+	"books": {
+		"pride-and-prejudice": {
+			"goodreads": {
+				"rating": 4.3,
+				"count": 5013994,
+				"url": "https://www.goodreads.com/book/show/1885.Pride_and_Prejudice"
+			},
+			"librarything": {
+				"rating": 4.395,
+				"count": null,
+				"rating_10": 8.79,
+				"members": 95845,
+				"reviews": 1524,
+				"url": "https://www.librarything.com/work/2773690"
+			},
+			"syllabi": {
+				"count": 3764,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/7507602833827",
+				"record": "Pride and Prejudice — Jane Austen",
+				"rank": 122
+			},
+			"note": "Goodreads: Work 3060926; the redirect page 129915654 gave the same numbers."
+		},
+		"the-sheik": {
+			"goodreads": {
+				"rating": 3.27,
+				"count": 1846,
+				"url": "https://www.goodreads.com/book/show/257034.The_Sheik"
+			},
+			"librarything": {
+				"rating": 3.02,
+				"count": null,
+				"rating_10": 6.04,
+				"members": 248,
+				"reviews": 10,
+				"url": "https://www.librarything.com/work/56198"
+			},
+			"syllabi": {
+				"count": 11,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/7550553041690",
+				"record": "The Sheik — E. M. Hull",
+				"rank": 474934
+			},
+			"note": "Syllabi: Record by E. M. Hull; the 1921 film record (George Melford) has 33."
+		},
+		"irene-iddesleigh": {
+			"goodreads": {
+				"rating": 2.02,
+				"count": 257,
+				"url": "https://www.goodreads.com/book/show/5390186-irene-iddesleigh"
+			},
+			"librarything": {
+				"rating": 1.775,
+				"count": null,
+				"rating_10": 3.55,
+				"members": 49,
+				"reviews": 4,
+				"url": "https://www.librarything.com/work/5670099"
+			},
+			"syllabi": "unchecked",
+			"note": "Syllabi: Not in the Open Syllabus Galaxy index (galaxy-api-prod.opensyllabus.org, indexed 2025-10-30), which reaches down to titles with 3 syllabi; searched title, author and spelling variants. The Analytics/Explorer site itself (analytics.opensyllabus.org) is behind a Cloudflare challenge."
+		},
+		"treasure-island": {
+			"goodreads": {
+				"rating": 3.85,
+				"count": 555717,
+				"url": "https://www.goodreads.com/book/show/295.Treasure_Island"
+			},
+			"librarything": {
+				"rating": 3.83,
+				"count": null,
+				"rating_10": 7.66,
+				"members": 41714,
+				"reviews": 506,
+				"url": "https://www.librarything.com/work/1812"
+			},
+			"syllabi": {
+				"count": 555,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/7507602833944",
+				"record": "Treasure Island — Robert Louis Stevenson",
+				"rank": 4500
+			},
+			"note": "Syllabi: A duplicate record under author \"Robert Louis\" has 54."
+		},
+		"king-solomons-mines": {
+			"goodreads": {
+				"rating": 3.79,
+				"count": 53814,
+				"url": "https://www.goodreads.com/book/show/23814.King_Solomon_s_Mines"
+			},
+			"librarything": {
+				"rating": 3.61,
+				"count": null,
+				"rating_10": 7.22,
+				"members": 6357,
+				"reviews": 142,
+				"url": "https://www.librarything.com/work/55090"
+			},
+			"syllabi": {
+				"count": 413,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/16243566316551",
+				"record": "King Solomon's Mines — H. Rider Haggard",
+				"rank": 7200
+			},
+			"note": ""
+		},
+		"tarzan-of-the-apes": {
+			"goodreads": {
+				"rating": 3.9,
+				"count": 48967,
+				"url": "https://www.goodreads.com/book/show/40425.Tarzan_of_the_Apes"
+			},
+			"librarything": {
+				"rating": 3.74,
+				"count": null,
+				"rating_10": 7.48,
+				"members": 5618,
+				"reviews": 129,
+				"url": "https://www.librarything.com/work/4912"
+			},
+			"syllabi": {
+				"count": 197,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/16243566317304",
+				"record": "Tarzan of the Apes — Edgar Rice Burroughs",
+				"rank": 21521
+			},
+			"note": ""
+		},
+		"the-turn-of-the-screw": {
+			"goodreads": {
+				"rating": 3.38,
+				"count": 188244,
+				"url": "https://www.goodreads.com/book/show/12948.The_Turn_of_the_Screw"
+			},
+			"librarything": {
+				"rating": 3.39,
+				"count": null,
+				"rating_10": 6.78,
+				"members": 9615,
+				"reviews": 301,
+				"url": "https://www.librarything.com/work/8508"
+			},
+			"syllabi": {
+				"count": 1807,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/8211977503080",
+				"record": "The Turn of the Screw — Henry James",
+				"rank": 559
+			},
+			"note": ""
+		},
+		"dracula": {
+			"goodreads": {
+				"rating": 4.03,
+				"count": 1543264,
+				"url": "https://www.goodreads.com/book/show/17245.Dracula"
+			},
+			"librarything": {
+				"rating": 3.965,
+				"count": null,
+				"rating_10": 7.93,
+				"members": 43494,
+				"reviews": 707,
+				"url": "https://www.librarything.com/work/883"
+			},
+			"syllabi": {
+				"count": 3080,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/7507602833953",
+				"record": "Dracula — Bram Stoker",
+				"rank": 180
+			},
+			"note": "Syllabi: Record by Bram Stoker; the Coppola film has 177."
+		},
+		"varney-the-vampire": {
+			"goodreads": {
+				"rating": 3.41,
+				"count": 1578,
+				"url": "https://www.goodreads.com/book/show/2292060.Varney_the_Vampire_or_The_Feast_of_Blood"
+			},
+			"librarything": {
+				"rating": 3.02,
+				"count": null,
+				"rating_10": 6.04,
+				"members": 292,
+				"reviews": 5,
+				"url": "https://www.librarything.com/work/598188"
+			},
+			"syllabi": {
+				"count": 32,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/51067161150762",
+				"record": "Varney, the Vampyre — James Malcolm Rymer, Thomas Peckett Prest",
+				"rank": 187635
+			},
+			"note": "Goodreads: Single-volume work 2292060 (most rated); the Volume I/II works have 68 and 32 ratings. Syllabi: Record \"Varney, the Vampyre\" (Rymer, Prest) 32; a second record \"Varney the Vampire\" has 6."
+		},
+		"the-moonstone": {
+			"goodreads": {
+				"rating": 3.91,
+				"count": 101314,
+				"url": "https://www.goodreads.com/book/show/6138.The_Moonstone"
+			},
+			"librarything": {
+				"rating": 3.95,
+				"count": null,
+				"rating_10": 7.9,
+				"members": 12250,
+				"reviews": 274,
+				"url": "https://www.librarything.com/work/30888"
+			},
+			"syllabi": {
+				"count": 455,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/7507602833925",
+				"record": "The Moonstone — Wilkie Collins",
+				"rank": 6229
+			},
+			"note": ""
+		},
+		"the-mysterious-affair-at-styles": {
+			"goodreads": {
+				"rating": 4.0,
+				"count": 536841,
+				"url": "https://www.goodreads.com/book/show/52843028-the-mysterious-affair-at-styles"
+			},
+			"librarything": {
+				"rating": 3.76,
+				"count": null,
+				"rating_10": 7.52,
+				"members": 11307,
+				"reviews": 357,
+				"url": "https://www.librarything.com/work/2921950"
+			},
+			"syllabi": {
+				"count": 46,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/16243566314142",
+				"record": "The Mysterious Affair at Styles — Agatha Christie",
+				"rank": 126318
+			},
+			"note": "Goodreads: Work 3366260 (Hercule Poirot, #1)."
+		},
+		"the-mystery-of-a-hansom-cab": {
+			"goodreads": {
+				"rating": 3.57,
+				"count": 1951,
+				"url": "https://www.goodreads.com/book/show/939437.The_Mystery_of_a_Hansom_Cab"
+			},
+			"librarything": {
+				"rating": 3.405,
+				"count": null,
+				"rating_10": 6.81,
+				"members": 497,
+				"reviews": 25,
+				"url": "https://www.librarything.com/work/320552"
+			},
+			"syllabi": {
+				"count": 5,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/30365418782726",
+				"record": "The Mystery of a Hansom Cab — Fergus Hume",
+				"rank": 847421
+			},
+			"note": ""
+		},
+		"the-war-of-the-worlds": {
+			"goodreads": {
+				"rating": 3.83,
+				"count": 362190,
+				"url": "https://www.goodreads.com/book/show/8909.The_War_of_the_Worlds"
+			},
+			"librarything": {
+				"rating": 3.75,
+				"count": null,
+				"rating_10": 7.5,
+				"members": 21956,
+				"reviews": 361,
+				"url": "https://www.librarything.com/work/11494"
+			},
+			"syllabi": {
+				"count": 740,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/16243566314018",
+				"record": "The War of the Worlds — H. G. Wells",
+				"rank": 2815
+			},
+			"note": "Syllabi: Record by H. G. Wells; the Orson Welles broadcast has 272."
+		},
+		"the-lost-world": {
+			"goodreads": {
+				"rating": 3.93,
+				"count": 74897,
+				"url": "https://www.goodreads.com/book/show/10155.The_Lost_World"
+			},
+			"librarything": {
+				"rating": 3.68,
+				"count": null,
+				"rating_10": 7.36,
+				"members": 5713,
+				"reviews": 127,
+				"url": "https://www.librarything.com/work/128275"
+			},
+			"syllabi": {
+				"count": 64,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/16243566316024",
+				"record": "The Lost World — Arthur Conan Doyle",
+				"rank": 88552
+			},
+			"note": "Syllabi: Record by Arthur Conan Doyle; Crichton's novel of the same title has 21."
+		},
+		"edisons-conquest-of-mars": {
+			"goodreads": {
+				"rating": 2.82,
+				"count": 268,
+				"url": "https://www.goodreads.com/book/show/1045506.Edison_s_Conquest_of_Mars"
+			},
+			"librarything": {
+				"rating": 3.1,
+				"count": null,
+				"rating_10": 6.2,
+				"members": 98,
+				"reviews": 8,
+				"url": "https://www.librarything.com/work/857904"
+			},
+			"syllabi": "unchecked",
+			"note": "Syllabi: Not in the Open Syllabus Galaxy index (galaxy-api-prod.opensyllabus.org, indexed 2025-10-30), which reaches down to titles with 3 syllabi; searched title, author and spelling variants. The Analytics/Explorer site itself (analytics.opensyllabus.org) is behind a Cloudflare challenge."
+		},
+		"la-regenta": {
+			"goodreads": {
+				"rating": 4.04,
+				"count": 6293,
+				"url": "https://www.goodreads.com/book/show/69413.La_regenta"
+			},
+			"librarything": {
+				"rating": 4.23,
+				"count": null,
+				"rating_10": 8.46,
+				"members": 1148,
+				"reviews": 29,
+				"url": "https://www.librarything.com/work/618615"
+			},
+			"syllabi": {
+				"count": 11,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/61022895397039",
+				"record": "La Regenta — Leopoldo Alas Clarín",
+				"rank": 475892
+			},
+			"note": "Goodreads: Work 67266; separate works for tomo I (628 ratings) and tomo II (521) not merged in. Syllabi: A duplicate record under \"Alas Leopoldo\" has 10."
+		},
+		"la-barraca": {
+			"goodreads": {
+				"rating": 4.12,
+				"count": 1985,
+				"url": "https://www.goodreads.com/book/show/729686.La_barraca"
+			},
+			"librarything": {
+				"rating": 4.21,
+				"count": null,
+				"rating_10": 8.42,
+				"members": 326,
+				"reviews": 14,
+				"url": "https://www.librarything.com/work/439123"
+			},
+			"syllabi": {
+				"count": 11,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/25606595018766",
+				"record": "La Barraca — Vicente Blasco Ibáñez",
+				"rank": 487649
+			},
+			"note": ""
+		},
+		"el-cocinero-de-su-majestad": {
+			"goodreads": {
+				"rating": 3.2,
+				"count": 10,
+				"url": "https://www.goodreads.com/book/show/11795830-el-cocinero-de-su-majestad-memorias-del-tiempo-de-felipe-iii"
+			},
+			"librarything": {
+				"rating": 4.0,
+				"count": null,
+				"rating_10": 8,
+				"members": 2,
+				"reviews": 1,
+				"url": "https://www.librarything.com/work/19690410"
+			},
+			"syllabi": "unchecked",
+			"note": "Goodreads: Only Goodreads work of the novel with ratings (22 editions). Syllabi: Not in the Open Syllabus Galaxy index (galaxy-api-prod.opensyllabus.org, indexed 2025-10-30), which reaches down to titles with 3 syllabi; searched title, author and spelling variants. The Analytics/Explorer site itself (analytics.opensyllabus.org) is behind a Cloudflare challenge."
+		},
+		"don-quijote": {
+			"goodreads": {
+				"rating": 3.92,
+				"count": 315748,
+				"url": "https://www.goodreads.com/book/show/3836.Don_Quixote"
+			},
+			"librarything": {
+				"rating": 4.065,
+				"count": null,
+				"rating_10": 8.13,
+				"members": 36477,
+				"reviews": 536,
+				"url": "https://www.librarything.com/work/7730623"
+			},
+			"syllabi": {
+				"count": 776,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/7507602833539",
+				"record": "Don Quixote — Miguel De Cervantes",
+				"rank": 2594
+			},
+			"note": "Goodreads: Work 121842 covers English and Spanish editions; the Spanish page 57401.Don_Quijote_de_la_Mancha shows the same numbers. Syllabi: English record \"Don Quixote\" 776; Spanish record \"Don Quijote\" 302; \"El Ingenioso Hidalgo Don Quijote De La Mancha\" 59; another \"Don Quixote\" 82. Not summed."
+		},
+		"ulysses": {
+			"goodreads": {
+				"rating": 3.76,
+				"count": 141820,
+				"url": "https://www.goodreads.com/book/show/338798.Ulysses"
+			},
+			"librarything": {
+				"rating": 4.005,
+				"count": null,
+				"rating_10": 8.01,
+				"members": 27977,
+				"reviews": 379,
+				"url": "https://www.librarything.com/work/8520"
+			},
+			"syllabi": {
+				"count": 1648,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/7507602834329",
+				"record": "Ulysses — James Joyce",
+				"rank": 671
+			},
+			"note": "Syllabi: Record by James Joyce; Tennyson's poem has 1330."
+		},
+		"the-wind-in-the-willows": {
+			"goodreads": {
+				"rating": 4.03,
+				"count": 248581,
+				"url": "https://www.goodreads.com/book/show/5659.The_Wind_in_the_Willows"
+			},
+			"librarything": {
+				"rating": 4.09,
+				"count": null,
+				"rating_10": 8.18,
+				"members": 28246,
+				"reviews": 371,
+				"url": "https://www.librarything.com/work/1534"
+			},
+			"syllabi": {
+				"count": 387,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/8315057199200",
+				"record": "The Wind in the Willows — Kenneth Grahame",
+				"rank": 7931
+			},
+			"note": "Syllabi: A duplicate record under \"Kenneth Graham\" has 32."
+		},
+		"the-wonderful-wizard-of-oz": {
+			"goodreads": {
+				"rating": 4.0,
+				"count": 525679,
+				"url": "https://www.goodreads.com/book/show/236093.The_Wonderful_Wizard_of_Oz"
+			},
+			"librarything": {
+				"rating": 3.87,
+				"count": null,
+				"rating_10": 7.74,
+				"members": 27192,
+				"reviews": 481,
+				"url": "https://www.librarything.com/work/20410"
+			},
+			"syllabi": {
+				"count": 366,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/16243566313817",
+				"record": "The Wonderful Wizard of Oz — L. Frank Baum",
+				"rank": 8622
+			},
+			"note": ""
+		},
+		"tom-swift-and-his-motor-cycle": {
+			"goodreads": {
+				"rating": 3.54,
+				"count": 460,
+				"url": "https://www.goodreads.com/book/show/1641263.Tom_Swift_and_His_Motor_Cycle_or_Fun_and_Adventures_on_the_Road"
+			},
+			"librarything": {
+				"rating": 3.275,
+				"count": null,
+				"rating_10": 6.55,
+				"members": 195,
+				"reviews": 3,
+				"url": "https://www.librarything.com/work/1092091"
+			},
+			"syllabi": "unchecked",
+			"note": "Goodreads: Work 1635593 (21 editions). Syllabi: Not in the Open Syllabus Galaxy index (galaxy-api-prod.opensyllabus.org, indexed 2025-10-30), which reaches down to titles with 3 syllabi; searched title, author and spelling variants. The Analytics/Explorer site itself (analytics.opensyllabus.org) is behind a Cloudflare challenge."
+		},
+		"the-virginian": {
+			"goodreads": {
+				"rating": 3.92,
+				"count": 10368,
+				"url": "https://www.goodreads.com/book/show/169751.The_Virginian"
+			},
+			"librarything": {
+				"rating": 3.755,
+				"count": null,
+				"rating_10": 7.51,
+				"members": 2682,
+				"reviews": 51,
+				"url": "https://www.librarything.com/work/44952"
+			},
+			"syllabi": {
+				"count": 250,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/7516192768393",
+				"record": "The Virginian — Owen Wister",
+				"rank": 15333
+			},
+			"note": ""
+		},
+		"riders-of-the-purple-sage": {
+			"goodreads": {
+				"rating": 3.76,
+				"count": 15515,
+				"url": "https://www.goodreads.com/book/show/90160.Riders_of_the_Purple_Sage"
+			},
+			"librarything": {
+				"rating": 3.415,
+				"count": null,
+				"rating_10": 6.83,
+				"members": 2109,
+				"reviews": 68,
+				"url": "https://www.librarything.com/work/142029"
+			},
+			"syllabi": {
+				"count": 91,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/16647293239325",
+				"record": "Riders of the Purple Sage — Zane Grey",
+				"rank": 58720
+			},
+			"note": ""
+		},
+		"deadwood-dick": {
+			"goodreads": {
+				"rating": 2.65,
+				"count": 66,
+				"url": "https://www.goodreads.com/book/show/6448076-deadwood-dick-the-prince-of-the-road"
+			},
+			"librarything": {
+				"rating": 2.0,
+				"count": null,
+				"rating_10": 4,
+				"members": 8,
+				"reviews": 2,
+				"url": "https://www.librarything.com/work/15073340"
+			},
+			"syllabi": {
+				"count": 11,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/25683904430080",
+				"record": "Deadwood Dick, the Prince of the Road; Or, the Black Rider of the Black Hills — Edward L. Wheeler",
+				"rank": 474826
+			},
+			"note": "Goodreads: Work 6638163 (35 editions); a second work has 2 ratings. Syllabi: Duplicate records have 8 and 4."
+		},
+		"the-age-of-innocence": {
+			"goodreads": {
+				"rating": 3.98,
+				"count": 204447,
+				"url": "https://www.goodreads.com/book/show/53835.The_Age_of_Innocence"
+			},
+			"librarything": {
+				"rating": 4.01,
+				"count": null,
+				"rating_10": 8.02,
+				"members": 16152,
+				"reviews": 338,
+				"url": "https://www.librarything.com/work/2237"
+			},
+			"syllabi": {
+				"count": 603,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/7507602834652",
+				"record": "The Age of Innocence — Edith Wharton",
+				"rank": 3962
+			},
+			"note": ""
+		},
+		"the-rosary": {
+			"goodreads": {
+				"rating": 4.02,
+				"count": 1610,
+				"url": "https://www.goodreads.com/book/show/1420762.The_Rosary"
+			},
+			"librarything": {
+				"rating": 3.76,
+				"count": null,
+				"rating_10": 7.52,
+				"members": 209,
+				"reviews": 7,
+				"url": "https://www.librarything.com/work/945148"
+			},
+			"syllabi": "unchecked",
+			"note": "Syllabi: Not in the Open Syllabus Galaxy index (galaxy-api-prod.opensyllabus.org, indexed 2025-10-30), which reaches down to titles with 3 syllabi; searched title, author and spelling variants. The Analytics/Explorer site itself (analytics.opensyllabus.org) is behind a Cloudflare challenge."
+		},
+		"three-weeks": {
+			"goodreads": {
+				"rating": 3.2,
+				"count": 306,
+				"url": "https://www.goodreads.com/book/show/897036.Three_Weeks"
+			},
+			"librarything": {
+				"rating": 3.145,
+				"count": null,
+				"rating_10": 6.29,
+				"members": 136,
+				"reviews": 3,
+				"url": "https://www.librarything.com/work/665849"
+			},
+			"syllabi": "unchecked",
+			"note": "Syllabi: Not in the Open Syllabus Galaxy index (galaxy-api-prod.opensyllabus.org, indexed 2025-10-30), which reaches down to titles with 3 syllabi; searched title, author and spelling variants. The Analytics/Explorer site itself (analytics.opensyllabus.org) is behind a Cloudflare challenge."
+		},
+		"cien-anos-de-soledad": {
+			"goodreads": {
+				"rating": 4.13,
+				"count": 1152799,
+				"url": "https://www.goodreads.com/book/show/320.One_Hundred_Years_of_Solitude"
+			},
+			"librarything": {
+				"rating": 4.17,
+				"count": null,
+				"rating_10": 8.34,
+				"members": 51026,
+				"reviews": 793,
+				"url": "https://www.librarything.com/work/5864"
+			},
+			"syllabi": {
+				"count": 743,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/36687610643852",
+				"record": "One Hundred Years of Solitude — Gabriel García Márquez",
+				"rank": 2792
+			},
+			"note": "Goodreads: Work 3295655 covers all languages; the Spanish page 370523.Cien_a_os_de_soledad shows the same numbers. Syllabi: English record 743; a duplicate English record 284; Spanish record \"Cien Años De Soledad\" 191 and another 20. Not summed."
+		},
+		"amanecer": {
+			"goodreads": {
+				"rating": 3.76,
+				"count": 1917449,
+				"url": "https://www.goodreads.com/book/show/1162543.Breaking_Dawn"
+			},
+			"librarything": {
+				"rating": 3.665,
+				"count": null,
+				"rating_10": 7.33,
+				"members": 46755,
+				"reviews": 1090,
+				"url": "https://www.librarything.com/work/6117835"
+			},
+			"syllabi": {
+				"count": 16,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/16243566313527",
+				"record": "Breaking Dawn — Stephenie Meyer",
+				"rank": 352871
+			},
+			"note": "Goodreads: Breaking Dawn (The Twilight Saga, #4), work 2960529. Syllabi: Record \"Breaking Dawn\" by Stephenie Meyer."
+		},
+		"mrs-dalloway": {
+			"goodreads": {
+				"rating": 3.77,
+				"count": 375481,
+				"url": "https://www.goodreads.com/book/show/14942.Mrs_Dalloway"
+			},
+			"librarything": {
+				"rating": 3.85,
+				"count": null,
+				"rating_10": 7.7,
+				"members": 23635,
+				"reviews": 385,
+				"url": "https://www.librarything.com/work/4890"
+			},
+			"syllabi": {
+				"count": 2751,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/7507602834322",
+				"record": "Mrs. Dalloway — Virginia Woolf",
+				"rank": 232
+			},
+			"note": ""
+		},
+		"middlemarch": {
+			"goodreads": {
+				"rating": 4.05,
+				"count": 187789,
+				"url": "https://www.goodreads.com/book/show/19089.Middlemarch"
+			},
+			"librarything": {
+				"rating": 4.205,
+				"count": null,
+				"rating_10": 8.41,
+				"members": 20800,
+				"reviews": 374,
+				"url": "https://www.librarything.com/work/10108"
+			},
+			"syllabi": {
+				"count": 1138,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/7507602833939",
+				"record": "Middlemarch — George Eliot",
+				"rank": 1350
+			},
+			"note": "Goodreads: Work 1461747. Syllabi: the Norton edition record under Bert G. Hornback has 9, other duplicates 7 and under."
+		},
+		"great-expectations": {
+			"goodreads": {
+				"rating": 3.8,
+				"count": 895689,
+				"url": "https://www.goodreads.com/book/show/2623.Great_Expectations"
+			},
+			"librarything": {
+				"rating": 3.875,
+				"count": null,
+				"rating_10": 7.75,
+				"members": 44523,
+				"reviews": 485,
+				"url": "https://www.librarything.com/work/7554"
+			},
+			"syllabi": {
+				"count": 1906,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/7507602833869",
+				"record": "Great Expectations — Charles Dickens",
+				"rank": 501
+			},
+			"note": "Goodreads: Work 2612809 (4852 editions). Syllabi: 'Charles Dickens: Great Expectations' by R. George Thomas (a study guide) has 146; the David Lean film 65; Kathy Acker's novel of the same title 41."
+		},
+		"the-prisoner-of-zenda": {
+			"goodreads": {
+				"rating": 3.83,
+				"count": 23102,
+				"url": "https://www.goodreads.com/book/show/54492.The_Prisoner_of_Zenda"
+			},
+			"librarything": {
+				"rating": 3.715,
+				"count": null,
+				"rating_10": 7.43,
+				"members": 2991,
+				"reviews": 96,
+				"url": "https://www.librarything.com/work/2970534"
+			},
+			"syllabi": {
+				"count": 18,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/16243566320930",
+				"record": "The Prisoner of Zenda — Anthony Hope",
+				"rank": 318463
+			},
+			"note": "Goodreads: Work 2661176; the double volume 'The Prisoner of Zenda & Rupert of Hentzau' (work 53125) has 601 ratings and is not counted. LibraryThing: a second work, 2705147, has 501 members."
+		},
+		"the-scarlet-pimpernel": {
+			"goodreads": {
+				"rating": 4.07,
+				"count": 144243,
+				"url": "https://www.goodreads.com/book/show/136116.The_Scarlet_Pimpernel"
+			},
+			"librarything": {
+				"rating": 3.975,
+				"count": null,
+				"rating_10": 7.95,
+				"members": 10215,
+				"reviews": 211,
+				"url": "https://www.librarything.com/work/24483"
+			},
+			"syllabi": {
+				"count": 26,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/16243566314468",
+				"record": "The Scarlet Pimpernel — Emmuska Orczy",
+				"rank": 228099
+			},
+			"note": "Goodreads: Work 750426 (2319 editions). Syllabi: the 1934 film (Harold Young) has 10 and the musical (Frank Wildhorn) 8."
+		},
+		"ragged-dick": {
+			"goodreads": {
+				"rating": 3.33,
+				"count": 3066,
+				"url": "https://www.goodreads.com/book/show/653128.Ragged_Dick"
+			},
+			"librarything": {
+				"rating": 3.175,
+				"count": null,
+				"rating_10": 6.35,
+				"members": 531,
+				"reviews": 8,
+				"url": "https://www.librarything.com/work/155618"
+			},
+			"syllabi": {
+				"count": 455,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/16338055594002",
+				"record": "Ragged Dick — Horatio Alger",
+				"rank": 6231
+			},
+			"note": "Goodreads: Work 639239 (408 editions), found under the full title 'Ragged Dick, Or, Street Life in New York with the Boot-Blacks'; the plain search 'Ragged Dick Alger' returns only unrated reprints. LibraryThing: the Penguin double volume 'Ragged Dick and Struggling Upward' is a separate work (364298, 247 members) and the Norton Critical Edition another (11051920, 40), neither counted. Syllabi: duplicate records under the full title have 53 and 14."
+		},
+		"the-sorrows-of-satan": {
+			"goodreads": {
+				"rating": 3.94,
+				"count": 3279,
+				"url": "https://www.goodreads.com/book/show/799266.The_Sorrows_of_Satan_or_The_Strange_Experience_of_One_Geoffrey_Tempest_Millionaire"
+			},
+			"librarything": {
+				"rating": 3.955,
+				"count": null,
+				"rating_10": 7.91,
+				"members": 203,
+				"reviews": 0,
+				"url": "https://www.librarything.com/work/1483038"
+			},
+			"syllabi": {
+				"count": 23,
+				"url": "https://galaxy-api-prod.opensyllabus.org/os-titles/detail/17858474016787",
+				"record": "The Sorrows of Satan, Or, the Strange Experience of One Geoffrey Tempest — Marie Corelli",
+				"rank": 256383
+			},
+			"note": "Goodreads: Work 785231 (57 editions). LibraryThing splits the book in two works: 1483038 (the Oxford World's Classics ISBN, 203 members, rating 7.91, no reviews) and 422801 (four Open Library ISBNs, 188 members, rating 7.21, 5 reviews); the one with more members is taken, the two criteria of the method disagreeing here. Syllabi: Corelli's Wormwood has 22, A Romance of Two Worlds 10."
+		}
+	}
+}

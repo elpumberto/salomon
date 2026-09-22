@@ -1,0 +1,440 @@
+{
+	"kind": "jev",
+	"at": "2026-09-22T10:25:16.612Z",
+	"book": {
+		"title": "La Regenta",
+		"author": "Leopoldo Alas",
+		"language": "es",
+		"source": {
+			"file": "la-regenta.epub",
+			"format": "epub",
+			"sha256": "64f377abf60f460488cb3e1e7135d56d883aeaebe4512ef85f2c46db499a80fe"
+		},
+		"text": {
+			"sha256": "738feec7d635724ebee94e815f4a533deaf4998b1a0fe68274b7529f139811e4",
+			"sections": 31,
+			"words": 306337
+		}
+	},
+	"sections": [
+		2,
+		5,
+		8,
+		11,
+		13,
+		16,
+		19,
+		21,
+		23,
+		27,
+		30,
+		31
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "recognise-jev",
+		"rules": "sha256:3b273cdbf831",
+		"asked": {
+			"which": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. Which of these novels is it from?",
+				"criteria": {
+					"a": "La Regenta, by Leopoldo Alas, Clarín",
+					"b": "El cocinero de su majestad, by Manuel Fernández y González",
+					"c": "La barraca, by Vicente Blasco Ibáñez",
+					"d": "Don Quijote de la Mancha, by Miguel de Cervantes"
+				}
+			},
+			"famous": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Is it a passage of a well-known novel?"
+			}
+		},
+		"code": {
+			"commit": "ee0bbd8",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 12,
+		"tokensIn": 64800,
+		"usd": 0.002722,
+		"seconds": 6
+	},
+	"found": [
+		{
+			"section": 2,
+			"piece": {
+				"at": 1,
+				"of": 101
+			},
+			"measured": {
+				"words": 3480,
+				"spoken": null,
+				"wordsPerSentence": 26.6
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "a09f7289839958a63dbc4e9c22dbb2cc861425df4c6599a20f7a5216a3532630",
+			"tokensIn": 6215,
+			"seconds": 0.6,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"b": 0,
+						"c": 0,
+						"d": 0,
+						"a": 1
+					}
+				},
+				"famous": {
+					"noul": 0.91
+				}
+			}
+		},
+		{
+			"section": 5,
+			"piece": {
+				"at": 10,
+				"of": 101
+			},
+			"measured": {
+				"words": 2971,
+				"spoken": null,
+				"wordsPerSentence": 23.2
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "a439177db237d9b01955fd40b37786730c89725e27451fc887751342f881f22b",
+			"tokensIn": 5104,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"a": 1,
+						"d": 0,
+						"c": 0,
+						"b": 0
+					}
+				},
+				"famous": {
+					"noul": 0.9
+				}
+			}
+		},
+		{
+			"section": 8,
+			"piece": {
+				"at": 19,
+				"of": 101
+			},
+			"measured": {
+				"words": 3029,
+				"spoken": null,
+				"wordsPerSentence": 18.7
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "9f091898cccdf8f32543d5c4502134eb95be64a56573ec7f89294ff8c9ec774f",
+			"tokensIn": 5553,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"b": 0,
+						"d": 0,
+						"c": 0,
+						"a": 1
+					}
+				},
+				"famous": {
+					"noul": 0.94
+				}
+			}
+		},
+		{
+			"section": 11,
+			"piece": {
+				"at": 28,
+				"of": 101
+			},
+			"measured": {
+				"words": 3040,
+				"spoken": null,
+				"wordsPerSentence": 22.2
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "9aa069569aabee19e1b714df9e5705cfc61523300434581e968dc6163f36d10d",
+			"tokensIn": 5377,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"c": 0,
+						"d": 0,
+						"b": 0,
+						"a": 1
+					}
+				},
+				"famous": {
+					"noul": 0.96
+				}
+			}
+		},
+		{
+			"section": 13,
+			"piece": {
+				"at": 37,
+				"of": 101
+			},
+			"measured": {
+				"words": 2907,
+				"spoken": null,
+				"wordsPerSentence": 31.9
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "a9fab7fab9ea43d4bb650a1514ef18a74ea4648950e5b1e21514cab4c76f5b6b",
+			"tokensIn": 5162,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"d": 0,
+						"b": 0,
+						"c": 0,
+						"a": 1
+					}
+				},
+				"famous": {
+					"noul": 0.93
+				}
+			}
+		},
+		{
+			"section": 16,
+			"piece": {
+				"at": 46,
+				"of": 101
+			},
+			"measured": {
+				"words": 2936,
+				"spoken": null,
+				"wordsPerSentence": 21.7
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "413a9afa22bd0aefcaf8c6776f0c5752ac612547c276a7725af5718deb1fc668",
+			"tokensIn": 5008,
+			"seconds": 0.3,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"c": 0,
+						"b": 0,
+						"d": 0,
+						"a": 1
+					}
+				},
+				"famous": {
+					"noul": 0.93
+				}
+			}
+		},
+		{
+			"section": 19,
+			"piece": {
+				"at": 56,
+				"of": 101
+			},
+			"measured": {
+				"words": 2912,
+				"spoken": null,
+				"wordsPerSentence": 43.5
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "c2181f78c98c6c679e9d9ce805b1cb28fc9615c4aab15d4e8bb57a383520e09c",
+			"tokensIn": 5138,
+			"seconds": 0.6,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"a": 1,
+						"c": 0,
+						"b": 0,
+						"d": 0
+					}
+				},
+				"famous": {
+					"noul": 0.94
+				}
+			}
+		},
+		{
+			"section": 21,
+			"piece": {
+				"at": 65,
+				"of": 101
+			},
+			"measured": {
+				"words": 2723,
+				"spoken": null,
+				"wordsPerSentence": 20.2
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "6a8026a440b5de27a9ef5d4839a35e1c9fe04d6831212cce40c1def49163e836",
+			"tokensIn": 5109,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"b": 0,
+						"c": 0,
+						"d": 0,
+						"a": 1
+					}
+				},
+				"famous": {
+					"noul": 0.95
+				}
+			}
+		},
+		{
+			"section": 23,
+			"piece": {
+				"at": 74,
+				"of": 101
+			},
+			"measured": {
+				"words": 3234,
+				"spoken": null,
+				"wordsPerSentence": 25.3
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "740f8d6ccc096eb771c2ab0d3d078e013e282604375b24e808300a69e0a9b81b",
+			"tokensIn": 5792,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"d": 0,
+						"b": 0,
+						"a": 1,
+						"c": 0
+					}
+				},
+				"famous": {
+					"noul": 0.93
+				}
+			}
+		},
+		{
+			"section": 27,
+			"piece": {
+				"at": 83,
+				"of": 101
+			},
+			"measured": {
+				"words": 3338,
+				"spoken": null,
+				"wordsPerSentence": 26.3
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "92e236df34cab73a5e6122bb4fc4d24d4eb76fc15c41b3fe622f998ed865453d",
+			"tokensIn": 6067,
+			"seconds": 0.7,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"c": 0,
+						"b": 0,
+						"a": 1,
+						"d": 0
+					}
+				},
+				"famous": {
+					"noul": 0.95
+				}
+			}
+		},
+		{
+			"section": 30,
+			"piece": {
+				"at": 92,
+				"of": 101
+			},
+			"measured": {
+				"words": 2961,
+				"spoken": null,
+				"wordsPerSentence": 27.7
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "453edee1c00b6b178ef0f1e064aa30adc7a6a718e3fd79e2b08563f5c7f3f0c6",
+			"tokensIn": 5088,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"c": 0,
+						"b": 0,
+						"a": 1,
+						"d": 0
+					}
+				},
+				"famous": {
+					"noul": 0.93
+				}
+			}
+		},
+		{
+			"section": 31,
+			"piece": {
+				"at": 101,
+				"of": 101
+			},
+			"measured": {
+				"words": 2974,
+				"spoken": null,
+				"wordsPerSentence": 19.8
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "864b3ae827ca436999d8ed46613dd43afbff2ccbe0992740087e3ec5efa04322",
+			"tokensIn": 5187,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"c": 0,
+						"b": 0,
+						"d": 0,
+						"a": 1
+					}
+				},
+				"famous": {
+					"noul": 0.94
+				}
+			}
+		}
+	],
+	"purpose": "experiment",
+	"remarks": "Whether Jev knows the passage: four novels named, the right one under the key the variant says, and whether it is well known."
+}
