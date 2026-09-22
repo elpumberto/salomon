@@ -1,0 +1,438 @@
+{
+	"kind": "jev",
+	"at": "2026-09-22T10:26:44.685Z",
+	"book": {
+		"title": "The Sheik: A Novel",
+		"author": "E. M. Hull",
+		"language": "en",
+		"source": {
+			"file": "the-sheik.epub",
+			"format": "epub",
+			"sha256": "ac73e70bdf4e005c64b62c73a5aed2e5ff17d9feb074993d77b6e30c91879c7b"
+		},
+		"text": {
+			"sha256": "068da7ebec7a1db7ffa3de7c5771291387976204a85fa9cb87cdd637a21fc950",
+			"sections": 12,
+			"words": 87814
+		}
+	},
+	"sections": [
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "recognise-jev",
+		"rules": "sha256:d0f1a1d9f840",
+		"asked": {
+			"which": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. Which of these novels is it from?",
+				"criteria": {
+					"a": "The Sheik, by E. M. Hull",
+					"b": "Ragged Dick, by Horatio Alger",
+					"c": "The Mystery of a Hansom Cab, by Fergus Hume",
+					"d": "Pride and Prejudice, by Jane Austen"
+				}
+			},
+			"famous": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Is it a passage of a well-known novel?"
+			}
+		},
+		"code": {
+			"commit": "ee0bbd8",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 12,
+		"tokensIn": 52051,
+		"usd": 0.002186,
+		"seconds": 6
+	},
+	"found": [
+		{
+			"section": 3,
+			"piece": {
+				"at": 1,
+				"of": 29
+			},
+			"measured": {
+				"words": 3093,
+				"spoken": null,
+				"wordsPerSentence": 13.6
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "391d591d85e6043311401c8f9926afe761bddd90cd48e2f9600d53eb4ea4c3b8",
+			"tokensIn": 4412,
+			"seconds": 0.3,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"c": 0,
+						"a": 1,
+						"d": 0,
+						"b": 0
+					}
+				},
+				"famous": {
+					"noul": 0.66
+				}
+			}
+		},
+		{
+			"section": 4,
+			"piece": {
+				"at": 4,
+				"of": 29
+			},
+			"measured": {
+				"words": 3286,
+				"spoken": null,
+				"wordsPerSentence": 18.1
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "9c2f7da66eaa1a3cef27e08b071505aaa4038320ea62f5ad30cbc5b02efba825",
+			"tokensIn": 4472,
+			"seconds": 0.7,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"a": 1,
+						"b": 0,
+						"d": 0,
+						"c": 0
+					}
+				},
+				"famous": {
+					"noul": 0.56
+				}
+			}
+		},
+		{
+			"section": 4,
+			"piece": {
+				"at": 6,
+				"of": 29
+			},
+			"measured": {
+				"words": 2873,
+				"spoken": null,
+				"wordsPerSentence": 17.7
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "9059cd986f4219e0f70d5803050ae30ed906a9120f2f0ca546973c32b8afae50",
+			"tokensIn": 4058,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"b": 0,
+						"d": 0,
+						"c": 0,
+						"a": 1
+					}
+				},
+				"famous": {
+					"noul": 0.61
+				}
+			}
+		},
+		{
+			"section": 5,
+			"piece": {
+				"at": 9,
+				"of": 29
+			},
+			"measured": {
+				"words": 3012,
+				"spoken": null,
+				"wordsPerSentence": 18
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "b974b29e8fc9925921a50483a9c55926c18dc569c6d57185d5b44493109ce662",
+			"tokensIn": 4195,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"a": 1,
+						"c": 0,
+						"d": 0,
+						"b": 0
+					}
+				},
+				"famous": {
+					"noul": 0.61
+				}
+			}
+		},
+		{
+			"section": 6,
+			"piece": {
+				"at": 11,
+				"of": 29
+			},
+			"measured": {
+				"words": 3048,
+				"spoken": null,
+				"wordsPerSentence": 13.2
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "3cdb81ff688319b81d08491117fb7455b03e7d2a186fbcb8bcf7afd7c8a99c0d",
+			"tokensIn": 4360,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"a": 1,
+						"d": 0,
+						"c": 0,
+						"b": 0
+					}
+				},
+				"famous": {
+					"noul": 0.63
+				}
+			}
+		},
+		{
+			"section": 7,
+			"piece": {
+				"at": 14,
+				"of": 29
+			},
+			"measured": {
+				"words": 2574,
+				"spoken": null,
+				"wordsPerSentence": 16.4
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "1ec14f0ed21613ba3406834ff22505b29382db7ab718c6fe223d6a0d34df036c",
+			"tokensIn": 3670,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"b": 0,
+						"d": 0,
+						"a": 1,
+						"c": 0
+					}
+				},
+				"famous": {
+					"noul": 0.56
+				}
+			}
+		},
+		{
+			"section": 8,
+			"piece": {
+				"at": 16,
+				"of": 29
+			},
+			"measured": {
+				"words": 3111,
+				"spoken": null,
+				"wordsPerSentence": 18.9
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "a3d11afec54c147b539bd2b2fe97b00589f707252e7a4f01670590b4124d2a82",
+			"tokensIn": 4370,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"b": 0,
+						"a": 1,
+						"d": 0,
+						"c": 0
+					}
+				},
+				"famous": {
+					"noul": 0.65
+				}
+			}
+		},
+		{
+			"section": 9,
+			"piece": {
+				"at": 19,
+				"of": 29
+			},
+			"measured": {
+				"words": 3123,
+				"spoken": null,
+				"wordsPerSentence": 16.6
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "b95f1d8c327919d5e771c13e1af856446ca32ec74cc6ebc2c956c1bbda592fa6",
+			"tokensIn": 4414,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"a": 1,
+						"d": 0,
+						"b": 0,
+						"c": 0
+					}
+				},
+				"famous": {
+					"noul": 0.38
+				}
+			}
+		},
+		{
+			"section": 9,
+			"piece": {
+				"at": 21,
+				"of": 29
+			},
+			"measured": {
+				"words": 2836,
+				"spoken": null,
+				"wordsPerSentence": 21.5
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "e680ea145c15863844358d993f2c1fbf82f5f839aa43374698396a46ca7304ae",
+			"tokensIn": 3948,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"d": 0,
+						"a": 1,
+						"b": 0,
+						"c": 0
+					}
+				},
+				"famous": {
+					"noul": 0.42
+				}
+			}
+		},
+		{
+			"section": 10,
+			"piece": {
+				"at": 24,
+				"of": 29
+			},
+			"measured": {
+				"words": 4131,
+				"spoken": null,
+				"wordsPerSentence": 18.1
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "462d64ab592e9cfb0724dff9635a3b239fba773ac901e8ccc1d54a4eb8f55717",
+			"tokensIn": 5504,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"b": 0,
+						"a": 1,
+						"c": 0,
+						"d": 0
+					}
+				},
+				"famous": {
+					"noul": 0.28
+				}
+			}
+		},
+		{
+			"section": 11,
+			"piece": {
+				"at": 26,
+				"of": 29
+			},
+			"measured": {
+				"words": 3255,
+				"spoken": null,
+				"wordsPerSentence": 19.7
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "150c6eb46418ff0a1808ad15331e9c64c7be74e551cbcff7f065503dd534cab0",
+			"tokensIn": 4428,
+			"seconds": 0.5,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"b": 0,
+						"c": 0,
+						"d": 0,
+						"a": 1
+					}
+				},
+				"famous": {
+					"noul": 0.28
+				}
+			}
+		},
+		{
+			"section": 12,
+			"piece": {
+				"at": 29,
+				"of": 29
+			},
+			"measured": {
+				"words": 3018,
+				"spoken": null,
+				"wordsPerSentence": 14.2
+			},
+			"variant": "recognise-jev, right a",
+			"sha256": "731ed83f32f91895de1d8123c042ac81dab744de3034051d7825b762f01c79ff",
+			"tokensIn": 4220,
+			"seconds": 0.3,
+			"answers": {
+				"which": {
+					"choice": "a",
+					"confidence": 1,
+					"probabilities": {
+						"b": 0,
+						"d": 0,
+						"c": 0,
+						"a": 1
+					}
+				},
+				"famous": {
+					"noul": 0.76
+				}
+			}
+		}
+	],
+	"purpose": "experiment",
+	"remarks": "Whether Jev knows the passage: four novels named, the right one under the key the variant says, and whether it is well known."
+}
