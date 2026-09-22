@@ -31,18 +31,27 @@ const recognised = 'recognise-jev';
  * falls by more, the fall is the premium of fame, and the way to judge is with the names changed.
  * The scholar's question of a century from now is expected to fall more than merit does.
  *
- *   node experiments/books/jev/disguise.ts [--go]
+ *   node experiments/books/jev/disguise.ts [--all] [--go]
+ *
+ * Added after the six, 2026-09-22: with `--all`, every judged book, so that a valuation of the
+ * text alone, its names changed, can be set against the standing beside the valuation as it is.
+ * Expected: the famous fall by hundredths and the bottom floor not at all, and the agreement with
+ * the standing comes out under merit's 0.62, since part of that agreement was fame; the lower
+ * number is the honest one.
  */
 
 const go = process.argv.includes('--go');
-export const chosen = [
-	'pride-and-prejudice',
-	'dracula',
-	'the-prisoner-of-zenda',
-	'the-sheik',
-	'deadwood-dick',
-	'irene-iddesleigh'
-];
+/** The six tried first; with `--all`, every book judged. */
+export const chosen = process.argv.includes('--all')
+	? Object.keys(await judgedPassages())
+	: [
+			'pride-and-prejudice',
+			'dracula',
+			'the-prisoner-of-zenda',
+			'the-sheik',
+			'deadwood-dick',
+			'irene-iddesleigh'
+		];
 export const tag = `names changed by ${defaultModel}`;
 
 const openRouter = createOpenRouter(key('OPENROUTER_API_KEY'));
@@ -86,7 +95,7 @@ const trials = (asked: Asked, scholarly: Asked) => [
 	{ set: 'scholar-disguised', questions: scholarly }
 ];
 console.log(
-	`${chosen.length} books, ${chosen.reduce((sum, slug) => sum + (judged[slug]?.passages.length ?? 0), 0)} passages to disguise, then 3 sets of questions each: some $0.10 in all.`
+	`${chosen.length} books, ${chosen.reduce((sum, slug) => sum + (judged[slug]?.passages.length ?? 0), 0)} passages to disguise, then 3 sets of questions each: some $0.10 for six books, $0.60 for all.`
 );
 if (!go) {
 	console.log('Nothing was sent. With --go, it is.');
