@@ -17,15 +17,15 @@ What a difference means:
 - **0.01 is nothing.** Twelve other passages of the same book would give as much.
 - **0.02 to 0.05 within a floor is an order and not a distance.** It comes out the same with other passages and other sizes of passage, and within a genre it was the right way round every time; it does not say that a book at 0.79 is a greater book than one at 0.77. _La Regenta_ stands level with _The War of the Worlds_.
 - **Across genres, only the floor.** That _Treasure Island_ comes out over _Dracula_ says nothing anyone could check.
-- **A great novel is not told from a good one.** Critics hold that no list of criteria does it: criteria decide between Chekhov and a seller, not between Chekhov and Turgenev. What sets the great serious novels apart was seen only in [the whole book](whole-book.md), in how many of their chapters both sides have a claim on the reader.
+- **A great novel is not told from a good one.** Critics hold that no list of criteria does it: criteria decide between Chekhov and a seller, not between Chekhov and Turgenev. Within the top floor, what orders the books as the canon does is mostly how well known the model holds them; with the names changed, little order is left ([against the canon](against-the-canon.md)).
 
 ## The lowest and the highest passage say how even it is
 
 The well written books keep within a tenth or so from their worst passage to their best; those written by the yard span wider, since what guards against ornament bites some of their passages and not others. _Ulysses_ runs from 0.33 to 0.90, level with the highest passage of all the books judged and down among those of the bottom floor, and its merit of 0.63 is the mean of a book that is several: it is marked down where Jev cannot follow it, and not for being difficult, since _Mrs. Dalloway_ stands at the top. A wide span is a fact about the book and a warning about its mean.
 
-## A good read is the weaker number
+## A good read is no valuation
 
-All the books judged fall between 0.59 and 0.79. It tells the ends apart, _Ulysses_ from _Treasure Island_, and says of a book whether it reads better than it is worth, as _Tarzan of the Apes_ and _Amanecer_ do, or is worth more than it reads, as _Mrs. Dalloway_ and _La Regenta_. It leans to action: the comedy of manners and the novel in letters come out in the middle. And it could not be much more: of what readers say of a book on a site of ratings, some three hundredths are owed to the book and thirty to who the reader is.
+Set against what readers say of the same books on Goodreads, the read agrees no better than chance, 0.15, and no other way of asking tried does better ([against the canon](against-the-canon.md)); merit itself predicts the rating better, 0.46. It is kept as a profile of what kind of read a book is, not as a measure of how good a one. All the books judged fall between 0.59 and 0.79. It tells the ends apart, _Ulysses_ from _Treasure Island_, and says of a book whether it reads better than it is worth, as _Tarzan of the Apes_ and _Amanecer_ do, or is worth more than it reads, as _Mrs. Dalloway_ and _La Regenta_. It leans to action: the comedy of manners and the novel in letters come out in the middle. And it could not be much more: of what readers say of a book on a site of ratings, some three hundredths are owed to the book and thirty to who the reader is.
 
 ## What judges nothing
 
@@ -36,7 +36,7 @@ All the books judged fall between 0.59 and 0.79. It tells the ends apart, _Ulyss
 ## What can mislead
 
 - **The copy judged is what is judged.** A translation is its translator's prose, and a careless edition is a careless text: a copy of _Amanecer_ with a fifth of its questions missing their opening mark was held a first draft, which says nothing sure of the novel.
-- **The model may know the book.** It is given no title nor author, and a famous page may be known by heart all the same. Books nobody has written about are the fairer test, and none has been judged yet.
+- **The model knows the book.** It is given no title nor author, and it names the novel from the page all the same, for every passage of every book of any standing, and knows how well known it is; that fame is worth some two to six hundredths of merit on the top floor, and [against the canon](against-the-canon.md) says how it was measured and what the merit comes to with the names changed. A book nobody knows is judged by its page alone, and stands some hundredths under a known book written as well.
 - **The latest written stand highest.** The two books at the top are also the two latest written of the well written, which may be their worth or the taste of a model of our day.
 - **Books in different languages** come out on the same scale, _Don Quijote_ with _Pride and Prejudice_, and whether that scale is one has not been tried.
 
