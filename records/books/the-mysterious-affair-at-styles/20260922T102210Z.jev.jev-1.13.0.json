@@ -1,0 +1,133 @@
+{
+	"kind": "jev",
+	"at": "2026-09-22T10:22:10.766Z",
+	"book": {
+		"title": "The Mysterious Affair at Styles",
+		"author": "Agatha Christie",
+		"language": "en",
+		"source": {
+			"file": "the-mysterious-affair-at-styles.epub",
+			"format": "epub",
+			"sha256": "22b0cf095c58f66ad46c7ed4447b3db264562414842b40914fe261be2a42a986"
+		},
+		"text": {
+			"sha256": "af7ba540914aaa01905837088b7731c8d9cb2d4a533d812975c917793093a631",
+			"sections": 14,
+			"words": 56406
+		}
+	},
+	"sections": [
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "whole-scholar",
+		"rules": "sha256:a93653d6fd28",
+		"asked": {
+			"essay": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How much would a critic find to say about this novel?",
+				"criteria": [
+					"A critic would find nothing to say about this novel",
+					"A critic would give this novel a paragraph in a survey of its kind",
+					"A critic would find an essay in this novel",
+					"A critic would find more in this novel than an essay could hold"
+				]
+			},
+			"course": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. What would become of it in a university course on the novel?",
+				"criteria": [
+					"This novel would not be assigned",
+					"This novel would be read as an example of its genre",
+					"This novel would be read for how it is made",
+					"This novel would be read as a turn in what the novel can do"
+				]
+			},
+			"imitate": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would later writers imitate the way it is made?"
+			},
+			"century": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would it still be read a century from now?"
+			},
+			"founded": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Did it start something: a kind of novel, a figure, a way of telling that others took up?"
+			}
+		},
+		"code": {
+			"commit": "b079bec",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 1,
+		"tokensIn": 4503,
+		"usd": 0.000189,
+		"seconds": 0
+	},
+	"found": [
+		{
+			"section": 2,
+			"through": 14,
+			"variant": "the outline from the notes of google/gemini-3.1-flash-lite",
+			"measured": {
+				"words": 2640,
+				"spoken": null,
+				"wordsPerSentence": 0
+			},
+			"sha256": "d4d3bafe64aa7706c25c3ea61c7da6c38d9df90e7ae8487786a0ed97588d8b59",
+			"tokensIn": 4503,
+			"seconds": 0.3,
+			"answers": {
+				"essay": {
+					"score": 2.02,
+					"of": 3,
+					"confidence": 0.55,
+					"probabilities": [
+						0.01,
+						0.19,
+						0.56,
+						0.24
+					]
+				},
+				"course": {
+					"score": 1.66,
+					"of": 3,
+					"confidence": 0.58,
+					"probabilities": [
+						0.03,
+						0.33,
+						0.6,
+						0.04
+					]
+				},
+				"imitate": {
+					"noul": 0.53
+				},
+				"century": {
+					"noul": 0.75
+				},
+				"founded": {
+					"noul": 0.71
+				}
+			}
+		}
+	],
+	"purpose": "experiment",
+	"remarks": "The scholar's questions, of what will become of the book, put to the outline made from the reading notes."
+}

@@ -1,0 +1,130 @@
+{
+	"kind": "jev",
+	"at": "2026-09-22T10:22:07.433Z",
+	"book": {
+		"title": "La Barraca",
+		"author": "Vicente Blasco Ibáñez",
+		"language": "es",
+		"source": {
+			"file": "la-barraca.epub",
+			"format": "epub",
+			"sha256": "7a209800ae60fbb353c703c474b8cae0ca17f5be9d87a21aaaf3f4c559376788"
+		},
+		"text": {
+			"sha256": "ccb007b5147896bc3df36ae5ed9cd0571200e4d2c68bc0ced3c18c5ed95ea21b",
+			"sections": 14,
+			"words": 56401
+		}
+	},
+	"sections": [
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "whole-scholar",
+		"rules": "sha256:a93653d6fd28",
+		"asked": {
+			"essay": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How much would a critic find to say about this novel?",
+				"criteria": [
+					"A critic would find nothing to say about this novel",
+					"A critic would give this novel a paragraph in a survey of its kind",
+					"A critic would find an essay in this novel",
+					"A critic would find more in this novel than an essay could hold"
+				]
+			},
+			"course": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. What would become of it in a university course on the novel?",
+				"criteria": [
+					"This novel would not be assigned",
+					"This novel would be read as an example of its genre",
+					"This novel would be read for how it is made",
+					"This novel would be read as a turn in what the novel can do"
+				]
+			},
+			"imitate": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would later writers imitate the way it is made?"
+			},
+			"century": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would it still be read a century from now?"
+			},
+			"founded": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Did it start something: a kind of novel, a figure, a way of telling that others took up?"
+			}
+		},
+		"code": {
+			"commit": "b079bec",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 1,
+		"tokensIn": 3631,
+		"usd": 0.000153,
+		"seconds": 0
+	},
+	"found": [
+		{
+			"section": 4,
+			"through": 13,
+			"variant": "the outline from the notes of google/gemini-3.1-flash-lite",
+			"measured": {
+				"words": 2043,
+				"spoken": null,
+				"wordsPerSentence": 0
+			},
+			"sha256": "108a7f1db13b460b670553d56e5b60b3cd370fb77c4e020478c9ecb9b8e12b81",
+			"tokensIn": 3631,
+			"seconds": 0.3,
+			"answers": {
+				"essay": {
+					"score": 2.27,
+					"of": 3,
+					"confidence": 0.55,
+					"probabilities": [
+						0,
+						0.08,
+						0.56,
+						0.36
+					]
+				},
+				"course": {
+					"score": 1.6,
+					"of": 3,
+					"confidence": 0.39,
+					"probabilities": [
+						0.07,
+						0.37,
+						0.45,
+						0.11
+					]
+				},
+				"imitate": {
+					"noul": 0.46
+				},
+				"century": {
+					"noul": 0.58
+				},
+				"founded": {
+					"noul": 0.54
+				}
+			}
+		}
+	],
+	"purpose": "experiment",
+	"remarks": "The scholar's questions, of what will become of the book, put to the outline made from the reading notes."
+}

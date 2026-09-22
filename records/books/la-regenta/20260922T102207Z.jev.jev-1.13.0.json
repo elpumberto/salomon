@@ -1,0 +1,150 @@
+{
+	"kind": "jev",
+	"at": "2026-09-22T10:22:07.842Z",
+	"book": {
+		"title": "La Regenta",
+		"author": "Leopoldo Alas",
+		"language": "es",
+		"source": {
+			"file": "la-regenta.epub",
+			"format": "epub",
+			"sha256": "64f377abf60f460488cb3e1e7135d56d883aeaebe4512ef85f2c46db499a80fe"
+		},
+		"text": {
+			"sha256": "738feec7d635724ebee94e815f4a533deaf4998b1a0fe68274b7529f139811e4",
+			"sections": 31,
+			"words": 306337
+		}
+	},
+	"sections": [
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		22,
+		23,
+		24,
+		25,
+		26,
+		27,
+		28,
+		29,
+		30,
+		31
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "whole-scholar",
+		"rules": "sha256:a93653d6fd28",
+		"asked": {
+			"essay": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How much would a critic find to say about this novel?",
+				"criteria": [
+					"A critic would find nothing to say about this novel",
+					"A critic would give this novel a paragraph in a survey of its kind",
+					"A critic would find an essay in this novel",
+					"A critic would find more in this novel than an essay could hold"
+				]
+			},
+			"course": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. What would become of it in a university course on the novel?",
+				"criteria": [
+					"This novel would not be assigned",
+					"This novel would be read as an example of its genre",
+					"This novel would be read for how it is made",
+					"This novel would be read as a turn in what the novel can do"
+				]
+			},
+			"imitate": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would later writers imitate the way it is made?"
+			},
+			"century": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would it still be read a century from now?"
+			},
+			"founded": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Did it start something: a kind of novel, a figure, a way of telling that others took up?"
+			}
+		},
+		"code": {
+			"commit": "b079bec",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 1,
+		"tokensIn": 9499,
+		"usd": 0.000399,
+		"seconds": 0
+	},
+	"found": [
+		{
+			"section": 2,
+			"through": 31,
+			"variant": "the outline from the notes of google/gemini-3.1-flash-lite",
+			"measured": {
+				"words": 6039,
+				"spoken": null,
+				"wordsPerSentence": 0
+			},
+			"sha256": "26a33f4493b6eee42f2979ae7a373b67bfa1d19f7a5e68516eb9b70a856788bc",
+			"tokensIn": 9499,
+			"seconds": 0.4,
+			"answers": {
+				"essay": {
+					"score": 2.9,
+					"of": 3,
+					"confidence": 0.9,
+					"probabilities": [
+						0,
+						0.01,
+						0.06,
+						0.93
+					]
+				},
+				"course": {
+					"score": 2.36,
+					"of": 3,
+					"confidence": 0.36,
+					"probabilities": [
+						0.02,
+						0.07,
+						0.43,
+						0.48
+					]
+				},
+				"imitate": {
+					"noul": 0.48
+				},
+				"century": {
+					"noul": 0.68
+				},
+				"founded": {
+					"noul": 0.67
+				}
+			}
+		}
+	],
+	"purpose": "experiment",
+	"remarks": "The scholar's questions, of what will become of the book, put to the outline made from the reading notes."
+}

@@ -1,0 +1,139 @@
+{
+	"kind": "jev",
+	"at": "2026-09-22T10:22:06.603Z",
+	"book": {
+		"title": "Irene Iddesleigh",
+		"author": "Amanda McKittrick Ros",
+		"language": "en",
+		"source": {
+			"file": "irene-iddesleigh.epub",
+			"format": "epub",
+			"sha256": "f6ff046fc63ccd41a47cdaa3e52657ae61c6f5cccab6cca5d002f97a9aae6e89"
+		},
+		"text": {
+			"sha256": "0d4ddc2b43b3d1769ad7644e82404c3f6e63c39fdd7d79be7bbcec503b8ea137",
+			"sections": 22,
+			"words": 33583
+		}
+	},
+	"sections": [
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "whole-scholar",
+		"rules": "sha256:a93653d6fd28",
+		"asked": {
+			"essay": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How much would a critic find to say about this novel?",
+				"criteria": [
+					"A critic would find nothing to say about this novel",
+					"A critic would give this novel a paragraph in a survey of its kind",
+					"A critic would find an essay in this novel",
+					"A critic would find more in this novel than an essay could hold"
+				]
+			},
+			"course": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. What would become of it in a university course on the novel?",
+				"criteria": [
+					"This novel would not be assigned",
+					"This novel would be read as an example of its genre",
+					"This novel would be read for how it is made",
+					"This novel would be read as a turn in what the novel can do"
+				]
+			},
+			"imitate": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would later writers imitate the way it is made?"
+			},
+			"century": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would it still be read a century from now?"
+			},
+			"founded": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Did it start something: a kind of novel, a figure, a way of telling that others took up?"
+			}
+		},
+		"code": {
+			"commit": "b079bec",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 1,
+		"tokensIn": 4752,
+		"usd": 0.0002,
+		"seconds": 0
+	},
+	"found": [
+		{
+			"section": 3,
+			"through": 21,
+			"variant": "the outline from the notes of google/gemini-3.1-flash-lite",
+			"measured": {
+				"words": 2976,
+				"spoken": null,
+				"wordsPerSentence": 0
+			},
+			"sha256": "658a64b26284ef361e6a0e32ad98b6f7527e1e85e52028ba774c043333dd276f",
+			"tokensIn": 4752,
+			"seconds": 0.3,
+			"answers": {
+				"essay": {
+					"score": 1.98,
+					"of": 3,
+					"confidence": 0.64,
+					"probabilities": [
+						0,
+						0.18,
+						0.65,
+						0.17
+					]
+				},
+				"course": {
+					"score": 1.27,
+					"of": 3,
+					"confidence": 0.43,
+					"probabilities": [
+						0.15,
+						0.44,
+						0.4,
+						0.01
+					]
+				},
+				"imitate": {
+					"noul": 0.44
+				},
+				"century": {
+					"noul": 0.38
+				},
+				"founded": {
+					"noul": 0.22
+				}
+			}
+		}
+	],
+	"purpose": "experiment",
+	"remarks": "The scholar's questions, of what will become of the book, put to the outline made from the reading notes."
+}

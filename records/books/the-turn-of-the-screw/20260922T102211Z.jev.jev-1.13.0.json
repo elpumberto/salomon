@@ -1,0 +1,145 @@
+{
+	"kind": "jev",
+	"at": "2026-09-22T10:22:11.910Z",
+	"book": {
+		"title": "The Turn of the Screw",
+		"author": "Henry James",
+		"language": "en",
+		"source": {
+			"file": "the-turn-of-the-screw.epub",
+			"format": "epub",
+			"sha256": "bf4440ddc1c4c2138710c66756c08f654de7589506bd2e000a1a2b658ca882b3"
+		},
+		"text": {
+			"sha256": "745435c38843c22cafb0dd1569422bfddd882916c34525f0d14cdb6fb0a41697",
+			"sections": 25,
+			"words": 42210
+		}
+	},
+	"sections": [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21,
+		22,
+		23,
+		24,
+		25
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "whole-scholar",
+		"rules": "sha256:a93653d6fd28",
+		"asked": {
+			"essay": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How much would a critic find to say about this novel?",
+				"criteria": [
+					"A critic would find nothing to say about this novel",
+					"A critic would give this novel a paragraph in a survey of its kind",
+					"A critic would find an essay in this novel",
+					"A critic would find more in this novel than an essay could hold"
+				]
+			},
+			"course": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. What would become of it in a university course on the novel?",
+				"criteria": [
+					"This novel would not be assigned",
+					"This novel would be read as an example of its genre",
+					"This novel would be read for how it is made",
+					"This novel would be read as a turn in what the novel can do"
+				]
+			},
+			"imitate": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would later writers imitate the way it is made?"
+			},
+			"century": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would it still be read a century from now?"
+			},
+			"founded": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Did it start something: a kind of novel, a figure, a way of telling that others took up?"
+			}
+		},
+		"code": {
+			"commit": "b079bec",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 1,
+		"tokensIn": 6370,
+		"usd": 0.000268,
+		"seconds": 0
+	},
+	"found": [
+		{
+			"section": 1,
+			"through": 25,
+			"variant": "the outline from the notes of google/gemini-3.1-flash-lite",
+			"measured": {
+				"words": 4191,
+				"spoken": null,
+				"wordsPerSentence": 0
+			},
+			"sha256": "204920f19cace43d5ec8da8edbb601be89030240a8f6c896448103cdc3ec2b5a",
+			"tokensIn": 6370,
+			"seconds": 0.3,
+			"answers": {
+				"essay": {
+					"score": 2.55,
+					"of": 3,
+					"confidence": 0.55,
+					"probabilities": [
+						0.01,
+						0.09,
+						0.24,
+						0.66
+					]
+				},
+				"course": {
+					"score": 2.25,
+					"of": 3,
+					"confidence": 0.4,
+					"probabilities": [
+						0.04,
+						0.09,
+						0.44,
+						0.43
+					]
+				},
+				"imitate": {
+					"noul": 0.57
+				},
+				"century": {
+					"noul": 0.79
+				},
+				"founded": {
+					"noul": 0.85
+				}
+			}
+		}
+	],
+	"purpose": "experiment",
+	"remarks": "The scholar's questions, of what will become of the book, put to the outline made from the reading notes."
+}

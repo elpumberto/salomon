@@ -1,0 +1,141 @@
+{
+	"kind": "jev",
+	"at": "2026-09-22T10:22:05.006Z",
+	"book": {
+		"title": "Edison's Conquest of Mars",
+		"author": "Garrett Putman Serviss",
+		"language": "en",
+		"source": {
+			"file": "edisons-conquest-of-mars.epub",
+			"format": "epub",
+			"sha256": "b047127648470fdd4d96b221058194b2538a6c80838de6bbf7a8de4b0c6c8801"
+		},
+		"text": {
+			"sha256": "215d117ac3d169135ead77a5956739faff8ddfc8b63d5f88f9c8d78f0ffb2e22",
+			"sections": 306,
+			"words": 65330
+		}
+	},
+	"sections": [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12,
+		13,
+		14,
+		15,
+		16,
+		17,
+		18,
+		19,
+		20,
+		21
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "whole-scholar",
+		"rules": "sha256:a93653d6fd28",
+		"asked": {
+			"essay": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. How much would a critic find to say about this novel?",
+				"criteria": [
+					"A critic would find nothing to say about this novel",
+					"A critic would give this novel a paragraph in a survey of its kind",
+					"A critic would find an essay in this novel",
+					"A critic would find more in this novel than an essay could hold"
+				]
+			},
+			"course": {
+				"type": "score",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. What would become of it in a university course on the novel?",
+				"criteria": [
+					"This novel would not be assigned",
+					"This novel would be read as an example of its genre",
+					"This novel would be read for how it is made",
+					"This novel would be read as a turn in what the novel can do"
+				]
+			},
+			"imitate": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would later writers imitate the way it is made?"
+			},
+			"century": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Would it still be read a century from now?"
+			},
+			"founded": {
+				"type": "noul",
+				"instructions": "`chapters` is the outline of a novel, a summary of each of its chapters in order; `threads` lists the questions its story raises and where each is settled; `people` lists its characters and what changes for each. Did it start something: a kind of novel, a figure, a way of telling that others took up?"
+			}
+		},
+		"code": {
+			"commit": "b079bec",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 1,
+		"tokensIn": 5606,
+		"usd": 0.000235,
+		"seconds": 0
+	},
+	"found": [
+		{
+			"section": 1,
+			"through": 21,
+			"variant": "the outline from the notes of google/gemini-3.1-flash-lite",
+			"measured": {
+				"words": 3677,
+				"spoken": null,
+				"wordsPerSentence": 0
+			},
+			"sha256": "b304193f308c85b26bc3a70ba554e730202cfae2aed0e37d7032074732dfcad4",
+			"tokensIn": 5606,
+			"seconds": 0.3,
+			"answers": {
+				"essay": {
+					"score": 1.68,
+					"of": 3,
+					"confidence": 0.52,
+					"probabilities": [
+						0.01,
+						0.39,
+						0.52,
+						0.08
+					]
+				},
+				"course": {
+					"score": 1.02,
+					"of": 3,
+					"confidence": 0.75,
+					"probabilities": [
+						0.11,
+						0.77,
+						0.11,
+						0.01
+					]
+				},
+				"imitate": {
+					"noul": 0.46
+				},
+				"century": {
+					"noul": 0.32
+				},
+				"founded": {
+					"noul": 0.44
+				}
+			}
+		}
+	],
+	"purpose": "experiment",
+	"remarks": "The scholar's questions, of what will become of the book, put to the outline made from the reading notes."
+}
