@@ -1,0 +1,1609 @@
+{
+	"kind": "jev",
+	"at": "2026-09-22T12:51:27.397Z",
+	"book": {
+		"title": "Ulysses",
+		"author": "James Joyce",
+		"language": "en",
+		"source": {
+			"file": "ulysses.epub",
+			"format": "epub",
+			"sha256": "fc8de32bd10981c2c4234b7a9cb6d5391ceacf8032137d6d4230d4416cf00ed2"
+		},
+		"text": {
+			"sha256": "574898ab9714e95529a57441d16a8ccd4a0826a97ef7ff96a74305bff81d6d80",
+			"sections": 80,
+			"words": 264639
+		}
+	},
+	"sections": [
+		1,
+		5,
+		51,
+		71,
+		73,
+		75,
+		76,
+		77,
+		78,
+		79,
+		80
+	],
+	"by": {
+		"model": "jev-1.13.0",
+		"questions": "gut-second",
+		"rules": "sha256:b0b3659835d4",
+		"asked": {
+			"underline": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. Is there anything in it a reader would want to keep?",
+				"criteria": [
+					"Nothing in this passage would make a reader reach for a pencil",
+					"Something said in this passage might make a reader note it down",
+					"The way something is said in this passage would make a reader note it down",
+					"A reader would copy out several sentences of this passage for the way they are written"
+				]
+			},
+			"draft": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. How much work has gone into the writing?",
+				"criteria": {
+					"first": "Written quickly and left as it came",
+					"worked": "Revised until it was tidy",
+					"finished": "Every word chosen with care"
+				}
+			},
+			"editor": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. If a good editor had it on the desk, what would they do?",
+				"criteria": {
+					"cut": "Strike out most of it",
+					"trim": "Tighten it in places",
+					"leave": "Pass it as it stands"
+				}
+			},
+			"memory": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. What of it would stay with a reader a week later?",
+				"criteria": {
+					"nothing": "None of it",
+					"events": "The things that happen in it",
+					"feeling": "The feeling it left",
+					"image": "A picture or a line from it"
+				}
+			},
+			"slush": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. If the novel it belongs to reached a publisher today without a name attached, what would happen to it?",
+				"criteria": {
+					"rejected": "Declined after the first page",
+					"read": "Read through with interest and then declined",
+					"wanted": "Accepted"
+				}
+			},
+			"anyone": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How particular is the hand that wrote it?",
+				"criteria": [
+					"Any person who writes could have produced this passage",
+					"A capable professional could have produced this passage",
+					"Only a writer with a voice of their own could have produced this passage"
+				]
+			},
+			"lesson": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Would someone who teaches writing show it to students as something to learn from?"
+			},
+			"warning": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Would someone who teaches writing show it to students as something to avoid?"
+			},
+			"again": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Once the book was finished, would a reader turn back to this passage to read it once more?"
+			},
+			"aloud": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. Would it be enjoyable to read out loud?"
+			},
+			"skip": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How would a reader move through it?",
+				"criteria": [
+					"A reader would take in every word of this passage",
+					"A reader would pass quickly over some paragraphs of this passage",
+					"A reader would jump ahead to where something happens"
+				]
+			},
+			"lost": {
+				"type": "score",
+				"instructions": "`chapter` is a passage of a novel. How deep does it draw a reader in?",
+				"criteria": [
+					"A reader would remain conscious of reading words on a page",
+					"A reader would follow this passage with interest",
+					"A reader would lose track of where they are while reading this passage"
+				]
+			},
+			"stop": {
+				"type": "noul",
+				"instructions": "`chapter` is a passage of a novel. At the end of it, would a reader sooner keep reading than put the book down for the day?"
+			},
+			"audience": {
+				"type": "choice",
+				"instructions": "`chapter` is a passage of a novel. Who is it meant for?",
+				"criteria": {
+					"children": "Children",
+					"wide": "The broadest public, for entertainment",
+					"general": "Readers at large",
+					"literary": "Readers who come for the prose"
+				}
+			}
+		},
+		"code": {
+			"commit": "ac970fe",
+			"dirty": true
+		}
+	},
+	"took": {
+		"calls": 12,
+		"tokensIn": 68715,
+		"usd": 0.002886,
+		"seconds": 7
+	},
+	"found": [
+		{
+			"section": 1,
+			"piece": {
+				"at": 1,
+				"of": 88
+			},
+			"measured": {
+				"words": 3060,
+				"spoken": 0,
+				"wordsPerSentence": 11
+			},
+			"variant": "wording second",
+			"sha256": "bd83f0a449d326a4a792ab57b402ade6aed46d70d49324c273cd2275917f433d",
+			"tokensIn": 5775,
+			"seconds": 0.5,
+			"answers": {
+				"underline": {
+					"score": 2.98,
+					"of": 3,
+					"confidence": 0.98,
+					"probabilities": [
+						0,
+						0,
+						0.01,
+						0.99
+					]
+				},
+				"draft": {
+					"choice": "finished",
+					"confidence": 0.99,
+					"probabilities": {
+						"first": 0,
+						"worked": 0,
+						"finished": 1
+					}
+				},
+				"editor": {
+					"choice": "leave",
+					"confidence": 0.51,
+					"probabilities": {
+						"leave": 0.68,
+						"cut": 0,
+						"trim": 0.32
+					}
+				},
+				"memory": {
+					"choice": "image",
+					"confidence": 0.77,
+					"probabilities": {
+						"nothing": 0,
+						"feeling": 0.16,
+						"image": 0.83,
+						"events": 0.01
+					}
+				},
+				"slush": {
+					"choice": "wanted",
+					"confidence": 0.21,
+					"probabilities": {
+						"rejected": 0.24,
+						"read": 0.29,
+						"wanted": 0.47
+					}
+				},
+				"anyone": {
+					"score": 2,
+					"of": 2,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"lesson": {
+					"noul": 0.91
+				},
+				"warning": {
+					"noul": 0.14
+				},
+				"again": {
+					"noul": 0.68
+				},
+				"aloud": {
+					"noul": 0.76
+				},
+				"skip": {
+					"score": 0.45,
+					"of": 2,
+					"confidence": 0.32,
+					"probabilities": [
+						0.59,
+						0.37,
+						0.04
+					]
+				},
+				"lost": {
+					"score": 1.17,
+					"of": 2,
+					"confidence": 0.51,
+					"probabilities": [
+						0.08,
+						0.67,
+						0.25
+					]
+				},
+				"stop": {
+					"noul": 0.79
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 1,
+					"probabilities": {
+						"wide": 0,
+						"children": 0,
+						"general": 0,
+						"literary": 1
+					}
+				}
+			}
+		},
+		{
+			"section": 5,
+			"piece": {
+				"at": 9,
+				"of": 88
+			},
+			"measured": {
+				"words": 3132,
+				"spoken": 0,
+				"wordsPerSentence": 7.3
+			},
+			"variant": "wording second",
+			"sha256": "e080e4b52083260fcabdd7a78f2075d54fe92b648bfc274fa41f75321f220d8f",
+			"tokensIn": 5727,
+			"seconds": 0.6,
+			"answers": {
+				"underline": {
+					"score": 2.92,
+					"of": 3,
+					"confidence": 0.92,
+					"probabilities": [
+						0,
+						0,
+						0.06,
+						0.94
+					]
+				},
+				"draft": {
+					"choice": "finished",
+					"confidence": 0.9,
+					"probabilities": {
+						"finished": 0.93,
+						"first": 0.02,
+						"worked": 0.04
+					}
+				},
+				"editor": {
+					"choice": "trim",
+					"confidence": 0.29,
+					"probabilities": {
+						"cut": 0.02,
+						"trim": 0.52,
+						"leave": 0.46
+					}
+				},
+				"memory": {
+					"choice": "image",
+					"confidence": 0.75,
+					"probabilities": {
+						"events": 0.02,
+						"image": 0.81,
+						"nothing": 0,
+						"feeling": 0.16
+					}
+				},
+				"slush": {
+					"choice": "wanted",
+					"confidence": 0.25,
+					"probabilities": {
+						"read": 0.21,
+						"wanted": 0.5,
+						"rejected": 0.29
+					}
+				},
+				"anyone": {
+					"score": 2,
+					"of": 2,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"lesson": {
+					"noul": 0.84
+				},
+				"warning": {
+					"noul": 0.22
+				},
+				"again": {
+					"noul": 0.57
+				},
+				"aloud": {
+					"noul": 0.62
+				},
+				"skip": {
+					"score": 0.64,
+					"of": 2,
+					"confidence": 0.23,
+					"probabilities": [
+						0.44,
+						0.48,
+						0.08
+					]
+				},
+				"lost": {
+					"score": 1.1,
+					"of": 2,
+					"confidence": 0.38,
+					"probabilities": [
+						0.16,
+						0.58,
+						0.26
+					]
+				},
+				"stop": {
+					"noul": 0.77
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 1,
+					"probabilities": {
+						"literary": 1,
+						"general": 0,
+						"wide": 0,
+						"children": 0
+					}
+				}
+			}
+		},
+		{
+			"section": 51,
+			"piece": {
+				"at": 17,
+				"of": 88
+			},
+			"measured": {
+				"words": 3043,
+				"spoken": 0,
+				"wordsPerSentence": 8.4
+			},
+			"variant": "wording second",
+			"sha256": "3585803226a1f4863a45b63fb979563e2666d22bf0f7e3506452edbf498d1b06",
+			"tokensIn": 5855,
+			"seconds": 1.1,
+			"answers": {
+				"underline": {
+					"score": 2.95,
+					"of": 3,
+					"confidence": 0.95,
+					"probabilities": [
+						0,
+						0,
+						0.04,
+						0.96
+					]
+				},
+				"draft": {
+					"choice": "finished",
+					"confidence": 0.96,
+					"probabilities": {
+						"finished": 0.97,
+						"first": 0.01,
+						"worked": 0.02
+					}
+				},
+				"editor": {
+					"choice": "leave",
+					"confidence": 0.27,
+					"probabilities": {
+						"leave": 0.51,
+						"cut": 0.02,
+						"trim": 0.47
+					}
+				},
+				"memory": {
+					"choice": "image",
+					"confidence": 0.97,
+					"probabilities": {
+						"feeling": 0.01,
+						"nothing": 0,
+						"events": 0.01,
+						"image": 0.98
+					}
+				},
+				"slush": {
+					"choice": "wanted",
+					"confidence": 0.24,
+					"probabilities": {
+						"wanted": 0.5,
+						"rejected": 0.24,
+						"read": 0.26
+					}
+				},
+				"anyone": {
+					"score": 2,
+					"of": 2,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"lesson": {
+					"noul": 0.85
+				},
+				"warning": {
+					"noul": 0.21
+				},
+				"again": {
+					"noul": 0.59
+				},
+				"aloud": {
+					"noul": 0.72
+				},
+				"skip": {
+					"score": 0.78,
+					"of": 2,
+					"confidence": 0.44,
+					"probabilities": [
+						0.3,
+						0.63,
+						0.07
+					]
+				},
+				"lost": {
+					"score": 1.15,
+					"of": 2,
+					"confidence": 0.39,
+					"probabilities": [
+						0.13,
+						0.59,
+						0.28
+					]
+				},
+				"stop": {
+					"noul": 0.75
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 1,
+					"probabilities": {
+						"general": 0,
+						"literary": 1,
+						"children": 0,
+						"wide": 0
+					}
+				}
+			}
+		},
+		{
+			"section": 71,
+			"piece": {
+				"at": 25,
+				"of": 88
+			},
+			"measured": {
+				"words": 2964,
+				"spoken": 0,
+				"wordsPerSentence": 9.8
+			},
+			"variant": "wording second",
+			"sha256": "0e5a6d3cc6ad3b0aa45168f11c79f153990daf700345a74deeaf0f52c957b038",
+			"tokensIn": 5722,
+			"seconds": 0.7,
+			"answers": {
+				"underline": {
+					"score": 2.96,
+					"of": 3,
+					"confidence": 0.96,
+					"probabilities": [
+						0,
+						0,
+						0.03,
+						0.97
+					]
+				},
+				"draft": {
+					"choice": "finished",
+					"confidence": 0.98,
+					"probabilities": {
+						"first": 0,
+						"worked": 0.01,
+						"finished": 0.99
+					}
+				},
+				"editor": {
+					"choice": "trim",
+					"confidence": 0.32,
+					"probabilities": {
+						"trim": 0.55,
+						"leave": 0.41,
+						"cut": 0.04
+					}
+				},
+				"memory": {
+					"choice": "image",
+					"confidence": 0.81,
+					"probabilities": {
+						"nothing": 0,
+						"events": 0.02,
+						"image": 0.86,
+						"feeling": 0.12
+					}
+				},
+				"slush": {
+					"choice": "wanted",
+					"confidence": 0.15,
+					"probabilities": {
+						"rejected": 0.31,
+						"wanted": 0.43,
+						"read": 0.26
+					}
+				},
+				"anyone": {
+					"score": 2,
+					"of": 2,
+					"confidence": 1,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"lesson": {
+					"noul": 0.82
+				},
+				"warning": {
+					"noul": 0.23
+				},
+				"again": {
+					"noul": 0.62
+				},
+				"aloud": {
+					"noul": 0.67
+				},
+				"skip": {
+					"score": 0.86,
+					"of": 2,
+					"confidence": 0.41,
+					"probabilities": [
+						0.27,
+						0.6,
+						0.13
+					]
+				},
+				"lost": {
+					"score": 1.09,
+					"of": 2,
+					"confidence": 0.14,
+					"probabilities": [
+						0.24,
+						0.43,
+						0.33
+					]
+				},
+				"stop": {
+					"noul": 0.74
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 1,
+					"probabilities": {
+						"literary": 1,
+						"general": 0,
+						"children": 0,
+						"wide": 0
+					}
+				}
+			}
+		},
+		{
+			"section": 73,
+			"piece": {
+				"at": 33,
+				"of": 88
+			},
+			"measured": {
+				"words": 3084,
+				"spoken": 0,
+				"wordsPerSentence": 5.7
+			},
+			"variant": "wording second",
+			"sha256": "a06bf65c07dff9d84560b6aca0496e0e79fb1a65aaa2fbd6a0fb386976d485d7",
+			"tokensIn": 6075,
+			"seconds": 0.5,
+			"answers": {
+				"underline": {
+					"score": 2.86,
+					"of": 3,
+					"confidence": 0.86,
+					"probabilities": [
+						0.01,
+						0.01,
+						0.1,
+						0.88
+					]
+				},
+				"draft": {
+					"choice": "finished",
+					"confidence": 0.92,
+					"probabilities": {
+						"first": 0.03,
+						"worked": 0.03,
+						"finished": 0.94
+					}
+				},
+				"editor": {
+					"choice": "trim",
+					"confidence": 0.24,
+					"probabilities": {
+						"cut": 0.05,
+						"trim": 0.5,
+						"leave": 0.45
+					}
+				},
+				"memory": {
+					"choice": "image",
+					"confidence": 0.5,
+					"probabilities": {
+						"feeling": 0.35,
+						"nothing": 0,
+						"events": 0.02,
+						"image": 0.63
+					}
+				},
+				"slush": {
+					"choice": "rejected",
+					"confidence": 0.08,
+					"probabilities": {
+						"read": 0.34,
+						"rejected": 0.39,
+						"wanted": 0.27
+					}
+				},
+				"anyone": {
+					"score": 2,
+					"of": 2,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"lesson": {
+					"noul": 0.77
+				},
+				"warning": {
+					"noul": 0.31
+				},
+				"again": {
+					"noul": 0.56
+				},
+				"aloud": {
+					"noul": 0.57
+				},
+				"skip": {
+					"score": 0.89,
+					"of": 2,
+					"confidence": 0.27,
+					"probabilities": [
+						0.3,
+						0.51,
+						0.19
+					]
+				},
+				"lost": {
+					"score": 1.1,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.28,
+						0.34,
+						0.38
+					]
+				},
+				"stop": {
+					"noul": 0.7
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 1,
+					"probabilities": {
+						"literary": 1,
+						"children": 0,
+						"wide": 0,
+						"general": 0
+					}
+				}
+			}
+		},
+		{
+			"section": 75,
+			"piece": {
+				"at": 41,
+				"of": 88
+			},
+			"measured": {
+				"words": 2885,
+				"spoken": 0,
+				"wordsPerSentence": 27.2
+			},
+			"variant": "wording second",
+			"sha256": "4595627012b7a53eb35608483b4f1a7f420f2d86899b23ffee1151fc13bcd5dd",
+			"tokensIn": 4952,
+			"seconds": 0.5,
+			"answers": {
+				"underline": {
+					"score": 2.78,
+					"of": 3,
+					"confidence": 0.78,
+					"probabilities": [
+						0.02,
+						0.01,
+						0.14,
+						0.83
+					]
+				},
+				"draft": {
+					"choice": "finished",
+					"confidence": 0.72,
+					"probabilities": {
+						"worked": 0.13,
+						"finished": 0.81,
+						"first": 0.05
+					}
+				},
+				"editor": {
+					"choice": "trim",
+					"confidence": 0.66,
+					"probabilities": {
+						"cut": 0.13,
+						"trim": 0.78,
+						"leave": 0.09
+					}
+				},
+				"memory": {
+					"choice": "image",
+					"confidence": 0.62,
+					"probabilities": {
+						"nothing": 0,
+						"feeling": 0.25,
+						"image": 0.72,
+						"events": 0.03
+					}
+				},
+				"slush": {
+					"choice": "read",
+					"confidence": 0.26,
+					"probabilities": {
+						"read": 0.51,
+						"rejected": 0.36,
+						"wanted": 0.13
+					}
+				},
+				"anyone": {
+					"score": 1.97,
+					"of": 2,
+					"confidence": 0.96,
+					"probabilities": [
+						0,
+						0.02,
+						0.98
+					]
+				},
+				"lesson": {
+					"noul": 0.58
+				},
+				"warning": {
+					"noul": 0.63
+				},
+				"again": {
+					"noul": 0.5
+				},
+				"aloud": {
+					"noul": 0.69
+				},
+				"skip": {
+					"score": 0.83,
+					"of": 2,
+					"confidence": 0.52,
+					"probabilities": [
+						0.24,
+						0.69,
+						0.07
+					]
+				},
+				"lost": {
+					"score": 1.09,
+					"of": 2,
+					"confidence": 0.49,
+					"probabilities": [
+						0.13,
+						0.65,
+						0.22
+					]
+				},
+				"stop": {
+					"noul": 0.74
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 0.89,
+					"probabilities": {
+						"general": 0.04,
+						"children": 0,
+						"wide": 0.04,
+						"literary": 0.92
+					}
+				}
+			}
+		},
+		{
+			"section": 76,
+			"piece": {
+				"at": 48,
+				"of": 88
+			},
+			"measured": {
+				"words": 3401,
+				"spoken": 0,
+				"wordsPerSentence": 37
+			},
+			"variant": "wording second",
+			"sha256": "63552fde9e4dbcd75a1c77de0f071317c86db95f25d22099678d1faf3edac86c",
+			"tokensIn": 5639,
+			"seconds": 0.7,
+			"answers": {
+				"underline": {
+					"score": 2.69,
+					"of": 3,
+					"confidence": 0.69,
+					"probabilities": [
+						0.03,
+						0.02,
+						0.17,
+						0.78
+					]
+				},
+				"draft": {
+					"choice": "finished",
+					"confidence": 0.86,
+					"probabilities": {
+						"first": 0.04,
+						"finished": 0.91,
+						"worked": 0.05
+					}
+				},
+				"editor": {
+					"choice": "trim",
+					"confidence": 0.13,
+					"probabilities": {
+						"trim": 0.41,
+						"leave": 0.27,
+						"cut": 0.32
+					}
+				},
+				"memory": {
+					"choice": "image",
+					"confidence": 0.83,
+					"probabilities": {
+						"image": 0.87,
+						"events": 0.08,
+						"feeling": 0.04,
+						"nothing": 0.01
+					}
+				},
+				"slush": {
+					"choice": "rejected",
+					"confidence": 0.3,
+					"probabilities": {
+						"rejected": 0.53,
+						"wanted": 0.11,
+						"read": 0.36
+					}
+				},
+				"anyone": {
+					"score": 1.98,
+					"of": 2,
+					"confidence": 0.97,
+					"probabilities": [
+						0,
+						0.01,
+						0.99
+					]
+				},
+				"lesson": {
+					"noul": 0.62
+				},
+				"warning": {
+					"noul": 0.65
+				},
+				"again": {
+					"noul": 0.57
+				},
+				"aloud": {
+					"noul": 0.63
+				},
+				"skip": {
+					"score": 0.93,
+					"of": 2,
+					"confidence": 0.29,
+					"probabilities": [
+						0.27,
+						0.53,
+						0.2
+					]
+				},
+				"lost": {
+					"score": 0.98,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.34,
+						0.33,
+						0.33
+					]
+				},
+				"stop": {
+					"noul": 0.75
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 1,
+					"probabilities": {
+						"literary": 1,
+						"wide": 0,
+						"general": 0,
+						"children": 0
+					}
+				}
+			}
+		},
+		{
+			"section": 77,
+			"piece": {
+				"at": 56,
+				"of": 88
+			},
+			"measured": {
+				"words": 2955,
+				"spoken": 0,
+				"wordsPerSentence": 7.8
+			},
+			"variant": "wording second",
+			"sha256": "ad8e8d670fd7e7d045d25230ebf8262d2542ba8f627b8bfba9d218c64cf830ca",
+			"tokensIn": 6327,
+			"seconds": 0.6,
+			"answers": {
+				"underline": {
+					"score": 2.86,
+					"of": 3,
+					"confidence": 0.86,
+					"probabilities": [
+						0.01,
+						0.01,
+						0.08,
+						0.9
+					]
+				},
+				"draft": {
+					"choice": "finished",
+					"confidence": 0.94,
+					"probabilities": {
+						"first": 0.01,
+						"finished": 0.96,
+						"worked": 0.03
+					}
+				},
+				"editor": {
+					"choice": "cut",
+					"confidence": 0.15,
+					"probabilities": {
+						"trim": 0.42,
+						"leave": 0.15,
+						"cut": 0.43
+					}
+				},
+				"memory": {
+					"choice": "image",
+					"confidence": 0.8,
+					"probabilities": {
+						"image": 0.85,
+						"events": 0.09,
+						"nothing": 0,
+						"feeling": 0.06
+					}
+				},
+				"slush": {
+					"choice": "rejected",
+					"confidence": 0.55,
+					"probabilities": {
+						"rejected": 0.69,
+						"wanted": 0.1,
+						"read": 0.21
+					}
+				},
+				"anyone": {
+					"score": 1.99,
+					"of": 2,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"lesson": {
+					"noul": 0.58
+				},
+				"warning": {
+					"noul": 0.66
+				},
+				"again": {
+					"noul": 0.59
+				},
+				"aloud": {
+					"noul": 0.6
+				},
+				"skip": {
+					"score": 0.82,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.4,
+						0.39,
+						0.21
+					]
+				},
+				"lost": {
+					"score": 1.21,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.27,
+						0.26,
+						0.47
+					]
+				},
+				"stop": {
+					"noul": 0.64
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 1,
+					"probabilities": {
+						"wide": 0,
+						"literary": 1,
+						"general": 0,
+						"children": 0
+					}
+				}
+			}
+		},
+		{
+			"section": 77,
+			"piece": {
+				"at": 64,
+				"of": 88
+			},
+			"measured": {
+				"words": 2976,
+				"spoken": 0,
+				"wordsPerSentence": 7
+			},
+			"variant": "wording second",
+			"sha256": "6fabc9deaca8f4d0619a2a617ddec074c73dc20608e939e4315ad03d1ec9c48a",
+			"tokensIn": 6386,
+			"seconds": 0.6,
+			"answers": {
+				"underline": {
+					"score": 2.92,
+					"of": 3,
+					"confidence": 0.92,
+					"probabilities": [
+						0.01,
+						0,
+						0.05,
+						0.94
+					]
+				},
+				"draft": {
+					"choice": "finished",
+					"confidence": 0.95,
+					"probabilities": {
+						"finished": 0.97,
+						"worked": 0.02,
+						"first": 0.01
+					}
+				},
+				"editor": {
+					"choice": "trim",
+					"confidence": 0.29,
+					"probabilities": {
+						"trim": 0.53,
+						"leave": 0.28,
+						"cut": 0.19
+					}
+				},
+				"memory": {
+					"choice": "image",
+					"confidence": 0.85,
+					"probabilities": {
+						"feeling": 0.06,
+						"events": 0.05,
+						"nothing": 0,
+						"image": 0.89
+					}
+				},
+				"slush": {
+					"choice": "rejected",
+					"confidence": 0.32,
+					"probabilities": {
+						"rejected": 0.54,
+						"read": 0.25,
+						"wanted": 0.21
+					}
+				},
+				"anyone": {
+					"score": 2,
+					"of": 2,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"lesson": {
+					"noul": 0.73
+				},
+				"warning": {
+					"noul": 0.48
+				},
+				"again": {
+					"noul": 0.58
+				},
+				"aloud": {
+					"noul": 0.61
+				},
+				"skip": {
+					"score": 0.89,
+					"of": 2,
+					"confidence": 0.28,
+					"probabilities": [
+						0.3,
+						0.51,
+						0.19
+					]
+				},
+				"lost": {
+					"score": 1.32,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.2,
+						0.27,
+						0.53
+					]
+				},
+				"stop": {
+					"noul": 0.67
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 1,
+					"probabilities": {
+						"wide": 0,
+						"children": 0,
+						"general": 0,
+						"literary": 1
+					}
+				}
+			}
+		},
+		{
+			"section": 78,
+			"piece": {
+				"at": 72,
+				"of": 88
+			},
+			"measured": {
+				"words": 3014,
+				"spoken": 0,
+				"wordsPerSentence": 45.7
+			},
+			"variant": "wording second",
+			"sha256": "7dcce6710fcd4ab3e6ee1b0ff339124ac18637e0a25b7998c9bc9bc46c9ec44d",
+			"tokensIn": 5164,
+			"seconds": 0.7,
+			"answers": {
+				"underline": {
+					"score": 2.5,
+					"of": 3,
+					"confidence": 0.5,
+					"probabilities": [
+						0.04,
+						0.05,
+						0.29,
+						0.62
+					]
+				},
+				"draft": {
+					"choice": "finished",
+					"confidence": 0.76,
+					"probabilities": {
+						"first": 0.08,
+						"finished": 0.83,
+						"worked": 0.09
+					}
+				},
+				"editor": {
+					"choice": "trim",
+					"confidence": 0.51,
+					"probabilities": {
+						"trim": 0.67,
+						"cut": 0.11,
+						"leave": 0.22
+					}
+				},
+				"memory": {
+					"choice": "image",
+					"confidence": 0.63,
+					"probabilities": {
+						"events": 0.19,
+						"feeling": 0.08,
+						"nothing": 0.01,
+						"image": 0.72
+					}
+				},
+				"slush": {
+					"choice": "rejected",
+					"confidence": 0.19,
+					"probabilities": {
+						"read": 0.3,
+						"wanted": 0.24,
+						"rejected": 0.46
+					}
+				},
+				"anyone": {
+					"score": 1.98,
+					"of": 2,
+					"confidence": 0.97,
+					"probabilities": [
+						0,
+						0.01,
+						0.99
+					]
+				},
+				"lesson": {
+					"noul": 0.57
+				},
+				"warning": {
+					"noul": 0.67
+				},
+				"again": {
+					"noul": 0.44
+				},
+				"aloud": {
+					"noul": 0.47
+				},
+				"skip": {
+					"score": 0.81,
+					"of": 2,
+					"confidence": 0.23,
+					"probabilities": [
+						0.35,
+						0.49,
+						0.16
+					]
+				},
+				"lost": {
+					"score": 1.09,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.32,
+						0.27,
+						0.41
+					]
+				},
+				"stop": {
+					"noul": 0.72
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 1,
+					"probabilities": {
+						"wide": 0,
+						"general": 0,
+						"children": 0,
+						"literary": 1
+					}
+				}
+			}
+		},
+		{
+			"section": 79,
+			"piece": {
+				"at": 80,
+				"of": 88
+			},
+			"measured": {
+				"words": 6592,
+				"spoken": 0,
+				"wordsPerSentence": 57.3
+			},
+			"variant": "wording second",
+			"sha256": "0cc1cd95ef03ac633460219fa2a67af10baa548315f8960824948eb8c5417190",
+			"tokensIn": 9811,
+			"seconds": 0.5,
+			"answers": {
+				"underline": {
+					"score": 2.82,
+					"of": 3,
+					"confidence": 0.82,
+					"probabilities": [
+						0.02,
+						0.01,
+						0.1,
+						0.87
+					]
+				},
+				"draft": {
+					"choice": "finished",
+					"confidence": 0.95,
+					"probabilities": {
+						"finished": 0.97,
+						"worked": 0.02,
+						"first": 0.01
+					}
+				},
+				"editor": {
+					"choice": "leave",
+					"confidence": 0.23,
+					"probabilities": {
+						"leave": 0.48,
+						"cut": 0.11,
+						"trim": 0.41
+					}
+				},
+				"memory": {
+					"choice": "image",
+					"confidence": 0.58,
+					"probabilities": {
+						"events": 0.05,
+						"nothing": 0.02,
+						"feeling": 0.25,
+						"image": 0.6799999999999999
+					}
+				},
+				"slush": {
+					"choice": "rejected",
+					"confidence": 0.56,
+					"probabilities": {
+						"rejected": 0.71,
+						"read": 0.22,
+						"wanted": 0.07
+					}
+				},
+				"anyone": {
+					"score": 1.99,
+					"of": 2,
+					"confidence": 0.99,
+					"probabilities": [
+						0,
+						0,
+						1
+					]
+				},
+				"lesson": {
+					"noul": 0.67
+				},
+				"warning": {
+					"noul": 0.6
+				},
+				"again": {
+					"noul": 0.56
+				},
+				"aloud": {
+					"noul": 0.39
+				},
+				"skip": {
+					"score": 0.83,
+					"of": 2,
+					"confidence": 0.1,
+					"probabilities": [
+						0.38,
+						0.4,
+						0.22
+					]
+				},
+				"lost": {
+					"score": 1.14,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.33,
+						0.2,
+						0.47
+					]
+				},
+				"stop": {
+					"noul": 0.66
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 1,
+					"probabilities": {
+						"wide": 0,
+						"children": 0,
+						"general": 0,
+						"literary": 1
+					}
+				}
+			}
+		},
+		{
+			"section": 80,
+			"piece": {
+				"at": 88,
+				"of": 88
+			},
+			"measured": {
+				"words": 2,
+				"spoken": 0,
+				"wordsPerSentence": 2
+			},
+			"variant": "wording second",
+			"sha256": "d8f57f9237c5be5a3ab1ab44315f2fb487dc13d45376d0208c97a50a0d121a94",
+			"tokensIn": 1282,
+			"seconds": 0.3,
+			"answers": {
+				"underline": {
+					"score": 0.21,
+					"of": 3,
+					"confidence": 0.79,
+					"probabilities": [
+						0.81,
+						0.17,
+						0.01,
+						0
+					]
+				},
+				"draft": {
+					"choice": "first",
+					"confidence": 0.47,
+					"probabilities": {
+						"worked": 0.06,
+						"finished": 0.29,
+						"first": 0.65
+					}
+				},
+				"editor": {
+					"choice": "cut",
+					"confidence": 0.18,
+					"probabilities": {
+						"leave": 0.38,
+						"cut": 0.45,
+						"trim": 0.17
+					}
+				},
+				"memory": {
+					"choice": "nothing",
+					"confidence": 0.39,
+					"probabilities": {
+						"events": 0.11,
+						"image": 0.26,
+						"nothing": 0.54,
+						"feeling": 0.09
+					}
+				},
+				"slush": {
+					"choice": "wanted",
+					"confidence": 0.21,
+					"probabilities": {
+						"read": 0.2,
+						"wanted": 0.47,
+						"rejected": 0.33
+					}
+				},
+				"anyone": {
+					"score": 0.18,
+					"of": 2,
+					"confidence": 0.73,
+					"probabilities": [
+						0.88,
+						0.06,
+						0.06
+					]
+				},
+				"lesson": {
+					"noul": 0.21
+				},
+				"warning": {
+					"noul": 0.54
+				},
+				"again": {
+					"noul": 0.3
+				},
+				"aloud": {
+					"noul": 0.36
+				},
+				"skip": {
+					"score": 1.23,
+					"of": 2,
+					"confidence": 0,
+					"probabilities": [
+						0.3,
+						0.16,
+						0.54
+					]
+				},
+				"lost": {
+					"score": 0.04,
+					"of": 2,
+					"confidence": 0.95,
+					"probabilities": [
+						0.97,
+						0.03,
+						0
+					]
+				},
+				"stop": {
+					"noul": 0.5
+				},
+				"audience": {
+					"choice": "literary",
+					"confidence": 0.79,
+					"probabilities": {
+						"wide": 0.05,
+						"children": 0,
+						"general": 0.11,
+						"literary": 0.84
+					}
+				}
+			}
+		}
+	],
+	"purpose": "experiment",
+	"remarks": "Variant: wording second. The behavioural questions of the valuation in other words, of the judged passages as they are."
+}
