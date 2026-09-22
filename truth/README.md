@@ -1,6 +1,6 @@
 # What is known of the books from outside
 
-A valuation is checked against something, and until now that was twenty-eight pairs of books of a same genre, of which the better had to come out higher. All twenty-eight do, which is a floor and not a measure: two ways of valuing that both keep the pairs cannot be told apart by them. This folder holds a graded truth instead, for the thirty-two books judged: how far the institutions of literature hold each, and what readers say of it, from public sources named before any was read, each kept with its URL and the day it was read.
+A valuation is checked against something, and until now that was twenty-eight pairs of books of a same genre, of which the better had to come out higher. All twenty-eight do, which is a floor and not a measure: two ways of valuing that both keep the pairs cannot be told apart by them. This folder holds a graded truth instead, for the books judged, thirty-two and then six more that were no part of any choosing: how far the institutions of literature hold each, and what readers say of it, from public sources named before any was read, each kept with its URL and the day it was read.
 
     npm run truth
 
@@ -39,7 +39,7 @@ Goodreads' average rating and number of ratings of the work over all its edition
 
 ## The files
 
-`books.json` names the thirty-two. `lists.json` (slots A–D), `editions.json` (E–G and the facts), `readers.json` (Goodreads, LibraryThing, syllabi) and `wikidata.json` (languages, Gutenberg downloads) are the sources as gathered on 2026-09-22, each value with the URL it was read from and a note of what was checked; a source that could not be reached says so and counts as 0. [src/truth.ts](../src/truth.ts) makes the degrees from them by the rules above and measures the agreement of two orders by Kendall's tau-b, with the 5th and 95th of the books drawn again as its band.
+`books.json` names them: the thirty-two gathered on 2026-09-22, and six of the panel of `gutenberg.json` gathered the same day, after the thirty-two had been looked at, as a check for what was tried on them. `lists.json` (slots A–D), `editions.json` (E–G and the facts), `readers.json` (Goodreads, LibraryThing, syllabi) and `wikidata.json` (languages, Gutenberg downloads) are the sources as gathered, each value with the URL it was read from and a note of what was checked; a source that could not be reached says so and counts as 0. [src/truth.ts](../src/truth.ts) makes the degrees from them by the rules above and measures the agreement of two orders by Kendall's tau-b, with the 5th and 95th of the books drawn again as its band.
 
 ## What it says of the valuation
 

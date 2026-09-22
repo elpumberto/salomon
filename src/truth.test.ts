@@ -31,7 +31,7 @@ test('the band holds the agreement and is the same every time', () => {
 
 test('the truth has every book with nine slots and a standing that is their mean', async () => {
 	const known = await truth();
-	assert.equal(Object.keys(known).length, 32);
+	assert.equal(Object.keys(known).length, 38);
 	for (const one of Object.values(known)) {
 		const values: number[] = Object.values(one.slots);
 		assert.equal(values.length, 9);
