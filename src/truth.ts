@@ -15,6 +15,24 @@ const root = join(import.meta.dirname, '..', 'truth');
 export const slots = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'] as const;
 export type Slot = (typeof slots)[number];
 
+/**
+ * The slots by what each source measures, said before any was read against a valuation: the
+ * esteem of critics and scholars, the reach of the book beyond literature, and the canon of what
+ * the public is told to read. A facet is the mean of its slots.
+ */
+export const facets = {
+	critics: ['A', 'F', 'H'],
+	reach: ['D', 'G', 'I'],
+	readers: ['B', 'C', 'E']
+} as const satisfies Record<string, readonly Slot[]>;
+export type Facet = keyof typeof facets;
+
+/** A book's standing by one facet. */
+export const facet = (one: Pick<Truth, 'slots'>, name: Facet): number =>
+	Number(
+		(facets[name].reduce((sum, slot) => sum + one.slots[slot], 0) / facets[name].length).toFixed(3)
+	);
+
 /** A source's answer for a slot: found, not found, or not reachable. */
 type Answer = 0 | 1 | 'unchecked';
 

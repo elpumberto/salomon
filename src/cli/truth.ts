@@ -1,6 +1,6 @@
 import { rulesHash, sets } from '../questions.ts';
 import { isValuation, jevRecordsOf, recorded } from '../records.ts';
-import { agreement, band, slots, truth } from '../truth.ts';
+import { agreement, band, facet, facets, slots, truth } from '../truth.ts';
 import { value, way } from '../value.ts';
 
 /**
@@ -76,6 +76,12 @@ console.log('with standing');
 tell('merit', merit, standing);
 tell('merit, plain', plain, standing);
 tell('read', read, standing);
+for (const name of Object.keys(facets) as (keyof typeof facets)[]) {
+	const by = Object.fromEntries(
+		Object.entries(known).map(([slug, one]) => [slug, facet(one, name)])
+	);
+	tell(`merit, with ${name} (${facets[name].join('')})`, merit, by);
+}
 console.log('with what readers say (Goodreads rating)');
 tell('read', read, goodreads);
 tell('merit', merit, goodreads);

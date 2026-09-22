@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { agreement, band, truth } from './truth.ts';
+import { agreement, band, facet, truth } from './truth.ts';
 
 test('two orders the same way round agree in full, the other way round in full the other way', () => {
 	const one = { a: 3, b: 2, c: 1 };
@@ -38,6 +38,7 @@ test('the truth has every book with nine slots and a standing that is their mean
 		assert.equal(one.standing, Number((values.reduce((a, b) => a + b, 0) / 9).toFixed(3)));
 	}
 	assert.equal(known['don-quijote']?.standing, 1);
+	assert.equal(facet(known['the-age-of-innocence']!, 'reach'), 0.333);
 	assert.equal(known['irene-iddesleigh']?.facts.heldWorst, true);
 	assert.equal(known['el-cocinero-de-su-majestad']?.counts.syllabi, 0);
 });
