@@ -26,7 +26,17 @@ export async function run(
 ): Promise<Judged[]> {
 	// A book of the list by its file name; somebody's, by where its owner has it.
 	const path = resolve(books, file);
-	const book = await readBook(path);
+	return runBook(path, await readBook(path), passages, asked, remarks);
+}
+
+/** The same, of a book already read: somebody's, from its normalized copy, when the file is not here. */
+export async function runBook(
+	path: string,
+	book: Book,
+	passages: (book: Book) => Passage[],
+	asked: { set: string; questions: Questions },
+	remarks: string
+): Promise<Judged[]> {
 	const client = new TypeSafeClient({ apiKey: key('TYPESAFE_API_KEY') });
 	const at = new Date().toISOString();
 
